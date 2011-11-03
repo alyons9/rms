@@ -9,5 +9,5 @@ package model;
  * @author Superman
  */
 public class NewClass {
-    
+    private String newclass; 
 }
