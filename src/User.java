@@ -10,7 +10,7 @@
 public class User {
     private String name;
     private String Address;
-    
+    private String id;
     public User(String Name){
         name = Name;
     }
@@ -30,6 +30,12 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
-    
-    
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }
