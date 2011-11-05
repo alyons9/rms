@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author Superman
+ * @author SAMIR
  */
 public class NewClass {
     
