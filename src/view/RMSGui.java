@@ -8,7 +8,7 @@
  *
  * Created on Nov 4, 2011, 11:16:20 PM
  */
-package model;
+package view;
 
 /**
  *
