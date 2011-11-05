@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Lunch.xml
+    Created on : November 5, 2011, 3:14 PM
+    Author     : anthonylyons
+    Description:
+        Purpose of the document follows.
+-->
+
+<Lunch>
+    <Plate>
+        <id></id>
+        <name></name>
+        <Description></Description>
+        <Quantity></Quantity>
+        <price></price>
+        <picture></picture>
+    </Plate>
+</Lunch>

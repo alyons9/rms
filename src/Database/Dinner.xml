@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Dinner.xml
+    Created on : November 5, 2011, 3:14 PM
+    Author     : anthonylyons
+    Description:
+        Purpose of the document follows.
+-->
+
+<Dinner>
+    <Plate>
+        <name></name>
+        <Description></Description>
+        <Quantity></Quantity>
+        <price></price>
+        <picture></picture>
+    </Plate>
+</Dinner>
