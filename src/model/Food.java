@@ -11,10 +11,22 @@ package model;
 public class Food {
     private String name;
     private String type; //lunch, dinner, appetizer
-    private String classification; //salad, burger, etc
     private String Description;
-    private String price;
-    private String quantity;
+    private double price;
+    private int quantity;
+    private String picture;
+
+    public Food() {
+    }
+    
+    public Food(String name,String type, String Description, double price, int quantity, String picture){
+        this.name = name;
+        this.Description = Description;
+        this.price = price;
+        this.type = type;
+        this.quantity = quantity;
+        this.picture = picture;
+    }
 
     public String getDescription() {
         return Description;
@@ -22,14 +34,6 @@ public class Food {
 
     public void setDescription(String Description) {
         this.Description = Description;
-    }
-
-    public String getClassification() {
-        return classification;
-    }
-
-    public void setClassification(String classification) {
-        this.classification = classification;
     }
 
     public String getName() {
@@ -40,19 +44,19 @@ public class Food {
         this.name = name;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public String getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 

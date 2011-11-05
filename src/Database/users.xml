@@ -13,4 +13,11 @@
 <password>yo</password>
 <isAdmin>1</isAdmin>
 </user>
+<user>
+<firstname>Anthony</firstname>
+<lastname>Lyons</lastname>
+<username>alyons</username>
+<password>S3mino13s</password>
+<isAdmin>1</isAdmin>
+</user>
 </users>
