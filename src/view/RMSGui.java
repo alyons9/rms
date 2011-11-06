@@ -11,15 +11,19 @@
 package view;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 /**
  *
  * @author Superman
  */
-public class RMSGui extends javax.swing.JFrame {
 
+public class RMSGui extends javax.swing.JFrame {
+private JButton dineIn = new JButton();
+private JButton CarryOut = new JButton();
     /** Creates new form RMSGui */
     public RMSGui() {
         initComponents();
+        dineIn.addActionListener(new ButtonListener());
     }
 
     /** This method is called from within the constructor to
@@ -138,12 +142,10 @@ public class RMSGui extends javax.swing.JFrame {
     homePage.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
     homePage.setBackground(Color.gray);
     */
-    JButton dineIn = new JButton();
     dineIn.setVisible(true);
     dineIn.setLocation(210,420);
     dineIn.setSize(185,88);
     dineIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/DineIn Button.png")));
-    JButton CarryOut = new JButton();
     CarryOut.setVisible(true);
     CarryOut.setLocation(210,550);
     CarryOut.setSize(185,88);
@@ -157,10 +159,33 @@ public class RMSGui extends javax.swing.JFrame {
     //Tablet.add(homePage);
     //repaint();
     }//GEN-LAST:event_enterMenuActionPerformed
-     
+
     /**
      * @param args the command line arguments
      */
+    class ButtonListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+    JPanel separator = new JPanel();
+    CarryOut.setVisible(false);
+    dineIn.setVisible(false);
+    Logo.setVisible(false);
+    AdminLogin.setVisible(false);
+    enterMenu.setVisible(false);
+    separator.setVisible(true);
+    separator.setSize(20,500);
+    separator.setLocation(200,30);
+    separator.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 10, true));
+    JLabel Logo2 = new JLabel();
+    Logo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/DineIn Logo.png")));
+    Tablet.add(separator);
+    Tablet.add(Logo2);
+    Logo2.setSize(272,88);
+    Logo2.setLocation(315,10);
+    repaint();
+      }
+      
+    }
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
