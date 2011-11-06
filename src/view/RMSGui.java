@@ -128,12 +128,14 @@ private JButton CarryOut = new JButton();
     }// </editor-fold>//GEN-END:initComponents
 
     private void AdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminLoginActionPerformed
-    /*
-    AdminEditMenu adminMenu = new AdminEditMenu();
-    adminMenu.setVisible(true);
-    adminMenu.setSize(600,700);
-    Tablet.add(adminMenu);
-         */
+    adminLogInDialog a = new adminLogInDialog();
+    a.setVisible(true);
+    
+   // AdminEditMenu adminMenu = new AdminEditMenu();
+    //adminMenu.setVisible(true);
+    //adminMenu.setSize(600,700);
+    //Tablet.add(adminMenu);
+         
     }//GEN-LAST:event_AdminLoginActionPerformed
 
     private void enterMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterMenuActionPerformed

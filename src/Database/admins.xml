@@ -20,4 +20,22 @@
 <isAdmin>1</isAdmin>
 </user>
 
+<user>
+<firstname>Bin</firstname>
+<lastname>Laden</lastname>
+<username>bLaden</username>
+<password>kill</password>
+</user>
+<user>
+<firstname>Bob</firstname>
+<lastname>Marley</lastname>
+<username>bmarley</username>
+<password>weed</password>
+</user>
+<user>
+<firstname>john</firstname>
+<lastname>Handcock</lastname>
+<username>jHandcock</username>
+<password>fag</password>
+</user>
 </admins>
