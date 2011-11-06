@@ -86,20 +86,34 @@ public class AppetizersDaoTest {
         
     }
     
-    @Test
+   /* @Test
     public void testAddAppetizer() {
         try {
             System.out.println("addAppetizer");
             
             AppetizersDao instance = new AppetizersDao();
             
-            instance.addAppetizer("pizza", "Good tasting Pizza", 1, 2.99, null);
+            instance.addAppetizer("salad", "Good tasting salad", 1, 2.99, null);
         } catch (SAXException ex) {
             Logger.getLogger(AppetizersDaoTest.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParserConfigurationException ex) {
             Logger.getLogger(AppetizersDaoTest.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+    }*/
+    
+    @Test
+    public void testRemoveAppetizer(){
+        try{
+            System.out.println("removeAppetizerByName");
+            AppetizersDao instance = new AppetizersDao();
+            instance.removeAppetizerByName("pizza");
+            
+        }catch (SAXException ex) {
+            Logger.getLogger(AppetizersDaoTest.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParserConfigurationException ex) {
+            Logger.getLogger(AppetizersDaoTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
 
