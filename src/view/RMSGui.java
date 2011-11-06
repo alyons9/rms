@@ -130,22 +130,16 @@ public class RMSGui extends javax.swing.JFrame {
 
     private void enterMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterMenuActionPerformed
     JPanel homePage = new JPanel();
-    homePage.setSize(700,700);
-    homePage.setBackground(Color.black);
-    AdminLogin.setSize(0,0);
-    enterMenu.setSize(0,0);
-    Logo.setSize(0,0);
+    homePage.setSize(576,757);
+    homePage.setLocation(30,30);
+    homePage.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+    homePage.setBackground(Color.gray);
     AdminLogin.setVisible(false);
     enterMenu.setVisible(false);
     Logo.setVisible(false);
     homePage.setVisible(true);
     Tablet.add(homePage);
-    JPanel s = new JPanel();
-    s.setBackground(Color.white);
-    s.setSize(50,50);
-    Tablet.add(s);
-    Tablet.revalidate();
-    validate();
+    repaint();
     }//GEN-LAST:event_enterMenuActionPerformed
      
     /**
