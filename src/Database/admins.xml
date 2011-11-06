@@ -38,4 +38,10 @@
 <username>jHandcock</username>
 <password>fag</password>
 </user>
+<user>
+<firstname>Jamel</firstname>
+<lastname>Jenkins</lastname>
+<username>jjenkins30</username>
+<password>yo</password>
+</user>
 </admins>
