@@ -22,6 +22,7 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import model.Drink;
 import model.Food;
 import org.xml.sax.SAXException;
 
@@ -29,21 +30,24 @@ import org.xml.sax.SAXException;
  *
  * @author anthonylyons
  */
-public class LunchDao {
-    
+public class DrinksDao {
     private NodeList nl;
     private Document doc;
     
-    public LunchDao()throws SAXException, ParserConfigurationException{
+    // Initializes the XML Dom object and parses xml file into a nodelist
+    public DrinksDao() throws SAXException, ParserConfigurationException{
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             
             DocumentBuilder db = dbf.newDocumentBuilder();
             
-            doc = db.parse("src/Database/Lunch.xml");
+            doc = db.parse("src/Database/Drinks.xml");
             
+            //Gets root element
             Element docEle = doc.getDocumentElement();
-            nl = docEle.getElementsByTagName("plate");
+            
+            //Places Elements with the name plate into a list
+            nl = docEle.getElementsByTagName("cup");
             
         } catch(ParserConfigurationException pce) {
 			pce.printStackTrace();
@@ -56,15 +60,19 @@ public class LunchDao {
         
     }
     
-    public Food getLunchByName(String name){
-        Food Lunch = new Food();
+    //Retrieve drink from nodelist created in constructor. Search for 
+    //item by its name.
+    //Pre: takes in the name of an appetizer as parameter
+    //Post: Returns a food object with all values from xml file
+    public Drink getAppetizerByName(String name){
+        Drink drink = new Drink();
         if(nl != null && nl.getLength() > 0) {
             for(int i = 0 ; i < nl.getLength();i++) {
-                //get the employee element
+                //get the appetizer element
                 Element el = (Element)nl.item(i);
                 if(getTextValue(el,"name").equals(name)){
-                    //get the Employee object
-                    Lunch = getLunch(el);
+                    //get the appetizer object
+                    drink = getDrink(el);
                 }
 
 				
@@ -72,33 +80,44 @@ public class LunchDao {
             
 	}
         
-        return Lunch;
+        return drink;
     }
     
-    public void addLunch(String lunchName, String lunchDescription,int lunchQuantity,double lunchPrice,String lunchPicture){
+    //Add drink to node list then write to the file
+    //Pre: name, description,Quantity, price, picture for drink parameters
+    //Post: add to node list and write to file
+    public void addDrink(String drinkName, String drinkDescription,int drinkQuantity,double drinkPrice,String drinkPicture){
+        
+        //Get root node
         Node root = doc.getDocumentElement();
-        Node plate = doc.createElement("plate");
+        
+        //Create nodes
+        Node cup = doc.createElement("cup");
         Node name = doc.createElement("name");
         Node description = doc.createElement("description");
         Node quantity = doc.createElement("quantity");
         Node price = doc.createElement("price");
         Node picture = doc.createElement("picture");
         
-        name.setTextContent(lunchName);
-        description.setTextContent(lunchDescription);
-        quantity.setTextContent(Integer.toString(lunchQuantity));
-        price.setTextContent(Double.toString(lunchPrice));
-        picture.setTextContent(lunchPicture);
+        //Set the value held in each node
+        name.setTextContent(drinkName);
+        description.setTextContent(drinkDescription);
+        quantity.setTextContent(Integer.toString(drinkQuantity));
+        price.setTextContent(Double.toString(drinkPrice));
+        picture.setTextContent(drinkPicture);
         
-        plate.appendChild(name);
-        plate.appendChild(description);
-        plate.appendChild(quantity);
-        plate.appendChild(price);
-        plate.appendChild(picture);
+        //add the child nodes to the plate node
+        cup.appendChild(name);
+        cup.appendChild(description);
+        cup.appendChild(quantity);
+        cup.appendChild(price);
+        cup.appendChild(picture);
         
-        root.appendChild(plate);
+        //add plate node to the root node
+        root.appendChild(cup);
+        
         try {
-            write();
+            write();//Write the values to the xml file
         } catch (TransformerConfigurationException ex) {
             Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (TransformerException ex) {
@@ -107,20 +126,26 @@ public class LunchDao {
         
     }
     
-    public void removeLunchByName(String name){
+    //Remove the drink from xml file
+    //Pre: Name of drink
+    //Post: delete the element from file
+    public void removeDrinkByName(String name){
+        //Get root element
         Element root = doc.getDocumentElement();
         
-        NodeList children = root.getElementsByTagName("plate");
+        //Put children of root element with name plate into nodelist
+        NodeList children = root.getElementsByTagName("cup");
         for(int i=0; i<children.getLength(); i++){
-            Element child = (Element)children.item(i);
+            Element child = (Element)children.item(i); //get 1 child and loop
             
+            //Remove this child if its name equals the name given
             if(getTextValue(child,"name").equals(name)){
                     root.removeChild(child);
                 }
             
         }
         try {
-            write();
+            write();//Write the undeleted children over the file
         } catch (TransformerConfigurationException ex) {
             Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (TransformerException ex) {
@@ -128,13 +153,14 @@ public class LunchDao {
         }
     }
     
+    //Updates the xml file
     private void write() throws TransformerConfigurationException, TransformerException{
         try {
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 
             //initialize StreamResult with File object to save to file
-            StreamResult result = new StreamResult(new FileWriter("src/Database/Lunch.xml"));
+            StreamResult result = new StreamResult(new FileWriter("src/Database/Drinks.xml"));
             DOMSource source = new DOMSource(doc);
             transformer.transform(source, result);
         } catch (IOException ex) {
@@ -142,6 +168,7 @@ public class LunchDao {
         }
     }
     
+    //gets the value from an element
     private String getTextValue(Element ele, String tagName) {
 		String textVal = null;
 		NodeList nodel = ele.getElementsByTagName(tagName);
@@ -153,17 +180,16 @@ public class LunchDao {
 		return textVal;
 	}
     
-    private Food getLunch(Element lunchElement){
-        String name = getTextValue(lunchElement,"name");
-	String Description = getTextValue(lunchElement,"description");
-        int quantity = Integer.parseInt(getTextValue(lunchElement, "quantity"));
-	Double price = Double.parseDouble(getTextValue(lunchElement, "price"));
-        String picture = getTextValue(lunchElement,"picture");
+    //adds the drink elements to drink object
+    private Drink getDrink(Element drinkElement){
+        String name = getTextValue(drinkElement,"name");
+	String Description = getTextValue(drinkElement,"description");
+        int quantity = Integer.parseInt(getTextValue(drinkElement, "quantity"));
+	Double price = Double.parseDouble(getTextValue(drinkElement, "price"));
+        String picture = getTextValue(drinkElement,"picture");
 
-	Food lunch = new Food(name,"Lunch",Description,price,quantity,picture);
+	Drink appetizer = new Drink(name,"Drinks",Description,price,quantity,picture);
 
-	return lunch;
+	return appetizer;
     }
-    
-    
 }

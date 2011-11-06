@@ -75,7 +75,7 @@ public class BreakfastDao {
         return Breakfast;
     }
     
-    public void addAppetizer(String appetizerName, String appetizerDescription,int appetizerQuantity,double appetizerPrice,String appetizerPicture){
+    public void addAppetizer(String breakfastName, String breakfastDescription,int breakfastQuantity,double breakfastPrice,String breakfastPicture){
         Node root = doc.getDocumentElement();
         Node plate = doc.createElement("plate");
         Node name = doc.createElement("name");
@@ -84,11 +84,11 @@ public class BreakfastDao {
         Node price = doc.createElement("price");
         Node picture = doc.createElement("picture");
         
-        name.setTextContent(appetizerName);
-        description.setTextContent(appetizerDescription);
-        quantity.setTextContent(Integer.toString(appetizerQuantity));
-        price.setTextContent(Double.toString(appetizerPrice));
-        picture.setTextContent(appetizerPicture);
+        name.setTextContent(breakfastName);
+        description.setTextContent(breakfastDescription);
+        quantity.setTextContent(Integer.toString(breakfastQuantity));
+        price.setTextContent(Double.toString(breakfastPrice));
+        picture.setTextContent(breakfastPicture);
         
         plate.appendChild(name);
         plate.appendChild(description);
@@ -107,7 +107,7 @@ public class BreakfastDao {
         
     }
     
-    public void removeAppetizerByName(String name){
+    public void removeBreakfastByName(String name){
         Element root = doc.getDocumentElement();
         
         NodeList children = root.getElementsByTagName("plate");
