@@ -62,6 +62,13 @@ public class RMSGui extends javax.swing.JFrame {
         });
 
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Cnerds Cafe.png"))); // NOI18N
+        Logo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        Logo.setAlignmentY(0.0F);
+        Logo.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        Logo.setMaximumSize(new java.awt.Dimension(99999, 99999));
+        Logo.setMinimumSize(new java.awt.Dimension(0, 0));
+        Logo.setPreferredSize(new java.awt.Dimension(387, 387));
+        Logo.setRequestFocusEnabled(false);
 
         enterMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Cnerds Button.png"))); // NOI18N
         enterMenu.setText("jButton1");
@@ -77,26 +84,26 @@ public class RMSGui extends javax.swing.JFrame {
             TabletLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TabletLayout.createSequentialGroup()
                 .addContainerGap(465, Short.MAX_VALUE)
-                .addComponent(AdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AdminLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TabletLayout.createSequentialGroup()
                 .addContainerGap(192, Short.MAX_VALUE)
-                .addComponent(enterMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(enterMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 198, Short.MAX_VALUE)
                 .addGap(184, 184, 184))
             .addGroup(TabletLayout.createSequentialGroup()
                 .addGap(83, 83, 83)
-                .addComponent(Logo)
+                .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap(104, Short.MAX_VALUE))
         );
         TabletLayout.setVerticalGroup(
             TabletLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TabletLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(AdminLogin)
+                .addComponent(AdminLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(Logo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 313, Short.MAX_VALUE)
-                .addComponent(enterMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 307, Short.MAX_VALUE)
+                .addComponent(enterMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 89, Short.MAX_VALUE)
                 .addGap(79, 79, 79))
         );
 
@@ -133,6 +140,12 @@ public class RMSGui extends javax.swing.JFrame {
     Logo.setVisible(false);
     homePage.setVisible(true);
     Tablet.add(homePage);
+    JPanel s = new JPanel();
+    s.setBackground(Color.white);
+    s.setSize(50,50);
+    Tablet.add(s);
+    Tablet.revalidate();
+    validate();
     }//GEN-LAST:event_enterMenuActionPerformed
      
     /**
