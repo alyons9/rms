@@ -119,9 +119,9 @@ public class DrinksDao {
         try {
             write();//Write the values to the xml file
         } catch (TransformerConfigurationException ex) {
-            Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DrinksDao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (TransformerException ex) {
-            Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DrinksDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -147,9 +147,9 @@ public class DrinksDao {
         try {
             write();//Write the undeleted children over the file
         } catch (TransformerConfigurationException ex) {
-            Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DrinksDao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (TransformerException ex) {
-            Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DrinksDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -164,7 +164,7 @@ public class DrinksDao {
             DOMSource source = new DOMSource(doc);
             transformer.transform(source, result);
         } catch (IOException ex) {
-            Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DrinksDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
