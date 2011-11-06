@@ -10,7 +10,7 @@
  */
 package view;
 import javax.swing.*;
-import java.awt.Color;
+import java.awt.*;
 /**
  *
  * @author Superman
@@ -64,7 +64,7 @@ public class RMSGui extends javax.swing.JFrame {
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Cnerds Cafe.png"))); // NOI18N
         Logo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         Logo.setAlignmentY(0.0F);
-        Logo.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        Logo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Logo.setMaximumSize(new java.awt.Dimension(99999, 99999));
         Logo.setMinimumSize(new java.awt.Dimension(0, 0));
         Logo.setPreferredSize(new java.awt.Dimension(387, 387));
@@ -72,6 +72,8 @@ public class RMSGui extends javax.swing.JFrame {
 
         enterMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Cnerds Button.png"))); // NOI18N
         enterMenu.setText("jButton1");
+        enterMenu.setIconTextGap(0);
+        enterMenu.setOpaque(false);
         enterMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterMenuActionPerformed(evt);
@@ -129,17 +131,31 @@ public class RMSGui extends javax.swing.JFrame {
     }//GEN-LAST:event_AdminLoginActionPerformed
 
     private void enterMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterMenuActionPerformed
+    /*
     JPanel homePage = new JPanel();
     homePage.setSize(576,757);
     homePage.setLocation(30,30);
     homePage.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
     homePage.setBackground(Color.gray);
+    */
+    JButton dineIn = new JButton();
+    dineIn.setVisible(true);
+    dineIn.setLocation(210,420);
+    dineIn.setSize(185,88);
+    dineIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/DineIn Button.png")));
+    JButton CarryOut = new JButton();
+    CarryOut.setVisible(true);
+    CarryOut.setLocation(210,550);
+    CarryOut.setSize(185,88);
+    CarryOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/CarryOut Button.png")));
     AdminLogin.setVisible(false);
     enterMenu.setVisible(false);
-    Logo.setVisible(false);
-    homePage.setVisible(true);
-    Tablet.add(homePage);
-    repaint();
+    Tablet.add(dineIn);
+    Tablet.add(CarryOut);
+    //Logo.setLocation(0,0);
+    //homePage.setVisible(true);
+    //Tablet.add(homePage);
+    //repaint();
     }//GEN-LAST:event_enterMenuActionPerformed
      
     /**
