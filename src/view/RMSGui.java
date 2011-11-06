@@ -9,9 +9,8 @@
  * Created on Nov 4, 2011, 11:16:20 PM
  */
 package view;
-
-import javax.swing.JFrame;
-
+import javax.swing.*;
+import java.awt.Color;
 /**
  *
  * @author Superman
@@ -32,75 +31,122 @@ public class RMSGui extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        Administrator = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        LogIn = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        Exit = new javax.swing.JMenuItem();
+        Tablet = new javax.swing.JPanel();
+        AdminLogin = new javax.swing.JButton();
+        Logo = new javax.swing.JLabel();
+        enterMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Restaurant Management");
         setName("rmsBorder"); // NOI18N
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 10));
-        jPanel1.setForeground(new java.awt.Color(0, 153, 153));
-        jPanel1.setName("Tablet"); // NOI18N
+        Tablet.setBackground(java.awt.Color.gray);
+        Tablet.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 30, true));
+        Tablet.setForeground(new java.awt.Color(0, 153, 153));
+        Tablet.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        Tablet.setMaximumSize(new java.awt.Dimension(32697, 32697));
+        Tablet.setName("Tablet"); // NOI18N
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 511, Short.MAX_VALUE)
-        );
-
-        Administrator.setText("File");
-
-        jMenu2.setText("Administrator");
-
-        LogIn.setText("LogIn");
-        jMenu2.add(LogIn);
-
-        Administrator.add(jMenu2);
-        Administrator.add(jSeparator1);
-
-        Exit.setText("Exit");
-        Exit.addActionListener(new java.awt.event.ActionListener() {
+        AdminLogin.setBackground(new java.awt.Color(255, 255, 255));
+        AdminLogin.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        AdminLogin.setForeground(new java.awt.Color(255, 255, 255));
+        AdminLogin.setText("AdminLogin");
+        AdminLogin.setBorder(null);
+        AdminLogin.setName("AdminLogin"); // NOI18N
+        AdminLogin.setOpaque(false);
+        AdminLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitActionPerformed(evt);
+                AdminLoginActionPerformed(evt);
             }
         });
-        Administrator.add(Exit);
 
-        jMenuBar1.add(Administrator);
+        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Cnerds Cafe.png"))); // NOI18N
+        Logo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        Logo.setAlignmentY(0.0F);
+        Logo.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        Logo.setMaximumSize(new java.awt.Dimension(99999, 99999));
+        Logo.setMinimumSize(new java.awt.Dimension(0, 0));
+        Logo.setPreferredSize(new java.awt.Dimension(387, 387));
+        Logo.setRequestFocusEnabled(false);
 
-        setJMenuBar(jMenuBar1);
+        enterMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Cnerds Button.png"))); // NOI18N
+        enterMenu.setText("jButton1");
+        enterMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterMenuActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout TabletLayout = new javax.swing.GroupLayout(Tablet);
+        Tablet.setLayout(TabletLayout);
+        TabletLayout.setHorizontalGroup(
+            TabletLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TabletLayout.createSequentialGroup()
+                .addContainerGap(465, Short.MAX_VALUE)
+                .addComponent(AdminLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TabletLayout.createSequentialGroup()
+                .addContainerGap(192, Short.MAX_VALUE)
+                .addComponent(enterMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 198, Short.MAX_VALUE)
+                .addGap(184, 184, 184))
+            .addGroup(TabletLayout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(104, Short.MAX_VALUE))
+        );
+        TabletLayout.setVerticalGroup(
+            TabletLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TabletLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(AdminLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 307, Short.MAX_VALUE)
+                .addComponent(enterMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 89, Short.MAX_VALUE)
+                .addGap(79, 79, 79))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Tablet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Tablet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
- // TODO add your handling code here:
-    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-}//GEN-LAST:event_exitActionPerformed
+    private void AdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminLoginActionPerformed
+    AdminEditMenu adminMenu = new AdminEditMenu();
+    adminMenu.setVisible(true);
+    adminMenu.setSize(600,700);
+    Tablet.add(adminMenu);
+    }//GEN-LAST:event_AdminLoginActionPerformed
+
+    private void enterMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterMenuActionPerformed
+    JPanel homePage = new JPanel();
+    homePage.setSize(700,700);
+    homePage.setBackground(Color.black);
+    AdminLogin.setSize(0,0);
+    enterMenu.setSize(0,0);
+    Logo.setSize(0,0);
+    AdminLogin.setVisible(false);
+    enterMenu.setVisible(false);
+    Logo.setVisible(false);
+    homePage.setVisible(true);
+    Tablet.add(homePage);
+    JPanel s = new JPanel();
+    s.setBackground(Color.white);
+    s.setSize(50,50);
+    Tablet.add(s);
+    Tablet.revalidate();
+    validate();
+    }//GEN-LAST:event_enterMenuActionPerformed
      
     /**
      * @param args the command line arguments
@@ -114,12 +160,10 @@ private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:ev
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu Administrator;
-    private javax.swing.JMenuItem Exit;
-    private javax.swing.JMenuItem LogIn;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JButton AdminLogin;
+    private javax.swing.JLabel Logo;
+    private javax.swing.JPanel Tablet;
+    private javax.swing.JButton enterMenu;
     // End of variables declaration//GEN-END:variables
+
 }
