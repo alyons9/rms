@@ -14,9 +14,27 @@
         <price>7.99</price>
         <picture>rms/pictures/bonelessWings.jpg</picture>
     </plate>
+
+
+
 <plate>
 <name>pizza</name>
 <description>Good tasting Pizza</description>
+<quantity>1</quantity>
+<price>2.99</price>
+<picture/>
+</plate>
+
+<plate>
+<name>salad</name>
+<description>Good tasting salad</description>
+<quantity>1</quantity>
+<price>2.99</price>
+<picture/>
+</plate>
+<plate>
+<name>salad</name>
+<description>Good tasting salad</description>
 <quantity>1</quantity>
 <price>2.99</price>
 <picture/>
