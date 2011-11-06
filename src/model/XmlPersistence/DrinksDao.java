@@ -22,6 +22,7 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import model.Drink;
 import model.Food;
 import org.xml.sax.SAXException;
 
@@ -29,24 +30,24 @@ import org.xml.sax.SAXException;
  *
  * @author anthonylyons
  */
-public class AppetizersDao {
+public class DrinksDao {
     private NodeList nl;
     private Document doc;
     
     // Initializes the XML Dom object and parses xml file into a nodelist
-    public AppetizersDao() throws SAXException, ParserConfigurationException{
+    public DrinksDao() throws SAXException, ParserConfigurationException{
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             
             DocumentBuilder db = dbf.newDocumentBuilder();
             
-            doc = db.parse("src/Database/Appetizers.xml");
+            doc = db.parse("src/Database/Drinks.xml");
             
             //Gets root element
             Element docEle = doc.getDocumentElement();
             
             //Places Elements with the name plate into a list
-            nl = docEle.getElementsByTagName("plate");
+            nl = docEle.getElementsByTagName("cup");
             
         } catch(ParserConfigurationException pce) {
 			pce.printStackTrace();
@@ -59,19 +60,19 @@ public class AppetizersDao {
         
     }
     
-    //Retrieve appetizer from nodelist created in constructor. Search for 
+    //Retrieve drink from nodelist created in constructor. Search for 
     //item by its name.
     //Pre: takes in the name of an appetizer as parameter
     //Post: Returns a food object with all values from xml file
-    public Food getAppetizerByName(String name){
-        Food appetizer = new Food();
+    public Drink getAppetizerByName(String name){
+        Drink drink = new Drink();
         if(nl != null && nl.getLength() > 0) {
             for(int i = 0 ; i < nl.getLength();i++) {
                 //get the appetizer element
                 Element el = (Element)nl.item(i);
                 if(getTextValue(el,"name").equals(name)){
                     //get the appetizer object
-                    appetizer = getAppetizer(el);
+                    drink = getDrink(el);
                 }
 
 				
@@ -79,19 +80,19 @@ public class AppetizersDao {
             
 	}
         
-        return appetizer;
+        return drink;
     }
     
-    //Add appetizer to node list then write to the file
-    //Pre: name, description,Quantity, price, picture for appetizer parameters
+    //Add drink to node list then write to the file
+    //Pre: name, description,Quantity, price, picture for drink parameters
     //Post: add to node list and write to file
-    public void addAppetizer(String appetizerName, String appetizerDescription,int appetizerQuantity,double appetizerPrice,String appetizerPicture){
+    public void addDrink(String drinkName, String drinkDescription,int drinkQuantity,double drinkPrice,String drinkPicture){
         
         //Get root node
         Node root = doc.getDocumentElement();
         
         //Create nodes
-        Node plate = doc.createElement("plate");
+        Node cup = doc.createElement("cup");
         Node name = doc.createElement("name");
         Node description = doc.createElement("description");
         Node quantity = doc.createElement("quantity");
@@ -99,21 +100,21 @@ public class AppetizersDao {
         Node picture = doc.createElement("picture");
         
         //Set the value held in each node
-        name.setTextContent(appetizerName);
-        description.setTextContent(appetizerDescription);
-        quantity.setTextContent(Integer.toString(appetizerQuantity));
-        price.setTextContent(Double.toString(appetizerPrice));
-        picture.setTextContent(appetizerPicture);
+        name.setTextContent(drinkName);
+        description.setTextContent(drinkDescription);
+        quantity.setTextContent(Integer.toString(drinkQuantity));
+        price.setTextContent(Double.toString(drinkPrice));
+        picture.setTextContent(drinkPicture);
         
         //add the child nodes to the plate node
-        plate.appendChild(name);
-        plate.appendChild(description);
-        plate.appendChild(quantity);
-        plate.appendChild(price);
-        plate.appendChild(picture);
+        cup.appendChild(name);
+        cup.appendChild(description);
+        cup.appendChild(quantity);
+        cup.appendChild(price);
+        cup.appendChild(picture);
         
         //add plate node to the root node
-        root.appendChild(plate);
+        root.appendChild(cup);
         
         try {
             write();//Write the values to the xml file
@@ -125,15 +126,15 @@ public class AppetizersDao {
         
     }
     
-    //Remove the appetizer from xml file
-    //Pre: Name of appetizer
+    //Remove the drink from xml file
+    //Pre: Name of drink
     //Post: delete the element from file
-    public void removeAppetizerByName(String name){
+    public void removeDrinkByName(String name){
         //Get root element
         Element root = doc.getDocumentElement();
         
         //Put children of root element with name plate into nodelist
-        NodeList children = root.getElementsByTagName("plate");
+        NodeList children = root.getElementsByTagName("cup");
         for(int i=0; i<children.getLength(); i++){
             Element child = (Element)children.item(i); //get 1 child and loop
             
@@ -159,7 +160,7 @@ public class AppetizersDao {
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 
             //initialize StreamResult with File object to save to file
-            StreamResult result = new StreamResult(new FileWriter("src/Database/Appetizers.xml"));
+            StreamResult result = new StreamResult(new FileWriter("src/Database/Drinks.xml"));
             DOMSource source = new DOMSource(doc);
             transformer.transform(source, result);
         } catch (IOException ex) {
@@ -179,15 +180,15 @@ public class AppetizersDao {
 		return textVal;
 	}
     
-    //adds the appetizer elements to food object
-    private Food getAppetizer(Element appetizerElement){
-        String name = getTextValue(appetizerElement,"name");
-	String Description = getTextValue(appetizerElement,"description");
-        int quantity = Integer.parseInt(getTextValue(appetizerElement, "quantity"));
-	Double price = Double.parseDouble(getTextValue(appetizerElement, "price"));
-        String picture = getTextValue(appetizerElement,"picture");
+    //adds the drink elements to drink object
+    private Drink getDrink(Element drinkElement){
+        String name = getTextValue(drinkElement,"name");
+	String Description = getTextValue(drinkElement,"description");
+        int quantity = Integer.parseInt(getTextValue(drinkElement, "quantity"));
+	Double price = Double.parseDouble(getTextValue(drinkElement, "price"));
+        String picture = getTextValue(drinkElement,"picture");
 
-	Food appetizer = new Food(name,"Appetizer",Description,price,quantity,picture);
+	Drink appetizer = new Drink(name,"Drinks",Description,price,quantity,picture);
 
 	return appetizer;
     }
