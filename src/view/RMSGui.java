@@ -26,6 +26,10 @@ private JButton lunch = new JButton();
 private JButton dinner = new JButton();
 private JButton desserts = new JButton();
 private JButton drinks = new JButton();
+private JButton home = new JButton();
+private JButton back = new JButton();
+private JButton next = new JButton();
+private JButton viewcart = new JButton();
     /** Creates new form RMSGui */
     public RMSGui() {
         initComponents();
@@ -221,6 +225,26 @@ private JButton drinks = new JButton();
     drinks.setSize(170,87);
     drinks.setLocation(40,633);
     Tablet.add(drinks);
+    home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Home Button.png")));
+    home.setVisible(true);
+    home.setSize(75,40);
+    home.setLocation(245,743);
+    Tablet.add(home);
+    back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Back Button.png")));
+    back.setVisible(true);
+    back.setSize(75,40);
+    back.setLocation(335,743);
+    Tablet.add(back);
+    next.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Next Button.png")));
+    next.setVisible(true);
+    next.setSize(75,40);
+    next.setLocation(430,743);
+    Tablet.add(next);
+    viewcart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/ViewCart Button.png")));
+    viewcart.setVisible(true);
+    viewcart.setSize(75,40);
+    viewcart.setLocation(525,743);
+    Tablet.add(viewcart);
     repaint();
       }}
     
@@ -274,6 +298,26 @@ private JButton drinks = new JButton();
     drinks.setSize(170,87);
     drinks.setLocation(40,633);
     Tablet.add(drinks);
+    home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Home Button.png")));
+    home.setVisible(true);
+    home.setSize(75,40);
+    home.setLocation(245,743);
+    Tablet.add(home);
+    back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Back Button.png")));
+    back.setVisible(true);
+    back.setSize(75,40);
+    back.setLocation(335,743);
+    Tablet.add(back);
+    next.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Next Button.png")));
+    next.setVisible(true);
+    next.setSize(75,40);
+    next.setLocation(430,743);
+    Tablet.add(next);
+    viewcart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/ViewCart Button.png")));
+    viewcart.setVisible(true);
+    viewcart.setSize(75,40);
+    viewcart.setLocation(525,743);
+    Tablet.add(viewcart);
     repaint();
       }}
     
