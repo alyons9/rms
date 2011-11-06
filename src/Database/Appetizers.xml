@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--
     Document   : Appetizer.xml
     Created on : November 5, 2011, 3:10 PM
@@ -7,7 +6,6 @@
     Description:
         Purpose of the document follows.
 -->
-
 <Appetizers>
     <plate>
         <name>Boneless Wings</name>
@@ -16,4 +14,11 @@
         <price>7.99</price>
         <picture>rms/pictures/bonelessWings.jpg</picture>
     </plate>
+<plate>
+<name>pizza</name>
+<description>Good tasting Pizza</description>
+<quantity>1</quantity>
+<price>2.99</price>
+<picture/>
+</plate>
 </Appetizers>
