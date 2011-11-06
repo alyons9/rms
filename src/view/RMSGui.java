@@ -257,7 +257,7 @@ private JButton viewcart = new JButton();
     viewcart.setLocation(525,743);
     Tablet.add(viewcart);
     repaint();
-      }}
+     }}
     
     class Carryout implements ActionListener {
     @Override

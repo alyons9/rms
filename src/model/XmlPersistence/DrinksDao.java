@@ -64,7 +64,7 @@ public class DrinksDao {
     //item by its name.
     //Pre: takes in the name of an appetizer as parameter
     //Post: Returns a food object with all values from xml file
-    public Drink getAppetizerByName(String name){
+    public Drink getDrinkByName(String name){
         Drink drink = new Drink();
         if(nl != null && nl.getLength() > 0) {
             for(int i = 0 ; i < nl.getLength();i++) {
@@ -81,6 +81,26 @@ public class DrinksDao {
 	}
         
         return drink;
+    }
+    
+      public Drink[] getAllDrinks(){
+       int numOfElem = nl.getLength();
+        Drink drinks[] = new Drink[numOfElem];
+        if(nl != null && numOfElem > 0) {
+            for(int i = 0 ; i < numOfElem;i++) {
+                //get the appetizer element
+                Element el = (Element)nl.item(i);
+                
+                    //get the appetizer object
+                    drinks[i] = getDrink(el);
+                
+
+				
+            }
+            
+	}
+        
+        return drinks;
     }
     
     //Add drink to node list then write to the file
