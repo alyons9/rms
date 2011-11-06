@@ -65,7 +65,7 @@ public class AppetizersDao {
                     appetizer = getAppetizer(el);
                 }
 
-		appetizer = getAppetizer(el);		
+				
             }
             
 	}
@@ -103,6 +103,27 @@ public class AppetizersDao {
             Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+    }
+    
+    public void removeAppetizerByName(String name){
+        Element root = doc.getDocumentElement();
+        
+        NodeList children = root.getElementsByTagName("plate");
+        for(int i=0; i<children.getLength(); i++){
+            Element child = (Element)children.item(i);
+            
+            if(getTextValue(child,"name").equals(name)){
+                    root.removeChild(child);
+                }
+            
+        }
+        try {
+            write();
+        } catch (TransformerConfigurationException ex) {
+            Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (TransformerException ex) {
+            Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     private void write() throws TransformerConfigurationException, TransformerException{

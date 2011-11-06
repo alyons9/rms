@@ -9,12 +9,11 @@
 -->
 
 <Lunch>
-    <Plate>
-        <id></id>
+    <plate>
         <name></name>
-        <Description></Description>
-        <Quantity></Quantity>
+        <description></description>
+        <quantity></quantity>
         <price></price>
         <picture></picture>
-    </Plate>
+    </plate>
 </Lunch>

@@ -10,10 +10,9 @@
 
 <Drinks>
     <cup>
-        <id></id>
         <name></name>
-        <Description></Description>
-        <Quantity></Quantity>
+        <description></description>
+        <quantity></quantity>
         <price></price>
         <picture></picture>
     </cup>
