@@ -23,31 +23,30 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import model.Food;
-import model.admin;
 import org.xml.sax.SAXException;
 
 /**
  *
  * @author anthonylyons
  */
-public class userDao {
+public class DessertDao {
     private NodeList nl;
     private Document doc;
     
     // Initializes the XML Dom object and parses xml file into a nodelist
-    public userDao() throws SAXException, ParserConfigurationException{
+    public DessertDao() throws SAXException, ParserConfigurationException{
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             
             DocumentBuilder db = dbf.newDocumentBuilder();
             
-            doc = db.parse("src/Database/users.xml");
+            doc = db.parse("src/Database/Dessert.xml");
             
             //Gets root element
             Element docEle = doc.getDocumentElement();
             
             //Places Elements with the name plate into a list
-            nl = docEle.getElementsByTagName("user");
+            nl = docEle.getElementsByTagName("plate");
             
         } catch(ParserConfigurationException pce) {
 			pce.printStackTrace();
@@ -64,15 +63,15 @@ public class userDao {
     //item by its name.
     //Pre: takes in the name of an appetizer as parameter
     //Post: Returns a food object with all values from xml file
-    public admin getAppetizerByName(String username){
-        admin user = new admin();
+    public Food getDessertByName(String name){
+        Food dessert = new Food();
         if(nl != null && nl.getLength() > 0) {
             for(int i = 0 ; i < nl.getLength();i++) {
                 //get the appetizer element
                 Element el = (Element)nl.item(i);
-                if(getTextValue(el,"username").equals(username)){
+                if(getTextValue(el,"name").equals(name)){
                     //get the appetizer object
-                    user = getUserInfo(el);
+                    dessert = getDessert(el);
                 }
 
 				
@@ -80,48 +79,48 @@ public class userDao {
             
 	}
         
-        return user;
+        return dessert;
     }
     
     //Add appetizer to node list then write to the file
     //Pre: name, description,Quantity, price, picture for appetizer parameters
     //Post: add to node list and write to file
-    public void addNewUser(String fName, String lName,String uName, String pWord){
+    public void addDessert(String dessertName, String dessertDescription,int dessertQuantity,double dessertPrice,String dessertPicture){
         
         //Get root node
         Node root = doc.getDocumentElement();
         
         //Create nodes
-        Node user = doc.createElement("user");
-        Node firstname = doc.createElement("firstname");
-        Node lastname = doc.createElement("lastname");
-        Node username = doc.createElement("username");
-        Node password = doc.createElement("password");
-        
+        Node plate = doc.createElement("plate");
+        Node name = doc.createElement("name");
+        Node description = doc.createElement("description");
+        Node quantity = doc.createElement("quantity");
+        Node price = doc.createElement("price");
+        Node picture = doc.createElement("picture");
         
         //Set the value held in each node
-        firstname.setTextContent(fName);
-        lastname.setTextContent(lName);
-        username.setTextContent(uName);
-        password.setTextContent(pWord);
-       
+        name.setTextContent(dessertName);
+        description.setTextContent(dessertDescription);
+        quantity.setTextContent(Integer.toString(dessertQuantity));
+        price.setTextContent(Double.toString(dessertPrice));
+        picture.setTextContent(dessertPicture);
         
         //add the child nodes to the plate node
-        user.appendChild(firstname);
-        user.appendChild(lastname);
-        user.appendChild(username);
-        user.appendChild(password);
-      
+        plate.appendChild(name);
+        plate.appendChild(description);
+        plate.appendChild(quantity);
+        plate.appendChild(price);
+        plate.appendChild(picture);
         
         //add plate node to the root node
-        root.appendChild(user);
+        root.appendChild(plate);
         
         try {
             write();//Write the values to the xml file
         } catch (TransformerConfigurationException ex) {
-            Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DessertDao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (TransformerException ex) {
-            Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DessertDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -129,17 +128,17 @@ public class userDao {
     //Remove the appetizer from xml file
     //Pre: Name of appetizer
     //Post: delete the element from file
-    public void removeUser(String userName){
+    public void removeDessertByName(String name){
         //Get root element
         Element root = doc.getDocumentElement();
         
         //Put children of root element with name plate into nodelist
-        NodeList children = root.getElementsByTagName("username");
+        NodeList children = root.getElementsByTagName("plate");
         for(int i=0; i<children.getLength(); i++){
             Element child = (Element)children.item(i); //get 1 child and loop
             
             //Remove this child if its name equals the name given
-            if(getTextValue(child,"username").equals(userName)){
+            if(getTextValue(child,"name").equals(name)){
                     root.removeChild(child);
                 }
             
@@ -147,9 +146,9 @@ public class userDao {
         try {
             write();//Write the undeleted children over the file
         } catch (TransformerConfigurationException ex) {
-            Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DessertDao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (TransformerException ex) {
-            Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DessertDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -160,11 +159,11 @@ public class userDao {
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 
             //initialize StreamResult with File object to save to file
-            StreamResult result = new StreamResult(new FileWriter("src/Database/users.xml"));
+            StreamResult result = new StreamResult(new FileWriter("src/Database/Dessert.xml"));
             DOMSource source = new DOMSource(doc);
             transformer.transform(source, result);
         } catch (IOException ex) {
-            Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DessertDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -181,14 +180,15 @@ public class userDao {
 	}
     
     //adds the appetizer elements to food object
-    private admin getUserInfo(Element userElement){
-        String fName = getTextValue(userElement,"firstname");
-	String lName= getTextValue(userElement,"lastname");
-        String uName = getTextValue(userElement,"username");
-        String pWord = getTextValue(userElement,"password");
-       
-	admin user = new admin(fName,lName,uName,pWord);
+    private Food getDessert(Element dessertElement){
+        String name = getTextValue(dessertElement,"name");
+	String Description = getTextValue(dessertElement,"description");
+        int quantity = Integer.parseInt(getTextValue(dessertElement, "quantity"));
+	Double price = Double.parseDouble(getTextValue(dessertElement, "price"));
+        String picture = getTextValue(dessertElement,"picture");
 
-	return user;
+	Food dessert = new Food(name,"Dessert",Description,price,quantity,picture);
+
+	return dessert;
     }
 }

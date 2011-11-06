@@ -100,9 +100,9 @@ public class LunchDao {
         try {
             write();
         } catch (TransformerConfigurationException ex) {
-            Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LunchDao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (TransformerException ex) {
-            Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LunchDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -122,9 +122,9 @@ public class LunchDao {
         try {
             write();
         } catch (TransformerConfigurationException ex) {
-            Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LunchDao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (TransformerException ex) {
-            Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LunchDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -138,7 +138,7 @@ public class LunchDao {
             DOMSource source = new DOMSource(doc);
             transformer.transform(source, result);
         } catch (IOException ex) {
-            Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LunchDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
