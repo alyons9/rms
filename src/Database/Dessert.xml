@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Dessert.xml
+    Created on : November 6, 2011, 12:11 AM
+    Author     : anthonylyons
+    Description:
+        Purpose of the document follows.
+-->
+
+<Dessert>
+<plate>
+    <name></name>
+    <description></description>
+    <quantity></quantity>
+    <price></price>
+    <picture></picture>
+</plate>
+</Dessert>
