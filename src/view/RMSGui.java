@@ -128,10 +128,12 @@ private JButton CarryOut = new JButton();
     }// </editor-fold>//GEN-END:initComponents
 
     private void AdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminLoginActionPerformed
+    /*
     AdminEditMenu adminMenu = new AdminEditMenu();
     adminMenu.setVisible(true);
     adminMenu.setSize(600,700);
     Tablet.add(adminMenu);
+         */
     }//GEN-LAST:event_AdminLoginActionPerformed
 
     private void enterMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterMenuActionPerformed
@@ -173,15 +175,16 @@ private JButton CarryOut = new JButton();
     AdminLogin.setVisible(false);
     enterMenu.setVisible(false);
     separator.setVisible(true);
-    separator.setSize(20,500);
-    separator.setLocation(200,30);
-    separator.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 10, true));
+    separator.setSize(20,800);
+    separator.setLocation(220,30);
+    separator.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));
+    separator.setBackground(new java.awt.Color(0, 153, 153));
     JLabel Logo2 = new JLabel();
     Logo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/DineIn Logo.png")));
     Tablet.add(separator);
     Tablet.add(Logo2);
     Logo2.setSize(272,88);
-    Logo2.setLocation(315,10);
+    Logo2.setLocation(290,10);
     repaint();
       }
       
