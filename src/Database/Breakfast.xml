@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Breakfast.xml
+    Created on : November 5, 2011, 3:13 PM
+    Author     : anthonylyons
+    Description:
+        Purpose of the document follows.
+-->
+
+<Breakfast>
+    <plate>
+        <name></name>
+        <description></description>
+        <quantity></quantity>
+        <price></price>
+        <picture></picture>
+    </plate>
+</Breakfast>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Drinks.xml
+    Created on : November 5, 2011, 3:27 PM
+    Author     : anthonylyons
+    Description:
+        Purpose of the document follows.
+-->
+
+<Drinks>
+    <cup>
+        <name></name>
+        <description></description>
+        <quantity></quantity>
+        <price></price>
+        <picture></picture>
+    </cup>
+</Drinks>
