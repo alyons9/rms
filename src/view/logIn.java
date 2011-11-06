@@ -8,7 +8,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import model.XmlPersistence.adminDao;
 import model.admin;
 import org.xml.sax.SAXException;
-import view.adminLogInDialog;
 /**
  *
  * @author SAMIR
