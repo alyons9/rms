@@ -70,10 +70,10 @@ public class addAppetizerMenu extends javax.swing.JPanel {
     prices = new JLabel[sizeOfList];
     
     System.out.println(food[0].getPic());
-    JLabel b = new JLabel("test");
-    b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/bonelessWings.jpg")));
-    add(b);
-   /* for(int i=0; i <sizeOfList; i++){
+   /* JLabel b = new JLabel("test");
+    b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/Images/bonelessWings.jpg")));
+    add(b);*/
+   for(int i=0; i <sizeOfList; i++){
         appIconName[i] = food[i].getPic();
         System.out.println(appIconName[i]);
        appIconPic[i] = new ImageIcon(appIconName[i]);
