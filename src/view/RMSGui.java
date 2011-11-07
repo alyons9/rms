@@ -14,10 +14,11 @@ import java.awt.*;
 import java.awt.event.*;
 /**
  *
- * @author Superman
+ * @author Jamel Jenkins
  */
 
 public class RMSGui extends javax.swing.JFrame {
+private JLabel Logo2 = new JLabel();
 private JButton dineIn = new JButton();
 private JButton CarryOut = new JButton();
 private JButton appetizers = new JButton();
@@ -165,6 +166,10 @@ private JButton viewcart = new JButton();
     homePage.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
     homePage.setBackground(Color.gray);
     */
+    //Logo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Cnerds Cafes.png")));
+    //Logo2.setVisible(true);
+    //Logo2.setSize(200,200);
+    //Logo2.setLocation(20,20);
     dineIn.setVisible(true);
     dineIn.setLocation(210,420);
     dineIn.setSize(185,88);
@@ -173,8 +178,10 @@ private JButton viewcart = new JButton();
     CarryOut.setLocation(210,550);
     CarryOut.setSize(185,88);
     CarryOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/CarryOut Button.png")));
+    Logo.setVisible(false);
     AdminLogin.setVisible(false);
     enterMenu.setVisible(false);
+    Tablet.add(Logo2);
     Tablet.add(dineIn);
     Tablet.add(CarryOut);
     //Logo.setLocation(0,0);
