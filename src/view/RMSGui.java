@@ -39,7 +39,7 @@ private JLabel CarryOutLogo = new JLabel();
         initComponents();
         dineIn.addActionListener(new DineIn());
         CarryOut.addActionListener(new Carryout());
-        home.addActionListener(homeListener);
+        home.addActionListener(new homeListener());
     }
 
     /** This method is called from within the constructor to
@@ -212,6 +212,7 @@ private JLabel CarryOutLogo = new JLabel();
     DineInLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/DineIn Logo.png")));
     Tablet.add(separator);
     Tablet.add(DineInLogo);
+    DineInLogo.setVisible(true);
     DineInLogo.setSize(272,88);
     DineInLogo.setLocation(290,10);
     appetizers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Appetizers Button.png")));
@@ -280,6 +281,7 @@ private JLabel CarryOutLogo = new JLabel();
     separator.setLocation(150,30);
     separator.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
     separator.setBackground(new java.awt.Color(0, 0, 0));
+    CarryOutLogo.setVisible(true);
     CarryOutLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/CarryOut Logo.png")));
     Tablet.add(separator);
     Tablet.add(CarryOutLogo);
@@ -338,7 +340,7 @@ private JLabel CarryOutLogo = new JLabel();
     repaint();
       }}
     
-    ActionListener homeListener = new ActionListener(){
+    class homeListener implements ActionListener{
     public void actionPerformed(ActionEvent e){
     Logo.setVisible(true);
     AdminLogin.setVisible(true);
@@ -359,6 +361,7 @@ private JLabel CarryOutLogo = new JLabel();
     CarryOut.setVisible(false);
     dineIn.setVisible(false);
     appetizers.setVisible(false);
+    repaint();
     }};
     
     public static void main(String args[]) {
