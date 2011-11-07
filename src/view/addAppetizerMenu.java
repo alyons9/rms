@@ -11,12 +11,17 @@
 package view;
 
 import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import javax.swing.BoxLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 import javax.xml.parsers.ParserConfigurationException;
 import model.Food;
 import model.XmlPersistence.AppetizersDao;
@@ -35,13 +40,18 @@ public class addAppetizerMenu extends javax.swing.JPanel {
     private String[] appIconName;
     private Icon[] appIconPic;
     private JLabel[] appDesLabels;
-   
+    private JTextField[] quantaty;
+    private JLabel[] prices;
     
     /** Creates new form addAppetizerMenu */
     public addAppetizerMenu() throws SAXException, ParserConfigurationException {
         initComponents();
         
-        
+      //setLayout(new GridLayout(sizeOfList*sizeOfList,3));
+     
+     //setLayout(new FlowLayout());
+     setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
+      
     AppetizersDao nodeList = new AppetizersDao();
     
     //getting the size of list of appetizers
@@ -56,28 +66,37 @@ public class addAppetizerMenu extends javax.swing.JPanel {
     buttons = new JButton[sizeOfList];
     nameLabels = new JLabel[sizeOfList];
     appDesLabels = new JLabel[sizeOfList];
+    quantaty = new JTextField[sizeOfList];
+    prices = new JLabel[sizeOfList];
     
-    System.out.println(food[0].getPic());
-    Icon a = new ImageIcon("bonelessWings.png");
-    
-    JLabel b = new JLabel("test",a,JLabel.CENTER);
-    
-    add(b);
-   /* for(int i=0; i <sizeOfList; i++){
-        appIconName[i] = food[i].getPic();
-        System.out.println(appIconName[i]);
-       appIconPic[i] = new ImageIcon(appIconName[i]);
+   // System.out.println(food[0].getPic());
+    //Icon a = new ImageIcon("/Images/bonelessWings.png");
+   // System.out.print(a);
+   // JLabel b = new JLabel("test");
+   // b.setIcon(new javax.swing.ImageIcon(getClass().getResource("Breakfast Button.png")));
+   // add(b);
+   
+     for(int i=0; i <sizeOfList; i++){
+      //  appIconName[i] = food[i].getPic();
+      //  appIconPic[i] = new ImageIcon(appIconName[i]);
         nameLabels[i] = new JLabel(food[i].getName());//,appIconPic[i],JLabel.CENTER);
         buttons[i] = new JButton("ADD");
         buttons[i].setSize(70,30);
         buttons[i].setActionCommand(food[i].getName());
         buttons[i].addActionListener(null);
         appDesLabels[i] = new JLabel(food[i].getDescription());
+        quantaty[i] = new JTextField(2);
+        quantaty[i].setSize(1, 2);
+        prices[i] = new JLabel(""+food[i].getPrice());
         System.out.println(i);
         add(nameLabels[i]);
         add(appDesLabels[i]);
+        add(quantaty[i]);
+        add(prices[i]);
         add(buttons[i]);
-    }*/
+        //JSeperator a = new JSeperator();
+     
+     }
    
    
     
@@ -89,8 +108,7 @@ public class addAppetizerMenu extends javax.swing.JPanel {
         
         
         
-          setLayout(new GridLayout(sizeOfList,3));
-          setSize(300,300);
+          
     
     
     }

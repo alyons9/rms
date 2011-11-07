@@ -45,7 +45,7 @@ public class AButtonGroup {
                           
               a.setVisible(true);
               
-              System.out.println("hello from action");
+              
                         } catch (SAXException ex) {
                             Logger.getLogger(AButtonGroup.class.getName()).log(Level.SEVERE, null, ex);
                         } catch (ParserConfigurationException ex) {
