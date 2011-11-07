@@ -100,28 +100,28 @@ private JButton viewcart = new JButton();
         TabletLayout.setHorizontalGroup(
             TabletLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TabletLayout.createSequentialGroup()
-                .addContainerGap(443, Short.MAX_VALUE)
+                .addContainerGap(556, Short.MAX_VALUE)
                 .addComponent(AdminLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(TabletLayout.createSequentialGroup()
-                .addGap(173, 173, 173)
-                .addComponent(enterMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 198, Short.MAX_VALUE)
-                .addGap(181, 181, 181))
-            .addGroup(TabletLayout.createSequentialGroup()
-                .addGap(80, 80, 80)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TabletLayout.createSequentialGroup()
+                .addGap(149, 149, 149)
                 .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(85, 85, 85))
+                .addGap(129, 129, 129))
+            .addGroup(TabletLayout.createSequentialGroup()
+                .addGap(230, 230, 230)
+                .addComponent(enterMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 198, Short.MAX_VALUE)
+                .addGap(237, 237, 237))
         );
         TabletLayout.setVerticalGroup(
             TabletLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TabletLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(AdminLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(17, 17, 17)
                 .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
-                .addGap(207, 207, 207)
+                .addGap(225, 225, 225)
                 .addComponent(enterMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 89, Short.MAX_VALUE)
-                .addGap(88, 88, 88))
+                .addGap(129, 129, 129))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -158,7 +158,7 @@ private JButton viewcart = new JButton();
     }//GEN-LAST:event_AdminLoginActionPerformed
 
     private void enterMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterMenuActionPerformed
-    /*
+ /*
     JPanel homePage = new JPanel();
     homePage.setSize(576,757);
     homePage.setLocation(30,30);
@@ -188,7 +188,7 @@ private JButton viewcart = new JButton();
     //Tablet.add(homePage);
     //repaint();
     }//GEN-LAST:event_enterMenuActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
