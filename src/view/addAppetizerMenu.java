@@ -58,10 +58,8 @@ public class addAppetizerMenu extends javax.swing.JPanel {
     appDesLabels = new JLabel[sizeOfList];
     
     System.out.println(food[0].getPic());
-    Icon a = new ImageIcon("bonelessWings.png");
-    
-    JLabel b = new JLabel("test",a,JLabel.CENTER);
-    
+    JLabel b = new JLabel("test");
+    b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/bonelessWings.jpg")));
     add(b);
    /* for(int i=0; i <sizeOfList; i++){
         appIconName[i] = food[i].getPic();
