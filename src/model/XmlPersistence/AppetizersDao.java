@@ -82,6 +82,36 @@ public class AppetizersDao {
         return appetizer;
     }
     
+     //Retrieve appetizer from nodelist created in constructor. Search for 
+    //item by its name.
+    //Pre: takes in the name of an appetizer as parameter
+    //Post: Returns a food object with all values from xml file
+    public Food[] getAllAppetizers(){
+       int numOfElem = nl.getLength();
+        Food appetizers[] = new Food[numOfElem];
+        if(nl != null && numOfElem > 0) {
+            for(int i = 0 ; i < numOfElem;i++) {
+                //get the appetizer element
+                Element el = (Element)nl.item(i);
+                
+                    //get the appetizer object
+                    appetizers[i] = getAppetizer(el);
+                
+
+				
+            }
+            
+	}
+        
+        return appetizers;
+    }
+    
+    //returns the lenght of nodes
+    public int length(){
+        int temp = nl.getLength();
+        return temp;
+    }
+    
     //Add appetizer to node list then write to the file
     //Pre: name, description,Quantity, price, picture for appetizer parameters
     //Post: add to node list and write to file
@@ -185,10 +215,12 @@ public class AppetizersDao {
 	String Description = getTextValue(appetizerElement,"description");
         int quantity = Integer.parseInt(getTextValue(appetizerElement, "quantity"));
 	Double price = Double.parseDouble(getTextValue(appetizerElement, "price"));
-        String picture = getTextValue(appetizerElement,"picture");
+       String picture = getTextValue(appetizerElement,"picture");
 
 	Food appetizer = new Food(name,"Appetizer",Description,price,quantity,picture);
 
 	return appetizer;
     }
+
+    
 }

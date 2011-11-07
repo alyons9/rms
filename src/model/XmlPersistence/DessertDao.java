@@ -82,6 +82,25 @@ public class DessertDao {
         return dessert;
     }
     
+    public Food[] getAllDesserts(){
+       int numOfElem = nl.getLength();
+        Food desserts[] = new Food[numOfElem];
+        if(nl != null && numOfElem > 0) {
+            for(int i = 0 ; i < numOfElem;i++) {
+                //get the appetizer element
+                Element el = (Element)nl.item(i);
+                
+                    //get the appetizer object
+                    desserts[i] = getDessert(el);
+                
+
+				
+            }
+            
+	}
+        
+        return desserts;
+    }
     //Add appetizer to node list then write to the file
     //Pre: name, description,Quantity, price, picture for appetizer parameters
     //Post: add to node list and write to file
