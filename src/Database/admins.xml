@@ -17,7 +17,6 @@
 <lastname>Lyons</lastname>
 <username>alyons</username>
 <password>S3mino13s</password>
-<isAdmin>1</isAdmin>
 </user>
 
 <user>
@@ -37,5 +36,11 @@
 <lastname>Handcock</lastname>
 <username>jHandcock</username>
 <password>fag</password>
+</user>
+<user>
+<firstname>Anthony</firstname>
+<lastname>Lyons</lastname>
+<username>alyons9</username>
+<password>S3mino13s</password>
 </user>
 </admins>
