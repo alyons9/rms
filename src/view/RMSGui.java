@@ -39,7 +39,7 @@ private JLabel CarryOutLogo = new JLabel();
         initComponents();
         dineIn.addActionListener(new DineIn());
         CarryOut.addActionListener(new Carryout());
-        home.addActionListener(new homeListener());
+        home.addActionListener(homeListener);
     }
 
     /** This method is called from within the constructor to
@@ -340,7 +340,7 @@ private JLabel CarryOutLogo = new JLabel();
     repaint();
       }}
     
-    class homeListener implements ActionListener{
+    ActionListener homeListener = new ActionListener(){
     public void actionPerformed(ActionEvent e){
     Logo.setVisible(true);
     AdminLogin.setVisible(true);
