@@ -75,6 +75,26 @@ public class DinnerDao {
         return dinner;
     }
     
+       public Food[] getAllDinners(){
+       int numOfElem = nl.getLength();
+        Food dinners[] = new Food[numOfElem];
+        if(nl != null && numOfElem > 0) {
+            for(int i = 0 ; i < numOfElem;i++) {
+                //get the appetizer element
+                Element el = (Element)nl.item(i);
+                
+                    //get the appetizer object
+                    dinners[i] = getDinner(el);
+                
+
+				
+            }
+            
+	}
+        
+        return dinners;
+    }
+    
     public void addDinner(String dinnerName, String dinnerDescription,int dinnerQuantity,double dinnerPrice,String dinnerPicture){
         Node root = doc.getDocumentElement();
         Node plate = doc.createElement("plate");

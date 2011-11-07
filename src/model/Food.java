@@ -67,6 +67,9 @@ public class Food {
     public void setType(String type) {
         this.type = type;
     }
-
+    
+    public String getPic(){
+        return picture;
+    }
 
 }

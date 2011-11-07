@@ -12,7 +12,7 @@
         <description>No bones about it, these are great. Lightly breaded boneless chicken with your choice of sauce.</description>
         <quantity>1</quantity>
         <price>7.99</price>
-        <picture>rms/pictures/bonelessWings.jpg</picture>
+        <picture>bonelessWings.png</picture>
     </plate>
 
 
@@ -22,7 +22,7 @@
 <description>Good tasting Pizza</description>
 <quantity>1</quantity>
 <price>2.99</price>
-<picture/>
+<picture>rms/rms/src/Database/Images/pizza.jpg</picture>
 </plate>
 
 <plate>
@@ -30,13 +30,13 @@
 <description>Good tasting salad</description>
 <quantity>1</quantity>
 <price>2.99</price>
-<picture/>
+<picture>rms/rms/src/Database/Images/bltSalad.jpg</picture>
 </plate>
 <plate>
 <name>salad</name>
 <description>Good tasting salad</description>
 <quantity>1</quantity>
 <price>2.99</price>
-<picture/>
+<picture>rms/rms/src/Database/Images/mangoSalad.jpg</picture>
 </plate>
 </Appetizers>
