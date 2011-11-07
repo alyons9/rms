@@ -43,7 +43,7 @@ public class AButtonGroup {
                             addAppetizerMenu a = new addAppetizerMenu();
                              newframe.add(a);
                           
-              a.setVisible(true);
+             // a.setVisible(true);
               
               
                         } catch (SAXException ex) {
