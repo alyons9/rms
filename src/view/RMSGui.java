@@ -31,11 +31,15 @@ private JButton home = new JButton();
 private JButton back = new JButton();
 private JButton next = new JButton();
 private JButton viewcart = new JButton();
+private JPanel separator = new JPanel();
+private JLabel DineInLogo = new JLabel();
+private JLabel CarryOutLogo = new JLabel();
     /** Creates new form RMSGui */
     public RMSGui() {
         initComponents();
         dineIn.addActionListener(new DineIn());
         CarryOut.addActionListener(new Carryout());
+        home.addActionListener(homeListener);
     }
 
     /** This method is called from within the constructor to
@@ -194,7 +198,6 @@ private JButton viewcart = new JButton();
      */
     class DineIn implements ActionListener {
     public void actionPerformed(ActionEvent e) {
-    JPanel separator = new JPanel();
     CarryOut.setVisible(false);
     dineIn.setVisible(false);
     Logo.setVisible(false);
@@ -206,7 +209,6 @@ private JButton viewcart = new JButton();
     separator.setLocation(150,30);
     separator.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
     separator.setBackground(new java.awt.Color(0, 0, 0));
-    JLabel DineInLogo = new JLabel();
     DineInLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/DineIn Logo.png")));
     Tablet.add(separator);
     Tablet.add(DineInLogo);
@@ -267,7 +269,6 @@ private JButton viewcart = new JButton();
     
     class Carryout implements ActionListener {
     public void actionPerformed(ActionEvent e) {
-       JPanel separator = new JPanel();
     CarryOut.setVisible(false);
     dineIn.setVisible(false);
     Logo.setVisible(false);
@@ -279,7 +280,6 @@ private JButton viewcart = new JButton();
     separator.setLocation(150,30);
     separator.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
     separator.setBackground(new java.awt.Color(0, 0, 0));
-    JLabel CarryOutLogo = new JLabel();
     CarryOutLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/CarryOut Logo.png")));
     Tablet.add(separator);
     Tablet.add(CarryOutLogo);
@@ -337,6 +337,29 @@ private JButton viewcart = new JButton();
     Tablet.add(viewcart);
     repaint();
       }}
+    
+    ActionListener homeListener = new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    Logo.setVisible(true);
+    AdminLogin.setVisible(true);
+    enterMenu.setVisible(true);
+    Logo2.setVisible(false);
+    home.setVisible(false);
+    back.setVisible(false);
+    next.setVisible(false);
+    viewcart.setVisible(false);
+    drinks.setVisible(false);
+    separator.setVisible(false);
+    breakfast.setVisible(false);
+    lunch.setVisible(false);
+    dinner.setVisible(false);
+    desserts.setVisible(false);
+    CarryOutLogo.setVisible(false);
+    DineInLogo.setVisible(false);
+    CarryOut.setVisible(false);
+    dineIn.setVisible(false);
+    appetizers.setVisible(false);
+    }};
     
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
