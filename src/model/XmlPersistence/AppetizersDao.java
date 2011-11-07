@@ -106,6 +106,12 @@ public class AppetizersDao {
         return appetizers;
     }
     
+    //returns the lenght of nodes
+    public int length(){
+        int temp = nl.getLength();
+        return temp;
+    }
+    
     //Add appetizer to node list then write to the file
     //Pre: name, description,Quantity, price, picture for appetizer parameters
     //Post: add to node list and write to file
@@ -209,10 +215,12 @@ public class AppetizersDao {
 	String Description = getTextValue(appetizerElement,"description");
         int quantity = Integer.parseInt(getTextValue(appetizerElement, "quantity"));
 	Double price = Double.parseDouble(getTextValue(appetizerElement, "price"));
-        String picture = getTextValue(appetizerElement,"picture");
+       String picture = getTextValue(appetizerElement,"picture");
 
 	Food appetizer = new Food(name,"Appetizer",Description,price,quantity,picture);
 
 	return appetizer;
     }
+
+    
 }
