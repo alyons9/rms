@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <admins>
 <user>
@@ -19,55 +18,6 @@
 <username>alyons</username>
 <password>S3mino13s</password>
 </user>
-
-<user>
-<firstname>Bin</firstname>
-<lastname>Laden</lastname>
-<username>bLaden</username>
-<password>kill</password>
-</user>
-<user>
-<firstname>Bob</firstname>
-<lastname>Marley</lastname>
-<username>bmarley</username>
-<password>weed</password>
-</user>
-<user>
-<firstname>john</firstname>
-<lastname>Handcock</lastname>
-<username>jHandcock</username>
-<password>fag</password>
-</user>
-<user>
-<firstname>Anthony</firstname>
-<lastname>Lyons</lastname>
-<username>alyons9</username>
-<password>S3mino13s</password>
-</user>
-</admins>
-=======
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<admins>
-<user>
-<firstname>Jamel</firstname>
-<lastname>Jenkins</lastname>
-<username>jjenkins30</username>
-<password>492119</password>
-</user>
-<user>
-<firstname>Samir</firstname>
-<lastname>Choudhary</lastname>
-<username>schoud1</username>
-<password>yo</password>
-</user>
-<user>
-<firstname>Anthony</firstname>
-<lastname>Lyons</lastname>
-<username>alyons</username>
-<password>S3mino13s</password>
-<isAdmin>1</isAdmin>
-</user>
-
 <user>
 <firstname>Bin</firstname>
 <lastname>Laden</lastname>
@@ -93,4 +43,3 @@
 <password>yo</password>
 </user>
 </admins>
->>>>>>> 1677ee23bf0293d15b6efa7700d9146ead4017ba
