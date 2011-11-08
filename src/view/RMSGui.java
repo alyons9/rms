@@ -35,9 +35,10 @@ private JButton home = new JButton();
 private JButton back = new JButton();
 private JButton next = new JButton();
 private JButton viewcart = new JButton();
-private JScrollPane foodPane = new JScrollPane();
-    
 private addAppetizerMenu a = new addAppetizerMenu();
+private JScrollPane foodPane = new JScrollPane(a);
+    
+
 
     /** Creates new form RMSGui */
     public RMSGui() {
@@ -135,7 +136,7 @@ private addAppetizerMenu a = new addAppetizerMenu();
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Tablet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Tablet, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -348,10 +349,13 @@ private addAppetizerMenu a = new addAppetizerMenu();
     class appetizers implements ActionListener{
         public void actionPerformed(ActionEvent e){
             //addAppetizerMenu a = new addAppetizerMenu();
-            foodPane.add(a);
+            //foodPane.add(a);
             foodPane.setVisible(true);
             foodPane.setSize(532, 600);
             foodPane.setLocation(170, 70);
+            foodPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+            foodPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+            
             Tablet.add(foodPane);
             repaint();
         }
