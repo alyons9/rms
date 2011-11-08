@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Orders.xml
+    Created on : November 6, 2011, 4:39 PM
+    Author     : anthonylyons
+    Description:
+        Purpose of the document follows.
+-->
+
+<Orders>
+<order>
+<orderID></orderID>
+<Details></Details>
+</order>
+</Orders>
