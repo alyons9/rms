@@ -76,47 +76,65 @@ public class addAppetizerMenu extends javax.swing.JPanel {
         quantaty = new JTextField[sizeOfList];
         prices = new JLabel[sizeOfList];
         
-        System.out.println(food[0].getPic());
-    //   JLabel b = new JLabel("test");
-    //    b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/Images/pizza.jpg")));
-    //    add(b);
-       for(int i=0; i <sizeOfList; i++){
-    //        appIconName[i] = food[i].getPic();
-    //        System.out.println(appIconName[i]);
-    //        appIconPic[i] = new ImageIcon(appIconName[i]);
-            nameLabels[i] = new JLabel(food[i].getName());//appIconPic[i],JLabel.CENTER);
-            nameLabels[i].setIcon(new javax.swing.ImageIcon(getClass().getResource(food[i].getPic())));
-            buttons[i] = new JButton("ADD");
-            buttons[i].setSize(70,30);
-         
-            buttons[i].setActionCommand(food[i].getName());
-            buttons[i].addActionListener(null);
-            appDesLabels[i] = new JLabel(food[i].getDescription());
-            quantaty[i] = new JTextField(2);
-            quantaty[i].setSize(1, 2);
-            prices[i] = new JLabel(""+food[i].getPrice());
-            System.out.println(i);
-            add(nameLabels[i]);
-            add(appDesLabels[i]);
-            add(quantaty[i]);
-            add(prices[i]);
-            add(buttons[i]);
-            //JSeperator a = new JSeperator();
-         
-         }
-       
-       
-        
-        
-        
-        //get all of the appetizers from the xml file
-            //and store it in a food variable of array
-           food =nodeList.getAllAppetizers();
-        } catch (SAXException ex) {
-            Logger.getLogger(addAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParserConfigurationException ex) {
-            Logger.getLogger(addAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
-        }
+      //setLayout(new GridLayout(sizeOfList*sizeOfList,5));
+     
+    // setLayout(new FlowLayout());
+     setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+     
+    
+      
+    AppetizersDao nodeList = new AppetizersDao();
+    
+    //getting the size of list of appetizers
+    sizeOfList = nodeList.length();
+    //initializing the food array of that list
+    food = new Food[sizeOfList];
+    System.out.println(sizeOfList);
+            
+    //store all the food in to the food array variable
+    food = nodeList.getAllAppetizers();
+    //initializing the arrays of size of the list
+    buttons = new JButton[sizeOfList];
+    
+    nameLabels = new JLabel[sizeOfList];
+    appDesLabels = new JLabel[sizeOfList];
+    quantaty = new JTextField[sizeOfList];
+    prices = new JLabel[sizeOfList];
+    
+    System.out.println(food[0].getPic());
+//   JLabel b = new JLabel("test");
+//    b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/Images/pizza.jpg")));
+//    add(b);
+   for(int i=0; i <sizeOfList; i++){
+//        appIconName[i] = food[i].getPic();
+//        System.out.println(appIconName[i]);
+//        appIconPic[i] = new ImageIcon(appIconName[i]);
+        nameLabels[i] = new JLabel(food[i].getName());//appIconPic[i],JLabel.CENTER);
+        nameLabels[i].setIcon(new javax.swing.ImageIcon(getClass().getResource(food[i].getPic())));
+        buttons[i] = new JButton("ADD");
+        buttons[i].setSize(70,30);
+     
+        buttons[i].setActionCommand(food[i].getName());
+        buttons[i].addActionListener(null);
+        appDesLabels[i] = new JLabel(food[i].getDescription());
+        quantaty[i] = new JTextField(2);
+        quantaty[i].setSize(1, 2);
+        prices[i] = new JLabel(""+food[i].getPrice());
+        System.out.println(i);
+        add(nameLabels[i]);
+        add(appDesLabels[i]);
+        add(quantaty[i]);
+        add(prices[i]);
+        add(buttons[i]);
+        //JSeperator a = new JSeperator();
+     
+     }
+   
+   
+    
+    
+    
+    
         
         
         
