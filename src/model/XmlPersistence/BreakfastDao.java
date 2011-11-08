@@ -95,6 +95,12 @@ public class BreakfastDao {
         return breakfasts;
     }
     
+     //returns the lenght of nodes
+    public int length(){
+        int temp = nl.getLength();
+        return temp;
+    }
+    
     public void addAppetizer(String breakfastName, String breakfastDescription,int breakfastQuantity,double breakfastPrice,String breakfastPicture){
         Node root = doc.getDocumentElement();
         Node plate = doc.createElement("plate");

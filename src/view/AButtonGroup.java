@@ -40,13 +40,14 @@ public class AButtonGroup {
              //   throw new UnsupportedOperationException("Not supported yet.");
               //addAppetizerMenu a;
                         try {
-                            JFrame newframe = new JFrame();
+                            JPanel newframe = new JPanel();
                             newframe.setSize(600,700);
                             newframe.setVisible(true);
                             addAppetizerMenu a = new addAppetizerMenu();
-                            JScrollPane b = new JScrollPane(a); 
-                            newframe.add(b);
-                             
+                            JScrollPane b = new JScrollPane(a);
+                            b.setSize(100, 100);
+                            frame.add(b);
+                            
                           
              // a.setVisible(true);
               

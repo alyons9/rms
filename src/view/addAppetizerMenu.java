@@ -51,9 +51,9 @@ public class addAppetizerMenu extends javax.swing.JPanel {
       //setLayout(new GridLayout(sizeOfList*sizeOfList,5));
      
     // setLayout(new FlowLayout());
-     setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
+     setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
      
-       
+    
       
     AppetizersDao nodeList = new AppetizersDao();
     
@@ -106,9 +106,7 @@ public class addAppetizerMenu extends javax.swing.JPanel {
     
     
     
-    //get all of the appetizers from the xml file
-        //and store it in a food variable of array
-       food =nodeList.getAllAppetizers();
+    
         
         
         

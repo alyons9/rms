@@ -9,9 +9,13 @@
  * Created on Nov 4, 2011, 11:16:20 PM
  */
 package view;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.xml.parsers.ParserConfigurationException;
+import org.xml.sax.SAXException;
 /**
  *
  * @author Jamel Jenkins
@@ -263,6 +267,40 @@ private JButton viewcart = new JButton();
     viewcart.setLocation(580,710);
     Tablet.add(viewcart);
     repaint();
+    
+    ActionListener cancelButtonAction = new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+             //   throw new UnsupportedOperationException("Not supported yet.");
+              //addAppetizerMenu a;
+                        
+                            JPanel newframe = new JPanel();
+                            newframe.setSize(600,700);
+                            newframe.setVisible(true);
+                            addAppetizerMenu a = null;
+                    try {
+                        a = new addAppetizerMenu();
+                    } catch (SAXException ex) {
+                        Logger.getLogger(RMSGui.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ParserConfigurationException ex) {
+                        Logger.getLogger(RMSGui.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                            JScrollPane b = new JScrollPane(a);
+                            b.setSize(475, 700);
+                            b.setLocation(200, 100);
+                            b.setVisible(true);
+                            Tablet.add(b);
+                            repaint();
+                          
+             // a.setVisible(true);
+              
+              
+             
+            }
+              
+      };//end of actionListener
+     appetizers.addActionListener(cancelButtonAction);
      }}
     
     class Carryout implements ActionListener {
