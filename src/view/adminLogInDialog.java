@@ -103,7 +103,7 @@ public class adminLogInDialog extends JDialog {//being
                                    JOptionPane.INFORMATION_MESSAGE);
                         succeeded = true;
                         dispose();
-                        AdminEditMenu2 adminMenu = new AdminEditMenu2();
+                        AdminEditMenu adminMenu = new AdminEditMenu();
                         adminMenu.setVisible(true);
                         adminMenu.setSize(600,700);
                     }

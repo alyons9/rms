@@ -14,7 +14,7 @@ package view;
  *
  * @author SAMIR
  */
-public class AdminEditMenu extends javax.swing.JFrame {
+public class AdminEditMenu extends javax.swing.JInternalFrame {
 
     /** Creates new form AdminEditMenu */
     public AdminEditMenu() {
