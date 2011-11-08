@@ -65,12 +65,12 @@
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
-                  <Component id="Logo" max="32767" attributes="0"/>
+                  <Component id="Logo" pref="394" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="230" max="-2" attributes="0"/>
-                  <Component id="enterMenu" pref="198" max="32767" attributes="0"/>
+                  <Component id="enterMenu" pref="205" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="237" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -106,7 +106,6 @@
               <Border info="null"/>
             </Property>
             <Property name="name" type="java.lang.String" value="AdminLogin" noResource="true"/>
-            <Property name="opaque" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AdminLoginActionPerformed"/>
@@ -138,7 +137,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="jButton1"/>
             <Property name="iconTextGap" type="int" value="0"/>
-            <Property name="opaque" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enterMenuActionPerformed"/>

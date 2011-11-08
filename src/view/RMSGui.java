@@ -36,6 +36,9 @@ private JButton back = new JButton();
 private JButton next = new JButton();
 private JButton viewcart = new JButton();
 private JScrollPane foodPane = new JScrollPane();
+    
+private addAppetizerMenu a = new addAppetizerMenu();
+
     /** Creates new form RMSGui */
     public RMSGui() {
         initComponents();
@@ -76,7 +79,6 @@ private JScrollPane foodPane = new JScrollPane();
         AdminLogin.setText("AdminLogin");
         AdminLogin.setBorder(null);
         AdminLogin.setName("AdminLogin"); // NOI18N
-        AdminLogin.setOpaque(false);
         AdminLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AdminLoginActionPerformed(evt);
@@ -94,7 +96,6 @@ private JScrollPane foodPane = new JScrollPane();
         enterMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Cnerds Button.png"))); // NOI18N
         enterMenu.setText("jButton1");
         enterMenu.setIconTextGap(0);
-        enterMenu.setOpaque(false);
         enterMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterMenuActionPerformed(evt);
@@ -111,11 +112,11 @@ private JScrollPane foodPane = new JScrollPane();
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TabletLayout.createSequentialGroup()
                 .addGap(149, 149, 149)
-                .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
                 .addGap(129, 129, 129))
             .addGroup(TabletLayout.createSequentialGroup()
                 .addGap(230, 230, 230)
-                .addComponent(enterMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 198, Short.MAX_VALUE)
+                .addComponent(enterMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 205, Short.MAX_VALUE)
                 .addGap(237, 237, 237))
         );
         TabletLayout.setVerticalGroup(
@@ -346,20 +347,13 @@ private JScrollPane foodPane = new JScrollPane();
     
     class appetizers implements ActionListener{
         public void actionPerformed(ActionEvent e){
-            try {
-                addAppetizerMenu a = new addAppetizerMenu();
-                foodPane.add(a);
+            //addAppetizerMenu a = new addAppetizerMenu();
+            foodPane.add(a);
             foodPane.setVisible(true);
-            foodPane.setSize(535, 600);
-            foodPane.setLocation(160, 70);
+            foodPane.setSize(532, 600);
+            foodPane.setLocation(170, 70);
             Tablet.add(foodPane);
             repaint();
-            } catch (SAXException ex) {
-                Logger.getLogger(RMSGui.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ParserConfigurationException ex) {
-                Logger.getLogger(RMSGui.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
         }
     }
     
