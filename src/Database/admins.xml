@@ -44,4 +44,10 @@
 <username>jjenkins30</username>
 <password>yo</password>
 </user>
+<user>
+<firstname>bob</firstname>
+<lastname>bob</lastname>
+<username>bob</username>
+<password>bob</password>
+</user>
 </admins>
