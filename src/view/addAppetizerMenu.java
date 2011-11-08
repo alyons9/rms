@@ -80,26 +80,6 @@ public class addAppetizerMenu extends javax.swing.JPanel {
      
     // setLayout(new FlowLayout());
      setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
-     
-    
-      
-    AppetizersDao nodeList = new AppetizersDao();
-    
-    //getting the size of list of appetizers
-    sizeOfList = nodeList.length();
-    //initializing the food array of that list
-    food = new Food[sizeOfList];
-    System.out.println(sizeOfList);
-            
-    //store all the food in to the food array variable
-    food = nodeList.getAllAppetizers();
-    //initializing the arrays of size of the list
-    buttons = new JButton[sizeOfList];
-    
-    nameLabels = new JLabel[sizeOfList];
-    appDesLabels = new JLabel[sizeOfList];
-    quantaty = new JTextField[sizeOfList];
-    prices = new JLabel[sizeOfList];
     
     System.out.println(food[0].getPic());
 //   JLabel b = new JLabel("test");
@@ -128,7 +108,11 @@ public class addAppetizerMenu extends javax.swing.JPanel {
         add(buttons[i]);
         //JSeperator a = new JSeperator();
      
-     }
+     }  } catch (SAXException ex) {
+            Logger.getLogger(addAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParserConfigurationException ex) {
+            Logger.getLogger(addAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
    
    
     

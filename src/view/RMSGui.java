@@ -37,13 +37,12 @@ private JButton confirm = new JButton();
 private JButton viewback = new JButton();
 private JButton next = new JButton();
 private JButton viewcart = new JButton();
-<<<<<<< HEAD
 private addAppetizerMenu a = new addAppetizerMenu();
 private JScrollPane foodPane = new JScrollPane(a);
     
 
 
-=======
+
 private JPanel separator = new JPanel();
 private JLabel MenuLogo = new JLabel();
 private JLabel CartLogo = new JLabel();
@@ -51,12 +50,13 @@ private JPanel viewPanel = new JPanel();
 private JScrollPane viewScrollPane = new JScrollPane();
 //private JLabel DineInLogo = new JLabel();
 //private JLabel CarryOutLogo = new JLabel();
->>>>>>> 2ec290d9d5db004250e971ff528ade84887c3641
+
     /** Creates new form RMSGui */
     public RMSGui() {
         initComponents();
         dineIn.addActionListener(new DineInAction());
         CarryOut.addActionListener(new Carryout());
+        appetizers.addActionListener(new appetizers());
         home.addActionListener(homeListener);
         back.addActionListener(backListener);
         viewcart.addActionListener(viewcartListener);
@@ -292,40 +292,6 @@ private JScrollPane viewScrollPane = new JScrollPane();
     viewScrollPane.setVisible(false);
     Tablet.add(viewcart);
     repaint();
-    
-    ActionListener cancelButtonAction = new ActionListener(){
-
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-             //   throw new UnsupportedOperationException("Not supported yet.");
-              //addAppetizerMenu a;
-                        
-                            JPanel newframe = new JPanel();
-                            newframe.setSize(600,700);
-                            newframe.setVisible(true);
-                            addAppetizerMenu a = null;
-                    try {
-                        a = new addAppetizerMenu();
-                    } catch (SAXException ex) {
-                        Logger.getLogger(RMSGui.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (ParserConfigurationException ex) {
-                        Logger.getLogger(RMSGui.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                            JScrollPane b = new JScrollPane(a);
-                            b.setSize(475, 700);
-                            b.setLocation(200, 100);
-                            b.setVisible(true);
-                            Tablet.add(b);
-                            repaint();
-                          
-             // a.setVisible(true);
-              
-              
-             
-            }
-              
-      };//end of actionListener
-     appetizers.addActionListener(cancelButtonAction);
      }}
     
     class Carryout implements ActionListener {
@@ -403,13 +369,13 @@ private JScrollPane viewScrollPane = new JScrollPane();
     repaint();
       }}
     
-<<<<<<< HEAD
+
     class appetizers implements ActionListener{
         public void actionPerformed(ActionEvent e){
             //addAppetizerMenu a = new addAppetizerMenu();
             //foodPane.add(a);
             foodPane.setVisible(true);
-            foodPane.setSize(532, 600);
+            foodPane.setSize(524, 600);
             foodPane.setLocation(170, 70);
             foodPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
             foodPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -418,7 +384,7 @@ private JScrollPane viewScrollPane = new JScrollPane();
             repaint();
         }
     }
-=======
+
     ActionListener homeListener = new ActionListener(){
     public void actionPerformed(ActionEvent e){
     confirm.setVisible(false);
@@ -444,6 +410,7 @@ private JScrollPane viewScrollPane = new JScrollPane();
     CarryOut.setVisible(false);
     dineIn.setVisible(false);
     appetizers.setVisible(false);
+    foodPane.setVisible(false);
     repaint();
     }};
     
@@ -471,6 +438,7 @@ private JScrollPane viewScrollPane = new JScrollPane();
     CarryOut.setVisible(true);
     dineIn.setVisible(true);
     appetizers.setVisible(false);
+    foodPane.setVisible(false);
     repaint();
     }};
     
@@ -506,6 +474,7 @@ private JScrollPane viewScrollPane = new JScrollPane();
     CarryOut.setVisible(false);
     dineIn.setVisible(false);
     appetizers.setVisible(true);
+    foodPane.setVisible(false);
     viewScrollPane.setVisible(true);
     viewScrollPane.setBackground(new java.awt.Color(0, 0, 0));
     viewScrollPane.setSize(522,625);
@@ -524,6 +493,7 @@ private JScrollPane viewScrollPane = new JScrollPane();
     confirm.setVisible(false);
     CarryOut.setVisible(false);
     dineIn.setVisible(false);
+    appetizers.setVisible(false);
     Logo.setVisible(false);
     Logo2.setVisible(false);
     AdminLogin.setVisible(false);
@@ -538,6 +508,7 @@ private JScrollPane viewScrollPane = new JScrollPane();
     //CarryOutLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/CarryOut Logo.png")));
     Tablet.add(separator);
     Tablet.add(MenuLogo);
+    foodPane.setVisible(false);
     MenuLogo.setVisible(true);
     MenuLogo.setSize(272,88);
     MenuLogo.setLocation(290,10);
@@ -594,7 +565,7 @@ private JScrollPane viewScrollPane = new JScrollPane();
     Tablet.add(viewcart);
     repaint();
     }};
->>>>>>> 2ec290d9d5db004250e971ff528ade84887c3641
+
     
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
