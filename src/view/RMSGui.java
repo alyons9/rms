@@ -9,9 +9,13 @@
  * Created on Nov 4, 2011, 11:16:20 PM
  */
 package view;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.xml.parsers.ParserConfigurationException;
+import org.xml.sax.SAXException;
 /**
  *
  * @author Jamel Jenkins
@@ -31,11 +35,13 @@ private JButton home = new JButton();
 private JButton back = new JButton();
 private JButton next = new JButton();
 private JButton viewcart = new JButton();
+private JScrollPane foodPane = new JScrollPane();
     /** Creates new form RMSGui */
     public RMSGui() {
         initComponents();
         dineIn.addActionListener(new DineIn());
         CarryOut.addActionListener(new Carryout());
+        appetizers.addActionListener(new appetizers());
     }
 
     /** This method is called from within the constructor to
@@ -337,6 +343,25 @@ private JButton viewcart = new JButton();
     Tablet.add(viewcart);
     repaint();
       }}
+    
+    class appetizers implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            try {
+                addAppetizerMenu a = new addAppetizerMenu();
+                foodPane.add(a);
+            foodPane.setVisible(true);
+            foodPane.setSize(535, 600);
+            foodPane.setLocation(160, 70);
+            Tablet.add(foodPane);
+            repaint();
+            } catch (SAXException ex) {
+                Logger.getLogger(RMSGui.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ParserConfigurationException ex) {
+                Logger.getLogger(RMSGui.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+    }
     
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
