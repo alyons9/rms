@@ -27,7 +27,7 @@ import model.admin;
 import org.xml.sax.SAXException;
 
 /**
- *
+ * @Class Name: AdminDao
  * @author anthonylyons
  */
 public class adminDao {

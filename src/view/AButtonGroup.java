@@ -27,6 +27,9 @@ public class AButtonGroup {
         b.add(ab);
         frame.add(b);
         
+      
+       
+       
         frame.setSize(100, 100);
         frame.setVisible(true);
         
@@ -41,11 +44,13 @@ public class AButtonGroup {
                             newframe.setSize(600,700);
                             newframe.setVisible(true);
                             addAppetizerMenu a = new addAppetizerMenu();
-                             newframe.add(a);
+                            JScrollPane b = new JScrollPane(a); 
+                            newframe.add(b);
+                             
                           
-              a.setVisible(true);
+             // a.setVisible(true);
               
-              System.out.println("hello from action");
+              
                         } catch (SAXException ex) {
                             Logger.getLogger(AButtonGroup.class.getName()).log(Level.SEVERE, null, ex);
                         } catch (ParserConfigurationException ex) {

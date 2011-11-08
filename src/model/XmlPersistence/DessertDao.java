@@ -26,7 +26,7 @@ import model.Food;
 import org.xml.sax.SAXException;
 
 /**
- *
+ * @Class Name: DessertDao
  * @author anthonylyons
  */
 public class DessertDao {
