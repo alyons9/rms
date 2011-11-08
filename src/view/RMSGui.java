@@ -155,7 +155,8 @@ private JScrollPane viewScrollPane = new JScrollPane();
 
     adminLogInDialog a = new adminLogInDialog();
     a.setVisible(true);
-    
+    a.setLocation(200,400);
+    Tablet.add(a);
    // AdminEditMenu adminMenu = new AdminEditMenu();
     //adminMenu.setVisible(true);
     //adminMenu.setSize(600,700);

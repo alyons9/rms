@@ -106,6 +106,8 @@ public class adminLogInDialog extends JDialog {//being
                         AdminEditMenu adminMenu = new AdminEditMenu();
                         adminMenu.setVisible(true);
                         adminMenu.setSize(600,700);
+                 
+                        
                     }
                     else{//displaying a false if a username and password are incorrect
                          JOptionPane.showMessageDialog(adminLogInDialog.this,"INVALID USERNAME OR PASSWORD",
