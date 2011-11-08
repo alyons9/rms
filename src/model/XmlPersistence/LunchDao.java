@@ -94,6 +94,12 @@ public class LunchDao {
         
         return lunches;
     }
+      
+       //returns the lenght of nodes
+    public int length(){
+        int temp = nl.getLength();
+        return temp;
+    }
     
     public void addLunch(String lunchName, String lunchDescription,int lunchQuantity,double lunchPrice,String lunchPicture){
         Node root = doc.getDocumentElement();

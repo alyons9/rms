@@ -9,9 +9,13 @@
  * Created on Nov 4, 2011, 11:16:20 PM
  */
 package view;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.xml.parsers.ParserConfigurationException;
+import org.xml.sax.SAXException;
 /**
  *
  * @author Jamel Jenkins
@@ -33,6 +37,12 @@ private JButton confirm = new JButton();
 private JButton viewback = new JButton();
 private JButton next = new JButton();
 private JButton viewcart = new JButton();
+private addAppetizerMenu a = new addAppetizerMenu();
+private JScrollPane foodPane = new JScrollPane(a);
+    
+
+
+
 private JPanel separator = new JPanel();
 private JLabel MenuLogo = new JLabel();
 private JLabel CartLogo = new JLabel();
@@ -40,11 +50,13 @@ private JPanel viewPanel = new JPanel();
 private JScrollPane viewScrollPane = new JScrollPane();
 //private JLabel DineInLogo = new JLabel();
 //private JLabel CarryOutLogo = new JLabel();
+
     /** Creates new form RMSGui */
     public RMSGui() {
         initComponents();
         dineIn.addActionListener(new DineInAction());
         CarryOut.addActionListener(new Carryout());
+        appetizers.addActionListener(new appetizers());
         home.addActionListener(homeListener);
         back.addActionListener(backListener);
         viewcart.addActionListener(viewcartListener);
@@ -141,7 +153,7 @@ private JScrollPane viewScrollPane = new JScrollPane();
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Tablet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Tablet, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -358,6 +370,22 @@ private JScrollPane viewScrollPane = new JScrollPane();
     repaint();
       }}
     
+
+    class appetizers implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            //addAppetizerMenu a = new addAppetizerMenu();
+            //foodPane.add(a);
+            foodPane.setVisible(true);
+            foodPane.setSize(524, 600);
+            foodPane.setLocation(170, 70);
+            foodPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+            foodPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+            
+            Tablet.add(foodPane);
+            repaint();
+        }
+    }
+
     ActionListener homeListener = new ActionListener(){
     public void actionPerformed(ActionEvent e){
     confirm.setVisible(false);
@@ -383,6 +411,7 @@ private JScrollPane viewScrollPane = new JScrollPane();
     CarryOut.setVisible(false);
     dineIn.setVisible(false);
     appetizers.setVisible(false);
+    foodPane.setVisible(false);
     repaint();
     }};
     
@@ -410,6 +439,7 @@ private JScrollPane viewScrollPane = new JScrollPane();
     CarryOut.setVisible(true);
     dineIn.setVisible(true);
     appetizers.setVisible(false);
+    foodPane.setVisible(false);
     repaint();
     }};
     
@@ -445,6 +475,7 @@ private JScrollPane viewScrollPane = new JScrollPane();
     CarryOut.setVisible(false);
     dineIn.setVisible(false);
     appetizers.setVisible(true);
+    foodPane.setVisible(false);
     viewScrollPane.setVisible(true);
     viewScrollPane.setBackground(new java.awt.Color(0, 0, 0));
     viewScrollPane.setSize(522,625);
@@ -463,6 +494,7 @@ private JScrollPane viewScrollPane = new JScrollPane();
     confirm.setVisible(false);
     CarryOut.setVisible(false);
     dineIn.setVisible(false);
+    appetizers.setVisible(false);
     Logo.setVisible(false);
     Logo2.setVisible(false);
     AdminLogin.setVisible(false);
@@ -477,6 +509,7 @@ private JScrollPane viewScrollPane = new JScrollPane();
     //CarryOutLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/CarryOut Logo.png")));
     Tablet.add(separator);
     Tablet.add(MenuLogo);
+    foodPane.setVisible(false);
     MenuLogo.setVisible(true);
     MenuLogo.setSize(272,88);
     MenuLogo.setLocation(290,10);
@@ -533,6 +566,7 @@ private JScrollPane viewScrollPane = new JScrollPane();
     Tablet.add(viewcart);
     repaint();
     }};
+
     
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

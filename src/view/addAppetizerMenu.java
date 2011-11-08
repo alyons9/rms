@@ -15,6 +15,8 @@ import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BoxLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -45,33 +47,39 @@ public class addAppetizerMenu extends javax.swing.JPanel {
     private JLabel[] prices;
     
     /** Creates new form addAppetizerMenu */
-    public addAppetizerMenu() throws SAXException, ParserConfigurationException {
-        initComponents();
+    public addAppetizerMenu() {
+        try {
+            initComponents();
+            
+          //setLayout(new GridLayout(sizeOfList*sizeOfList,5));
+         
+        // setLayout(new FlowLayout());
+         setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
+         
+           
+          
+        AppetizersDao nodeList = new AppetizersDao();
+        
+        //getting the size of list of appetizers
+        sizeOfList = nodeList.length();
+        //initializing the food array of that list
+        food = new Food[sizeOfList];
+        System.out.println(sizeOfList);
+                
+        //store all the food in to the food array variable
+        food = nodeList.getAllAppetizers();
+        //initializing the arrays of size of the list
+        buttons = new JButton[sizeOfList];
+        
+        nameLabels = new JLabel[sizeOfList];
+        appDesLabels = new JLabel[sizeOfList];
+        quantaty = new JTextField[sizeOfList];
+        prices = new JLabel[sizeOfList];
         
       //setLayout(new GridLayout(sizeOfList*sizeOfList,5));
      
     // setLayout(new FlowLayout());
-     setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
-     
-       
-      
-    AppetizersDao nodeList = new AppetizersDao();
-    
-    //getting the size of list of appetizers
-    sizeOfList = nodeList.length();
-    //initializing the food array of that list
-    food = new Food[sizeOfList];
-    System.out.println(sizeOfList);
-            
-    //store all the food in to the food array variable
-    food = nodeList.getAllAppetizers();
-    //initializing the arrays of size of the list
-    buttons = new JButton[sizeOfList];
-    
-    nameLabels = new JLabel[sizeOfList];
-    appDesLabels = new JLabel[sizeOfList];
-    quantaty = new JTextField[sizeOfList];
-    prices = new JLabel[sizeOfList];
+     setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
     
     System.out.println(food[0].getPic());
 //   JLabel b = new JLabel("test");
@@ -100,15 +108,17 @@ public class addAppetizerMenu extends javax.swing.JPanel {
         add(buttons[i]);
         //JSeperator a = new JSeperator();
      
-     }
+     }  } catch (SAXException ex) {
+            Logger.getLogger(addAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParserConfigurationException ex) {
+            Logger.getLogger(addAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
    
    
     
     
     
-    //get all of the appetizers from the xml file
-        //and store it in a food variable of array
-       food =nodeList.getAllAppetizers();
+    
         
         
         

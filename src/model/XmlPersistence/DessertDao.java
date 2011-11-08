@@ -101,6 +101,13 @@ public class DessertDao {
         
         return desserts;
     }
+    
+     //returns the lenght of nodes
+    public int length(){
+        int temp = nl.getLength();
+        return temp;
+    }
+    
     //Add appetizer to node list then write to the file
     //Pre: name, description,Quantity, price, picture for appetizer parameters
     //Post: add to node list and write to file

@@ -94,6 +94,14 @@ public class DinnerDao {
         
         return dinners;
     }
+       
+       
+        //returns the lenght of nodes
+    public int length(){
+        int temp = nl.getLength();
+        return temp;
+    }
+       
     
     public void addDinner(String dinnerName, String dinnerDescription,int dinnerQuantity,double dinnerPrice,String dinnerPicture){
         Node root = doc.getDocumentElement();
