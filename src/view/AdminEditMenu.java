@@ -38,8 +38,6 @@ public class AdminEditMenu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 10));
 
         appetizerButton.setText("Appetizers Menu");
@@ -55,11 +53,11 @@ public class AdminEditMenu extends javax.swing.JFrame {
 
         drinkButton.setText("Drink Menu");
 
-        jLabel1.setFont(new java.awt.Font("Harlow Solid Italic", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Harlow Solid Italic", 1, 36));
         jLabel1.setText("Administrator Edit Menu");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel2.setFont(new java.awt.Font("Harlow Solid Italic", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Harlow Solid Italic", 0, 18));
         jLabel2.setText("Please Select What Part Of the Menu You Want To Edit");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
