@@ -27,6 +27,9 @@ public class AButtonGroup {
         b.add(ab);
         frame.add(b);
         
+      
+       
+       
         frame.setSize(100, 100);
         frame.setVisible(true);
         
@@ -41,7 +44,9 @@ public class AButtonGroup {
                             newframe.setSize(600,700);
                             newframe.setVisible(true);
                             addAppetizerMenu a = new addAppetizerMenu();
-                             newframe.add(a);
+                            JScrollPane b = new JScrollPane(a); 
+                            newframe.add(b);
+                             
                           
              // a.setVisible(true);
               

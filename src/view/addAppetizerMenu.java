@@ -10,6 +10,7 @@
  */
 package view;
 
+import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -47,10 +48,12 @@ public class addAppetizerMenu extends javax.swing.JPanel {
     public addAppetizerMenu() throws SAXException, ParserConfigurationException {
         initComponents();
         
-      //setLayout(new GridLayout(sizeOfList*sizeOfList,3));
+      //setLayout(new GridLayout(sizeOfList*sizeOfList,5));
      
-     //setLayout(new FlowLayout());
+    // setLayout(new FlowLayout());
      setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
+     
+       
       
     AppetizersDao nodeList = new AppetizersDao();
     
@@ -64,22 +67,25 @@ public class addAppetizerMenu extends javax.swing.JPanel {
     food = nodeList.getAllAppetizers();
     //initializing the arrays of size of the list
     buttons = new JButton[sizeOfList];
+    
     nameLabels = new JLabel[sizeOfList];
     appDesLabels = new JLabel[sizeOfList];
     quantaty = new JTextField[sizeOfList];
     prices = new JLabel[sizeOfList];
     
     System.out.println(food[0].getPic());
-   /* JLabel b = new JLabel("test");
-    b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/Images/bonelessWings.jpg")));
-    add(b);*/
+//   JLabel b = new JLabel("test");
+//    b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/Images/pizza.jpg")));
+//    add(b);
    for(int i=0; i <sizeOfList; i++){
-        appIconName[i] = food[i].getPic();
-        System.out.println(appIconName[i]);
-       appIconPic[i] = new ImageIcon(appIconName[i]);
-        nameLabels[i] = new JLabel(food[i].getName());//,appIconPic[i],JLabel.CENTER);
+//        appIconName[i] = food[i].getPic();
+//        System.out.println(appIconName[i]);
+//        appIconPic[i] = new ImageIcon(appIconName[i]);
+        nameLabels[i] = new JLabel(food[i].getName());//appIconPic[i],JLabel.CENTER);
+        nameLabels[i].setIcon(new javax.swing.ImageIcon(getClass().getResource(food[i].getPic())));
         buttons[i] = new JButton("ADD");
         buttons[i].setSize(70,30);
+     
         buttons[i].setActionCommand(food[i].getName());
         buttons[i].addActionListener(null);
         appDesLabels[i] = new JLabel(food[i].getDescription());
