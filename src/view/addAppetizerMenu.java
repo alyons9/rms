@@ -45,6 +45,7 @@ public class addAppetizerMenu extends javax.swing.JPanel {
     private JLabel[] appDesLabels;
     private JTextField[] quantaty;
     private JLabel[] prices;
+    private ImageIcon[] icon;
     
     /** Creates new form addAppetizerMenu */
     public addAppetizerMenu() {
@@ -75,6 +76,7 @@ public class addAppetizerMenu extends javax.swing.JPanel {
         appDesLabels = new JLabel[sizeOfList];
         quantaty = new JTextField[sizeOfList];
         prices = new JLabel[sizeOfList];
+        icon = new ImageIcon[sizeOfList];
         
       //setLayout(new GridLayout(sizeOfList*sizeOfList,5));
      
@@ -89,8 +91,10 @@ public class addAppetizerMenu extends javax.swing.JPanel {
 //        appIconName[i] = food[i].getPic();
 //        System.out.println(appIconName[i]);
 //        appIconPic[i] = new ImageIcon(appIconName[i]);
+        icon[i] = createImageIcon(food[i].getPic());
         nameLabels[i] = new JLabel(food[i].getName());//appIconPic[i],JLabel.CENTER);
-        nameLabels[i].setIcon(new javax.swing.ImageIcon(getClass().getResource(food[i].getPic())));
+        nameLabels[i].setIcon(icon[i]);
+        //nameLabels[i].setIcon(new javax.swing.ImageIcon(getClass().getResource(food[i].getPic())));
         buttons[i] = new JButton("ADD");
         buttons[i].setSize(70,30);
      
@@ -126,6 +130,15 @@ public class addAppetizerMenu extends javax.swing.JPanel {
     
     
     }
+    protected ImageIcon createImageIcon(String path) {
+    java.net.URL imgURL = getClass().getResource(path);
+    if (imgURL != null) {
+        return new ImageIcon(imgURL);
+    } else {
+        System.err.println("Couldn't find file: " + path);
+        return null;
+    }
+}
 
     /** This method is called from within the constructor to
      * initialize the form.
