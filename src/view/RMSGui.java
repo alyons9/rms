@@ -165,9 +165,10 @@ private JScrollPane viewScrollPane = new JScrollPane();
 
     private void AdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminLoginActionPerformed
 
-    adminLogInDialog a = new adminLogInDialog();
+    adminLogInDialog a = new adminLogInDialog(Tablet);
     a.setVisible(true);
     a.setLocation(200,400);
+    a.setSize(400,400);
     Tablet.add(a);
    // AdminEditMenu adminMenu = new AdminEditMenu();
     //adminMenu.setVisible(true);
@@ -489,6 +490,9 @@ private JScrollPane viewScrollPane = new JScrollPane();
     repaint();
     }};
     
+    /* The viewbackListener is for the back button when the cart is opened.
+     * Once the back button is pressed it will return to the menu.
+     */
     ActionListener viewbackListener = new ActionListener(){
     public void actionPerformed(ActionEvent e){
     confirm.setVisible(false);

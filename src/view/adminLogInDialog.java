@@ -27,17 +27,19 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JInternalFrame;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
+import java.awt.*;
 
 /**
  *
  * @author SAMIR
  */
-public class adminLogInDialog extends JDialog {//being
+public class adminLogInDialog extends JInternalFrame {//being
   private JTextField userNameValue;
   private JPasswordField passwordValue;
   private JLabel userName;
@@ -45,16 +47,18 @@ public class adminLogInDialog extends JDialog {//being
   private JButton confirm;
   private JButton cancel;
   private JButton signUp;
+  private JPanel q;
   private boolean succeeded;
   
  
   
-  public adminLogInDialog(){//begin constructor
+  public adminLogInDialog(JPanel a){//begin constructor
+     
      
      // super(frame,"ADMINISTRATOR LOGIN",true);
       JPanel dialogPanel = new JPanel(new GridBagLayout());
       GridBagConstraints constraints = new GridBagConstraints();
-      
+      q = a;
       constraints.fill = GridBagConstraints.HORIZONTAL;
       
       //adding the the label for the Username
@@ -86,7 +90,7 @@ public class adminLogInDialog extends JDialog {//being
       dialogPanel.add(passwordValue,constraints);
   
       //adding a border around th panel
-      dialogPanel.setBorder(new LineBorder(Color.BLUE));
+      dialogPanel.setBorder(new LineBorder(Color.gray));
       
       confirm = new JButton("CONFIRM");
       
@@ -106,6 +110,7 @@ public class adminLogInDialog extends JDialog {//being
                         AdminEditMenu adminMenu = new AdminEditMenu();
                         adminMenu.setVisible(true);
                         adminMenu.setSize(600,700);
+                        q.add(adminMenu);
                  
                         
                     }
