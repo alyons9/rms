@@ -11,6 +11,7 @@
 package view;
 
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -22,9 +23,13 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
 import javax.xml.parsers.ParserConfigurationException;
 import model.Food;
 import model.XmlPersistence.AppetizersDao;
@@ -43,7 +48,7 @@ public class addAppetizerMenu extends javax.swing.JPanel {
     private String[] appIconName;
     private Icon[] appIconPic;
     private JLabel[] appDesLabels;
-    private JTextField[] quantaty;
+    private JSpinner spinner[];
     private JLabel[] prices;
     private ImageIcon[] icon;
     
@@ -51,12 +56,12 @@ public class addAppetizerMenu extends javax.swing.JPanel {
     public addAppetizerMenu() {
         try {
             initComponents();
-            
-          //setLayout(new GridLayout(sizeOfList*sizeOfList,5));
+           // setPreferredSize(new Dimension(300,12000));
+         // setLayout(new GridLayout(sizeOfList*sizeOfList,5));
          
-        // setLayout(new FlowLayout());
-         setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
-         
+      // setLayout(new FlowLayout());
+         //setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
+          setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
            
           
         AppetizersDao nodeList = new AppetizersDao();
@@ -74,14 +79,11 @@ public class addAppetizerMenu extends javax.swing.JPanel {
         
         nameLabels = new JLabel[sizeOfList];
         appDesLabels = new JLabel[sizeOfList];
-        quantaty = new JTextField[sizeOfList];
+        spinner = new JSpinner[sizeOfList];
         prices = new JLabel[sizeOfList];
         icon = new ImageIcon[sizeOfList];
         
-      //setLayout(new GridLayout(sizeOfList*sizeOfList,5));
-     
-    // setLayout(new FlowLayout());
-     setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+        
     
     System.out.println(food[0].getPic());
 //   JLabel b = new JLabel("test");
@@ -91,43 +93,38 @@ public class addAppetizerMenu extends javax.swing.JPanel {
 //        appIconName[i] = food[i].getPic();
 //        System.out.println(appIconName[i]);
 //        appIconPic[i] = new ImageIcon(appIconName[i]);
-        icon[i] = createImageIcon(food[i].getPic());
+      //  icon[i] = createImageIcon(food[i].getPic());
         nameLabels[i] = new JLabel(food[i].getName());//appIconPic[i],JLabel.CENTER);
-        nameLabels[i].setIcon(icon[i]);
-        //nameLabels[i].setIcon(new javax.swing.ImageIcon(getClass().getResource(food[i].getPic())));
+        //nameLabels[i].setIcon(icon[i]);
+        nameLabels[i].setIcon(new javax.swing.ImageIcon(getClass().getResource(food[i].getPic())));
         buttons[i] = new JButton("ADD");
-        buttons[i].setSize(70,30);
+        buttons[i].setPreferredSize(new Dimension(70,30));
      
         buttons[i].setActionCommand(food[i].getName());
         buttons[i].addActionListener(null);
         appDesLabels[i] = new JLabel(food[i].getDescription());
-        quantaty[i] = new JTextField(2);
-        quantaty[i].setSize(1, 2);
+       // appDesLabels[i].setPreferredSize(new Dimension(30,30));
+        spinner[i] = new JSpinner(new SpinnerNumberModel(0, 0, 15, 1));
+     //   spinner[i].setPreferredSize(new Dimension(20,20));
         prices[i] = new JLabel(""+food[i].getPrice());
         System.out.println(i);
         add(nameLabels[i]);
         add(appDesLabels[i]);
-        add(quantaty[i]);
+        add(spinner[i]);
         add(prices[i]);
         add(buttons[i]);
-        //JSeperator a = new JSeperator();
+        JSeparator a = new JSeparator();
+        add(a);
      
-     }  } catch (SAXException ex) {
+     } 
+        
+        } catch (SAXException ex) {
             Logger.getLogger(addAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParserConfigurationException ex) {
             Logger.getLogger(addAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
    
-   
-    
-    
-    
-    
-        
-        
-        
-          
-    
+  
     
     }
     protected ImageIcon createImageIcon(String path) {

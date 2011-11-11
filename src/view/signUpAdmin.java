@@ -116,8 +116,8 @@ public class signUpAdmin extends JDialog {
                            logIn.addTo(getFirstNameValue(),getLastNameValue(),getUserNameValue(),getPasswordValue());
                            System.out.println("Im in signupadmin");
                            dispose();
-                           adminLogInDialog dialogBox = new adminLogInDialog();
-                           dialogBox.setVisible(true);
+                         //  adminLogInDialog dialogBox = new adminLogInDialog();
+                         //  dialogBox.setVisible(true);
                 } catch (SAXException ex) {
                     Logger.getLogger(signUpAdmin.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (ParserConfigurationException ex) {

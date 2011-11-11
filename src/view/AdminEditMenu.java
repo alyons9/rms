@@ -14,7 +14,7 @@ package view;
  *
  * @author SAMIR
  */
-public class AdminEditMenu extends javax.swing.JInternalFrame {
+public class AdminEditMenu extends javax.swing.JFrame {
 
     /** Creates new form AdminEditMenu */
     public AdminEditMenu() {
@@ -37,6 +37,8 @@ public class AdminEditMenu extends javax.swing.JInternalFrame {
         drinkButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+
+        setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 10));
 

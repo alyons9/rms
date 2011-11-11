@@ -27,11 +27,13 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JInternalFrame;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
+import java.awt.*;
 
 /**
  *
@@ -50,6 +52,7 @@ public class adminLogInDialog extends JDialog {//being
  
   
   public adminLogInDialog(){//begin constructor
+     
      
      // super(frame,"ADMINISTRATOR LOGIN",true);
       JPanel dialogPanel = new JPanel(new GridBagLayout());
@@ -86,7 +89,7 @@ public class adminLogInDialog extends JDialog {//being
       dialogPanel.add(passwordValue,constraints);
   
       //adding a border around th panel
-      dialogPanel.setBorder(new LineBorder(Color.BLUE));
+      dialogPanel.setBorder(new LineBorder(Color.gray));
       
       confirm = new JButton("CONFIRM");
       
@@ -106,8 +109,8 @@ public class adminLogInDialog extends JDialog {//being
                         AdminEditMenu adminMenu = new AdminEditMenu();
                         adminMenu.setVisible(true);
                         adminMenu.setSize(600,700);
-                 
-                        
+                         
+                           
                     }
                     else{//displaying a false if a username and password are incorrect
                          JOptionPane.showMessageDialog(adminLogInDialog.this,"INVALID USERNAME OR PASSWORD",

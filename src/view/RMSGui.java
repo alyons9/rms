@@ -378,7 +378,7 @@ private JScrollPane viewScrollPane = new JScrollPane();
             foodPane.setVisible(true);
             foodPane.setSize(524, 600);
             foodPane.setLocation(170, 70);
-            foodPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+            foodPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
             foodPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
             
             Tablet.add(foodPane);
@@ -489,6 +489,9 @@ private JScrollPane viewScrollPane = new JScrollPane();
     repaint();
     }};
     
+    /* The viewbackListener is for the back button when the cart is opened.
+     * Once the back button is pressed it will return to the menu.
+     */
     ActionListener viewbackListener = new ActionListener(){
     public void actionPerformed(ActionEvent e){
     confirm.setVisible(false);
