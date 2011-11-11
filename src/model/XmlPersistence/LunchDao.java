@@ -173,7 +173,12 @@ public class LunchDao {
 		NodeList nodel = ele.getElementsByTagName(tagName);
 		if(nodel != null && nodel.getLength() > 0) {
 			Element el = (Element)nodel.item(0);
-			textVal = el.getFirstChild().getNodeValue();
+                        if(el.hasChildNodes()){
+                            textVal = el.getFirstChild().getNodeValue();
+                        }else{
+                            textVal = " ";
+                        }
+			
 		}
 
 		return textVal;

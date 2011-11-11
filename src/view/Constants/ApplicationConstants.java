@@ -15,4 +15,5 @@ public class ApplicationConstants {
     public static final char DINNER = '3';
     public static final char APPETIZERS = '4';
     public static final char DRINKS = '5';
+    public static final char DESSERTS = '6';
 }

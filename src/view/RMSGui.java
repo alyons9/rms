@@ -9,7 +9,7 @@
  * Created on Nov 4, 2011, 11:16:20 PM
  */
 package view;
-import Controller.FoodListeners.viewBreakfastMenuActionListener;
+import Controller.FoodListeners.viewFoodMenuActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
@@ -43,11 +43,20 @@ public static JButton next = new JButton();
 public static JButton viewcart = new JButton();
 
 
-public static addAppetizerMenu a = new addAppetizerMenu();
+public static addAppetizerMenu appetizerMenu = new addAppetizerMenu();
 public static addBreakfastMenu breakfastMenu = new addBreakfastMenu();
-public static JScrollPane appetizersPane = new JScrollPane(a);
+public static addLunchMenu lunchMenu = new addLunchMenu();
+public static addDinnerMenu dinnerMenu = new addDinnerMenu();
+public static addDessertMenu dessertMenu = new addDessertMenu();
+public static addDrinkMenu drinksMenu = new addDrinkMenu();
+public static JScrollPane appetizersPane = new JScrollPane(appetizerMenu);
 public static JScrollPane breakfastPane = new JScrollPane(breakfastMenu);
+public static JScrollPane dessertPane = new JScrollPane(dessertMenu);
+public static JScrollPane lunchPane = new JScrollPane(lunchMenu);
+public static JScrollPane dinnerPane = new JScrollPane(dinnerMenu);
+public static JScrollPane drinksPane = new JScrollPane(drinksMenu);
     
+
 public static JPanel separator = new JPanel();
 public static JLabel MenuLogo = new JLabel();
 public static JLabel CartLogo = new JLabel();
@@ -67,8 +76,20 @@ public static JScrollPane viewScrollPane = new JScrollPane();
         appetizers.addActionListener(foodListener);
         
         //Breakfast ActionListeners
-        breakfast.addActionListener(new viewBreakfastMenuActionListener(breakfastPane,Tablet));
+        breakfast.addActionListener(new viewFoodMenuActionListener(breakfastPane,Tablet));
         breakfast.addActionListener(foodListener);
+        
+        lunch.addActionListener(new viewFoodMenuActionListener(lunchPane,Tablet));
+        lunch.addActionListener(foodListener);
+        
+        dinner.addActionListener(new viewFoodMenuActionListener(dinnerPane,Tablet));
+        dinner.addActionListener(foodListener);
+        
+        desserts.addActionListener(new viewFoodMenuActionListener(dessertPane,Tablet));
+        desserts.addActionListener(foodListener);
+        
+        drinks.addActionListener(new viewFoodMenuActionListener(drinksPane,Tablet));
+        drinks.addActionListener(foodListener);
         
         home.addActionListener(homeListener);
         home2.addActionListener(homeListener);
@@ -82,6 +103,7 @@ public static JScrollPane viewScrollPane = new JScrollPane();
         lunch.setActionCommand(Character.toString(ApplicationConstants.LUNCH));
         dinner.setActionCommand(Character.toString(ApplicationConstants.DINNER));
         drinks.setActionCommand(Character.toString(ApplicationConstants.DRINKS));
+        desserts.setActionCommand(Character.toString(ApplicationConstants.DESSERTS));
     }
 
     /** This method is called from within the constructor to
@@ -463,6 +485,10 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     appetizers.setVisible(false);
     appetizersPane.setVisible(false);
     breakfastPane.setVisible(false);
+    lunchPane.setVisible(false);
+    dinnerPane.setVisible(false);
+    dessertPane.setVisible(false);
+    drinksPane.setVisible(false);
     repaint();
     }};
     
@@ -492,6 +518,10 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     appetizers.setVisible(false);
     appetizersPane.setVisible(false);
     breakfastPane.setVisible(false);
+    lunchPane.setVisible(false);
+    dinnerPane.setVisible(false);
+    dessertPane.setVisible(false);
+    drinksPane.setVisible(false);
     home2.setVisible(false);
     repaint();
     }};
@@ -631,39 +661,58 @@ public static JScrollPane viewScrollPane = new JScrollPane();
             switch(e.getActionCommand().charAt(0)){
                 case ApplicationConstants.APPETIZERS:
                     breakfastPane.setVisible(false);
-                    //lunchPane.setVisible(false);
-                    //dinnerPane.setVisible(false);
-                    //drinksPane.setVisible(false);
+                    lunchPane.setVisible(false);
+                    dinnerPane.setVisible(false);
+                    drinksPane.setVisible(false);
+                    dessertPane.setVisible(false);
                     break;
                 case ApplicationConstants.BREAKFAST:
                     appetizersPane.setVisible(false);
-                    //lunchPane.setVisible(false);
-                    //dinnerPane.setVisible(false);
-                    //drinksPane.setVisible(false);
+                    lunchPane.setVisible(false);
+                    dinnerPane.setVisible(false);
+                    drinksPane.setVisible(false);
+                    dessertPane.setVisible(false);
                     break;
                 case ApplicationConstants.LUNCH: 
                     appetizersPane.setVisible(false);
                     breakfastPane.setVisible(false);
-                    //dinnerPane.setVisible(false);
-                    //drinksPane.setVisible(false);
+                    dinnerPane.setVisible(false);
+                    drinksPane.setVisible(false);
+                    dessertPane.setVisible(false);
                     break;
                 case ApplicationConstants.DINNER: 
                     appetizersPane.setVisible(false);
                     breakfastPane.setVisible(false);
-                    //lunchPane.setVisible(false);
-                    //drinksPane.setVisible(false);
+                    lunchPane.setVisible(false);
+                    drinksPane.setVisible(false);
+                    dessertPane.setVisible(false);
+                    break;
+                case ApplicationConstants.DESSERTS:
+                    appetizersPane.setVisible(false);
+                    breakfastPane.setVisible(false);
+                    lunchPane.setVisible(false);
+                    drinksPane.setVisible(false);
+                    dinnerPane.setVisible(false);
                     break;
                 case ApplicationConstants.DRINKS: 
                     appetizersPane.setVisible(false);
                     breakfastPane.setVisible(false);
-                    //lunchPane.setVisible(false);
-                    //dinnerPane.setVisible(false);
+                    lunchPane.setVisible(false);
+                    dinnerPane.setVisible(false);
+                    dessertPane.setVisible(false);
                     break;
-                
+                default: 
+                    appetizersPane.setVisible(false);
+                    breakfastPane.setVisible(false);
+                    lunchPane.setVisible(false);
+                    dinnerPane.setVisible(false);
+                    dessertPane.setVisible(false);
+                    drinksPane.setVisible(false);
+                    break;
                 
             }
             
-            System.out.println(e.getActionCommand());
+            //System.out.println(e.getActionCommand());
         }
     };
 

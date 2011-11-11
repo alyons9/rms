@@ -36,7 +36,7 @@
 
     <plate>
         <name>C-Nerds Burger</name>
-        <description>Two Pattied burger with ham,bacon,Swiss & Cheddar
+        <description>Two Pattied burger with ham,bacon,Swiss &amp; Cheddar
         with a side of fries</description>
         <quantity>1</quantity>
         <price>8.50</price>
@@ -47,7 +47,7 @@
         <name>Grilled Chicken Breast</name>
         <description>8 oz. Grilled Chicken Breast served with our special 
         seasonings and Fries</description>
-        <quantity1quantity>
+        <quantity>1</quantity>
         <price>8.50</price>
         <picture></picture>
     </plate>

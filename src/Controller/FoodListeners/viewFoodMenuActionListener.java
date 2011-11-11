@@ -13,19 +13,17 @@ import javax.swing.JScrollPane;
  * @Class Name: viewBreakfastMenuActionListener
  * @author anthonylyons
  */
-public class viewBreakfastMenuActionListener implements ActionListener {
+public class viewFoodMenuActionListener implements ActionListener {
     
     private JScrollPane foodPane;
     private JPanel Tablet;
     
-    public viewBreakfastMenuActionListener(JScrollPane foodPane, JPanel panel){
+    public viewFoodMenuActionListener(JScrollPane foodPane, JPanel panel){
         this.foodPane = foodPane;
         Tablet = panel;
     }
     
     public void actionPerformed(ActionEvent e){
-            //addAppetizerMenu a = new addAppetizerMenu();
-            //foodPane.add(a);
             foodPane.setVisible(true);
             foodPane.setSize(524, 600);
             foodPane.setLocation(170, 70);
