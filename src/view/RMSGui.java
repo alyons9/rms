@@ -406,7 +406,7 @@ public static JScrollPane viewScrollPane = new JScrollPane();
             foodPane.setVisible(true);
             foodPane.setSize(524, 600);
             foodPane.setLocation(170, 70);
-            foodPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+            foodPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
             foodPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
             home2.setVisible(false);
             Tablet.add(foodPane);

@@ -14,9 +14,6 @@
         <price>7.99</price>
         <picture>/Database/Images/bonelessWings.jpg</picture>
     </plate>
-
-
-
 <plate>
 <name>pizza</name>
 <description>Good tasting Pizza</description>
@@ -47,7 +44,7 @@
 Asian chili sauce, soy-ginger sauce and lime </description>
         <quantity>1</quantity>
         <price>8.50</price>
-        <picture></picture>
+        <picture>/Database/Images/Appetizer/TeaSmokedChicken.jpg</picture>
     </plate>
 
     <plate>
@@ -55,7 +52,7 @@ Asian chili sauce, soy-ginger sauce and lime </description>
         <description>Cheesy,savory spread to transform regular bread into a taste sensation!</description>
         <quantity>1</quantity>
         <price>3.50</price>
-        <picture></picture>
+        <picture>/Database/Images/Appetizer/CheeseGarlicBreadSpread.jpg</picture>
     </plate>
 
     <plate>
@@ -63,7 +60,7 @@ Asian chili sauce, soy-ginger sauce and lime </description>
         <description>Herby, shrimp with a kick.</description>
         <quantity>1</quantity>
         <price>8.50</price>
-        <picture></picture>
+        <picture>/Database/Images/Appetizer/spanishshrimp.jpg</picture>
     </plate>
 
     <plate>
@@ -71,7 +68,7 @@ Asian chili sauce, soy-ginger sauce and lime </description>
         <description>Yummy Chicken Pot stickers</description>
         <quantity>1</quantity>
         <price>6.50</price>
-        <picture></picture>
+        <picture>/Database/Images/Appetizer/chinese_potstickers.jpg</picture>
     </plate>
 
     <plate>
@@ -79,6 +76,6 @@ Asian chili sauce, soy-ginger sauce and lime </description>
         <description>less mayo, just enough to moisten the ingredients</description>
         <quantity>1</quantity>
         <price>6.50</price>
-        <picture></picture>
+        <picture>/Database/Images/Appetizer/chicken_salad_sandwich.jpg</picture>
     </plate>
 </Appetizers>
