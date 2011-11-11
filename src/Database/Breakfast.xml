@@ -16,7 +16,7 @@
         caramel, French bread,eggs,sugar,and milk</description>
         <quantity>1</quantity>
         <price>7.50</price>
-        <picture></picture>
+        <picture> </picture>
     </plate>
 
      <plate>
@@ -24,7 +24,7 @@
         <description>Hash Brown Potatoes with bacon,eggs, and cheddar cheese</description>
         <quantity>1</quantity>
         <price>7.50</price>
-        <picture></picture>
+        <picture> </picture>
     </plate>
 
      <plate>
@@ -32,7 +32,7 @@
         <description>Combine steel cut oats with dried fruits</description>
         <quantity>1</quantity>
         <price>3.50</price>
-        <picture></picture>
+        <picture> </picture>
     </plate>
 
      <plate>
@@ -41,7 +41,7 @@
         and American cheese</description>
         <quantity>1</quantity>
         <price>6.50</price>
-        <picture></picture>
+        <picture> </picture>
     </plate>
 
      <plate>
@@ -49,6 +49,6 @@
         <description>A simple pancake recipe served with two sausage links</description>
         <quantity>1</quantity>
         <price>7.00</price>
-        <picture></picture>
+        <picture> </picture>
     </plate>
 </Breakfast>
