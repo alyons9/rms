@@ -49,7 +49,7 @@ public class signUpAdmin extends JDialog {
       constraints.fill = GridBagConstraints.HORIZONTAL;
       
       //adding the the label for the Username
-      
+      setLocation(200,380);
       fNameAdd = new JLabel("First Name: ");
       constraints.gridx = 0;
       constraints.gridy = 0;

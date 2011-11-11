@@ -179,9 +179,6 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     Tablet.add(loginPanel);
     dineIn.setVisible(false);
     CarryOut.setVisible(false);
-    enterMenu.setVisible(false);
-    Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Cnerds Cafes.png")));
-    Logo2.setVisible(false);
     
     // AdminEditMenu adminMenu = new AdminEditMenu();
     //adminMenu.setVisible(true);
