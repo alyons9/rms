@@ -9,6 +9,7 @@
  * Created on Nov 4, 2011, 11:16:20 PM
  */
 package view;
+import Controller.FoodListeners.viewBreakfastMenuActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
@@ -39,8 +40,12 @@ public static JButton confirm = new JButton();
 public static JButton viewback = new JButton();
 public static JButton next = new JButton();
 public static JButton viewcart = new JButton();
+
+
 public static addAppetizerMenu a = new addAppetizerMenu();
+public static addBreakfastMenu breakfastMenu = new addBreakfastMenu();
 public static JScrollPane foodPane = new JScrollPane(a);
+public static JScrollPane breakfastPane = new JScrollPane(breakfastMenu);
     
 public static JPanel separator = new JPanel();
 public static JLabel MenuLogo = new JLabel();
@@ -56,6 +61,7 @@ public static JScrollPane viewScrollPane = new JScrollPane();
         dineIn.addActionListener(new DineInAction());
         CarryOut.addActionListener(new Carryout());
         appetizers.addActionListener(new appetizers());
+        breakfast.addActionListener(new viewBreakfastMenuActionListener(breakfastPane,Tablet));
         home.addActionListener(homeListener);
         home2.addActionListener(homeListener);
         back.addActionListener(backListener);
