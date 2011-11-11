@@ -9,11 +9,63 @@
 -->
 
 <Drinks>
+      <cup>
+        <name>Tea></name>
+        <description>Sweet and UnSweet</description>
+        <quantity>1</quantity>
+        <price>1.95</price>
+        <picture></picture>
+    </cup>
+
     <cup>
-        <name></name>
+        <name>Lemonade</name>
+        <description>Ask four our different flavors</description>
+        <quantity>1</quantity>
+        <price>1.95</price>
+        <picture></picture>
+    </cup>
+
+    <cup>
+        <name>Sprite</name>
+        <quantity>1</quantity>
+        <price>1.95</price>
+        <picture></picture>
+    </cup>
+
+    <cup>
+        <name>Coca Cola</name>
+        <quantity>1</quantity>
+        <price>1.95</price>
+        <picture></picture>
+    </cup>
+
+    <cup>
+        <name>Mountain Dew</name>
+        <quantity>1</quantity>
+        <price>1.95</price>
+        <picture></picture>
+    </cup>
+
+    <cup>
+        <name>Fruit Punch</name>
+        <quantity>1</quantity>
+        <price>1.95</price>
+        <picture></picture>
+    </cup>
+
+    <cup>
+        <name>Coffee</name>
         <description></description>
-        <quantity></quantity>
-        <price></price>
+        <quantity>1</quantity>
+        <price>1.80</price>
+        <picture></picture>
+    </cup>
+
+    <cup>
+        <name>Hot Tea</name>
+        <description>Lipton Hot Tea</description>
+        <quantity>1</quantity>
+        <price>1.50</price>
         <picture></picture>
     </cup>
 </Drinks>
