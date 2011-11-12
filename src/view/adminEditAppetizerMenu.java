@@ -188,8 +188,9 @@ public class adminEditAppetizerMenu extends javax.swing.JPanel implements Action
             Logger.getLogger(adminEditAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
         c.setVisible(true);
-        dialog.add(c);
-        add(dialog);
+//        dialog.add(c);
+//        add(dialog);
+        add(c);
         repaint();
         setFocusable(true);
         System.out.println("im trying to display the dialgo");

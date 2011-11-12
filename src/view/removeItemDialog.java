@@ -56,8 +56,8 @@ public class removeItemDialog extends JInternalFrame {//being
     public removeItemDialog(final AppetizersDao list) throws SAXException, ParserConfigurationException {//begin constructor
 
         //setRootPaneCheckingEnabled(false);
-    javax.swing.plaf.InternalFrameUI ifu= this.getUI();
-    ((javax.swing.plaf.basic.BasicInternalFrameUI)ifu).setNorthPane(null);
+//    javax.swing.plaf.InternalFrameUI ifu= this.getUI();
+//    ((javax.swing.plaf.basic.BasicInternalFrameUI)ifu).setNorthPane(null);
        
     setVisible(true);
         JPanel dialogPanel = new JPanel(new GridBagLayout());
@@ -74,8 +74,8 @@ public class removeItemDialog extends JInternalFrame {//being
 
         //addint the text field for the username
         removeNameValue = new JTextField(20);
-        constraints.gridx = 1;
-        constraints.gridy = 0;
+        constraints.gridx = 0;
+        constraints.gridy = 1;
         constraints.gridwidth = 2;
         dialogPanel.add(removeNameValue, constraints);
 
