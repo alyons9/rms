@@ -14,13 +14,15 @@
         <price>7.99</price>
         <picture>/Database/Images/bonelessWings.jpg</picture>
     </plate>
-<plate>
-<name>pizza</name>
-<description>Good tasting Pizza</description>
-<quantity>1</quantity>
-<price>2.99</price>
-<picture>/Database/Images/pizza.jpg</picture>
-</plate>
+ 
+   <plate>
+        <name>Pizza</name>
+        <description>Best Pizza Around.</description>
+        <quantity>1</quantity>
+        <price>7.99</price>
+        <picture>/Database/Images/pizza.jpg</picture>
+    </plate>
+
 
 <plate>
 <name>salad</name>
@@ -30,6 +32,8 @@
 <picture>/Database/Images/bltSalad.jpg</picture>
 </plate>
 
+ 
+
 <plate>
 <name>salad</name>
 <description>Good tasting salad</description>
@@ -37,45 +41,4 @@
 <price>2.99</price>
 <picture>/Database/Images/mangoSalad.jpg</picture>
 </plate>
-
-    <plate>
-        <name>Tea Smoked Chicken</name>
-        <description>Marinated overnite with chinese black tea and spices, served on a bed of lettuce with
-Asian chili sauce, soy-ginger sauce and lime </description>
-        <quantity>1</quantity>
-        <price>8.50</price>
-        <picture>/Database/Images/Appetizer/TeaSmokedChicken.jpg</picture>
-    </plate>
-
-    <plate>
-        <name>Cheese Garlic Bread Spread</name>
-        <description>Cheesy,savory spread to transform regular bread into a taste sensation!</description>
-        <quantity>1</quantity>
-        <price>3.50</price>
-        <picture>/Database/Images/Appetizer/CheeseGarlicBreadSpread.jpg</picture>
-    </plate>
-
-    <plate>
-        <name>Spanish Shrimp</name>
-        <description>Herby, shrimp with a kick.</description>
-        <quantity>1</quantity>
-        <price>8.50</price>
-        <picture>/Database/Images/Appetizer/spanishshrimp.jpg</picture>
-    </plate>
-
-    <plate>
-        <name>Chinese Pot Sticker</name>
-        <description>Yummy Chicken Pot stickers</description>
-        <quantity>1</quantity>
-        <price>6.50</price>
-        <picture>/Database/Images/Appetizer/chinese_potstickers.jpg</picture>
-    </plate>
-
-    <plate>
-        <name>Chicken Salad Sandwiches</name>
-        <description>less mayo, just enough to moisten the ingredients</description>
-        <quantity>1</quantity>
-        <price>6.50</price>
-        <picture>/Database/Images/Appetizer/chicken_salad_sandwich.jpg</picture>
-    </plate>
 </Appetizers>

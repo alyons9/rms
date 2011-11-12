@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.HashMap;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.ParserConfigurationException;
@@ -32,6 +33,7 @@ import org.xml.sax.SAXException;
 public class AppetizersDao {
     private NodeList nl;
     private Document doc;
+    private boolean done;
     
     // Initializes the XML Dom object and parses xml file into a nodelist
     public AppetizersDao() throws SAXException, ParserConfigurationException{
@@ -82,10 +84,6 @@ public class AppetizersDao {
         return appetizer;
     }
     
-     //Retrieve appetizer from nodelist created in constructor. Search for 
-    //item by its name.
-    //Pre: takes in the name of an appetizer as parameter
-    //Post: Returns a food object with all values from xml file
     public Food[] getAllAppetizers(){
        int numOfElem = nl.getLength();
         Food appetizers[] = new Food[numOfElem];
@@ -105,6 +103,34 @@ public class AppetizersDao {
         
         return appetizers;
     }
+    
+    
+    //Retrieve appetizer from nodelist created in constructor. Search for 
+    //item by its name.
+    //Pre: takes in the name of an appetizer as parameter
+    //Post: Returns a food object with all values from xml file
+    public Vector<Food> getVectorAllAppetizers(){
+       int numOfElem = nl.getLength();
+        Vector <Food> appetizers = new Vector(numOfElem);
+        if(nl != null && numOfElem > 0) {
+            for(int i = 0 ; i < numOfElem;i++) {
+                //get the appetizer element
+                Element el = (Element)nl.item(i);
+                
+                    //get the appetizer object
+                    appetizers.add(i,getAppetizer(el));
+                
+
+				
+            }
+            
+	}
+        
+        return appetizers;
+    }
+    
+    
+    
     
     //returns the lenght of nodes
     public int length(){
@@ -158,10 +184,10 @@ public class AppetizersDao {
     //Remove the appetizer from xml file
     //Pre: Name of appetizer
     //Post: delete the element from file
-    public void removeAppetizerByName(String name){
+    public boolean removeAppetizerByName(String name){
         //Get root element
         Element root = doc.getDocumentElement();
-        
+        System.out.println("im in the remove App ");
         //Put children of root element with name plate into nodelist
         NodeList children = root.getElementsByTagName("plate");
         for(int i=0; i<children.getLength(); i++){
@@ -170,8 +196,10 @@ public class AppetizersDao {
             //Remove this child if its name equals the name given
             if(getTextValue(child,"name").equals(name)){
                     root.removeChild(child);
-                }
-            
+                    done =true;
+                    System.out.print("im deleting this: "+name);
+            }
+             
         }
         try {
             write();//Write the undeleted children over the file
@@ -180,6 +208,7 @@ public class AppetizersDao {
         } catch (TransformerException ex) {
             Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return done;
     }
     
     public void setPriceByName(String name, double price){

@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.HashMap;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.ParserConfigurationException;
@@ -33,6 +34,7 @@ public class LunchDao {
     
     private NodeList nl;
     private Document doc;
+    private boolean done;
     
     public LunchDao()throws SAXException, ParserConfigurationException{
         try {
@@ -95,6 +97,26 @@ public class LunchDao {
         return lunches;
     }
       
+      public Vector<Food> getVectorAllLunches(){
+       int numOfElem = nl.getLength();
+        Vector <Food> appetizers = new Vector(numOfElem);
+        if(nl != null && numOfElem > 0) {
+            for(int i = 0 ; i < numOfElem;i++) {
+                //get the appetizer element
+                Element el = (Element)nl.item(i);
+                
+                    //get the appetizer object
+                    appetizers.add(i,getLunch(el));
+                
+
+				
+            }
+            
+	}
+        
+        return appetizers;
+    }
+      
        //returns the lenght of nodes
     public int length(){
         int temp = nl.getLength();
@@ -133,25 +155,31 @@ public class LunchDao {
         
     }
     
-    public void removeLunchByName(String name){
+    public boolean removeLunchByName(String name){
+        //Get root element
         Element root = doc.getDocumentElement();
-        
+        System.out.println("im in the remove App ");
+        //Put children of root element with name plate into nodelist
         NodeList children = root.getElementsByTagName("plate");
         for(int i=0; i<children.getLength(); i++){
-            Element child = (Element)children.item(i);
+            Element child = (Element)children.item(i); //get 1 child and loop
             
+            //Remove this child if its name equals the name given
             if(getTextValue(child,"name").equals(name)){
                     root.removeChild(child);
-                }
-            
+                    done =true;
+                    System.out.print("im deleting this: "+name);
+            }
+             
         }
         try {
-            write();
+            write();//Write the undeleted children over the file
         } catch (TransformerConfigurationException ex) {
-            Logger.getLogger(LunchDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (TransformerException ex) {
-            Logger.getLogger(LunchDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return done;
     }
     
     private void write() throws TransformerConfigurationException, TransformerException{

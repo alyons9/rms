@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.HashMap;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.ParserConfigurationException;
@@ -33,6 +34,7 @@ public class BreakfastDao {
     
     private NodeList nl;
     private Document doc;
+    private boolean done;
     
     public BreakfastDao()throws SAXException, ParserConfigurationException{
         try {
@@ -95,13 +97,34 @@ public class BreakfastDao {
         return breakfasts;
     }
     
+       public Vector<Food> getVectorAllBreakfasts(){
+       int numOfElem = nl.getLength();
+        Vector <Food> appetizers = new Vector(numOfElem);
+        if(nl != null && numOfElem > 0) {
+            for(int i = 0 ; i < numOfElem;i++) {
+                //get the appetizer element
+                Element el = (Element)nl.item(i);
+                
+                    //get the appetizer object
+                    appetizers.add(i,getBreakfast(el));
+                
+
+				
+            }
+            
+	}
+        
+        return appetizers;
+    }
+    
+    
      //returns the lenght of nodes
     public int length(){
         int temp = nl.getLength();
         return temp;
     }
     
-    public void addAppetizer(String breakfastName, String breakfastDescription,int breakfastQuantity,double breakfastPrice,String breakfastPicture){
+    public void addBreakfast(String breakfastName, String breakfastDescription,int breakfastQuantity,double breakfastPrice,String breakfastPicture){
         Node root = doc.getDocumentElement();
         Node plate = doc.createElement("plate");
         Node name = doc.createElement("name");
@@ -133,25 +156,31 @@ public class BreakfastDao {
         
     }
     
-    public void removeBreakfastByName(String name){
+    public boolean removeBreakfastByName(String name){
+        //Get root element
         Element root = doc.getDocumentElement();
-        
+        System.out.println("im in the remove App ");
+        //Put children of root element with name plate into nodelist
         NodeList children = root.getElementsByTagName("plate");
         for(int i=0; i<children.getLength(); i++){
-            Element child = (Element)children.item(i);
+            Element child = (Element)children.item(i); //get 1 child and loop
             
+            //Remove this child if its name equals the name given
             if(getTextValue(child,"name").equals(name)){
                     root.removeChild(child);
-                }
-            
+                    done =true;
+                    System.out.print("im deleting this: "+name);
+            }
+             
         }
         try {
-            write();
+            write();//Write the undeleted children over the file
         } catch (TransformerConfigurationException ex) {
-            Logger.getLogger(BreakfastDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (TransformerException ex) {
-            Logger.getLogger(BreakfastDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return done;
     }
     
     private void write() throws TransformerConfigurationException, TransformerException{
