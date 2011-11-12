@@ -211,6 +211,26 @@ public class AppetizersDao {
         return done;
     }
     
+    public void setPriceByName(String name, double price){
+        for(int i=0;i<nl.getLength();i++){
+            Element child = (Element)nl.item(i);
+            if(getTextValue(child,"name").equalsIgnoreCase(name)){
+                //Set childs price to new price
+                setTextValue(child,"price",Double.toString(price));
+                System.out.println("Works! "+getTextValue(child,"price"));
+                try {
+                    write();
+                } catch (TransformerConfigurationException ex) {
+                    Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (TransformerException ex) {
+                    Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        
+        
+    }
+    
     //Updates the xml file
     private void write() throws TransformerConfigurationException, TransformerException{
         try {
@@ -237,6 +257,16 @@ public class AppetizersDao {
 
 		return textVal;
 	}
+    
+    //Set value of field
+    private void setTextValue(Element ele, String tagName, String newValue){
+        NodeList nodeList = ele.getElementsByTagName(tagName);
+        if(nodeList!=null && nodeList.getLength()>0){
+            Element el = (Element)nodeList.item(0);
+            el.getFirstChild().setNodeValue(newValue);
+        }
+                
+    }
     
     //adds the appetizer elements to food object
     private Food getAppetizer(Element appetizerElement){
