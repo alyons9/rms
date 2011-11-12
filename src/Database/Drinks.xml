@@ -14,7 +14,7 @@
         <description>Sweet and UnSweet</description>
         <quantity>1</quantity>
         <price>1.95</price>
-        <picture></picture>
+        <picture>/Database/Images/Drinks/SweetTea.jpg</picture>
     </cup>
 
     <cup>
@@ -22,35 +22,35 @@
         <description>Ask four our different flavors</description>
         <quantity>1</quantity>
         <price>1.95</price>
-        <picture></picture>
+        <picture>/Database/Images/Drinks/Lemonade.jpg</picture>
     </cup>
 
     <cup>
         <name>Sprite</name>
         <quantity>1</quantity>
         <price>1.95</price>
-        <picture></picture>
+        <picture>/Database/Images/Drinks/Sprite.jpg</picture>
     </cup>
 
     <cup>
         <name>Coca Cola</name>
         <quantity>1</quantity>
         <price>1.95</price>
-        <picture></picture>
+        <picture>/Database/Images/Drinks/coke.jpg</picture>
     </cup>
 
     <cup>
         <name>Mountain Dew</name>
         <quantity>1</quantity>
         <price>1.95</price>
-        <picture></picture>
+        <picture>/Database/Images/Drinks/mountainDew.jpg</picture>
     </cup>
 
     <cup>
         <name>Fruit Punch</name>
         <quantity>1</quantity>
         <price>1.95</price>
-        <picture></picture>
+        <picture>/Database/Images/Drinks/FruitPunch.jpg</picture>
     </cup>
 
     <cup>
@@ -58,7 +58,7 @@
         <description></description>
         <quantity>1</quantity>
         <price>1.80</price>
-        <picture></picture>
+        <picture>/Database/Images/Drinks/Coffee.jpg</picture>
     </cup>
 
     <cup>
@@ -66,6 +66,6 @@
         <description>Lipton Hot Tea</description>
         <quantity>1</quantity>
         <price>1.50</price>
-        <picture></picture>
+        <picture>/Database/Images/Drinks/HotTea.jpg</picture>
     </cup>
 </Drinks>
