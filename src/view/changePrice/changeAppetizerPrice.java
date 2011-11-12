@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package view.changePrice;
 
 /**
  *
@@ -39,11 +39,11 @@ import model.XmlPersistence.AppetizersDao;
  *
  * @author SAMIR
  */
-public class removeAppetizerItemDialog extends JInternalFrame {//being
+public class changeAppetizerPrice extends JInternalFrame {//being
     
-    private JTextField removeNameValue;
+    private JTextField priceNameValue;
     
-    private JLabel removeName;
+    private JLabel priceName;
     
     private JButton confirm;
     private JButton cancel;
@@ -53,11 +53,11 @@ public class removeAppetizerItemDialog extends JInternalFrame {//being
     
     
 
-    public removeAppetizerItemDialog(final AppetizersDao list, final JPanel panel) throws SAXException, ParserConfigurationException {//begin constructor
+    public changeAppetizerPrice(final AppetizersDao list, final JPanel panel) throws SAXException, ParserConfigurationException {//begin constructor
 
-        setRootPaneCheckingEnabled(false);
-    javax.swing.plaf.InternalFrameUI ifu= this.getUI();
-    ((javax.swing.plaf.basic.BasicInternalFrameUI)ifu).setNorthPane(null);
+//        setRootPaneCheckingEnabled(false);
+//    javax.swing.plaf.InternalFrameUI ifu= this.getUI();
+//    ((javax.swing.plaf.basic.BasicInternalFrameUI)ifu).setNorthPane(null);
        
     setVisible(true);
         JPanel dialogPanel = new JPanel(new GridBagLayout());
@@ -66,18 +66,18 @@ public class removeAppetizerItemDialog extends JInternalFrame {//being
         constraints.fill = GridBagConstraints.HORIZONTAL;
 
         //adding the the label for the Username
-        removeName = new JLabel("ITEM NAME: ");
+        priceName = new JLabel("ENTERP RICE TO BE CHANGED");
         constraints.gridx = 0;
         constraints.gridy = 0;
         constraints.gridwidth = 2;
-        dialogPanel.add(removeName, constraints);
+        dialogPanel.add(priceName, constraints);
 
         //addint the text field for the username
-        removeNameValue = new JTextField(20);
+        priceNameValue = new JTextField(20);
         constraints.gridx = 0;
         constraints.gridy = 1;
         constraints.gridwidth = 2;
-        dialogPanel.add(removeNameValue, constraints);
+        dialogPanel.add(priceNameValue, constraints);
 
        
 
@@ -95,17 +95,17 @@ public class removeAppetizerItemDialog extends JInternalFrame {//being
                 succeeded = list.removeAppetizerByName(getRemoveName());
                 System.out.println(""+succeeded);
                     if(succeeded==true){
-                        JOptionPane.showMessageDialog(removeAppetizerItemDialog.this,
-                                "YOU HAVE SUCCESSFULLY DELETED THE ITEM.", "ITEM DELETION",
+                        JOptionPane.showMessageDialog(changeAppetizerPrice.this,
+                                "YOU HAVE SUCCESSFULLY CHANGED THE PRICE.", "PRICE CHANGE",
                                 JOptionPane.INFORMATION_MESSAGE);
                         
                         dispose();
                         panel.repaint();
                     }
                     else{
-                         JOptionPane.showMessageDialog(removeAppetizerItemDialog.this, "PROBLEM DELETING ITEM",
-                                "ITEM DELETION", JOptionPane.ERROR_MESSAGE);
-                        removeNameValue.setText("");     
+                         JOptionPane.showMessageDialog(changeAppetizerPrice.this, "PROBLEM CHANGING PRICE",
+                                "PRICE CHANGE", JOptionPane.ERROR_MESSAGE);
+                        priceNameValue.setText("");     
                         
                     }
                     
@@ -152,7 +152,7 @@ public class removeAppetizerItemDialog extends JInternalFrame {//being
     //method to get the username
     public String getRemoveName() {
         String temp;
-        temp = removeNameValue.getText().trim();
+        temp = priceNameValue.getText().trim();
         return temp;
     }
 

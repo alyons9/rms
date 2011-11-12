@@ -8,7 +8,7 @@
  *
  * Created on Nov 6, 2011, 5:07:46 PM
  */
-package view;
+package view.addMenus;
 
 import java.awt.Component;
 import java.awt.FlowLayout;

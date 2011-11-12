@@ -8,10 +8,9 @@
  *
  * Created on Nov 6, 2011, 5:07:46 PM
  */
-package view;
+package view.addMenus;
 
 import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -23,7 +22,6 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
@@ -33,14 +31,16 @@ import javax.swing.SpinnerNumberModel;
 import javax.xml.parsers.ParserConfigurationException;
 import model.Food;
 import model.XmlPersistence.AppetizersDao;
+import model.XmlPersistence.BreakfastDao;
+import model.XmlPersistence.DessertDao;
 import org.xml.sax.SAXException;
 
 /**
  *
  * @author SAMIR
  */
-public class addAppetizerMenu extends javax.swing.JPanel {
-    private AppetizersDao nodeList;
+public class addDessertMenu extends javax.swing.JPanel {
+    private DessertDao nodeList;
     private Food food[];
     private int sizeOfList;
     private JLabel nameLabels[];
@@ -53,18 +53,18 @@ public class addAppetizerMenu extends javax.swing.JPanel {
     private ImageIcon[] icon;
     
     /** Creates new form addAppetizerMenu */
-    public addAppetizerMenu() {
+    public addDessertMenu() {
         try {
             initComponents();
-           // setPreferredSize(new Dimension(300,12000));
-         // setLayout(new GridLayout(sizeOfList*sizeOfList,5));
+            
+          //setLayout(new GridLayout(sizeOfList*sizeOfList,5));
          
-      // setLayout(new FlowLayout());
-         //setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
-          setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+        // setLayout(new FlowLayout());
+         setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
+          //setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
            
           
-        AppetizersDao nodeList = new AppetizersDao();
+        DessertDao nodeList = new DessertDao();
         
         //getting the size of list of appetizers
         sizeOfList = nodeList.length();
@@ -73,18 +73,17 @@ public class addAppetizerMenu extends javax.swing.JPanel {
         System.out.println(sizeOfList);
                 
         //store all the food in to the food array variable
-        food = nodeList.getAllAppetizers();
+        food = nodeList.getAllDesserts();
         //initializing the arrays of size of the list
         buttons = new JButton[sizeOfList];
         
         nameLabels = new JLabel[sizeOfList];
         appDesLabels = new JLabel[sizeOfList];
-        spinner = new JSpinner[sizeOfList];
+       spinner = new JSpinner[sizeOfList];
         prices = new JLabel[sizeOfList];
         icon = new ImageIcon[sizeOfList];
         
-        
-    
+      
     System.out.println(food[0].getPic());
 //   JLabel b = new JLabel("test");
 //    b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/Images/pizza.jpg")));
@@ -95,20 +94,17 @@ public class addAppetizerMenu extends javax.swing.JPanel {
 //        appIconPic[i] = new ImageIcon(appIconName[i]);
         icon[i] = createImageIcon(food[i].getPic());
         nameLabels[i] = new JLabel(food[i].getName());//appIconPic[i],JLabel.CENTER);
-        
         if(icon[i]!=null){
             nameLabels[i].setIcon(icon[i]);
         }
         //nameLabels[i].setIcon(new javax.swing.ImageIcon(getClass().getResource(food[i].getPic())));
         buttons[i] = new JButton("ADD");
-        buttons[i].setPreferredSize(new Dimension(70,30));
+        buttons[i].setSize(70,30);
      
         buttons[i].setActionCommand(food[i].getName());
         buttons[i].addActionListener(null);
         appDesLabels[i] = new JLabel(food[i].getDescription());
-       // appDesLabels[i].setPreferredSize(new Dimension(30,30));
         spinner[i] = new JSpinner(new SpinnerNumberModel(0, 0, 15, 1));
-     //   spinner[i].setPreferredSize(new Dimension(20,20));
         prices[i] = new JLabel(""+food[i].getPrice());
         System.out.println(i);
         add(nameLabels[i]);
@@ -116,21 +112,17 @@ public class addAppetizerMenu extends javax.swing.JPanel {
         add(spinner[i]);
         add(prices[i]);
         add(buttons[i]);
-        JSeparator a = new JSeparator();
-        add(a);
+         JSeparator a = new JSeparator();
+         add(a);
      
-     } 
-        
-        } catch (SAXException ex) {
+     }  } catch (SAXException ex) {
             Logger.getLogger(addAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParserConfigurationException ex) {
             Logger.getLogger(addAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
    
-  
     
     }
-    
     protected ImageIcon createImageIcon(String path) {
     java.net.URL imgURL = getClass().getResource(path);
     if (imgURL != null) {

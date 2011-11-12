@@ -15,7 +15,7 @@
         <picture>/Database/Images/bonelessWings.jpg</picture>
     </plate>
  
-  <plate>
+   <plate>
         <name>Pizza</name>
         <description>Best Pizza Around.</description>
         <quantity>1</quantity>
@@ -31,6 +31,8 @@
 <price>2.99</price>
 <picture>/Database/Images/bltSalad.jpg</picture>
 </plate>
+
+ 
 
 <plate>
 <name>salad</name>
