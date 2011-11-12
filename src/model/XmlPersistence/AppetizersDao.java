@@ -199,7 +199,7 @@ public class AppetizersDao {
                     done =true;
                     System.out.print("im deleting this: "+name);
             }
-            else done=false;  
+             
         }
         try {
             write();//Write the undeleted children over the file

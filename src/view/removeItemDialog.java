@@ -53,17 +53,20 @@ public class removeItemDialog extends JInternalFrame {//being
     
     
 
-    public removeItemDialog(final AppetizersDao list,final String source) throws SAXException, ParserConfigurationException {//begin constructor
+    public removeItemDialog(final AppetizersDao list) throws SAXException, ParserConfigurationException {//begin constructor
 
-
-        setVisible(true);
+        //setRootPaneCheckingEnabled(false);
+    javax.swing.plaf.InternalFrameUI ifu= this.getUI();
+    ((javax.swing.plaf.basic.BasicInternalFrameUI)ifu).setNorthPane(null);
+       
+    setVisible(true);
         JPanel dialogPanel = new JPanel(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
        
         constraints.fill = GridBagConstraints.HORIZONTAL;
 
         //adding the the label for the Username
-        removeName = new JLabel("PLEASE ENTER THE NAME OF ITEM TO BE REMOVED: ");
+        removeName = new JLabel("ITEM NAME: ");
         constraints.gridx = 0;
         constraints.gridy = 0;
         constraints.gridwidth = 2;
@@ -87,9 +90,10 @@ public class removeItemDialog extends JInternalFrame {//being
 
             @Override
             public void actionPerformed(ActionEvent e) {
-              System.out.print(getRemoveName());
-                 succeeded = list.removeAppetizerByName("pizza");
-                System.out.println("I deleted this item");
+              //System.out.print(getRemoveName());
+                succeeded =false;
+                succeeded = list.removeAppetizerByName(getRemoveName());
+                System.out.println(""+succeeded);
                     if(succeeded==true){
                         JOptionPane.showMessageDialog(removeItemDialog.this,
                                 "YOU HAVE SUCCESSFULLY DELETED THE ITEM.", "ITEM DELETION",
@@ -138,7 +142,7 @@ public class removeItemDialog extends JInternalFrame {//being
 
 
         pack();
-        setResizable(false);
+        setResizable(true);
 
         // setLocationRelativeTo(frame);
 

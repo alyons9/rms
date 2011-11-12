@@ -18,6 +18,8 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,7 +28,9 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
@@ -56,7 +60,8 @@ public class adminEditAppetizerMenu extends javax.swing.JPanel implements Action
     private Vector <JLabel> prices;
     private Vector <ImageIcon> icon;
     private String list[];
-    
+    private AppetizersDao secList;
+    public JPanel dialog;
     /** Creates new form addAppetizerMenu */
     public adminEditAppetizerMenu () {
         try {
@@ -72,7 +77,7 @@ public class adminEditAppetizerMenu extends javax.swing.JPanel implements Action
         AppetizersDao nodeList = new AppetizersDao();
         
         //getting the size of list of appetizers
-        sizeOfList = 1;//nodeList.length();
+        sizeOfList =2;// nodeList.length();
         
         //initializing the food array of that list
         food = new Vector(sizeOfList);
@@ -107,10 +112,10 @@ public class adminEditAppetizerMenu extends javax.swing.JPanel implements Action
         nameLabels.get(i).setIcon(new javax.swing.ImageIcon(getClass().getResource(food.get(i).getPic())));
         buttons.add(i, new JComboBox(list));
         buttons.get(i).setPreferredSize(new Dimension(70,30));
-     
-        buttons.get(i).setActionCommand(food.get(i).getName());
-        buttons.get(i).addActionListener(this);
-        
+        buttons.get(i).setFocusCycleRoot(true);
+     //   buttons.get(i).setActionCommand(food.get(i).getName());
+       buttons.get(i).addActionListener(this);
+       
         prices.add(i,new JLabel(""+food.get(i).getPrice()));
         System.out.println(i);
         add(nameLabels.get(i));
@@ -168,19 +173,28 @@ public class adminEditAppetizerMenu extends javax.swing.JPanel implements Action
     @Override
     public void actionPerformed(ActionEvent ae) {
        // throw new UnsupportedOperationException("Not supported yet.");
-     JComboBox temp =(JComboBox) ae.getSource();
-     String selection = (String)temp.getSelectedItem();
+     //JComboBox temp =(JComboBox) ae.getSource();
+     //String selection = (String)temp.getSelectedItem();
+        dialog = new JPanel();
+       dialog.setSize(300,300);
+       dialog.setVisible(true);
         removeItemDialog c = null;
         try {
-            c = new removeItemDialog(nodeList,selection);
+             AppetizersDao secList = new AppetizersDao();
+            c = new removeItemDialog(secList);
         } catch (SAXException ex) {
             Logger.getLogger(adminEditAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParserConfigurationException ex) {
             Logger.getLogger(adminEditAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
         c.setVisible(true);
-        add(c);
+        dialog.add(c);
+        add(dialog);
+        repaint();
+        setFocusable(true);
         System.out.println("im trying to display the dialgo");
     
     }
+
+    
 }

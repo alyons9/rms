@@ -46,6 +46,8 @@ public class tester extends JFrame implements ActionListener {
   a.setVisible(true);
   add(a);
   a.repaint();
+
+ 
   } 
   public static void main(String []args){
       tester b = new tester();
