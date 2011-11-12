@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.HashMap;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.ParserConfigurationException;
@@ -33,6 +34,7 @@ import org.xml.sax.SAXException;
 public class DrinksDao {
     private NodeList nl;
     private Document doc;
+    private boolean done;
     
     // Initializes the XML Dom object and parses xml file into a nodelist
     public DrinksDao() throws SAXException, ParserConfigurationException{
@@ -103,6 +105,26 @@ public class DrinksDao {
         return drinks;
     }
     
+          public Vector<Drink> getVectorAllDrinks(){
+       int numOfElem = nl.getLength();
+        Vector <Drink> drinks = new Vector(numOfElem);
+        if(nl != null && numOfElem > 0) {
+            for(int i = 0 ; i < numOfElem;i++) {
+                //get the appetizer element
+                Element el = (Element)nl.item(i);
+                
+                    //get the appetizer object
+                    drinks.add(i,getDrink(el));
+                
+
+				
+            }
+            
+	}
+        
+        return drinks;
+    }
+      
       
        //returns the lenght of nodes
     public int length(){
@@ -156,28 +178,31 @@ public class DrinksDao {
     //Remove the drink from xml file
     //Pre: Name of drink
     //Post: delete the element from file
-    public void removeDrinkByName(String name){
+   public boolean removeDrinkByName(String name){
         //Get root element
         Element root = doc.getDocumentElement();
-        
+        System.out.println("im in the remove App ");
         //Put children of root element with name plate into nodelist
-        NodeList children = root.getElementsByTagName("cup");
+        NodeList children = root.getElementsByTagName("plate");
         for(int i=0; i<children.getLength(); i++){
             Element child = (Element)children.item(i); //get 1 child and loop
             
             //Remove this child if its name equals the name given
             if(getTextValue(child,"name").equals(name)){
                     root.removeChild(child);
-                }
-            
+                    done =true;
+                    System.out.print("im deleting this: "+name);
+            }
+             
         }
         try {
             write();//Write the undeleted children over the file
         } catch (TransformerConfigurationException ex) {
-            Logger.getLogger(DrinksDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (TransformerException ex) {
-            Logger.getLogger(DrinksDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return done;
     }
     
     //Updates the xml file
