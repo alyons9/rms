@@ -7,13 +7,64 @@
     Description:
         Purpose of the document follows.
 -->
-
 <Lunch>
     <plate>
-        <name></name>
-        <description></description>
-        <quantity></quantity>
-        <price></price>
+        <name>Fettuccine Alfredo</name>
+        <description>Served with more grated parmesan passed ont the side and with one
+        roll</description>
+        <quantity>1</quantity>
+        <price>10.50</price>
+        <picture></picture>
+    </plate>
+    <plate>
+        <name>Penne With Sausage and Escarole</name>
+        <description>Made with Sweet Italian Sausages and serve with a roll</description>
+        <quantity>1</quantity>
+        <price>10.50</price>
+        <picture></picture>
+    </plate>
+    <plate>
+        <name>GeMelli</name>
+        <description>Gemelli pasta with grilled and smoked chicken, and 
+        sun-dried tomatoes</description>
+        <quantity>1</quantity>
+        <price>8.50</price>
+        <picture></picture>
+    </plate>
+    <plate>
+        <name>C-Nerds Burger</name>
+        <description>Two Pattied burger with ham,bacon,Swiss and Cheddar with a side of fries</description>
+        <quantity>1</quantity>
+        <price>6.50</price>
+        <picture></picture>
+    </plate>
+    <plate>
+        <name>Grilled Chicken Breast</name>
+        <description>8 oz. Grilled Chicken Breast served with our special seasonings and Fries</description>
+        <quantity>1</quantity>
+        <price>6.50</price>
+        <picture></picture>
+    </plate>
+    <plate>
+        <name>BBQ Beef Rib Platter</name>
+        <description>Half Rack of BBQ glazed ribs. Served with your choice of
+        two sides</description>
+        <quantity>1</quantity>
+        <price>14.50</price>
+        <picture></picture>
+    </plate>
+    <plate>
+        <name>Seafood Basket</name>
+        <description>Battered cod, Italian Breaded Calamari Rings, and Butterfly Shrimp with a choice of one side.</description>
+        <quantity>1</quantity>
+        <price>14.50</price>
+        <picture></picture>
+    </plate>
+    <plate>
+        <name>Chicken Fiesta Salad</name>
+        <description>Cut up chicken Breast strip served on top of Garden salad with organic vegetable</description>
+        <quantity>1</quantity>
+        <price>7.50</price>
         <picture></picture>
     </plate>
 </Lunch>

@@ -175,7 +175,11 @@ public class DinnerDao {
 		NodeList nodel = ele.getElementsByTagName(tagName);
 		if(nodel != null && nodel.getLength() > 0) {
 			Element el = (Element)nodel.item(0);
+                        if(el.hasChildNodes()){
 			textVal = el.getFirstChild().getNodeValue();
+                        }else{
+                            textVal = " ";
+                        }
 		}
 
 		return textVal;

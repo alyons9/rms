@@ -10,10 +10,45 @@
 
 <Breakfast>
     <plate>
-        <name></name>
-        <description></description>
-        <quantity></quantity>
-        <price></price>
-        <picture></picture>
+        <name>Caramel Roll French Toast</name>
+        <description>A cross between pecan caramel rolls and French Toast.Four 
+        Chocolate Caramel Roll French Toast made with pecans,
+        caramel, French bread,eggs,sugar,and milk</description>
+        <quantity>1</quantity>
+        <price>7.50</price>
+        <picture> </picture>
+    </plate>
+
+     <plate>
+        <name>Hash Brown Omelet</name>
+        <description>Hash Brown Potatoes with bacon,eggs, and cheddar cheese</description>
+        <quantity>1</quantity>
+        <price>7.50</price>
+        <picture> </picture>
+    </plate>
+
+     <plate>
+        <name>Crockpot Oatmeal </name>
+        <description>Combine steel cut oats with dried fruits</description>
+        <quantity>1</quantity>
+        <price>3.50</price>
+        <picture> </picture>
+    </plate>
+
+     <plate>
+        <name>Egg and Muffin Sandwiches</name>
+        <description> Two Egg and Muffin sandwiches with fried eggs, sausage patties
+        and American cheese</description>
+        <quantity>1</quantity>
+        <price>6.50</price>
+        <picture> </picture>
+    </plate>
+
+     <plate>
+        <name>Classic Pancakes</name>
+        <description>A simple pancake recipe served with two sausage links</description>
+        <quantity>1</quantity>
+        <price>7.00</price>
+        <picture> </picture>
     </plate>
 </Breakfast>

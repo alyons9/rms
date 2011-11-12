@@ -92,10 +92,12 @@ public class addDessertMenu extends javax.swing.JPanel {
 //        appIconName[i] = food[i].getPic();
 //        System.out.println(appIconName[i]);
 //        appIconPic[i] = new ImageIcon(appIconName[i]);
-      //  icon[i] = createImageIcon(food[i].getPic());
+        icon[i] = createImageIcon(food[i].getPic());
         nameLabels[i] = new JLabel(food[i].getName());//appIconPic[i],JLabel.CENTER);
-        //nameLabels[i].setIcon(icon[i]);
-        nameLabels[i].setIcon(new javax.swing.ImageIcon(getClass().getResource(food[i].getPic())));
+        if(icon[i]!=null){
+            nameLabels[i].setIcon(icon[i]);
+        }
+        //nameLabels[i].setIcon(new javax.swing.ImageIcon(getClass().getResource(food[i].getPic())));
         buttons[i] = new JButton("ADD");
         buttons[i].setSize(70,30);
      

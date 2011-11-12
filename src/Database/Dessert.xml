@@ -10,10 +10,35 @@
 
 <Dessert>
 <plate>
-    <name></name>
-    <description></description>
-    <quantity></quantity>
-    <price></price>
+    <name>Double Chocolate Fudge Cake</name>
+    <description>Served warm with Vanilla ice cream</description>
+    <quantity>1</quantity>
+    <price>4.50</price>
+    <picture></picture>
+</plate>
+
+<plate>
+    <name>Classic Cheesecake</name>
+    <description>Slice of delicious cheesecake</description>
+    <quantity>1</quantity>
+    <price>4.00</price>
+    <picture></picture>
+</plate>
+
+<plate>
+    <name>Warm Bread Pudding</name>
+    <description>Topped with toasted almonds and raisins</description>
+    <quantity>1</quantity>
+    <price>4.50</price>
+    <picture></picture>
+</plate>
+
+<plate>
+    <name>Ice Cream Parfait</name>
+    <description>Ice Cream Layered with liqueur and topped with fresh
+    whipped cream</description>
+    <quantity>1</quantity>
+    <price>4.50</price>
     <picture></picture>
 </plate>
 </Dessert>

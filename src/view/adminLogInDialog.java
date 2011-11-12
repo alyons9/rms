@@ -38,7 +38,7 @@ import java.awt.*;
  *
  * @author SAMIR
  */
-public class adminLogInDialog extends JDialog {//being
+public class adminLogInDialog extends JInternalFrame {//being
 
     private JTextField userNameValue;
     private JPasswordField passwordValue;
