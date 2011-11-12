@@ -672,6 +672,11 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     repaint();
     }};
     
+    ActionListener cartConfirmListener = new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+        
+        }};
+    
     ActionListener foodListener = new ActionListener(){
         public void actionPerformed(ActionEvent e){
             
