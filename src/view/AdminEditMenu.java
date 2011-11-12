@@ -156,8 +156,7 @@ public static JPanel drinksEdit = new JPanel();
     }// </editor-fold>//GEN-END:initComponents
 
     private void EditAppetizersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditAppetizersActionPerformed
-    AdminEditLogo.setVisible(false);
-    PleaseSelect.setVisible(false);
+
     
     }//GEN-LAST:event_EditAppetizersActionPerformed
 
