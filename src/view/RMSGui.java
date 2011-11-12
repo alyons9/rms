@@ -9,6 +9,7 @@
  * Created on Nov 4, 2011, 11:16:20 PM
  */
 package view;
+import Controller.FoodListeners.viewFoodMenuActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
@@ -16,6 +17,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
+import view.Constants.ApplicationConstants;
 import view.adminLogInDialog;
 /**
  *
@@ -39,9 +41,22 @@ public static JButton confirm = new JButton();
 public static JButton viewback = new JButton();
 public static JButton next = new JButton();
 public static JButton viewcart = new JButton();
-public static addAppetizerMenu a = new addAppetizerMenu();
-public static JScrollPane foodPane = new JScrollPane(a);
+
+
+public static addAppetizerMenu appetizerMenu = new addAppetizerMenu();
+public static addBreakfastMenu breakfastMenu = new addBreakfastMenu();
+public static addLunchMenu lunchMenu = new addLunchMenu();
+public static addDinnerMenu dinnerMenu = new addDinnerMenu();
+public static addDessertMenu dessertMenu = new addDessertMenu();
+public static addDrinkMenu drinksMenu = new addDrinkMenu();
+public static JScrollPane appetizersPane = new JScrollPane(appetizerMenu);
+public static JScrollPane breakfastPane = new JScrollPane(breakfastMenu);
+public static JScrollPane dessertPane = new JScrollPane(dessertMenu);
+public static JScrollPane lunchPane = new JScrollPane(lunchMenu);
+public static JScrollPane dinnerPane = new JScrollPane(dinnerMenu);
+public static JScrollPane drinksPane = new JScrollPane(drinksMenu);
     
+
 public static JPanel separator = new JPanel();
 public static JLabel MenuLogo = new JLabel();
 public static JLabel CartLogo = new JLabel();
@@ -55,12 +70,40 @@ public static JScrollPane viewScrollPane = new JScrollPane();
         initComponents();
         dineIn.addActionListener(new DineInAction());
         CarryOut.addActionListener(new Carryout());
+        
+        //Appetizers ActionListeners
         appetizers.addActionListener(new appetizers());
+        appetizers.addActionListener(foodListener);
+        
+        //Breakfast ActionListeners
+        breakfast.addActionListener(new viewFoodMenuActionListener(breakfastPane,Tablet));
+        breakfast.addActionListener(foodListener);
+        
+        lunch.addActionListener(new viewFoodMenuActionListener(lunchPane,Tablet));
+        lunch.addActionListener(foodListener);
+        
+        dinner.addActionListener(new viewFoodMenuActionListener(dinnerPane,Tablet));
+        dinner.addActionListener(foodListener);
+        
+        desserts.addActionListener(new viewFoodMenuActionListener(dessertPane,Tablet));
+        desserts.addActionListener(foodListener);
+        
+        drinks.addActionListener(new viewFoodMenuActionListener(drinksPane,Tablet));
+        drinks.addActionListener(foodListener);
+        
         home.addActionListener(homeListener);
         home2.addActionListener(homeListener);
         back.addActionListener(backListener);
         viewcart.addActionListener(viewcartListener);
         viewback.addActionListener(viewbackListener);
+        
+        //action command labels
+        appetizers.setActionCommand(Character.toString(ApplicationConstants.APPETIZERS));
+        breakfast.setActionCommand(Character.toString(ApplicationConstants.BREAKFAST));
+        lunch.setActionCommand(Character.toString(ApplicationConstants.LUNCH));
+        dinner.setActionCommand(Character.toString(ApplicationConstants.DINNER));
+        drinks.setActionCommand(Character.toString(ApplicationConstants.DRINKS));
+        desserts.setActionCommand(Character.toString(ApplicationConstants.DESSERTS));
     }
 
     /** This method is called from within the constructor to
@@ -179,9 +222,6 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     Tablet.add(loginPanel);
     dineIn.setVisible(false);
     CarryOut.setVisible(false);
-    enterMenu.setVisible(false);
-    Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Cnerds Cafes.png")));
-    Logo2.setVisible(false);
     
     // AdminEditMenu adminMenu = new AdminEditMenu();
     //adminMenu.setVisible(true);
@@ -403,13 +443,13 @@ public static JScrollPane viewScrollPane = new JScrollPane();
         public void actionPerformed(ActionEvent e){
             //addAppetizerMenu a = new addAppetizerMenu();
             //foodPane.add(a);
-            foodPane.setVisible(true);
-            foodPane.setSize(524, 600);
-            foodPane.setLocation(170, 70);
-            foodPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-            foodPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+            appetizersPane.setVisible(true);
+            appetizersPane.setSize(524, 600);
+            appetizersPane.setLocation(170, 70);
+            appetizersPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+            appetizersPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
             home2.setVisible(false);
-            Tablet.add(foodPane);
+            Tablet.add(appetizersPane);
             repaint();
         }
     }
@@ -443,7 +483,12 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     CarryOut.setVisible(false);
     dineIn.setVisible(false);
     appetizers.setVisible(false);
-    foodPane.setVisible(false);
+    appetizersPane.setVisible(false);
+    breakfastPane.setVisible(false);
+    lunchPane.setVisible(false);
+    dinnerPane.setVisible(false);
+    dessertPane.setVisible(false);
+    drinksPane.setVisible(false);
     repaint();
     }};
     
@@ -471,7 +516,12 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     CarryOut.setVisible(true);
     dineIn.setVisible(true);
     appetizers.setVisible(false);
-    foodPane.setVisible(false);
+    appetizersPane.setVisible(false);
+    breakfastPane.setVisible(false);
+    lunchPane.setVisible(false);
+    dinnerPane.setVisible(false);
+    dessertPane.setVisible(false);
+    drinksPane.setVisible(false);
     home2.setVisible(false);
     repaint();
     }};
@@ -509,7 +559,7 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     CarryOut.setVisible(false);
     dineIn.setVisible(false);
     appetizers.setVisible(true);
-    foodPane.setVisible(false);
+    appetizersPane.setVisible(false);
     viewScrollPane.setVisible(true);
     viewScrollPane.setBackground(new java.awt.Color(0, 0, 0));
     viewScrollPane.setSize(522,625);
@@ -547,7 +597,7 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     //CarryOutLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/CarryOut Logo.png")));
     Tablet.add(separator);
     Tablet.add(MenuLogo);
-    foodPane.setVisible(false);
+    appetizersPane.setVisible(false);
     MenuLogo.setVisible(true);
     MenuLogo.setSize(272,88);
     MenuLogo.setLocation(290,10);
@@ -604,6 +654,67 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     Tablet.add(viewcart);
     repaint();
     }};
+    
+    ActionListener foodListener = new ActionListener(){
+        public void actionPerformed(ActionEvent e){
+            
+            switch(e.getActionCommand().charAt(0)){
+                case ApplicationConstants.APPETIZERS:
+                    breakfastPane.setVisible(false);
+                    lunchPane.setVisible(false);
+                    dinnerPane.setVisible(false);
+                    drinksPane.setVisible(false);
+                    dessertPane.setVisible(false);
+                    break;
+                case ApplicationConstants.BREAKFAST:
+                    appetizersPane.setVisible(false);
+                    lunchPane.setVisible(false);
+                    dinnerPane.setVisible(false);
+                    drinksPane.setVisible(false);
+                    dessertPane.setVisible(false);
+                    break;
+                case ApplicationConstants.LUNCH: 
+                    appetizersPane.setVisible(false);
+                    breakfastPane.setVisible(false);
+                    dinnerPane.setVisible(false);
+                    drinksPane.setVisible(false);
+                    dessertPane.setVisible(false);
+                    break;
+                case ApplicationConstants.DINNER: 
+                    appetizersPane.setVisible(false);
+                    breakfastPane.setVisible(false);
+                    lunchPane.setVisible(false);
+                    drinksPane.setVisible(false);
+                    dessertPane.setVisible(false);
+                    break;
+                case ApplicationConstants.DESSERTS:
+                    appetizersPane.setVisible(false);
+                    breakfastPane.setVisible(false);
+                    lunchPane.setVisible(false);
+                    drinksPane.setVisible(false);
+                    dinnerPane.setVisible(false);
+                    break;
+                case ApplicationConstants.DRINKS: 
+                    appetizersPane.setVisible(false);
+                    breakfastPane.setVisible(false);
+                    lunchPane.setVisible(false);
+                    dinnerPane.setVisible(false);
+                    dessertPane.setVisible(false);
+                    break;
+                default: 
+                    appetizersPane.setVisible(false);
+                    breakfastPane.setVisible(false);
+                    lunchPane.setVisible(false);
+                    dinnerPane.setVisible(false);
+                    dessertPane.setVisible(false);
+                    drinksPane.setVisible(false);
+                    break;
+                
+            }
+            
+            //System.out.println(e.getActionCommand());
+        }
+    };
 
     
     public static void main(String args[]) {
