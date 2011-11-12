@@ -9,13 +9,20 @@
  * Created on Nov 5, 2011, 4:09:58 PM
  */
 package view;
-
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
 /**
  *
  * @author SAMIR
  */
 public class AdminEditMenu extends javax.swing.JInternalFrame{
-
+public static JPanel appetizerEdit = new JPanel();
+public static JPanel breakfastEdit = new JPanel();
+public static JPanel lunchedut = new JPanel();
+public static JPanel dinnerEdit = new JPanel();
+public static JPanel dessertsEdit = new JPanel();
+public static JPanel drinksEdit = new JPanel();
     /** Creates new form AdminEditMenu */
     public AdminEditMenu() {
         initComponents();
@@ -30,11 +37,11 @@ public class AdminEditMenu extends javax.swing.JInternalFrame{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        AdminEditPanel = new javax.swing.JPanel();
+        AdminEditLogo = new javax.swing.JLabel();
+        PleaseSelect = new javax.swing.JLabel();
         EditAppetizers = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        Logout = new javax.swing.JButton();
         EditBreakfast = new javax.swing.JButton();
         EditDesserts = new javax.swing.JButton();
         EditLunch = new javax.swing.JButton();
@@ -43,13 +50,13 @@ public class AdminEditMenu extends javax.swing.JInternalFrame{
 
         setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 10, true));
-        jPanel1.setPreferredSize(new java.awt.Dimension(600, 723));
-        jPanel1.setRequestFocusEnabled(false);
+        AdminEditPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 10, true));
+        AdminEditPanel.setPreferredSize(new java.awt.Dimension(600, 723));
+        AdminEditPanel.setRequestFocusEnabled(false);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/AdminEditLogo.png"))); // NOI18N
+        AdminEditLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/AdminEditLogo.png"))); // NOI18N
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/pleaseselect.png"))); // NOI18N
+        PleaseSelect.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/pleaseselect.png"))); // NOI18N
 
         EditAppetizers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Appetizers Button.png"))); // NOI18N
         EditAppetizers.addActionListener(new java.awt.event.ActionListener() {
@@ -58,10 +65,10 @@ public class AdminEditMenu extends javax.swing.JInternalFrame{
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Logout Button.png"))); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Logout Button.png"))); // NOI18N
+        Logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                LogoutActionPerformed(evt);
             }
         });
 
@@ -80,57 +87,57 @@ public class AdminEditMenu extends javax.swing.JInternalFrame{
 
         EditDinner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Dinner Button.png"))); // NOI18N
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout AdminEditPanelLayout = new javax.swing.GroupLayout(AdminEditPanel);
+        AdminEditPanel.setLayout(AdminEditPanelLayout);
+        AdminEditPanelLayout.setHorizontalGroup(
+            AdminEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AdminEditPanelLayout.createSequentialGroup()
                 .addContainerGap(88, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(PleaseSelect)
                 .addGap(86, 86, 86))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AdminEditPanelLayout.createSequentialGroup()
                 .addContainerGap(118, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AdminEditLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(113, 113, 113))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(AdminEditPanelLayout.createSequentialGroup()
                 .addGap(100, 100, 100)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(AdminEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(EditDrinks, javax.swing.GroupLayout.Alignment.LEADING, 0, 0, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, AdminEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(EditDesserts, javax.swing.GroupLayout.Alignment.LEADING, 0, 0, Short.MAX_VALUE)
                         .addComponent(EditAppetizers, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(128, 128, 128)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(AdminEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(EditBreakfast, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AdminEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(EditDinner, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(EditLunch, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(124, 124, 124))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AdminEditPanelLayout.createSequentialGroup()
                 .addContainerGap(503, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+        AdminEditPanelLayout.setVerticalGroup(
+            AdminEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AdminEditPanelLayout.createSequentialGroup()
+                .addComponent(AdminEditLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PleaseSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(AdminEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(EditAppetizers, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EditBreakfast, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(85, 85, 85)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(AdminEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(EditLunch, 0, 0, Short.MAX_VALUE)
                     .addComponent(EditDesserts, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(79, 79, 79)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(AdminEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(EditDrinks, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EditDinner, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -138,28 +145,30 @@ public class AdminEditMenu extends javax.swing.JInternalFrame{
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(AdminEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 697, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(AdminEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 697, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void EditAppetizersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditAppetizersActionPerformed
-// TODO add your handling code here:
+    AdminEditLogo.setVisible(false);
+    PleaseSelect.setVisible(false);
+    
     }//GEN-LAST:event_EditAppetizersActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
    setVisible(false);
    RMSGui.Logo.setVisible(true);
    RMSGui.enterMenu.setVisible(true);
    RMSGui.AdminLogin.setVisible(true);
         //new RMSGui().setVisible(true);                     
      
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_LogoutActionPerformed
 
     private void EditBreakfastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditBreakfastActionPerformed
 // TODO add your handling code here:
@@ -168,49 +177,22 @@ public class AdminEditMenu extends javax.swing.JInternalFrame{
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminEditMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminEditMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminEditMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminEditMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+  
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-
-            public void run() {
-                new AdminEditMenu().setVisible(true);
-            }
-        });
-    }
+        
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AdminEditLogo;
+    private javax.swing.JPanel AdminEditPanel;
     private javax.swing.JButton EditAppetizers;
     private javax.swing.JButton EditBreakfast;
     private javax.swing.JButton EditDesserts;
     private javax.swing.JButton EditDinner;
     private javax.swing.JButton EditDrinks;
     private javax.swing.JButton EditLunch;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton Logout;
+    private javax.swing.JLabel PleaseSelect;
     // End of variables declaration//GEN-END:variables
 }
