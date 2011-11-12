@@ -106,6 +106,7 @@
               <Border info="null"/>
             </Property>
             <Property name="name" type="java.lang.String" value="AdminLogin" noResource="true"/>
+            <Property name="opaque" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AdminLoginActionPerformed"/>
