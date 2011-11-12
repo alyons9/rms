@@ -8,8 +8,9 @@
  *
  * Created on Nov 6, 2011, 5:07:46 PM
  */
-package view;
+package view.editMenus;
 
+import view.addMenus.addAppetizerMenu;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -40,15 +41,20 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.xml.parsers.ParserConfigurationException;
 import model.Food;
-import model.XmlPersistence.AppetizersDao;
+
+
+import model.XmlPersistence.DinnerDao;
 import org.xml.sax.SAXException;
+
+import view.removeMenuItem.removeDessertItemDialog;
+import view.removeMenuItem.removeDinnerItemDialog;
 
 /**
  *
  * @author SAMIR
  */
-public class adminEditAppetizerMenu extends javax.swing.JPanel implements ActionListener {
-    private AppetizersDao nodeList;
+public class adminEditDessertMenu extends javax.swing.JPanel implements ActionListener {
+    private DinnerDao nodeList;
     private Vector <Food> food;
     private int sizeOfList;
     private Vector <JLabel> nameLabels;
@@ -60,11 +66,11 @@ public class adminEditAppetizerMenu extends javax.swing.JPanel implements Action
     private Vector <JLabel> prices;
     private Vector <ImageIcon> icon;
     private String list[];
-    private AppetizersDao secList;
+    private DinnerDao secList;
     public JPanel dialog;
     /** Creates new form addAppetizerMenu */
-    public adminEditAppetizerMenu () {
-        try {
+    public adminEditDessertMenu () throws SAXException, ParserConfigurationException {
+       
             initComponents();
            // setPreferredSize(new Dimension(300,12000));
          // setLayout(new GridLayout(sizeOfList*sizeOfList,5));
@@ -74,17 +80,17 @@ public class adminEditAppetizerMenu extends javax.swing.JPanel implements Action
          
           setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
           
-        AppetizersDao nodeList = new AppetizersDao();
+        DinnerDao nodeList = new DinnerDao();
         
         //getting the size of list of appetizers
-        sizeOfList =2;// nodeList.length();
+       sizeOfList = nodeList.length();
         
         //initializing the food array of that list
         food = new Vector(sizeOfList);
         System.out.println(sizeOfList);
                 
         //store all the food in to the food array variable
-        food = nodeList.getVectorAllAppetizers();
+        food = nodeList.getVectorAllDinners();
         //initializing the arrays of size of the list
         buttons = new Vector(sizeOfList);
         
@@ -113,8 +119,8 @@ public class adminEditAppetizerMenu extends javax.swing.JPanel implements Action
         buttons.add(i, new JComboBox(list));
         buttons.get(i).setPreferredSize(new Dimension(70,30));
         buttons.get(i).setFocusCycleRoot(true);
-     //   buttons.get(i).setActionCommand(food.get(i).getName());
-       buttons.get(i).addActionListener(this);
+         buttons.get(i).setActionCommand(food.get(i).getName());
+         buttons.get(i).addActionListener(this);
        
         prices.add(i,new JLabel(""+food.get(i).getPrice()));
         System.out.println(i);
@@ -125,12 +131,7 @@ public class adminEditAppetizerMenu extends javax.swing.JPanel implements Action
         add(a);
      
      } 
-        
-        } catch (SAXException ex) {
-            Logger.getLogger(addAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParserConfigurationException ex) {
-            Logger.getLogger(addAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
    
   
     
@@ -173,28 +174,33 @@ public class adminEditAppetizerMenu extends javax.swing.JPanel implements Action
     @Override
     public void actionPerformed(ActionEvent ae) {
        // throw new UnsupportedOperationException("Not supported yet.");
-     //JComboBox temp =(JComboBox) ae.getSource();
-     //String selection = (String)temp.getSelectedItem();
-        dialog = new JPanel();
-       dialog.setSize(300,300);
-       dialog.setVisible(true);
-        removeItemDialog c = null;
-        try {
-             AppetizersDao secList = new AppetizersDao();
-            c = new removeItemDialog(secList);
-        } catch (SAXException ex) {
-            Logger.getLogger(adminEditAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParserConfigurationException ex) {
-            Logger.getLogger(adminEditAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
+     JComboBox temp =(JComboBox) ae.getSource();
+     String selection = (String)temp.getSelectedItem();
+     String aCommand = ae.getActionCommand();
+     System.out.println(aCommand);
+     
+        if(selection.equals("REMOVE")){
+            removeDinnerItemDialog c = null;
+            try {
+                DinnerDao secList = new DinnerDao();
+                c = new removeDinnerItemDialog(secList,this);
+                repaint();
+            } catch (SAXException ex) {
+                Logger.getLogger(adminEditAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ParserConfigurationException ex) {
+                Logger.getLogger(adminEditAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            c.setVisible(true);
+//          dialog.add(c);
+//          add(dialog);
+            add(c);
+            repaint();
+            setFocusable(true);
+            System.out.println("im trying to display the dialgo");
+        }  
+        else{
+            
         }
-        c.setVisible(true);
-//        dialog.add(c);
-//        add(dialog);
-        add(c);
-        repaint();
-        setFocusable(true);
-        System.out.println("im trying to display the dialgo");
-    
     }
 
     

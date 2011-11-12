@@ -9,6 +9,12 @@
  * Created on Nov 4, 2011, 11:16:20 PM
  */
 package view;
+import view.addMenus.addDrinkMenu;
+import view.addMenus.addAppetizerMenu;
+import view.addMenus.addDessertMenu;
+import view.addMenus.addDinnerMenu;
+import view.addMenus.addBreakfastMenu;
+import view.addMenus.addLunchMenu;
 import Controller.FoodListeners.viewFoodMenuActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;

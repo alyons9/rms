@@ -8,7 +8,7 @@
  *
  * Created on Nov 6, 2011, 5:07:46 PM
  */
-package view;
+package view.addMenus;
 
 import java.awt.Component;
 import java.awt.FlowLayout;
@@ -32,15 +32,15 @@ import javax.xml.parsers.ParserConfigurationException;
 import model.Food;
 import model.XmlPersistence.AppetizersDao;
 import model.XmlPersistence.BreakfastDao;
-import model.XmlPersistence.DessertDao;
+import model.XmlPersistence.LunchDao;
 import org.xml.sax.SAXException;
 
 /**
  *
  * @author SAMIR
  */
-public class addDessertMenu extends javax.swing.JPanel {
-    private DessertDao nodeList;
+public class addLunchMenu extends javax.swing.JPanel {
+    private LunchDao nodeList;
     private Food food[];
     private int sizeOfList;
     private JLabel nameLabels[];
@@ -53,7 +53,7 @@ public class addDessertMenu extends javax.swing.JPanel {
     private ImageIcon[] icon;
     
     /** Creates new form addAppetizerMenu */
-    public addDessertMenu() {
+    public addLunchMenu() {
         try {
             initComponents();
             
@@ -64,7 +64,7 @@ public class addDessertMenu extends javax.swing.JPanel {
           //setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
            
           
-        DessertDao nodeList = new DessertDao();
+       LunchDao nodeList = new LunchDao();
         
         //getting the size of list of appetizers
         sizeOfList = nodeList.length();
@@ -73,17 +73,18 @@ public class addDessertMenu extends javax.swing.JPanel {
         System.out.println(sizeOfList);
                 
         //store all the food in to the food array variable
-        food = nodeList.getAllDesserts();
+        food = nodeList.getAllLunches();
         //initializing the arrays of size of the list
         buttons = new JButton[sizeOfList];
         
         nameLabels = new JLabel[sizeOfList];
         appDesLabels = new JLabel[sizeOfList];
-       spinner = new JSpinner[sizeOfList];
+        spinner= new JSpinner[sizeOfList];
         prices = new JLabel[sizeOfList];
         icon = new ImageIcon[sizeOfList];
         
-      
+     
+    
     System.out.println(food[0].getPic());
 //   JLabel b = new JLabel("test");
 //    b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/Images/pizza.jpg")));
@@ -112,8 +113,8 @@ public class addDessertMenu extends javax.swing.JPanel {
         add(spinner[i]);
         add(prices[i]);
         add(buttons[i]);
-         JSeparator a = new JSeparator();
-         add(a);
+        JSeparator a = new JSeparator();
+        add(a);
      
      }  } catch (SAXException ex) {
             Logger.getLogger(addAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
@@ -121,7 +122,7 @@ public class addDessertMenu extends javax.swing.JPanel {
             Logger.getLogger(addAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
    
-    
+   
     }
     protected ImageIcon createImageIcon(String path) {
     java.net.URL imgURL = getClass().getResource(path);

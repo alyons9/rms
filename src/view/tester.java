@@ -4,9 +4,15 @@
  */
 package view;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.xml.parsers.ParserConfigurationException;
+import org.xml.sax.SAXException;
+import view.editMenus.adminEditAppetizerMenu;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import view.editMenus.adminEditBreakfastMenu;
 
 public class tester extends JFrame implements ActionListener {
   /* Declaration */
@@ -41,18 +47,33 @@ public class tester extends JFrame implements ActionListener {
    
   }
 
+    @Override
   public void actionPerformed(ActionEvent e) {
-  adminEditAppetizerMenu a = new adminEditAppetizerMenu();
+  adminEditBreakfastMenu a = null;
+  
+        try {
+            a = new adminEditBreakfastMenu();
+        } catch (SAXException ex) {
+            Logger.getLogger(tester.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParserConfigurationException ex) {
+            Logger.getLogger(tester.class.getName()).log(Level.SEVERE, null, ex);
+        }
   a.setVisible(true);
-  add(a);
+  JScrollPane temp = new JScrollPane(a);
+  temp.setVisible(true);
+  temp.setSize(500,500);
+  add(temp);
+  //add(a);
+  temp.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+  temp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
   a.repaint();
-
+  repaint();
  
   } 
   public static void main(String []args){
       tester b = new tester();
       b.setVisible(true);
-      b.setSize(new Dimension(700,400));
+      b.setSize(new Dimension(700,800));
           b.repaint();
          
   }

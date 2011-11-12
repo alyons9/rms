@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package view.removeMenuItem;
 
 /**
  *
@@ -33,13 +33,14 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.awt.Color;
 import org.xml.sax.SAXException;
 import java.awt.*;
-import model.XmlPersistence.AppetizersDao;
+import model.XmlPersistence.DrinksDao;
+
 
 /**
  *
  * @author SAMIR
  */
-public class removeItemDialog extends JInternalFrame {//being
+public class removeDrinkItemDialog extends JInternalFrame {//being
     
     private JTextField removeNameValue;
     
@@ -53,13 +54,13 @@ public class removeItemDialog extends JInternalFrame {//being
     
     
 
-    public removeItemDialog(final AppetizersDao list) throws SAXException, ParserConfigurationException {//begin constructor
+    public removeDrinkItemDialog(final DrinksDao list, final JPanel panel) throws SAXException, ParserConfigurationException {//begin constructor
 
-        //setRootPaneCheckingEnabled(false);
+//        setRootPaneCheckingEnabled(false);
 //    javax.swing.plaf.InternalFrameUI ifu= this.getUI();
 //    ((javax.swing.plaf.basic.BasicInternalFrameUI)ifu).setNorthPane(null);
        
-    setVisible(true);
+        setVisible(true);
         JPanel dialogPanel = new JPanel(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
        
@@ -92,17 +93,18 @@ public class removeItemDialog extends JInternalFrame {//being
             public void actionPerformed(ActionEvent e) {
               //System.out.print(getRemoveName());
                 succeeded =false;
-                succeeded = list.removeAppetizerByName(getRemoveName());
+                succeeded = list.removeDrinkByName(getRemoveName());
                 System.out.println(""+succeeded);
                     if(succeeded==true){
-                        JOptionPane.showMessageDialog(removeItemDialog.this,
+                        JOptionPane.showMessageDialog(removeDrinkItemDialog.this,
                                 "YOU HAVE SUCCESSFULLY DELETED THE ITEM.", "ITEM DELETION",
                                 JOptionPane.INFORMATION_MESSAGE);
                         
                         dispose();
+                        panel.repaint();
                     }
                     else{
-                         JOptionPane.showMessageDialog(removeItemDialog.this, "PROBLEM DELETING ITEM",
+                         JOptionPane.showMessageDialog(removeDrinkItemDialog.this, "PROBLEM DELETING ITEM",
                                 "ITEM DELETION", JOptionPane.ERROR_MESSAGE);
                         removeNameValue.setText("");     
                         
