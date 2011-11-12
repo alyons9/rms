@@ -34,6 +34,7 @@ public class RMSGui extends javax.swing.JFrame {
 public static JLabel Logo2 = new JLabel();
 public static JButton dineIn = new JButton();
 public static JButton CarryOut = new JButton();
+public static JButton Reservations = new JButton();
 public static JButton appetizers = new JButton();
 public static JButton breakfast = new JButton();
 public static JButton lunch = new JButton();
@@ -47,6 +48,7 @@ public static JButton confirm = new JButton();
 public static JButton viewback = new JButton();
 public static JButton next = new JButton();
 public static JButton viewcart = new JButton();
+public static JLabel Logo3 = new JLabel();
 
 
 public static addAppetizerMenu appetizerMenu = new addAppetizerMenu();
@@ -144,7 +146,7 @@ public static JScrollPane viewScrollPane = new JScrollPane();
         Tablet.setName("Tablet"); // NOI18N
 
         AdminLogin.setBackground(new java.awt.Color(255, 255, 255));
-        AdminLogin.setFont(new java.awt.Font("Times New Roman", 1, 16));
+        AdminLogin.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         AdminLogin.setForeground(new java.awt.Color(255, 255, 255));
         AdminLogin.setText("AdminLogin");
         AdminLogin.setBorder(null);
@@ -167,7 +169,6 @@ public static JScrollPane viewScrollPane = new JScrollPane();
         enterMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Cnerds Button.png"))); // NOI18N
         enterMenu.setText("jButton1");
         enterMenu.setIconTextGap(0);
-        enterMenu.setOpaque(false);
         enterMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterMenuActionPerformed(evt);
@@ -179,16 +180,16 @@ public static JScrollPane viewScrollPane = new JScrollPane();
         TabletLayout.setHorizontalGroup(
             TabletLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TabletLayout.createSequentialGroup()
-                .addContainerGap(556, Short.MAX_VALUE)
-                .addComponent(AdminLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                .addContainerGap(559, Short.MAX_VALUE)
+                .addComponent(AdminLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TabletLayout.createSequentialGroup()
                 .addGap(149, 149, 149)
-                .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
                 .addGap(129, 129, 129))
             .addGroup(TabletLayout.createSequentialGroup()
                 .addGap(230, 230, 230)
-                .addComponent(enterMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 198, Short.MAX_VALUE)
+                .addComponent(enterMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 205, Short.MAX_VALUE)
                 .addGap(237, 237, 237))
         );
         TabletLayout.setVerticalGroup(
@@ -255,13 +256,17 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     Logo2.setSize(400,300);
     Logo2.setLocation(179,47);
     dineIn.setVisible(true);
-    dineIn.setLocation(270,450);
+    dineIn.setLocation(270,360);
     dineIn.setSize(185,88);
     dineIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/DineIn Button.png")));
     CarryOut.setVisible(true);
-    CarryOut.setLocation(270,570);
+    CarryOut.setLocation(270,480);
     CarryOut.setSize(185,88);
     CarryOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/CarryOut Button.png")));
+    Reservations.setVisible(true);
+    Reservations.setLocation(270,600);
+    Reservations.setSize(185,88);
+    Reservations.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Reservations Button.png")));
     Logo.setVisible(false);
     AdminLogin.setVisible(false);
     viewScrollPane.setVisible(false);
@@ -269,6 +274,7 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     Tablet.add(Logo2);
     Tablet.add(dineIn);
     Tablet.add(CarryOut);
+    Tablet.add(Reservations);
     CartLogo.setVisible(false);
     home2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Home Button.png")));
     home2.setVisible(true);
@@ -290,6 +296,7 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     public void actionPerformed(ActionEvent e) {
     CarryOut.setVisible(false);
     dineIn.setVisible(false);
+    Reservations.setVisible(false);
     Logo.setVisible(false);
     Logo2.setVisible(false);
     AdminLogin.setVisible(false);
@@ -370,6 +377,7 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     public void actionPerformed(ActionEvent e) {
     CarryOut.setVisible(false);
     dineIn.setVisible(false);
+    Reservations.setVisible(false);
     Logo.setVisible(false);
     Logo2.setVisible(false);
     AdminLogin.setVisible(false);
@@ -488,6 +496,7 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     //DineInLogo.setVisible(false);
     CarryOut.setVisible(false);
     dineIn.setVisible(false);
+    Reservations.setVisible(false);
     appetizers.setVisible(false);
     appetizersPane.setVisible(false);
     breakfastPane.setVisible(false);
@@ -521,6 +530,7 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     //DineInLogo.setVisible(false);
     CarryOut.setVisible(true);
     dineIn.setVisible(true);
+    Reservations.setVisible(true);
     appetizers.setVisible(false);
     appetizersPane.setVisible(false);
     breakfastPane.setVisible(false);
@@ -544,14 +554,19 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     viewback.setVisible(true);
     viewback.setSize(75,40);
     viewback.setLocation(400,710);
+    Logo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Cnerds Cafe Side.png")));
+    Logo3.setVisible(true);
+    Logo3.setSize(400,650);
+    Logo3.setLocation(50,70);
+    Tablet.add(Logo3);
     Tablet.add(viewback);
     viewcart.setVisible(false);
-    drinks.setVisible(true);
+    drinks.setVisible(false);
     separator.setVisible(true);
-    breakfast.setVisible(true);
-    lunch.setVisible(true);
-    dinner.setVisible(true);
-    desserts.setVisible(true);
+    breakfast.setVisible(false);
+    lunch.setVisible(false);
+    dinner.setVisible(false);
+    desserts.setVisible(false);
     MenuLogo.setVisible(false);
     CartLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Cart Button.png")));
     Tablet.add(CartLogo);
@@ -564,7 +579,8 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     //DineInLogo.setVisible(false);
     CarryOut.setVisible(false);
     dineIn.setVisible(false);
-    appetizers.setVisible(true);
+    Reservations.setVisible(false);
+    appetizers.setVisible(false);
     appetizersPane.setVisible(false);
     viewScrollPane.setVisible(true);
     viewScrollPane.setBackground(new java.awt.Color(0, 0, 0));
@@ -588,6 +604,7 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     confirm.setVisible(false);
     CarryOut.setVisible(false);
     dineIn.setVisible(false);
+    Reservations.setVisible(false);
     appetizers.setVisible(false);
     Logo.setVisible(false);
     Logo2.setVisible(false);

@@ -14,7 +14,7 @@
     <description>Served warm with Vanilla ice cream</description>
     <quantity>1</quantity>
     <price>4.50</price>
-    <picture></picture>
+    <picture>/Database/Images/Dessert/DoubleChocFudge.jpg</picture>
 </plate>
 
 <plate>
@@ -22,7 +22,7 @@
     <description>Slice of delicious cheesecake</description>
     <quantity>1</quantity>
     <price>4.00</price>
-    <picture></picture>
+    <picture>/Database/Images/Dessert/ClassicCheesecake.jpg</picture>
 </plate>
 
 <plate>
@@ -30,7 +30,7 @@
     <description>Topped with toasted almonds and raisins</description>
     <quantity>1</quantity>
     <price>4.50</price>
-    <picture></picture>
+    <picture>/Database/Images/Dessert/warmBreadPudding.jpg</picture>
 </plate>
 
 <plate>
@@ -39,6 +39,6 @@
     whipped cream</description>
     <quantity>1</quantity>
     <price>4.50</price>
-    <picture></picture>
+    <picture>/Database/Images/Dessert/IceCreamParfait.jpg</picture>
 </plate>
 </Dessert>
