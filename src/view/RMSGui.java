@@ -23,8 +23,10 @@ import javax.swing.JOptionPane;
 import java.awt.*;
 import java.awt.event.*;
 import javax.xml.parsers.ParserConfigurationException;
+import model.Cart;
 import org.xml.sax.SAXException;
 import view.Constants.ApplicationConstants;
+import view.addMenus.CartView;
 import view.adminLogInDialog;
 /**
  *
@@ -32,6 +34,7 @@ import view.adminLogInDialog;
  */
 
 public class RMSGui extends javax.swing.JFrame {
+//Buttons and labels for GUI    
 public static JLabel Logo2 = new JLabel();
 public static JButton dineIn = new JButton();
 public static JButton CarryOut = new JButton();
@@ -56,13 +59,16 @@ public static JDialog confirmframe;
 public static PaymentOption paymentOption = new PaymentOption();
 
 
+//Cart object 
+public static Cart cart = new Cart();
 
-public static addAppetizerMenu appetizerMenu = new addAppetizerMenu();
-public static addBreakfastMenu breakfastMenu = new addBreakfastMenu();
-public static addLunchMenu lunchMenu = new addLunchMenu();
-public static addDinnerMenu dinnerMenu = new addDinnerMenu();
-public static addDessertMenu dessertMenu = new addDessertMenu();
-public static addDrinkMenu drinksMenu = new addDrinkMenu();
+//Food Button actions
+public static addAppetizerMenu appetizerMenu = new addAppetizerMenu(cart);
+public static addBreakfastMenu breakfastMenu = new addBreakfastMenu(cart);
+public static addLunchMenu lunchMenu = new addLunchMenu(cart);
+public static addDinnerMenu dinnerMenu = new addDinnerMenu(cart);
+public static addDessertMenu dessertMenu = new addDessertMenu(cart);
+public static addDrinkMenu drinksMenu = new addDrinkMenu(cart);
 public static JScrollPane appetizersPane = new JScrollPane(appetizerMenu);
 public static JScrollPane breakfastPane = new JScrollPane(breakfastMenu);
 public static JScrollPane dessertPane = new JScrollPane(dessertMenu);
@@ -80,6 +86,8 @@ public static JScrollPane viewScrollPane = new JScrollPane();
 public static JScrollPane paymentScrollPane = new JScrollPane(paymentOption);
 //private JLabel DineInLogo = new JLabel();
 //private JLabel CarryOutLogo = new JLabel();
+
+
 
     /** Creates new form RMSGui */
     public RMSGui() {
@@ -614,8 +622,17 @@ public static JScrollPane paymentScrollPane = new JScrollPane(paymentOption);
     Reservations.setVisible(false);
     appetizers.setVisible(false);
     appetizersPane.setVisible(false);
+    breakfastPane.setVisible(false);
+    lunchPane.setVisible(false);
+    dinnerPane.setVisible(false);
+    dessertPane.setVisible(false);
+    drinksPane.setVisible(false);
+    CartView cartView = new CartView(cart);
+    viewScrollPane.add(cartView);
+    //viewScrollPane.add(new JCheckBox(cart.getFoodItems().get(0).getName()));
+    viewScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
     viewScrollPane.setVisible(true);
-    viewScrollPane.setBackground(new java.awt.Color(0, 0, 0));
+    //viewScrollPane.setBackground(new java.awt.Color(0, 0, 0));
     viewScrollPane.setSize(522,625);
     viewScrollPane.setLocation(173,78);
     Tablet.add(viewScrollPane);
