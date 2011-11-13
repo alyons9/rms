@@ -21,7 +21,7 @@ import view.PaymentOption;
  * @author Jamel Jenkins
  */
 public class Receipt extends javax.swing.JPanel {
-  public static JLabel name = new JLabel("Name on Card:");
+public static JLabel name = new JLabel("Name on Card:");
 public static JLabel street = new JLabel("Street Address:");
 public static JLabel city = new JLabel("City:");
 public static JLabel stateZip = new JLabel("State and Zip:");
@@ -31,13 +31,18 @@ public static JLabel card = new JLabel("Card Type:");
 public static JLabel Expiration = new JLabel("Expiration Date:");
 public static JLabel cardNumber = new JLabel("Card Number:");
 public static JLabel purchases = new JLabel("Items Order");
+public static String readinName;
 public static JLabel grabName = new JLabel();
+//public static JLabel grabcardType = new JLabel(getName());
 
     /** Creates new form Receipt */
     public Receipt() {
         RMSGui.confirm2.addActionListener(paymentConfirmListener);
         initComponents();
     }
+   public void setName(String n){
+    n = PaymentOption.nameField.getText().trim();
+   }
 //method to get the Cardholder Name
     public String getName() {
         String temp;
@@ -187,10 +192,10 @@ public static JLabel grabName = new JLabel();
             RMSGui.receiptScrollPane.setSize(522,625);
             RMSGui.receiptScrollPane.setLocation(173,78);
             RMSGui.ReceiptLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Receipt Logo.png")));
-           RMSGui.Tablet.add(RMSGui.ReceiptLogo);
-           RMSGui.ReceiptLogo.setLocation(350,10);
-           RMSGui.ReceiptLogo.setVisible(true);
-           RMSGui.ReceiptLogo.setSize(320,88);
+            RMSGui.Tablet.add(RMSGui.ReceiptLogo);
+            RMSGui.ReceiptLogo.setLocation(350,10);
+            RMSGui.ReceiptLogo.setVisible(true);
+            RMSGui.ReceiptLogo.setSize(320,88);
             RMSGui.Tablet.add(RMSGui.receiptScrollPane);
             name.setVisible(true);
             name.setLocation(60,55);
@@ -198,12 +203,20 @@ public static JLabel grabName = new JLabel();
             name.setForeground(new java.awt.Color(0, 0, 0));
             name.setFont(new java.awt.Font("AR DARLING", 0, 14));
             add(name);
+            System.out.println(PaymentOption.nameField.getText().trim());
             grabName.setVisible(true);
-            grabName.setLocation(110,55);
+            grabName.setLocation(135,75);
             grabName.setSize(200,100);
             grabName.setForeground(new java.awt.Color(0, 0, 0));
             grabName.setFont(new java.awt.Font("AR DARLING", 0, 14));
             add(grabName);
+            //grabcardType.setVisible(true);
+            //grabcardType.setLocation(135,75);
+            //grabcardType.setSize(200,100);
+            //grabcardType.setForeground(new java.awt.Color(0, 0, 0));
+            //grabcardType.setFont(new java.awt.Font("AR DARLING", 0, 14));
+            //add(grabcardType);
+            repaint();
             card.setVisible(true);
             card.setLocation(60,75);
             card.setSize(200,100);
