@@ -26,14 +26,29 @@ public static JLabel cardPics = new JLabel();
 public static JLabel debit = new JLabel("Debit/Credit Cards");
 public static JLabel billing = new JLabel("Billing Information");
 public static JLabel name = new JLabel("Name on Card:");
+public static JLabel street = new JLabel("Street Address:");
+public static JLabel city = new JLabel("City:");
+public static JLabel stateZip = new JLabel("State and Zip:");
+public static JLabel country = new JLabel("Country:");
+public static JLabel email = new JLabel("Email:");
+public static JLabel emailConfirm = new JLabel("Confirm Email:");
 public static JTextField nameField = new JTextField(30);
 public static JTextField numberField = new JTextField(30);
 public static JTextField securityField = new JTextField(3);
+public static JTextField streetField = new JTextField(30);
+public static JTextField cityField = new JTextField(30);
+public static JTextField zipField = new JTextField(30);
+public static JTextField emailField = new JTextField(30);
+public static JTextField emailConfirmField = new JTextField(30);
 public static JLabel card = new JLabel("Card Type:");
 public static JComboBox cardType = new JComboBox(types);
 public static JLabel Expiration = new JLabel("Expiration Date:");
 public static String[] months = {"1", "2", "3", "4", "5", "6", "7","8", "9", "10", "11", "12"};
 public static JComboBox expMonth = new JComboBox(months);
+public static String[] states = {"Alabama", "2", "3", "4", "5", "6", "7","8", "9", "10", "11", "12"};
+public static JComboBox stateslist = new JComboBox(states);
+public static String[] countries = {"1", "2", "3", "4", "5", "6", "7","8", "9", "10", "11", "12"};
+public static JComboBox countrieslist = new JComboBox(countries);
 public static String[] years = {"2011", "2012", "2013", "2014", "2015", "2016", "2017"};
 public static JComboBox expYear = new JComboBox(years);
 public static JLabel cardNumber = new JLabel("Card Number:");
@@ -104,7 +119,8 @@ public static Cart cart;
                       JOptionPane.YES_NO_OPTION);   
       
       if (cashPane == JOptionPane.YES_OPTION) {
-     // JOptionPane.showMessageDialog(null,"Your Total is: $" + cart.getTotal());
+      int total = JOptionPane.showConfirmDialog(null,"Your Total is: $" + RMSGui.cart.getTotal() + "\n Is This Correct?");
+      if(total == JOptionPane.YES_OPTION){
       JOptionPane.showMessageDialog(null,"The Waitress/Waiter Will Be There Shortly To Receive Your Payment!"
               + " Thank You for Choosing Cnerds Cafe'");
     RMSGui.paymentScrollPane.setVisible(false);
@@ -142,6 +158,7 @@ public static Cart cart;
     RMSGui.dessertPane.setVisible(false);
     RMSGui.drinksPane.setVisible(false);
     repaint();
+      }
       }
     }//GEN-LAST:event_CashActionPerformed
 
@@ -223,6 +240,40 @@ public static Cart cart;
          billing.setForeground(new java.awt.Color(0, 0, 0));
          billing.setFont(new java.awt.Font("AR DARLING", 0, 18));
          add(billing);
+         street.setVisible(true);
+         street.setLocation(60,300);
+         street.setSize(200,100);
+         street.setForeground(new java.awt.Color(0, 0, 0));
+         street.setFont(new java.awt.Font("AR DARLING", 0, 16));
+         add(street);
+         city.setVisible(true);
+         city.setLocation(60,330);
+         city.setSize(200,100);
+         city.setForeground(new java.awt.Color(0, 0, 0));
+         city.setFont(new java.awt.Font("AR DARLING", 0, 16));
+         add(city);
+         stateZip.setVisible(true);
+         stateZip.setLocation(60,360);
+         stateZip.setSize(200,100);
+         stateZip.setForeground(new java.awt.Color(0, 0, 0));
+         stateZip.setFont(new java.awt.Font("AR DARLING", 0, 16));
+         add(stateZip);
+         country.setVisible(true);
+         country.setLocation(60,390);
+         country.setSize(200,100);
+         country.setForeground(new java.awt.Color(0, 0, 0));
+         country.setFont(new java.awt.Font("AR DARLING", 0, 16));
+         add(country);
+         email.setLocation(60,420);
+         email.setSize(200,100);
+         email.setForeground(new java.awt.Color(0, 0, 0));
+         email.setFont(new java.awt.Font("AR DARLING", 0, 16));
+         add(email);
+         emailConfirm.setLocation(60,450);
+         emailConfirm.setSize(200,100);
+         emailConfirm.setForeground(new java.awt.Color(0, 0, 0));
+         emailConfirm.setFont(new java.awt.Font("AR DARLING", 0, 16));
+         add(emailConfirm);
          repaint();
      }
     }//GEN-LAST:event_DebitActionPerformed
