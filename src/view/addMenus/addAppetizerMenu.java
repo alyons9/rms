@@ -63,9 +63,8 @@ public class addAppetizerMenu extends javax.swing.JPanel {
          
       // setLayout(new FlowLayout());
          //setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
-          setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
-           
-          
+         setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+         
         AppetizersDao nodeList = new AppetizersDao();
         
         //getting the size of list of appetizers
