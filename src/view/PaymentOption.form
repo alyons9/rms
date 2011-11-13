@@ -23,7 +23,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
               <Component id="Cash" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="140" max="32767" attributes="0"/>
+              <EmptySpace pref="154" max="32767" attributes="0"/>
               <Component id="Debit" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
           </Group>
@@ -37,7 +37,7 @@
                   <Component id="Cash" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Debit" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="471" max="32767" attributes="0"/>
+              <EmptySpace pref="599" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

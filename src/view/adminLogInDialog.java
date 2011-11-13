@@ -178,7 +178,7 @@ public class adminLogInDialog extends JInternalFrame {//being
         }
     } 
         Logout.addActionListener(LogoutListener);
-        appetizers.addActionListener(new viewFoodEditMenuActionListener(lunchEditPane,RMSGui.Tablet));
+        appetizers.addActionListener(new viewFoodEditMenuActionListener(appetizersEditPane,RMSGui.Tablet));
         appetizers.addActionListener(foodListener);
         
         //Breakfast ActionListeners

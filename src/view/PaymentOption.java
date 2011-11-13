@@ -12,6 +12,8 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 import model.Cart;
+import model.Drink;
+import model.Food;
 /**
  *
  * @author Jamel Jenkins
@@ -19,6 +21,14 @@ import model.Cart;
 public class PaymentOption extends javax.swing.JPanel {
 public static JDialog cashframe;
 public static JDialog debitframe;
+public static String[] types = {"Visa", "Discover", "MasterCard", "AmericanExpress", "
+public static JLabel debit = new JLabel("Debit/Credit Cards");
+public static JLabel name = new JLabel("Name on Card");
+public static JList  cardType = new JList();
+public static JList expMonth = new JList();
+public static JList expYear = new JList();
+public static JLabel cardNumber = new JLabel("Card Number");
+public static JLabel cardSecure = new JLabel("Card Security Number");
 public static Cart cart;
     /** Creates new form PaymentOption */
     public PaymentOption() {
@@ -63,7 +73,7 @@ public static Cart cart;
             .addGroup(layout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addComponent(Cash)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
                 .addComponent(Debit)
                 .addGap(117, 117, 117))
         );
@@ -74,7 +84,7 @@ public static Cart cart;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Cash)
                     .addComponent(Debit))
-                .addContainerGap(471, Short.MAX_VALUE))
+                .addContainerGap(599, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -85,7 +95,7 @@ public static Cart cart;
                       JOptionPane.YES_NO_OPTION);   
       
       if (cashPane == JOptionPane.YES_OPTION) {
-      //JOptionPane.showMessageDialog(null,"Your Total is: $" + cart.getTotal());
+     // JOptionPane.showMessageDialog(null,"Your Total is: $" + cart.getTotal());
       JOptionPane.showMessageDialog(null,"The Waitress/Waiter Will Be There Shortly To Receive Your Payment!"
               + " Thank You for Choosing Cnerds Cafe'");
     RMSGui.paymentScrollPane.setVisible(false);
@@ -133,6 +143,19 @@ public static Cart cart;
                       JOptionPane.YES_NO_OPTION);   
      if (cashPane == JOptionPane.YES_OPTION) {
          RMSGui.confirmback.setVisible(true);
+         debit.setVisible(true);
+         debit.setLocation(20,50);
+         debit.setSize(200,100);
+         debit.setForeground(new java.awt.Color(0, 0, 0));
+         debit.setFont(new java.awt.Font("AR DARLING", 0, 18));
+         add(debit);
+         name.setVisible(true);
+         name.setLocation(60,100);
+         name.setSize(200,100);
+         name.setForeground(new java.awt.Color(0, 0, 0));
+         name.setFont(new java.awt.Font("AR DARLING", 0, 16));
+         add(name);
+         repaint();
      }
     }//GEN-LAST:event_DebitActionPerformed
 
