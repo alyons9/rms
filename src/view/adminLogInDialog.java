@@ -12,6 +12,13 @@ package view;
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+import view.Constants.ApplicationConstants;
+import view.editMenus.adminEditDrinkMenu;
+import view.editMenus.adminEditAppetizerMenu;
+import view.editMenus.adminEditDessertMenu;
+import view.editMenus.adminEditDinnerMenu;
+import view.editMenus.adminEditBreakfastMenu;
+import view.editMenus.adminEditLunchMenu;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
@@ -34,6 +41,7 @@ import javax.swing.ImageIcon;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 import java.awt.*;
+import Controller.FoodListeners.viewFoodEditMenuActionListener;
 
 /**
  *
@@ -58,11 +66,147 @@ public class adminLogInDialog extends JInternalFrame {//being
     private JButton dinner = new JButton();
     private JButton desserts = new JButton();
     private JButton drinks = new JButton();
-    //private adminEditAppetizerMenu adminEditAppetizerMenu = new adminEditAppetizerMenu();
-    private JScrollPane AdminEditAppetizerPane = new JScrollPane();
+    private JButton Logout = new JButton();
+    //public static adminEditAppetizerMenu appetizerMenu = new adminEditAppetizerMenu();
+    //public static adminEditBreakfastMenu breakfastMenu = new adminEditBreakfastMenu();
+    //public static adminEditLunchMenu lunchMenu = new adminEditLunchMenu();
+    //public static adminEditDinnerMenu dinnerMenu = new adminEditDinnerMenu();
+    //public static adminEditDessertMenu dessertMenu = new adminEditDessertMenu();
+    //public static adminEditDrinkMenu drinksMenu = new adminEditDrinkMenu();
+    public static JScrollPane appetizersEditPane = new JScrollPane(/*appetizerMenu*/);
+    public static JScrollPane breakfastEditPane = new JScrollPane(/*breakfastMenu*/);
+    public static JScrollPane dessertEditPane = new JScrollPane(/*lunchMenu*/);
+    public static JScrollPane lunchEditPane = new JScrollPane(/*dinnerMenu*/);
+    public static JScrollPane dinnerEditPane = new JScrollPane(/*dessertMenu*/);
+    public static JScrollPane drinksEditPane = new JScrollPane(/*drinksMenu*/);
 
     public adminLogInDialog(JPanel a) {//begin constructor
-
+    ActionListener LogoutListener = new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+       appetizers.setVisible(false);
+       breakfast.setVisible(false);
+       lunch.setVisible(false);
+       dinner.setVisible(false);
+       desserts.setVisible(false);
+       drinks.setVisible(false);
+       Logout.setVisible(false);
+       AdminEditLogo.setVisible(false);
+       separator.setVisible(false);
+       appetizersEditPane.setVisible(false);
+       breakfastEditPane.setVisible(false);
+       dessertEditPane.setVisible(false);
+       lunchEditPane.setVisible(false);
+       dinnerEditPane.setVisible(false);
+       drinksEditPane.setVisible(false);
+       RMSGui.Logo.setVisible(true);
+       RMSGui.enterMenu.setVisible(true);
+       RMSGui.AdminLogin.setVisible(true);
+        //new RMSGui().setVisible(true); 
+    
+    }};
+        ActionListener foodListener = new ActionListener(){
+        public void actionPerformed(ActionEvent e){
+            
+            switch(e.getActionCommand().charAt(0)){
+                case ApplicationConstants.APPETIZERS:
+                    breakfastEditPane.setVisible(false);
+                    lunchEditPane.setVisible(false);
+                    dinnerEditPane.setVisible(false);
+                    drinksEditPane.setVisible(false);
+                    dessertEditPane.setVisible(false);
+                    break;
+                case ApplicationConstants.BREAKFAST:
+                    appetizersEditPane.setVisible(false);
+                    lunchEditPane.setVisible(false);
+                    dinnerEditPane.setVisible(false);
+                    drinksEditPane.setVisible(false);
+                    dessertEditPane.setVisible(false);
+                    break;
+                case ApplicationConstants.LUNCH: 
+                    appetizersEditPane.setVisible(false);
+                    breakfastEditPane.setVisible(false);
+                    dinnerEditPane.setVisible(false);
+                    drinksEditPane.setVisible(false);
+                    dessertEditPane.setVisible(false);
+                    break;
+                case ApplicationConstants.DINNER: 
+                    appetizersEditPane.setVisible(false);
+                    breakfastEditPane.setVisible(false);
+                    lunchEditPane.setVisible(false);
+                    drinksEditPane.setVisible(false);
+                    dessertEditPane.setVisible(false);
+                    break;
+                case ApplicationConstants.DESSERTS:
+                    appetizersEditPane.setVisible(false);
+                    breakfastEditPane.setVisible(false);
+                    lunchEditPane.setVisible(false);
+                    drinksEditPane.setVisible(false);
+                    dinnerEditPane.setVisible(false);
+                    break;
+                case ApplicationConstants.DRINKS: 
+                    appetizersEditPane.setVisible(false);
+                    breakfastEditPane.setVisible(false);
+                    lunchEditPane.setVisible(false);
+                    dinnerEditPane.setVisible(false);
+                    dessertEditPane.setVisible(false);
+                    break;
+                default: 
+                    appetizersEditPane.setVisible(false);
+                    breakfastEditPane.setVisible(false);
+                    lunchEditPane.setVisible(false);
+                    dinnerEditPane.setVisible(false);
+                    dessertEditPane.setVisible(false);
+                    drinksEditPane.setVisible(false);
+                    break;
+                
+            }
+            
+            //System.out.println(e.getActionCommand());
+        }
+    };
+        class appetizers implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            //addAppetizerMenu a = new addAppetizerMenu();
+            //foodPane.add(a);
+            appetizersEditPane.setSize(524, 312);
+            appetizersEditPane.setLocation(170, 78);
+            appetizersEditPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+            appetizersEditPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+            RMSGui.home2.setVisible(false);
+            RMSGui.Tablet.add(appetizersEditPane);
+            repaint();
+        }
+    } 
+        Logout.addActionListener(LogoutListener);
+        appetizers.addActionListener(new viewFoodEditMenuActionListener(lunchEditPane,RMSGui.Tablet));
+        appetizers.addActionListener(foodListener);
+        
+        //Breakfast ActionListeners
+        breakfast.addActionListener(new viewFoodEditMenuActionListener(breakfastEditPane,RMSGui.Tablet));
+        breakfast.addActionListener(foodListener);
+        
+        //Lunch ActionListeners
+        lunch.addActionListener(new viewFoodEditMenuActionListener(lunchEditPane,RMSGui.Tablet));
+        lunch.addActionListener(foodListener);
+        
+        //Dinner ActionListeners
+        dinner.addActionListener(new viewFoodEditMenuActionListener(dinnerEditPane,RMSGui.Tablet));
+        dinner.addActionListener(foodListener);
+        
+        //Desserts ActionListeners
+        desserts.addActionListener(new viewFoodEditMenuActionListener(dessertEditPane,RMSGui.Tablet));
+        desserts.addActionListener(foodListener);
+        
+        //Drinks ActionListeners
+        drinks.addActionListener(new viewFoodEditMenuActionListener(drinksEditPane,RMSGui.Tablet));
+        drinks.addActionListener(foodListener);
+        
+        appetizers.setActionCommand(Character.toString(ApplicationConstants.APPETIZERS));
+        breakfast.setActionCommand(Character.toString(ApplicationConstants.BREAKFAST));
+        lunch.setActionCommand(Character.toString(ApplicationConstants.LUNCH));
+        dinner.setActionCommand(Character.toString(ApplicationConstants.DINNER));
+        drinks.setActionCommand(Character.toString(ApplicationConstants.DRINKS));
+        desserts.setActionCommand(Character.toString(ApplicationConstants.DESSERTS));
 
         // super(frame,"ADMINISTRATOR LOGIN",true);
         JPanel dialogPanel = new JPanel(new GridBagLayout());
@@ -164,10 +308,15 @@ public class adminLogInDialog extends JInternalFrame {//being
                         AdminEditLogo.setSize(350,88);
                         AdminEditLogo.setLocation(275,10);
                         RMSGui.Tablet.add(AdminEditLogo);
-                        AdminEditAppetizerPane.setVisible(true);
-                        AdminEditAppetizerPane.setSize(522,312);
-                        AdminEditAppetizerPane.setLocation(173,78);
-                        RMSGui.Tablet.add(AdminEditAppetizerPane);
+                        Logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Logout Button.png")));
+                        Logout.setVisible(true);
+                        Logout.setSize(60,30);
+                        Logout.setLocation(630,710);
+                        RMSGui.Tablet.add(Logout);
+                        //appetizersEditPane.setVisible(true);
+                        //appetizersEditPane.setSize(522,312);
+                        //appetizersEditPane.setLocation(173,78);
+                        RMSGui.Tablet.add(appetizersEditPane);
                         repaint();
                     
                     } else {//displaying a false if a username and password are incorrect
@@ -216,8 +365,7 @@ public class adminLogInDialog extends JInternalFrame {//being
         };//end of sign upactionListener
 
         signUp.addActionListener(signUpButtonAction);
-
-
+        
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(confirm);
         buttonPanel.add(cancel);
@@ -253,4 +401,5 @@ public class adminLogInDialog extends JInternalFrame {//being
 
         return succeeded;
     }
+    
 }//end class
