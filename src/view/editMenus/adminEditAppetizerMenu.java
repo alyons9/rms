@@ -43,6 +43,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import model.Food;
 import model.XmlPersistence.AppetizersDao;
 import org.xml.sax.SAXException;
+import view.changePrice.changeAppetizerPrice;
 import view.removeMenuItem.removeAppetizerItemDialog;
 
 /**
@@ -175,7 +176,8 @@ public class adminEditAppetizerMenu extends javax.swing.JPanel implements Action
      String selection = (String)temp.getSelectedItem();
      String aCommand = ae.getActionCommand();
      System.out.println(aCommand);
-     
+          System.out.println(selection);
+
         if(selection.equals("REMOVE")){
             removeAppetizerItemDialog c = null;
             try {
@@ -193,10 +195,27 @@ public class adminEditAppetizerMenu extends javax.swing.JPanel implements Action
             add(c);
             repaint();
             setFocusable(true);
-            System.out.println("im trying to display the dialgo");
+            System.out.println("im trying to display the Remove Dialog");
         }  
-        else{
-            
+        else {//(selection.equals("CHANGE PRICE")){
+            changeAppetizerPrice price = null;
+            try {
+                AppetizersDao secList2 = new AppetizersDao();
+                price = new changeAppetizerPrice(secList2,this, aCommand);
+                repaint();
+            } catch (SAXException ex) {
+                Logger.getLogger(adminEditAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ParserConfigurationException ex) {
+                Logger.getLogger(adminEditAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            price.setVisible(true);
+//          dialog.add(c);
+//          add(dialog);
+            add(price);
+            repaint();
+            setFocusable(true);
+                        System.out.println("im trying to display the Change Dialog");
+
         }
     }
 

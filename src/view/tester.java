@@ -49,10 +49,10 @@ public class tester extends JFrame implements ActionListener {
 
     @Override
   public void actionPerformed(ActionEvent e) {
-  adminEditBreakfastMenu a = null;
+  adminEditAppetizerMenu a = null;
   
         try {
-            a = new adminEditBreakfastMenu();
+            a = new adminEditAppetizerMenu();
         } catch (SAXException ex) {
             Logger.getLogger(tester.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParserConfigurationException ex) {

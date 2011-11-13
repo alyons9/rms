@@ -99,14 +99,14 @@ public class DinnerDao {
        
         public Vector<Food> getVectorAllDinners(){
        int numOfElem = nl.getLength();
-        Vector <Food> appetizers = new Vector(numOfElem);
+        Vector <Food> dinners = new Vector(numOfElem);
         if(nl != null && numOfElem > 0) {
             for(int i = 0 ; i < numOfElem;i++) {
                 //get the appetizer element
                 Element el = (Element)nl.item(i);
                 
                     //get the appetizer object
-                    appetizers.add(i,getDinner(el));
+                    dinners.add(i,getDinner(el));
                 
 
 				
@@ -114,9 +114,38 @@ public class DinnerDao {
             
 	}
         
-        return appetizers;
+        return dinners;
     }
        
+         private void setTextValue(Element ele, String tagName, String newValue){
+        NodeList nodeList = ele.getElementsByTagName(tagName);
+        if(nodeList!=null && nodeList.getLength()>0){
+            Element el = (Element)nodeList.item(0);
+            el.getFirstChild().setNodeValue(newValue);
+        }
+                
+    }
+    
+     public boolean setPriceByName(String name, double price){
+        for(int i=0;i<nl.getLength();i++){
+            Element child = (Element)nl.item(i);
+            if(getTextValue(child,"name").equalsIgnoreCase(name)){
+                //Set childs price to new price
+                setTextValue(child,"price",Double.toString(price));
+                System.out.println("Works! "+getTextValue(child,"price"));
+                done = true;
+                try {
+                    write();
+                } catch (TransformerConfigurationException ex) {
+                    Logger.getLogger(DinnerDao.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (TransformerException ex) {
+                    Logger.getLogger(DinnerDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return done;
+        
+    }
        
        
         //returns the lenght of nodes
@@ -178,9 +207,9 @@ public class DinnerDao {
         try {
             write();//Write the undeleted children over the file
         } catch (TransformerConfigurationException ex) {
-            Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DinnerDao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (TransformerException ex) {
-            Logger.getLogger(AppetizersDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DinnerDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return done;
     }

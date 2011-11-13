@@ -34,12 +34,15 @@ import java.awt.Color;
 import org.xml.sax.SAXException;
 import java.awt.*;
 import model.XmlPersistence.AppetizersDao;
+import model.XmlPersistence.BreakfastDao;
+import model.XmlPersistence.DessertDao;
+import model.XmlPersistence.DinnerDao;
 
 /**
  *
  * @author SAMIR
  */
-public class changeAppetizerPrice extends JInternalFrame {//being
+public class changeDinnerPrice extends JInternalFrame {//being
     
     private JTextField priceNameValue;
     
@@ -53,7 +56,7 @@ public class changeAppetizerPrice extends JInternalFrame {//being
     
     
 
-    public changeAppetizerPrice(final AppetizersDao list, final JPanel panel,final String foodName) throws SAXException, ParserConfigurationException {//begin constructor
+    public changeDinnerPrice(final DinnerDao list, final JPanel panel,final String foodName) throws SAXException, ParserConfigurationException {//begin constructor
 
 //        setRootPaneCheckingEnabled(false);
 //    javax.swing.plaf.InternalFrameUI ifu= this.getUI();
@@ -66,7 +69,7 @@ public class changeAppetizerPrice extends JInternalFrame {//being
         constraints.fill = GridBagConstraints.HORIZONTAL;
 
         //adding the the label for the Username
-        priceName = new JLabel("ENTERP RICE TO BE CHANGED");
+        priceName = new JLabel(""+foodName + ": ENTER PRICE TO BE CHANGED");
         constraints.gridx = 0;
         constraints.gridy = 0;
         constraints.gridwidth = 2;
@@ -95,7 +98,7 @@ public class changeAppetizerPrice extends JInternalFrame {//being
                 succeeded = list.setPriceByName(foodName, Double.parseDouble(getPriceName()));
                 System.out.println(""+succeeded);
                     if(succeeded==true){
-                        JOptionPane.showMessageDialog(changeAppetizerPrice.this,
+                        JOptionPane.showMessageDialog(changeDinnerPrice.this,
                                 "YOU HAVE SUCCESSFULLY CHANGED THE PRICE.", "PRICE CHANGE",
                                 JOptionPane.INFORMATION_MESSAGE);
                         
@@ -103,7 +106,7 @@ public class changeAppetizerPrice extends JInternalFrame {//being
                         panel.repaint();
                     }
                     else{
-                         JOptionPane.showMessageDialog(changeAppetizerPrice.this, "PROBLEM CHANGING PRICE",
+                         JOptionPane.showMessageDialog(changeDinnerPrice.this, "PROBLEM CHANGING PRICE",
                                 "PRICE CHANGE", JOptionPane.ERROR_MESSAGE);
                         priceNameValue.setText("");     
                         

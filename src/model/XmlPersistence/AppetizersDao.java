@@ -211,13 +211,14 @@ public class AppetizersDao {
         return done;
     }
     
-    public void setPriceByName(String name, double price){
+    public boolean setPriceByName(String name, double price){
         for(int i=0;i<nl.getLength();i++){
             Element child = (Element)nl.item(i);
             if(getTextValue(child,"name").equalsIgnoreCase(name)){
                 //Set childs price to new price
                 setTextValue(child,"price",Double.toString(price));
                 System.out.println("Works! "+getTextValue(child,"price"));
+                done = true;
                 try {
                     write();
                 } catch (TransformerConfigurationException ex) {
@@ -227,7 +228,7 @@ public class AppetizersDao {
                 }
             }
         }
-        
+        return done;
         
     }
     

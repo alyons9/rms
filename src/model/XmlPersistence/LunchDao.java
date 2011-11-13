@@ -117,6 +117,36 @@ public class LunchDao {
         return appetizers;
     }
       
+        private void setTextValue(Element ele, String tagName, String newValue){
+        NodeList nodeList = ele.getElementsByTagName(tagName);
+        if(nodeList!=null && nodeList.getLength()>0){
+            Element el = (Element)nodeList.item(0);
+            el.getFirstChild().setNodeValue(newValue);
+        }
+                
+    }
+    
+     public boolean setPriceByName(String name, double price){
+        for(int i=0;i<nl.getLength();i++){
+            Element child = (Element)nl.item(i);
+            if(getTextValue(child,"name").equalsIgnoreCase(name)){
+                //Set childs price to new price
+                setTextValue(child,"price",Double.toString(price));
+                System.out.println("Works! "+getTextValue(child,"price"));
+                done = true;
+                try {
+                    write();
+                } catch (TransformerConfigurationException ex) {
+                    Logger.getLogger(LunchDao.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (TransformerException ex) {
+                    Logger.getLogger(LunchDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return done;
+        
+    }
+      
        //returns the lenght of nodes
     public int length(){
         int temp = nl.getLength();

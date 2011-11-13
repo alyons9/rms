@@ -44,6 +44,7 @@ import model.Food;
 
 import model.XmlPersistence.BreakfastDao;
 import org.xml.sax.SAXException;
+import view.changePrice.changeBreakfastPrice;
 import view.removeMenuItem.removeAppetizerItemDialog;
 import view.removeMenuItem.removeBreakfastItemDialog;
 
@@ -198,6 +199,23 @@ public class adminEditBreakfastMenu extends javax.swing.JPanel implements Action
             System.out.println("im trying to display the dialgo");
         }  
         else{
+             changeBreakfastPrice price = null;
+            try {
+                BreakfastDao secList2 = new BreakfastDao();
+                price = new changeBreakfastPrice(secList2,this, aCommand);
+                repaint();
+            } catch (SAXException ex) {
+                Logger.getLogger(adminEditAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ParserConfigurationException ex) {
+                Logger.getLogger(adminEditAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            price.setVisible(true);
+//          dialog.add(c);
+//          add(dialog);
+            add(price);
+            repaint();
+            setFocusable(true);
+                        System.out.println("im trying to display the Change Dialog");
             
         }
     }

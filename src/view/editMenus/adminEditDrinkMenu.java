@@ -44,9 +44,11 @@ import model.Drink;
 import model.Food;
 
 
+import model.XmlPersistence.DessertDao;
 import model.XmlPersistence.DrinksDao;
 import org.xml.sax.SAXException;
 
+import view.changePrice.changeDrinkPrice;
 import view.removeMenuItem.removeDessertItemDialog;
 import view.removeMenuItem.removeDinnerItemDialog;
 import view.removeMenuItem.removeDrinkItemDialog;
@@ -201,7 +203,23 @@ public class adminEditDrinkMenu extends javax.swing.JPanel implements ActionList
             System.out.println("im trying to display the dialgo");
         }  
         else{
-            
+              changeDrinkPrice price = null;
+            try {
+                DrinksDao secList2 = new DrinksDao();
+                price = new changeDrinkPrice(secList2,this, aCommand);
+                repaint();
+            } catch (SAXException ex) {
+                Logger.getLogger(adminEditDrinkMenu.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ParserConfigurationException ex) {
+                Logger.getLogger(adminEditDrinkMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            price.setVisible(true);
+//          dialog.add(c);
+//          add(dialog);
+            add(price);
+            repaint();
+            setFocusable(true);
+                        System.out.println("im trying to display the Change Dialog");
         }
     }
 
