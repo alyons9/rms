@@ -19,6 +19,7 @@ import Controller.FoodListeners.viewFoodMenuActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
+import javax.swing.JOptionPane;
 import java.awt.*;
 import java.awt.event.*;
 import javax.xml.parsers.ParserConfigurationException;
@@ -45,10 +46,15 @@ public static JButton home = new JButton();
 public static JButton home2 = new JButton();
 public static JButton back = new JButton();
 public static JButton confirm = new JButton();
+public static JButton confirm2 = new JButton();
 public static JButton viewback = new JButton();
+public static JButton confirmback = new JButton();
 public static JButton next = new JButton();
 public static JButton viewcart = new JButton();
 public static JLabel Logo3 = new JLabel();
+public static JDialog confirmframe;
+public static PaymentOption paymentOption = new PaymentOption();
+
 
 
 public static addAppetizerMenu appetizerMenu = new addAppetizerMenu();
@@ -68,8 +74,10 @@ public static JScrollPane drinksPane = new JScrollPane(drinksMenu);
 public static JPanel separator = new JPanel();
 public static JLabel MenuLogo = new JLabel();
 public static JLabel CartLogo = new JLabel();
+public static JLabel PaymentLogo = new JLabel();
 public static JPanel viewPanel = new JPanel();
 public static JScrollPane viewScrollPane = new JScrollPane();
+public static JScrollPane paymentScrollPane = new JScrollPane(paymentOption);
 //private JLabel DineInLogo = new JLabel();
 //private JLabel CarryOutLogo = new JLabel();
 
@@ -87,23 +95,29 @@ public static JScrollPane viewScrollPane = new JScrollPane();
         breakfast.addActionListener(new viewFoodMenuActionListener(breakfastPane,Tablet));
         breakfast.addActionListener(foodListener);
         
+        //Lunch ActionListeners
         lunch.addActionListener(new viewFoodMenuActionListener(lunchPane,Tablet));
         lunch.addActionListener(foodListener);
         
+        //Dinner ActionListeners
         dinner.addActionListener(new viewFoodMenuActionListener(dinnerPane,Tablet));
         dinner.addActionListener(foodListener);
         
+        //Desserts ActionListeners
         desserts.addActionListener(new viewFoodMenuActionListener(dessertPane,Tablet));
         desserts.addActionListener(foodListener);
         
+        //Drinks ActionListeners
         drinks.addActionListener(new viewFoodMenuActionListener(drinksPane,Tablet));
         drinks.addActionListener(foodListener);
         
+        //Application ActionListeners
         home.addActionListener(homeListener);
         home2.addActionListener(homeListener);
         back.addActionListener(backListener);
         viewcart.addActionListener(viewcartListener);
         viewback.addActionListener(viewbackListener);
+        confirm.addActionListener(cartConfirmListener);
         
         //action command labels
         appetizers.setActionCommand(Character.toString(ApplicationConstants.APPETIZERS));
@@ -135,6 +149,8 @@ public static JScrollPane viewScrollPane = new JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Restaurant Management");
+        setBounds(new java.awt.Rectangle(375, 0, 0, 0));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setName("rmsBorder"); // NOI18N
         setResizable(false);
 
@@ -146,7 +162,7 @@ public static JScrollPane viewScrollPane = new JScrollPane();
         Tablet.setName("Tablet"); // NOI18N
 
         AdminLogin.setBackground(new java.awt.Color(255, 255, 255));
-        AdminLogin.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        AdminLogin.setFont(new java.awt.Font("Times New Roman", 1, 16));
         AdminLogin.setForeground(new java.awt.Color(255, 255, 255));
         AdminLogin.setText("AdminLogin");
         AdminLogin.setBorder(null);
@@ -225,7 +241,6 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     adminLogInDialog loginPanel = new adminLogInDialog(Tablet);
     loginPanel.setVisible(true);
     loginPanel.setLocation(200,380);
-    loginPanel.setResizable(true);
     Tablet.add(loginPanel);
     dineIn.setVisible(false);
     CarryOut.setVisible(false);
@@ -234,12 +249,8 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     //adminMenu.setVisible(true);
     //adminMenu.setSize(600,700);
     //Tablet.add(adminMenu);
-    /*
-    AdminEditMenu adminMenu = new AdminEditMenu();
-    adminMenu.setVisible(true);
-    adminMenu.setSize(600,700);
-         */
     }//GEN-LAST:event_AdminLoginActionPerformed
+   
     /*This is the action listener to enter to the menu and then it builds the next screen
      * so that the user can select whether they want to do dine in or carry out.
      */
@@ -476,6 +487,10 @@ public static JScrollPane viewScrollPane = new JScrollPane();
      */
     ActionListener homeListener = new ActionListener(){
     public void actionPerformed(ActionEvent e){
+    paymentScrollPane.setVisible(false);
+    PaymentLogo.setVisible(false);
+    confirm2.setVisible(false);
+    confirmback.setVisible(false);
     confirm.setVisible(false);
     Logo.setVisible(true);
     AdminLogin.setVisible(true);
@@ -549,6 +564,18 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     
     ActionListener viewcartListener = new ActionListener(){
     public void actionPerformed(ActionEvent e){
+    //appetizerMenu.setVisible(false);
+    //breakfastMenu.setVisible(false);
+    //lunchMenu.setVisible(false);
+    //dinnerMenu.setVisible(false);
+    //dessertMenu.setVisible(false);
+    //drinksMenu.setVisible(false);
+    appetizersPane.setVisible(false);
+    breakfastPane.setVisible(false);
+    dessertPane.setVisible(false);
+    lunchPane.setVisible(false);
+    dinnerPane.setVisible(false);
+    drinksPane.setVisible(false);
     Logo.setVisible(false);
     AdminLogin.setVisible(false);
     enterMenu.setVisible(false);
@@ -575,11 +602,11 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     MenuLogo.setVisible(false);
     CartLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Cart Button.png")));
     Tablet.add(CartLogo);
-    CartLogo.setVisible(true);
-    viewPanel.setVisible(false);
-    CartLogo.setSize(320,88);
-    home2.setVisible(false);
     CartLogo.setLocation(280,10);
+    CartLogo.setVisible(true);
+    CartLogo.setSize(320,88);
+    viewPanel.setVisible(false);
+    home2.setVisible(false);
     //CarryOutLogo.setVisible(false);
     //DineInLogo.setVisible(false);
     CarryOut.setVisible(false);
@@ -686,7 +713,92 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     
     ActionListener cartConfirmListener = new ActionListener(){
     public void actionPerformed(ActionEvent e){
-        
+    int confirmPane = JOptionPane.showConfirmDialog(
+                      confirmframe, "Is Your Order Correct?",
+                      "Order Confirmation",
+                      JOptionPane.YES_NO_OPTION);
+    
+   if (confirmPane == JOptionPane.YES_OPTION) {
+           CartLogo.setVisible(false);
+           viewScrollPane.setVisible(false);
+           viewcart.setVisible(false);
+           paymentScrollPane.setVisible(true);
+           paymentScrollPane.setSize(522,625);
+           paymentScrollPane.setLocation(173,78);
+           Tablet.add(paymentScrollPane);
+           PaymentLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Payment Logo.png")));
+           Tablet.add(PaymentLogo);
+           PaymentLogo.setLocation(280,10);
+           PaymentLogo.setVisible(true);
+           PaymentLogo.setSize(320,88);
+           confirm.setVisible(false);
+           confirm2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Confirm Button.png")));
+           confirm2.setVisible(true);
+           confirm2.setSize(75,40);
+           confirm2.setLocation(580,710);
+           Tablet.add(confirm2);
+           viewback.setVisible(false);
+           confirmback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Cancel Button.png")));
+           confirmback.setVisible(true);
+           confirmback.setSize(75,40);
+           confirmback.setLocation(400,710);
+           Tablet.add(confirmback);
+            } else if (confirmPane == JOptionPane.NO_OPTION) {
+            paymentScrollPane.setVisible(false);
+            PaymentLogo.setVisible(false);
+            confirm2.setVisible(false);
+            confirmback.setVisible(false);
+            Logo.setVisible(false);
+            AdminLogin.setVisible(false);
+            enterMenu.setVisible(false);
+            Logo2.setVisible(false);
+            home.setVisible(true);
+            back.setVisible(false);
+            viewback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Back Button.png")));
+            viewback.setVisible(true);
+            viewback.setSize(75,40);
+            viewback.setLocation(400,710);
+            Logo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Cnerds Cafe Side.png")));
+            Logo3.setVisible(true);
+            Logo3.setSize(400,650);
+            Logo3.setLocation(50,70);
+            Tablet.add(Logo3);
+            Tablet.add(viewback);
+            viewcart.setVisible(false);
+            drinks.setVisible(false);
+            separator.setVisible(true);
+            breakfast.setVisible(false);
+            lunch.setVisible(false);
+            dinner.setVisible(false);
+            desserts.setVisible(false);
+            MenuLogo.setVisible(false);
+            CartLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Cart Button.png")));
+            Tablet.add(CartLogo);
+            CartLogo.setLocation(280,10);
+            CartLogo.setVisible(true);
+            CartLogo.setSize(320,88);
+            viewPanel.setVisible(false);
+            home2.setVisible(false);
+            //CarryOutLogo.setVisible(false);
+            //DineInLogo.setVisible(false);
+            CarryOut.setVisible(false);
+            dineIn.setVisible(false);
+            Reservations.setVisible(false);
+            appetizers.setVisible(false);
+            appetizersPane.setVisible(false);
+            viewScrollPane.setVisible(true);
+            viewScrollPane.setBackground(new java.awt.Color(0, 0, 0));
+            viewScrollPane.setSize(522,625);
+            viewScrollPane.setLocation(173,78);
+            Tablet.add(viewScrollPane);
+            confirm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Confirm Button.png")));
+            confirm.setVisible(true);
+            confirm.setSize(75,40);
+            confirm.setLocation(580,710);
+            Tablet.add(confirm);
+            PaymentLogo.setVisible(false);
+            repaint();
+                  }
         }};
     
     ActionListener foodListener = new ActionListener(){
@@ -762,7 +874,7 @@ public static JScrollPane viewScrollPane = new JScrollPane();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton AdminLogin;
     public static javax.swing.JLabel Logo;
-    private javax.swing.JPanel Tablet;
+    public static javax.swing.JPanel Tablet;
     public static javax.swing.JButton enterMenu;
     // End of variables declaration//GEN-END:variables
 
