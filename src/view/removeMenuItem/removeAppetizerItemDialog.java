@@ -55,7 +55,7 @@ public class removeAppetizerItemDialog extends JInternalFrame {//being
     
     
 
-    public removeAppetizerItemDialog(final AppetizersDao list, final JPanel panel) throws SAXException, ParserConfigurationException {//begin constructor
+    public removeAppetizerItemDialog(final AppetizersDao list, final JPanel panel,String aCommand) throws SAXException, ParserConfigurationException {//begin constructor
 
 //        setRootPaneCheckingEnabled(false);
 //    javax.swing.plaf.InternalFrameUI ifu= this.getUI();
@@ -68,7 +68,7 @@ public class removeAppetizerItemDialog extends JInternalFrame {//being
         constraints.fill = GridBagConstraints.HORIZONTAL;
 
         //adding the the label for the Username
-        removeName = new JLabel("ITEM NAME: ");
+        removeName = new JLabel("ITEM NAME TO BE DELETED: ");
         constraints.gridx = 0;
         constraints.gridy = 0;
         constraints.gridwidth = 2;
@@ -76,6 +76,7 @@ public class removeAppetizerItemDialog extends JInternalFrame {//being
 
         //addint the text field for the username
         removeNameValue = new JTextField(20);
+        removeNameValue.setText(aCommand);
         constraints.gridx = 0;
         constraints.gridy = 1;
         constraints.gridwidth = 2;
@@ -96,6 +97,7 @@ public class removeAppetizerItemDialog extends JInternalFrame {//being
                 succeeded =false;
                 succeeded = list.removeAppetizerByName(getRemoveName());
                 System.out.println(""+succeeded);
+                
                     if(succeeded==true){
                         JOptionPane.showMessageDialog(removeAppetizerItemDialog.this,
                                 "YOU HAVE SUCCESSFULLY DELETED THE ITEM.", "ITEM DELETION",
@@ -104,13 +106,14 @@ public class removeAppetizerItemDialog extends JInternalFrame {//being
                         dispose();
                         panel.repaint();
                     try {
+                         adminLogInDialog.appetizerMenu.removeAll();
                         adminLogInDialog.appetizerMenu.setUpComponents();
                     } catch (SAXException ex) {
                         Logger.getLogger(removeAppetizerItemDialog.class.getName()).log(Level.SEVERE, null, ex);
                     } catch (ParserConfigurationException ex) {
                         Logger.getLogger(removeAppetizerItemDialog.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    RMSGui.loginPanel.revalidate();
+                        adminLogInDialog.appetizersEditPane.revalidate();
                     }
                     else{
                          JOptionPane.showMessageDialog(removeAppetizerItemDialog.this, "PROBLEM DELETING ITEM",

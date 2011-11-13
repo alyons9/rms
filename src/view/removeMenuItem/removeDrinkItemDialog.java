@@ -55,7 +55,7 @@ public class removeDrinkItemDialog extends JInternalFrame {//being
     
     
 
-    public removeDrinkItemDialog(final DrinksDao list, final JPanel panel) throws SAXException, ParserConfigurationException {//begin constructor
+    public removeDrinkItemDialog(final DrinksDao list, final JPanel panel, String aCommand) throws SAXException, ParserConfigurationException {//begin constructor
 
 //        setRootPaneCheckingEnabled(false);
 //    javax.swing.plaf.InternalFrameUI ifu= this.getUI();
@@ -68,7 +68,7 @@ public class removeDrinkItemDialog extends JInternalFrame {//being
         constraints.fill = GridBagConstraints.HORIZONTAL;
 
         //adding the the label for the Username
-        removeName = new JLabel("ITEM NAME: ");
+        removeName = new JLabel("ITEM NAME TO BE DELETED: ");
         constraints.gridx = 0;
         constraints.gridy = 0;
         constraints.gridwidth = 2;
@@ -76,6 +76,7 @@ public class removeDrinkItemDialog extends JInternalFrame {//being
 
         //addint the text field for the username
         removeNameValue = new JTextField(20);
+        removeNameValue.setText(aCommand);
         constraints.gridx = 0;
         constraints.gridy = 1;
         constraints.gridwidth = 2;
@@ -96,6 +97,9 @@ public class removeDrinkItemDialog extends JInternalFrame {//being
                 succeeded =false;
                 succeeded = list.removeDrinkByName(getRemoveName());
                 System.out.println(""+succeeded);
+                
+                    adminLogInDialog.drinksMenu.removeAll();
+                
                     if(succeeded==true){
                         JOptionPane.showMessageDialog(removeDrinkItemDialog.this,
                                 "YOU HAVE SUCCESSFULLY DELETED THE ITEM.", "ITEM DELETION",
@@ -110,6 +114,9 @@ public class removeDrinkItemDialog extends JInternalFrame {//being
                     } catch (ParserConfigurationException ex) {
                         Logger.getLogger(removeDrinkItemDialog.class.getName()).log(Level.SEVERE, null, ex);
                     }
+                    
+                    adminLogInDialog.drinksEditPane.revalidate();
+                    
                     }
                     else{
                          JOptionPane.showMessageDialog(removeDrinkItemDialog.this, "PROBLEM DELETING ITEM",

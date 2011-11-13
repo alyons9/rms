@@ -37,7 +37,7 @@ public class addItemToAppetizerMenu extends javax.swing.JPanel {
         initComponents();
         setVisible(true);
       
-        list = new AppetizersDao();
+        
         
        
     }
@@ -145,24 +145,53 @@ public class addItemToAppetizerMenu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
 private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     list.addAppetizer(getItemName(),getItemDescriptionName(), 1,getItemPrice(),getPictureName());
-    //System.out.println(getItemName()+' '+getItemDescriptionName()+" " + getItemPrice()+" "+getPictureName());
-        JOptionPane.showMessageDialog(this,
-    "YOUR ITEM HAS BEEN ADDED!!!",
-    "CONFIRMATION DIALOG",
-    JOptionPane.WARNING_MESSAGE);
         try {
-            adminLogInDialog.appetizerMenu.setUpComponents();//adminEditAppetizerMenu();
+            list = new AppetizersDao();
         } catch (SAXException ex) {
             Logger.getLogger(addItemToAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParserConfigurationException ex) {
             Logger.getLogger(addItemToAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
-        RMSGui.loginPanel.revalidate();
-        adminLogInDialog.appetizerMenu.repaint();
-        adminLogInDialog.appetizersEditPane.repaint();
+   
+      Name = getItemName();
+      Description = getItemDescriptionName();
+      Price = getItemPrice();
+      PictureName = getPictureName();
+     
+       if(Name.equals("") || Description.equals("") || Price.equals("") || PictureName.equals("")){
+           JOptionPane.showMessageDialog(this,
+            "YOU MUST ENTER ALL INFORMATION",
+            "CHECK VALUES AGAIN",
+            JOptionPane.ERROR_MESSAGE);
+       } 
+       else{    
+            list.addAppetizer(Name,Description, 1,Price,PictureName);
+            System.out.println(getItemName()+' '+getItemDescriptionName()+" " + getItemPrice()+" "+getPictureName());
+            JOptionPane.showMessageDialog(this,
+            "YOUR ITEM HAS BEEN ADDED!!!",
+            "CONFIRMATION DIALOG",
+            JOptionPane.WARNING_MESSAGE);
+            itemNameValue.setText("");
+            itemDescriptionValue.setText("");
+            itemPriceValue.setText("");
+            itemPictureValue.setText("");
+         
+                adminLogInDialog.appetizerMenu.removeAll();
         
-    System.out.println("im trying to reprint the value");
+            try {
+                adminLogInDialog.appetizerMenu.setUpComponents();//
+            } catch (SAXException ex) {
+                Logger.getLogger(addItemToAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ParserConfigurationException ex) {
+                Logger.getLogger(addItemToAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+//           RMSGui.loginPanel.revalidate();
+            // adminLogInDialog.appetizerMenu.revalidate();
+                adminLogInDialog.appetizersEditPane.revalidate();
+        
+                System.out.println("im trying to reprint the value");
+
+      }
 }//GEN-LAST:event_jButton1ActionPerformed
 
 public String getItemName(){

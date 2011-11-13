@@ -192,7 +192,7 @@ public class adminEditDinnerMenu extends javax.swing.JPanel implements ActionLis
             removeDinnerItemDialog c = null;
             try {
                 DinnerDao secList = new DinnerDao();
-                c = new removeDinnerItemDialog(secList,this);
+                c = new removeDinnerItemDialog(secList,this,aCommand);
                 repaint();
             } catch (SAXException ex) {
                 Logger.getLogger(adminEditAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);

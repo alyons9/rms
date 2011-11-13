@@ -38,6 +38,7 @@ import model.XmlPersistence.BreakfastDao;
 import model.XmlPersistence.DessertDao;
 import model.XmlPersistence.DinnerDao;
 import model.XmlPersistence.DrinksDao;
+import view.adminLogInDialog;
 
 /**
  *
@@ -105,6 +106,18 @@ public class changeDrinkPrice extends JInternalFrame {//being
                         
                         dispose();
                         panel.repaint();
+                    
+                        adminLogInDialog.drinksMenu.removeAll();
+                    try {
+                        adminLogInDialog.drinksMenu.setUpComponents();
+                    } catch (SAXException ex) {
+                        Logger.getLogger(changeDrinkPrice.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ParserConfigurationException ex) {
+                        Logger.getLogger(changeDrinkPrice.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
+                        adminLogInDialog.drinksEditPane.revalidate();
+                    
                     }
                     else{
                          JOptionPane.showMessageDialog(changeDrinkPrice.this, "PROBLEM CHANGING PRICE",

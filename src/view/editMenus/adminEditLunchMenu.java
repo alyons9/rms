@@ -191,7 +191,7 @@ public class adminEditLunchMenu extends javax.swing.JPanel implements ActionList
             removeLunchItemDialog c = null;
             try {
                 LunchDao secList = new LunchDao();
-                c = new removeLunchItemDialog(secList,this);
+                c = new removeLunchItemDialog(secList,this,aCommand);
                 repaint();
             } catch (SAXException ex) {
                 Logger.getLogger(adminEditAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);

@@ -36,6 +36,7 @@ import java.awt.*;
 import model.XmlPersistence.AppetizersDao;
 import model.XmlPersistence.BreakfastDao;
 import model.XmlPersistence.DessertDao;
+import view.adminLogInDialog;
 
 /**
  *
@@ -103,6 +104,18 @@ public class changeDessertPrice extends JInternalFrame {//being
                         
                         dispose();
                         panel.repaint();
+                        
+                       adminLogInDialog.dessertMenu.removeAll();
+                    try {
+                        adminLogInDialog.dessertMenu.setUpComponents();
+                    } catch (SAXException ex) {
+                        Logger.getLogger(changeDessertPrice.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ParserConfigurationException ex) {
+                        Logger.getLogger(changeDessertPrice.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
+                        adminLogInDialog.dessertEditPane.revalidate();
+                    
                     }
                     else{
                          JOptionPane.showMessageDialog(changeDessertPrice.this, "PROBLEM CHANGING PRICE",

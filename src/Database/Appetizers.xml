@@ -11,7 +11,7 @@
         <name>Boneless Wings</name>
         <description>No bones about it, these are great. Lightly breaded boneless chicken with your choice of sauce.</description>
         <quantity>1</quantity>
-        <price>10.99</price>
+        <price>7.99</price>
         <picture>/Database/Images/Appetizer/bonelessWings.jpg</picture>
     </plate>
  
@@ -46,25 +46,12 @@
 
 
 
-
-
-
-
-
-
-
 <plate>
-<name>Tamato Mango</name>
-<description>good</description>
+<name/>
+<description/>
 <quantity>1</quantity>
-<price>7.99</price>
-<picture>/Database/Images/Appetizer/tamatoMango.png</picture>
+<price>0.0</price>
+<picture>/Database/Images/Appetizer/</picture>
 </plate>
-<plate>
-<name>Tamato Mango</name>
-<description>killer</description>
-<quantity>1</quantity>
-<price>8.99</price>
-<picture>/Database/Images/Appetizer/tamatoMango.png</picture>
-</plate>
+
 </Appetizers>

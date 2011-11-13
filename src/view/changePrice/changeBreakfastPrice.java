@@ -35,6 +35,7 @@ import org.xml.sax.SAXException;
 import java.awt.*;
 import model.XmlPersistence.AppetizersDao;
 import model.XmlPersistence.BreakfastDao;
+import view.adminLogInDialog;
 
 /**
  *
@@ -102,6 +103,17 @@ public class changeBreakfastPrice extends JInternalFrame {//being
                         
                         dispose();
                         panel.repaint();
+                        adminLogInDialog.breakfastMenu.removeAll();
+                    try {
+                        adminLogInDialog.breakfastMenu.setUpComponents();
+                    } catch (SAXException ex) {
+                        Logger.getLogger(changeBreakfastPrice.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ParserConfigurationException ex) {
+                        Logger.getLogger(changeBreakfastPrice.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
+                        adminLogInDialog.breakfastEditPane.revalidate();
+                    
                     }
                     else{
                          JOptionPane.showMessageDialog(changeBreakfastPrice.this, "PROBLEM CHANGING PRICE",

@@ -194,7 +194,7 @@ public class adminEditDrinkMenu extends javax.swing.JPanel implements ActionList
             removeDrinkItemDialog c = null;
             try {
                 DrinksDao secList = new DrinksDao();
-                c = new removeDrinkItemDialog(secList,this);
+                c = new removeDrinkItemDialog(secList,this,aCommand);
                 repaint();
             } catch (SAXException ex) {
                 Logger.getLogger(adminEditAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);

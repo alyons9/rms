@@ -38,7 +38,7 @@ public class addItemToDessertMenu extends javax.swing.JPanel {
         initComponents();
         setVisible(true);
       jLabel1.setText("Add To Your Dessert Menu");
-        list = new DessertDao();
+       
         
        
     }
@@ -145,22 +145,53 @@ public class addItemToDessertMenu extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     list.addDessert(getItemName(),getItemDescriptionName(), 1,getItemPrice(),getPictureName());
-    //System.out.println(getItemName()+' '+getItemDescriptionName()+" " + getItemPrice()+" "+getPictureName());
-        JOptionPane.showMessageDialog(this,
-    "YOUR ITEM HAS BEEN ADDED!!!",
-    "CONFIRMATION DIALOG",
-    JOptionPane.WARNING_MESSAGE);
-        try {
-            adminLogInDialog.dessertMenu.setUpComponents();
+private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)  {try {
+            //GEN-FIRST:event_jButton1ActionPerformed
+
+list = new DessertDao();
         } catch (SAXException ex) {
             Logger.getLogger(addItemToDessertMenu.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParserConfigurationException ex) {
             Logger.getLogger(addItemToDessertMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
     
-}//GEN-LAST:event_jButton1ActionPerformed
+    
+   Name = getItemName();
+      Description = getItemDescriptionName();
+      Price = getItemPrice();
+      PictureName = getPictureName();
+     
+       if(Name.equals("") || Description.equals("") || Price.equals("") || PictureName.equals("")){
+           JOptionPane.showMessageDialog(this,
+            "YOU MUST ENTER ALL INFORMATION",
+            "CHECK VALUES AGAIN",
+            JOptionPane.ERROR_MESSAGE);
+       } 
+       else{    
+            list.addDessert(Name,Description, 1,Price,PictureName);
+            System.out.println(getItemName()+' '+getItemDescriptionName()+" " + getItemPrice()+" "+getPictureName());
+            JOptionPane.showMessageDialog(this,
+            "YOUR ITEM HAS BEEN ADDED!!!",
+            "CONFIRMATION DIALOG",
+            JOptionPane.WARNING_MESSAGE);
+            
+            itemNameValue.setText("");
+            itemDescriptionValue.setText("");
+            itemPriceValue.setText("");
+            itemPictureValue.setText("");
+       
+            adminLogInDialog.dessertMenu.removeAll();
+            try {
+                adminLogInDialog.dessertMenu.setUpComponents();
+            } catch (SAXException ex) {
+                Logger.getLogger(addItemToDessertMenu.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ParserConfigurationException ex) {
+                Logger.getLogger(addItemToDessertMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                adminLogInDialog.dessertEditPane.repaint();
+
+       }
+  }//GEN-LAST:event_jButton1ActionPerformed
 
 public String getItemName(){
     String temp;

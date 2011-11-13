@@ -7,7 +7,8 @@
         Purpose of the document follows.
 -->
 <Breakfast>
-    <plate>
+    
+     <plate>
         <name>Caramel Roll French Toast</name>
         <description>A cross between pecan caramel rolls and French Toast.Four Chocolate Caramel Roll French Toast made with pecans,
         caramel, French bread,eggs,sugar,and milk</description>
@@ -15,6 +16,7 @@
         <price>7.50</price>
         <picture>/Database/Images/Breakfast/Caramel_rolls.jpg</picture>
     </plate>
+    
      <plate>
         <name>Hash Brown Omelet</name>
         <description>Hash Brown Potatoes with bacon,eggs, and cheddar cheese</description>

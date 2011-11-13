@@ -34,6 +34,7 @@ import java.awt.Color;
 import org.xml.sax.SAXException;
 import java.awt.*;
 import model.XmlPersistence.AppetizersDao;
+import view.adminLogInDialog;
 
 /**
  *
@@ -66,7 +67,7 @@ public class changeAppetizerPrice extends JInternalFrame {//being
         constraints.fill = GridBagConstraints.HORIZONTAL;
 
         //adding the the label for the Username
-        priceName = new JLabel("ENTERP RICE TO BE CHANGED");
+        priceName = new JLabel("ENTER PRICE TO BE CHANGED");
         constraints.gridx = 0;
         constraints.gridy = 0;
         constraints.gridwidth = 2;
@@ -101,6 +102,17 @@ public class changeAppetizerPrice extends JInternalFrame {//being
                         
                         dispose();
                         panel.repaint();
+                        adminLogInDialog.appetizerMenu.removeAll();
+                    try {
+                        adminLogInDialog.appetizerMenu.setUpComponents();
+                    } catch (SAXException ex) {
+                        Logger.getLogger(changeAppetizerPrice.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ParserConfigurationException ex) {
+                        Logger.getLogger(changeAppetizerPrice.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
+                     adminLogInDialog.appetizersEditPane.revalidate();
+                    
                     }
                     else{
                          JOptionPane.showMessageDialog(changeAppetizerPrice.this, "PROBLEM CHANGING PRICE",
