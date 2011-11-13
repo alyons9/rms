@@ -18,6 +18,7 @@ import model.Cart;
  */
 public class PaymentOption extends javax.swing.JPanel {
 public static JDialog cashframe;
+public static JDialog debitframe;
 public static Cart cart;
     /** Creates new form PaymentOption */
     public PaymentOption() {
@@ -126,7 +127,13 @@ public static Cart cart;
     }//GEN-LAST:event_CashActionPerformed
 
     private void DebitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DebitActionPerformed
-
+     int cashPane = JOptionPane.showConfirmDialog(
+                      cashframe, "Are You Sure That You Want To Pay With a Debit/Credit Card",
+                      "Payment Option",
+                      JOptionPane.YES_NO_OPTION);   
+     if (cashPane == JOptionPane.YES_OPTION) {
+         RMSGui.confirmback.setVisible(true);
+     }
     }//GEN-LAST:event_DebitActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
