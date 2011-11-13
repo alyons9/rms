@@ -25,10 +25,12 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
+import javax.swing.ImageIcon;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 import java.awt.*;
@@ -48,13 +50,16 @@ public class adminLogInDialog extends JInternalFrame {//being
     private JButton signUp;
     private JPanel adminEdit;
     private boolean succeeded;
-    private JPanel separator = new JPanel();
+    private JLabel separator = new JLabel();
+    private JLabel AdminEditLogo = new JLabel();
     private JButton appetizers = new JButton();
     private JButton breakfast = new JButton();
     private JButton lunch = new JButton();
     private JButton dinner = new JButton();
     private JButton desserts = new JButton();
     private JButton drinks = new JButton();
+    //private adminEditAppetizerMenu adminEditAppetizerMenu = new adminEditAppetizerMenu();
+    private JScrollPane AdminEditAppetizerPane = new JScrollPane();
 
     public adminLogInDialog(JPanel a) {//begin constructor
 
@@ -116,11 +121,6 @@ public class adminLogInDialog extends JInternalFrame {//being
                         //adminMenu.setSize(600,723);
                         //adminMenu.setLocation(62,32);
                         //adminEdit.add(adminMenu);
-                        separator.setVisible(true);
-                        separator.setSize(20,750);
-                        separator.setLocation(150,70);
-                        separator.setBackground(new java.awt.Color(0, 0, 0));
-                        RMSGui.separator.setVisible(true);
                         RMSGui.Tablet.add(separator);
                         RMSGui.Logo.setVisible(false);
                         RMSGui.enterMenu.setVisible(false);
@@ -155,6 +155,19 @@ public class adminLogInDialog extends JInternalFrame {//being
                         drinks.setLocation(35,633);
                         RMSGui.Tablet.add(drinks);
                         RMSGui.Tablet.add(appetizers);
+                        separator.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/separator.png")));
+                        separator.setVisible(true);
+                        separator.setSize(20,750);
+                        separator.setLocation(150,30);
+                        AdminEditLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/AdminEditLogo.png")));
+                        AdminEditLogo.setVisible(true);
+                        AdminEditLogo.setSize(350,88);
+                        AdminEditLogo.setLocation(275,10);
+                        RMSGui.Tablet.add(AdminEditLogo);
+                        AdminEditAppetizerPane.setVisible(true);
+                        AdminEditAppetizerPane.setSize(522,312);
+                        AdminEditAppetizerPane.setLocation(173,78);
+                        RMSGui.Tablet.add(AdminEditAppetizerPane);
                         repaint();
                     
                     } else {//displaying a false if a username and password are incorrect
