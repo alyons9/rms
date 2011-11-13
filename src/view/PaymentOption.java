@@ -25,6 +25,7 @@ public static JDialog debitframe;
 public static String[] types = {"Visa", "Discover", "MasterCard", "AmericanExpress"};
 public static JLabel cardPics = new JLabel();
 public static JLabel debit = new JLabel("Debit/Credit Cards");
+public static JLabel receiptSlip = new JLabel("Receipt");
 public static JLabel billing = new JLabel("Billing Information");
 public static JLabel name = new JLabel("Name on Card:");
 public static JLabel street = new JLabel("Street Address:");
@@ -64,6 +65,7 @@ public static Cart cart;
         RMSGui.confirmback.addActionListener(confirmBackListener);
         RMSGui.confirm.addActionListener(cartConfirmListener);
     }
+    
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -340,6 +342,13 @@ public static Cart cart;
          //emailConfirmField.setLocation(168,493);
          //emailConfirmField.setSize(200,20);
          //add(emailConfirmField);
+           RMSGui.confirm2.setVisible(true);
+           RMSGui.home.setVisible(false);
+           RMSGui.viewback.setVisible(false);
+           RMSGui.confirmback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Cancel Button.png")));
+           RMSGui.confirmback.setVisible(true);
+           RMSGui.confirmback.setSize(75,40);
+           RMSGui.confirmback.setLocation(405,710);
          repaint();
          
      }
@@ -498,7 +507,7 @@ ActionListener cartConfirmListener = new ActionListener(){
            RMSGui.PaymentLogo.setSize(320,88);
            RMSGui.confirm.setVisible(false);
            RMSGui.confirm2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Confirm Button.png")));
-           RMSGui.confirm2.setVisible(true);
+           RMSGui.confirm2.setVisible(false);
            RMSGui.confirm2.setSize(75,40);
            RMSGui.confirm2.setLocation(580,710);
            RMSGui.Tablet.add(RMSGui.confirm2);
@@ -507,8 +516,9 @@ ActionListener cartConfirmListener = new ActionListener(){
            RMSGui.confirmback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Cancel Button.png")));
            RMSGui.confirmback.setVisible(true);
            RMSGui.confirmback.setSize(75,40);
-           RMSGui.confirmback.setLocation(405,710);
+           RMSGui.confirmback.setLocation(580,710);
            RMSGui.Tablet.add(RMSGui.confirmback);
+           RMSGui.receiptScrollPane.setVisible(false);
            repaint();
             } else if (confirmPane == JOptionPane.NO_OPTION) {
             RMSGui.paymentScrollPane.setVisible(false);
@@ -567,6 +577,8 @@ ActionListener cartConfirmListener = new ActionListener(){
             repaint();
                   }
         }};
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JRadioButton Cash;
     public static javax.swing.JRadioButton Debit;
