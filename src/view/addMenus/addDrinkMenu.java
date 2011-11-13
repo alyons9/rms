@@ -10,6 +10,8 @@
  */
 package view.addMenus;
 
+import Controller.CartListeners.AddDrinkItemActionListener;
+import Controller.CartListeners.AddFoodItemActionListener;
 import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
@@ -29,6 +31,7 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.xml.parsers.ParserConfigurationException;
+import model.Cart;
 import model.Drink;
 import model.Food;
 import model.XmlPersistence.AppetizersDao;
@@ -56,7 +59,7 @@ public class addDrinkMenu extends javax.swing.JPanel {
     private ImageIcon[] icon;
     
     /** Creates new form addAppetizerMenu */
-    public addDrinkMenu() {
+    public addDrinkMenu(Cart cart) {
         try {
             initComponents();
             
@@ -106,7 +109,7 @@ public class addDrinkMenu extends javax.swing.JPanel {
         buttons[i].setSize(70,30);
      
         buttons[i].setActionCommand(drink[i].getName());
-        buttons[i].addActionListener(null);
+        buttons[i].addActionListener(new AddDrinkItemActionListener(drink[i],cart));
         appDesLabels[i] = new JLabel(drink[i].getDescription());
         spinner[i] = new JSpinner(new SpinnerNumberModel(0, 0, 15, 1));
         prices[i] = new JLabel(""+drink[i].getPrice());
