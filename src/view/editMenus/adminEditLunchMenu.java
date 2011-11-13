@@ -84,7 +84,13 @@ public class adminEditLunchMenu extends javax.swing.JPanel implements ActionList
          
           setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
           
-        LunchDao nodeList = new LunchDao();
+          setUpComponents();
+    
+    }
+    
+    public void setUpComponents() throws SAXException, ParserConfigurationException{
+        
+         LunchDao nodeList = new LunchDao();
         
         //getting the size of list of appetizers
        sizeOfList = nodeList.length();
@@ -136,11 +142,8 @@ public class adminEditLunchMenu extends javax.swing.JPanel implements ActionList
      
      } 
         
-    
-   
-  
-    
     }
+    
     protected ImageIcon createImageIcon(String path) {
     java.net.URL imgURL = getClass().getResource(path);
     if (imgURL != null) {

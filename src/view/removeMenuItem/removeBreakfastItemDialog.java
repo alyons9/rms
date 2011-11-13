@@ -35,6 +35,7 @@ import org.xml.sax.SAXException;
 import java.awt.*;
 import model.XmlPersistence.AppetizersDao;
 import model.XmlPersistence.BreakfastDao;
+import view.adminLogInDialog;
 
 /**
  *
@@ -102,6 +103,13 @@ public class removeBreakfastItemDialog extends JInternalFrame {//being
                         
                         dispose();
                         panel.repaint();
+                    try {
+                        adminLogInDialog.breakfastMenu.setUpComponents();
+                    } catch (SAXException ex) {
+                        Logger.getLogger(removeBreakfastItemDialog.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ParserConfigurationException ex) {
+                        Logger.getLogger(removeBreakfastItemDialog.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     }
                     else{
                          JOptionPane.showMessageDialog(removeBreakfastItemDialog.this, "PROBLEM DELETING ITEM",

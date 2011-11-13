@@ -34,6 +34,8 @@ import java.awt.Color;
 import org.xml.sax.SAXException;
 import java.awt.*;
 import model.XmlPersistence.AppetizersDao;
+import view.RMSGui;
+import view.adminLogInDialog;
 
 /**
  *
@@ -101,6 +103,14 @@ public class removeAppetizerItemDialog extends JInternalFrame {//being
                         
                         dispose();
                         panel.repaint();
+                    try {
+                        adminLogInDialog.appetizerMenu.setUpComponents();
+                    } catch (SAXException ex) {
+                        Logger.getLogger(removeAppetizerItemDialog.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ParserConfigurationException ex) {
+                        Logger.getLogger(removeAppetizerItemDialog.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    RMSGui.loginPanel.revalidate();
                     }
                     else{
                          JOptionPane.showMessageDialog(removeAppetizerItemDialog.this, "PROBLEM DELETING ITEM",

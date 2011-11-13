@@ -15,17 +15,21 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.xml.parsers.ParserConfigurationException;
 import model.XmlPersistence.AppetizersDao;
+import model.XmlPersistence.BreakfastDao;
+import model.XmlPersistence.DessertDao;
+import model.XmlPersistence.DinnerDao;
+import model.XmlPersistence.DrinksDao;
+import model.XmlPersistence.LunchDao;
 import org.xml.sax.SAXException;
-import view.RMSGui;
 import view.adminLogInDialog;
 
 /**
  *
  * @author SAMIR
  */
-public class addItemToAppetizerMenu extends javax.swing.JPanel {
+public class addItemToLunchMenu extends javax.swing.JPanel {
 
-        private AppetizersDao list;
+        private LunchDao list;
         private String Name;
         private String Description;
         private Double Price;
@@ -33,11 +37,11 @@ public class addItemToAppetizerMenu extends javax.swing.JPanel {
         private String temp;
     
     /** Creates new form addItemToAppetizerMenu */
-    public addItemToAppetizerMenu() throws SAXException, ParserConfigurationException {
+    public addItemToLunchMenu() throws SAXException, ParserConfigurationException {
         initComponents();
         setVisible(true);
-      
-        list = new AppetizersDao();
+      jLabel1.setText("Add To Your Lunch Menu");
+        list = new LunchDao();
         
        
     }
@@ -145,24 +149,21 @@ public class addItemToAppetizerMenu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
 private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     list.addAppetizer(getItemName(),getItemDescriptionName(), 1,getItemPrice(),getPictureName());
+     list.addLunch(getItemName(),getItemDescriptionName(), 1,getItemPrice(),getPictureName());
     //System.out.println(getItemName()+' '+getItemDescriptionName()+" " + getItemPrice()+" "+getPictureName());
         JOptionPane.showMessageDialog(this,
     "YOUR ITEM HAS BEEN ADDED!!!",
     "CONFIRMATION DIALOG",
     JOptionPane.WARNING_MESSAGE);
         try {
-            adminLogInDialog.appetizerMenu.setUpComponents();//adminEditAppetizerMenu();
+            adminLogInDialog.lunchMenu.setUpComponents();
         } catch (SAXException ex) {
-            Logger.getLogger(addItemToAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(addItemToLunchMenu.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParserConfigurationException ex) {
-            Logger.getLogger(addItemToAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(addItemToLunchMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
-        RMSGui.loginPanel.revalidate();
-        adminLogInDialog.appetizerMenu.repaint();
-        adminLogInDialog.appetizersEditPane.repaint();
-        
-    System.out.println("im trying to reprint the value");
+       
+    
 }//GEN-LAST:event_jButton1ActionPerformed
 
 public String getItemName(){
@@ -185,7 +186,7 @@ public double getItemPrice(){
 
 public String getPictureName(){
     String temp;
-    temp = "/Database/Images/Appetizer/" + itemPictureValue.getText().trim();
+    temp = "/Database/Images/Dinner-Lunch/" + itemPictureValue.getText().trim();
     return temp;
 }
 

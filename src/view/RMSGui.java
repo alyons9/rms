@@ -75,7 +75,8 @@ public static JScrollPane dessertPane = new JScrollPane(dessertMenu);
 public static JScrollPane lunchPane = new JScrollPane(lunchMenu);
 public static JScrollPane dinnerPane = new JScrollPane(dinnerMenu);
 public static JScrollPane drinksPane = new JScrollPane(drinksMenu);
-    
+
+ public static adminLogInDialog loginPanel;
 
 public static JPanel separator = new JPanel();
 public static JLabel MenuLogo = new JLabel();
@@ -246,7 +247,14 @@ public static JScrollPane paymentScrollPane = new JScrollPane(paymentOption);
 
     private void AdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminLoginActionPerformed
 
-    adminLogInDialog loginPanel = new adminLogInDialog(Tablet);
+   /* public adminLogInDialog */loginPanel = null;
+        try {
+            loginPanel = new adminLogInDialog(Tablet);
+        } catch (SAXException ex) {
+            Logger.getLogger(RMSGui.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParserConfigurationException ex) {
+            Logger.getLogger(RMSGui.class.getName()).log(Level.SEVERE, null, ex);
+        }
     loginPanel.setVisible(true);
     loginPanel.setLocation(200,380);
     Tablet.add(loginPanel);

@@ -34,6 +34,7 @@ import java.awt.Color;
 import org.xml.sax.SAXException;
 import java.awt.*;
 import model.XmlPersistence.DinnerDao;
+import view.adminLogInDialog;
 
 
 /**
@@ -102,6 +103,13 @@ public class removeDinnerItemDialog extends JInternalFrame {//being
                         
                         dispose();
                         panel.repaint();
+                    try {
+                        adminLogInDialog.dinnerMenu.setUpComponents();
+                    } catch (SAXException ex) {
+                        Logger.getLogger(removeDinnerItemDialog.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ParserConfigurationException ex) {
+                        Logger.getLogger(removeDinnerItemDialog.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     }
                     else{
                          JOptionPane.showMessageDialog(removeDinnerItemDialog.this, "PROBLEM DELETING ITEM",

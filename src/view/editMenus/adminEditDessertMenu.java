@@ -44,7 +44,7 @@ import model.Food;
 
 
 import model.XmlPersistence.DessertDao;
-import model.XmlPersistence.DinnerDao;
+
 import org.xml.sax.SAXException;
 
 import view.changePrice.changeDessertPrice;
@@ -56,7 +56,7 @@ import view.removeMenuItem.removeDinnerItemDialog;
  * @author SAMIR
  */
 public class adminEditDessertMenu extends javax.swing.JPanel implements ActionListener {
-    private DinnerDao nodeList;
+    private DessertDao nodeList;
     private Vector <Food> food;
     private int sizeOfList;
     private Vector <JLabel> nameLabels;
@@ -68,7 +68,7 @@ public class adminEditDessertMenu extends javax.swing.JPanel implements ActionLi
     private Vector <JLabel> prices;
     private Vector <ImageIcon> icon;
     private String list[];
-    private DinnerDao secList;
+    private DessertDao secList;
     public JPanel dialog;
     /** Creates new form addAppetizerMenu */
     public adminEditDessertMenu () throws SAXException, ParserConfigurationException {
@@ -82,7 +82,14 @@ public class adminEditDessertMenu extends javax.swing.JPanel implements ActionLi
          
           setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
           
-        DinnerDao nodeList = new DinnerDao();
+       setUpComponents();
+     
+     } 
+       
+   public void setUpComponents() throws SAXException, ParserConfigurationException{
+       
+       
+        DessertDao nodeList = new DessertDao();
         
         //getting the size of list of appetizers
        sizeOfList = nodeList.length();
@@ -92,7 +99,7 @@ public class adminEditDessertMenu extends javax.swing.JPanel implements ActionLi
         System.out.println(sizeOfList);
                 
         //store all the food in to the food array variable
-        food = nodeList.getVectorAllDinners();
+        food = nodeList.getVectorAllDesserts();
         //initializing the arrays of size of the list
         buttons = new Vector(sizeOfList);
         
@@ -131,12 +138,8 @@ public class adminEditDessertMenu extends javax.swing.JPanel implements ActionLi
         add(buttons.get(i));
         JSeparator a = new JSeparator();
         add(a);
-     
-     } 
-       
-   
   
-    
+   }
     }
     protected ImageIcon createImageIcon(String path) {
     java.net.URL imgURL = getClass().getResource(path);
@@ -182,10 +185,10 @@ public class adminEditDessertMenu extends javax.swing.JPanel implements ActionLi
      System.out.println(aCommand);
      
         if(selection.equals("REMOVE")){
-            removeDinnerItemDialog c = null;
+            removeDessertItemDialog c = null;
             try {
-                DinnerDao secList = new DinnerDao();
-                c = new removeDinnerItemDialog(secList,this);
+                DessertDao secList = new DessertDao();
+                c = new removeDessertItemDialog(secList,this);
                 repaint();
             } catch (SAXException ex) {
                 Logger.getLogger(adminEditAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);

@@ -34,6 +34,7 @@ import java.awt.Color;
 import org.xml.sax.SAXException;
 import java.awt.*;
 import model.XmlPersistence.LunchDao;
+import view.adminLogInDialog;
 
 
 /**
@@ -102,6 +103,13 @@ public class removeLunchItemDialog extends JInternalFrame {//being
                         
                         dispose();
                         panel.repaint();
+                    try {
+                        adminLogInDialog.lunchMenu.setUpComponents();
+                    } catch (SAXException ex) {
+                        Logger.getLogger(removeLunchItemDialog.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ParserConfigurationException ex) {
+                        Logger.getLogger(removeLunchItemDialog.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     }
                     else{
                          JOptionPane.showMessageDialog(removeLunchItemDialog.this, "PROBLEM DELETING ITEM",

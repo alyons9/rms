@@ -77,63 +77,11 @@ public class adminEditAppetizerMenu extends javax.swing.JPanel implements Action
          
           setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
           
-        AppetizersDao nodeList = new AppetizersDao();
-        
-        //getting the size of list of appetizers
-        sizeOfList = nodeList.length();
-        
-        //initializing the food array of that list
-        food = new Vector(sizeOfList);
-        System.out.println(sizeOfList);
-                
-        //store all the food in to the food array variable
-        food = nodeList.getVectorAllAppetizers();
-        //initializing the arrays of size of the list
-        buttons = new Vector(sizeOfList);
-        
-        nameLabels = new Vector(sizeOfList);
-        appDesLabels = new Vector(sizeOfList);
-        spinner = new Vector(sizeOfList);
-        prices = new Vector(sizeOfList);
-        icon = new Vector(sizeOfList);
-        list = new String[2];
-        list[0] = "CHANGE PRICE";
-        list[1] = "REMOVE";
-        
-    
-    System.out.println(food.get(0).getPic());
-//   JLabel b = new JLabel("test");
-//    b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/Images/pizza.jpg")));
-//    add(b);
-   for(int i=0; i <sizeOfList; i++){
-//        appIconName[i] = food[i].getPic();
-//        System.out.println(appIconName[i]);
-//        appIconPic[i] = new ImageIcon(appIconName[i]);
-      //  icon[i] = createImageIcon(food[i].getPic());
-        nameLabels.add(i, new JLabel(food.get(i).getName()));//appIconPic[i],JLabel.CENTER);
-        //nameLabels[i].setIcon(icon[i]);
-        nameLabels.get(i).setIcon(new javax.swing.ImageIcon(getClass().getResource(food.get(i).getPic())));
-        buttons.add(i, new JComboBox(list));
-        buttons.get(i).setPreferredSize(new Dimension(70,30));
-        buttons.get(i).setFocusCycleRoot(true);
-         buttons.get(i).setActionCommand(food.get(i).getName());
-         buttons.get(i).addActionListener(this);
-       
-        prices.add(i,new JLabel(""+food.get(i).getPrice()));
-        System.out.println(i);
-        add(nameLabels.get(i));
-        add(prices.get(i));
-        add(buttons.get(i));
-        JSeparator a = new JSeparator();
-        add(a);
-     
+          setUpComponents();
      } 
         
       
    
-  
-    
-    }
     protected ImageIcon createImageIcon(String path) {
     java.net.URL imgURL = getClass().getResource(path);
     if (imgURL != null) {
@@ -218,6 +166,61 @@ public class adminEditAppetizerMenu extends javax.swing.JPanel implements Action
 
         }
     }
-
+public void setUpComponents() throws SAXException, ParserConfigurationException{
+        
+           AppetizersDao nodeList = new AppetizersDao();
+        
+        //getting the size of list of appetizers
+        sizeOfList = nodeList.length();
+        
+        //initializing the food array of that list
+        food = new Vector(sizeOfList);
+        System.out.println(sizeOfList);
+                
+        //store all the food in to the food array variable
+        food = nodeList.getVectorAllAppetizers();
+        //initializing the arrays of size of the list
+        buttons = new Vector(sizeOfList);
+        
+        nameLabels = new Vector(sizeOfList);
+        appDesLabels = new Vector(sizeOfList);
+        spinner = new Vector(sizeOfList);
+        prices = new Vector(sizeOfList);
+        icon = new Vector(sizeOfList);
+        list = new String[2];
+        list[0] = "CHANGE PRICE";
+        list[1] = "REMOVE";
+        
+    
+    System.out.println(food.get(0).getPic());
+//   JLabel b = new JLabel("test");
+//    b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/Images/pizza.jpg")));
+//    add(b);
+   for(int i=0; i <sizeOfList; i++){
+//        appIconName[i] = food[i].getPic();
+//        System.out.println(appIconName[i]);
+//        appIconPic[i] = new ImageIcon(appIconName[i]);
+      //  icon[i] = createImageIcon(food[i].getPic());
+        nameLabels.add(i, new JLabel(food.get(i).getName()));//appIconPic[i],JLabel.CENTER);
+        //nameLabels[i].setIcon(icon[i]);
+        nameLabels.get(i).setIcon(new javax.swing.ImageIcon(getClass().getResource(food.get(i).getPic())));
+        buttons.add(i, new JComboBox(list));
+        buttons.get(i).setPreferredSize(new Dimension(70,30));
+        buttons.get(i).setFocusCycleRoot(true);
+         buttons.get(i).setActionCommand(food.get(i).getName());
+         buttons.get(i).addActionListener(this);
+       
+        prices.add(i,new JLabel(""+food.get(i).getPrice()));
+        System.out.println(i);
+        add(nameLabels.get(i));
+        add(prices.get(i));
+        add(buttons.get(i));
+        JSeparator a = new JSeparator();
+        add(a);
+        
+    }
+  
+    
+    }
     
 }

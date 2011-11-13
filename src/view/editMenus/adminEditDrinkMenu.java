@@ -84,7 +84,15 @@ public class adminEditDrinkMenu extends javax.swing.JPanel implements ActionList
          
           setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
           
-        DrinksDao nodeList = new DrinksDao();
+          setUpComponents();
+       
+  
+    
+    }
+    
+    public void setUpComponents() throws SAXException, ParserConfigurationException{
+        
+           DrinksDao nodeList = new DrinksDao();
         
         //getting the size of list of appetizers
        sizeOfList = nodeList.length();
@@ -136,10 +144,9 @@ public class adminEditDrinkMenu extends javax.swing.JPanel implements ActionList
      
      } 
         
-       
-  
-    
+        
     }
+    
     protected ImageIcon createImageIcon(String path) {
     java.net.URL imgURL = getClass().getResource(path);
     if (imgURL != null) {

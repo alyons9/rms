@@ -78,7 +78,14 @@ public class adminEditBreakfastMenu extends javax.swing.JPanel implements Action
          //setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
          
           setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
-          
+           
+          setUpComponents();
+     
+   
+}
+
+    public void setUpComponents() throws SAXException, ParserConfigurationException{
+            
         BreakfastDao nodeList = new BreakfastDao();
         
         //getting the size of list of appetizers
@@ -131,11 +138,11 @@ public class adminEditBreakfastMenu extends javax.swing.JPanel implements Action
      
      } 
         
-     
-   
-  
-    
+        
     }
+    
+    
+    
     protected ImageIcon createImageIcon(String path) {
     java.net.URL imgURL = getClass().getResource(path);
     if (imgURL != null) {

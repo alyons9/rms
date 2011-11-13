@@ -81,7 +81,17 @@ public class adminEditDinnerMenu extends javax.swing.JPanel implements ActionLis
          
           setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
           
-        DinnerDao nodeList = new DinnerDao();
+          setUpComponents();
+        
+    
+  
+    
+    }
+    
+    
+    public void setUpComponents() throws SAXException, ParserConfigurationException{
+        
+          DinnerDao nodeList = new DinnerDao();
         
         //getting the size of list of appetizers
        sizeOfList = nodeList.length();
@@ -133,10 +143,8 @@ public class adminEditDinnerMenu extends javax.swing.JPanel implements ActionLis
      
      } 
         
-    
-  
-    
     }
+    
     protected ImageIcon createImageIcon(String path) {
     java.net.URL imgURL = getClass().getResource(path);
     if (imgURL != null) {

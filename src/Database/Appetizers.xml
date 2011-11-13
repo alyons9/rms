@@ -41,11 +41,30 @@
 <price>2.99</price>
 <picture>/Database/Images/Appetizer/mangoSalad.jpg</picture>
 </plate>
+
+
+
+
+
+
+
+
+
+
+
+
 <plate>
-<name/>
-<description/>
+<name>Tamato Mango</name>
+<description>good</description>
 <quantity>1</quantity>
-<price>0.0</price>
-<picture/>
+<price>7.99</price>
+<picture>/Database/Images/Appetizer/tamatoMango.png</picture>
+</plate>
+<plate>
+<name>Tamato Mango</name>
+<description>killer</description>
+<quantity>1</quantity>
+<price>8.99</price>
+<picture>/Database/Images/Appetizer/tamatoMango.png</picture>
 </plate>
 </Appetizers>

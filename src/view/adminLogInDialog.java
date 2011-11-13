@@ -12,6 +12,7 @@ package view;
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+import Controller.FoodListeners.viewAddMenuActionListener;
 import view.Constants.ApplicationConstants;
 import view.editMenus.adminEditDrinkMenu;
 import view.editMenus.adminEditAppetizerMenu;
@@ -42,6 +43,13 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 import java.awt.*;
 import Controller.FoodListeners.viewFoodEditMenuActionListener;
+import view.addItemToMenu.addItemToAppetizerMenu;
+import view.addItemToMenu.addItemToBreakfastMenu;
+import view.addItemToMenu.addItemToDessertMenu;
+import view.addItemToMenu.addItemToDinnerMenu;
+import view.addItemToMenu.addItemToDrinkMenu;
+import view.addItemToMenu.addItemToLunchMenu;
+import view.addMenus.addBreakfastMenu;
 
 /**
  *
@@ -67,21 +75,75 @@ public class adminLogInDialog extends JInternalFrame {//being
     private JButton desserts = new JButton();
     private JButton drinks = new JButton();
     private JButton Logout = new JButton();
-    //public static adminEditAppetizerMenu appetizerMenu = new adminEditAppetizerMenu();
-    //public static adminEditBreakfastMenu breakfastMenu = new adminEditBreakfastMenu();
-    //public static adminEditLunchMenu lunchMenu = new adminEditLunchMenu();
-    //public static adminEditDinnerMenu dinnerMenu = new adminEditDinnerMenu();
-    //public static adminEditDessertMenu dessertMenu = new adminEditDessertMenu();
-    //public static adminEditDrinkMenu drinksMenu = new adminEditDrinkMenu();
-    public static JScrollPane appetizersEditPane = new JScrollPane(/*appetizerMenu*/);
-    public static JScrollPane breakfastEditPane = new JScrollPane(/*breakfastMenu*/);
-    public static JScrollPane dessertEditPane = new JScrollPane(/*lunchMenu*/);
-    public static JScrollPane lunchEditPane = new JScrollPane(/*dinnerMenu*/);
-    public static JScrollPane dinnerEditPane = new JScrollPane(/*dessertMenu*/);
-    public static JScrollPane drinksEditPane = new JScrollPane(/*drinksMenu*/);
-
-    public adminLogInDialog(JPanel a) {//begin constructor
-    ActionListener LogoutListener = new ActionListener(){
+    
+    public static adminEditAppetizerMenu appetizerMenu;
+    public static adminEditBreakfastMenu breakfastMenu;
+    public static adminEditLunchMenu lunchMenu;
+    public static adminEditDinnerMenu dinnerMenu;
+    public static adminEditDessertMenu dessertMenu;
+    public static adminEditDrinkMenu drinksMenu;
+    
+    public static JScrollPane appetizersEditPane;
+    public static JScrollPane breakfastEditPane ;
+    public static JScrollPane dessertEditPane;
+    public static JScrollPane lunchEditPane ;
+    public static JScrollPane dinnerEditPane;
+    public static JScrollPane drinksEditPane ;
+    
+    public static addItemToAppetizerMenu addAppMenu;
+    public static addItemToBreakfastMenu addBreakMenu;
+    public static addItemToDessertMenu addDessertMenu;
+    public static addItemToDinnerMenu addDinnerMenu;
+    public static addItemToDrinkMenu addDrinkMenu;
+    public static addItemToLunchMenu addLunchMenu;
+    
+    public static JScrollPane addAppetizerPane;
+    public static JScrollPane addBreakfastPane;
+    public static JScrollPane addDessertPane;
+    public static JScrollPane addDinnerPane;
+    public static JScrollPane addDrinkPane;
+    public static JScrollPane addLunchPane;
+    
+    public adminLogInDialog(JPanel a) throws SAXException, ParserConfigurationException {//begin constructor
+   
+        appetizerMenu = new adminEditAppetizerMenu();
+        breakfastMenu = new adminEditBreakfastMenu();
+        lunchMenu = new adminEditLunchMenu();
+        dinnerMenu = new adminEditDinnerMenu();
+        dessertMenu = new adminEditDessertMenu();
+        drinksMenu = new adminEditDrinkMenu();
+    
+        appetizersEditPane = new JScrollPane(appetizerMenu);
+        breakfastEditPane = new JScrollPane(breakfastMenu);
+        dessertEditPane = new JScrollPane(dessertMenu);
+        lunchEditPane = new JScrollPane(lunchMenu);
+        dinnerEditPane = new JScrollPane(dinnerMenu);
+        drinksEditPane = new JScrollPane(drinksMenu);
+        
+       
+        addAppMenu = new addItemToAppetizerMenu();
+        addAppetizerPane = new JScrollPane(addAppMenu);
+        
+        addBreakMenu = new addItemToBreakfastMenu();
+        addBreakfastPane = new JScrollPane(addBreakMenu);
+        
+        addDessertMenu = new addItemToDessertMenu();
+        addDessertPane = new JScrollPane(addDessertMenu);
+        
+        addDinnerMenu = new addItemToDinnerMenu();
+        addDinnerPane = new JScrollPane(addDinnerMenu);
+        
+        addDrinkMenu = new addItemToDrinkMenu();
+        addDrinkPane = new JScrollPane(addDrinkMenu);
+        
+         addLunchMenu = new addItemToLunchMenu();
+        addLunchPane = new JScrollPane(addLunchMenu);
+        
+        
+        
+        
+        
+        ActionListener LogoutListener = new ActionListener(){
     public void actionPerformed(ActionEvent e){
        appetizers.setVisible(false);
        breakfast.setVisible(false);
@@ -102,6 +164,12 @@ public class adminLogInDialog extends JInternalFrame {//being
        RMSGui.enterMenu.setVisible(true);
        RMSGui.AdminLogin.setVisible(true);
         //new RMSGui().setVisible(true); 
+        addAppetizerPane.setVisible(false);
+        addBreakfastPane.setVisible(false);
+        addLunchPane.setVisible(false);
+        addDinnerPane.setVisible(false);
+        addDrinkPane.setVisible(false);
+        addDessertPane.setVisible(false);
     
     }};
         ActionListener foodListener = new ActionListener(){
@@ -114,6 +182,15 @@ public class adminLogInDialog extends JInternalFrame {//being
                     dinnerEditPane.setVisible(false);
                     drinksEditPane.setVisible(false);
                     dessertEditPane.setVisible(false);
+                    /*for add method menu*/
+                    addBreakfastPane.setVisible(false);
+                    addDessertPane.setVisible(false);
+                    addDinnerPane.setVisible(true);
+                    addDrinkPane.setVisible(true);
+                    addLunchPane.setVisible(true);
+               
+               
+                    
                     break;
                 case ApplicationConstants.BREAKFAST:
                     appetizersEditPane.setVisible(false);
@@ -121,6 +198,12 @@ public class adminLogInDialog extends JInternalFrame {//being
                     dinnerEditPane.setVisible(false);
                     drinksEditPane.setVisible(false);
                     dessertEditPane.setVisible(false);
+                    /*for add method menu*/
+                    addAppetizerPane.setVisible(false);
+                    addLunchPane.setVisible(false);
+                    addDinnerPane.setVisible(false);
+                    addDessertPane.setVisible(false);
+                    addDrinkPane.setVisible(false);
                     break;
                 case ApplicationConstants.LUNCH: 
                     appetizersEditPane.setVisible(false);
@@ -128,6 +211,12 @@ public class adminLogInDialog extends JInternalFrame {//being
                     dinnerEditPane.setVisible(false);
                     drinksEditPane.setVisible(false);
                     dessertEditPane.setVisible(false);
+                    /*for add method menu*/
+                    addAppetizerPane.setVisible(false);
+                    addBreakfastPane.setVisible(false);
+                    addDinnerPane.setVisible(false);
+                    addDrinkPane.setVisible(false);
+                    addDessertPane.setVisible(false);
                     break;
                 case ApplicationConstants.DINNER: 
                     appetizersEditPane.setVisible(false);
@@ -135,6 +224,13 @@ public class adminLogInDialog extends JInternalFrame {//being
                     lunchEditPane.setVisible(false);
                     drinksEditPane.setVisible(false);
                     dessertEditPane.setVisible(false);
+                    /*for add method menu*/
+                     addAppetizerPane.setVisible(false);
+                    addBreakfastPane.setVisible(false);
+                    addLunchPane.setVisible(false);
+                    addDrinkPane.setVisible(false);
+                    addDessertPane.setVisible(false);
+                    
                     break;
                 case ApplicationConstants.DESSERTS:
                     appetizersEditPane.setVisible(false);
@@ -142,6 +238,12 @@ public class adminLogInDialog extends JInternalFrame {//being
                     lunchEditPane.setVisible(false);
                     drinksEditPane.setVisible(false);
                     dinnerEditPane.setVisible(false);
+                    /* for add method menu*/
+                    addAppetizerPane.setVisible(false);
+                    addBreakfastPane.setVisible(false);
+                    addLunchPane.setVisible(false);
+                    addDrinkPane.setVisible(false);
+                    addDinnerPane.setVisible(false);
                     break;
                 case ApplicationConstants.DRINKS: 
                     appetizersEditPane.setVisible(false);
@@ -149,6 +251,13 @@ public class adminLogInDialog extends JInternalFrame {//being
                     lunchEditPane.setVisible(false);
                     dinnerEditPane.setVisible(false);
                     dessertEditPane.setVisible(false);
+                    /* for add method menu*/
+                     addAppetizerPane.setVisible(false);
+                    addBreakfastPane.setVisible(false);
+                    addLunchPane.setVisible(false);
+                    addDinnerPane.setVisible(false);
+                    addDessertPane.setVisible(false);
+         
                     break;
                 default: 
                     appetizersEditPane.setVisible(false);
@@ -157,6 +266,13 @@ public class adminLogInDialog extends JInternalFrame {//being
                     dinnerEditPane.setVisible(false);
                     dessertEditPane.setVisible(false);
                     drinksEditPane.setVisible(false);
+                    /*for add method menu*/
+                     addAppetizerPane.setVisible(false);
+                    addBreakfastPane.setVisible(false);
+                    addLunchPane.setVisible(false);
+                    addDinnerPane.setVisible(false);
+                    addDrinkPane.setVisible(false);
+                    addDessertPane.setVisible(false);
                     break;
                 
             }
@@ -178,28 +294,32 @@ public class adminLogInDialog extends JInternalFrame {//being
         }
     } 
         Logout.addActionListener(LogoutListener);
-        appetizers.addActionListener(new viewFoodEditMenuActionListener(lunchEditPane,RMSGui.Tablet));
+        appetizers.addActionListener(new viewFoodEditMenuActionListener(appetizersEditPane,RMSGui.Tablet));
         appetizers.addActionListener(foodListener);
+        appetizers.addActionListener(new viewAddMenuActionListener(addAppetizerPane,RMSGui.Tablet));
+        
         
         //Breakfast ActionListeners
         breakfast.addActionListener(new viewFoodEditMenuActionListener(breakfastEditPane,RMSGui.Tablet));
         breakfast.addActionListener(foodListener);
-        
+        breakfast.addActionListener(new viewAddMenuActionListener(addBreakfastPane,RMSGui.Tablet));
         //Lunch ActionListeners
         lunch.addActionListener(new viewFoodEditMenuActionListener(lunchEditPane,RMSGui.Tablet));
         lunch.addActionListener(foodListener);
-        
+        lunch.addActionListener(new viewAddMenuActionListener(addLunchPane,RMSGui.Tablet));
         //Dinner ActionListeners
         dinner.addActionListener(new viewFoodEditMenuActionListener(dinnerEditPane,RMSGui.Tablet));
         dinner.addActionListener(foodListener);
+        dinner.addActionListener(new viewAddMenuActionListener(addDinnerPane,RMSGui.Tablet));
         
         //Desserts ActionListeners
         desserts.addActionListener(new viewFoodEditMenuActionListener(dessertEditPane,RMSGui.Tablet));
         desserts.addActionListener(foodListener);
-        
+        desserts.addActionListener(new viewAddMenuActionListener(addDessertPane,RMSGui.Tablet));
         //Drinks ActionListeners
         drinks.addActionListener(new viewFoodEditMenuActionListener(drinksEditPane,RMSGui.Tablet));
         drinks.addActionListener(foodListener);
+        drinks.addActionListener(new viewAddMenuActionListener(addDrinkPane,RMSGui.Tablet));
         
         appetizers.setActionCommand(Character.toString(ApplicationConstants.APPETIZERS));
         breakfast.setActionCommand(Character.toString(ApplicationConstants.BREAKFAST));
@@ -208,6 +328,11 @@ public class adminLogInDialog extends JInternalFrame {//being
         drinks.setActionCommand(Character.toString(ApplicationConstants.DRINKS));
         desserts.setActionCommand(Character.toString(ApplicationConstants.DESSERTS));
 
+     
+        
+        
+        
+        
         // super(frame,"ADMINISTRATOR LOGIN",true);
         JPanel dialogPanel = new JPanel(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
@@ -317,6 +442,9 @@ public class adminLogInDialog extends JInternalFrame {//being
                         //appetizersEditPane.setSize(522,312);
                         //appetizersEditPane.setLocation(173,78);
                         RMSGui.Tablet.add(appetizersEditPane);
+                        
+                        
+                        
                         repaint();
                     
                     } else {//displaying a false if a username and password are incorrect
