@@ -756,11 +756,12 @@ public static JScrollPane paymentScrollPane = new JScrollPane(paymentOption);
            confirm2.setSize(75,40);
            confirm2.setLocation(580,710);
            Tablet.add(confirm2);
+           home.setVisible(false);
            viewback.setVisible(false);
            confirmback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Cancel Button.png")));
-           confirmback.setVisible(true);
+           confirmback.setVisible(false);
            confirmback.setSize(75,40);
-           confirmback.setLocation(400,710);
+           confirmback.setLocation(405,710);
            Tablet.add(confirmback);
             } else if (confirmPane == JOptionPane.NO_OPTION) {
             paymentScrollPane.setVisible(false);
