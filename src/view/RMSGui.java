@@ -75,6 +75,8 @@ public static JScrollPane dessertPane = new JScrollPane(dessertMenu);
 public static JScrollPane lunchPane = new JScrollPane(lunchMenu);
 public static JScrollPane dinnerPane = new JScrollPane(dinnerMenu);
 public static JScrollPane drinksPane = new JScrollPane(drinksMenu);
+
+public static CartView cartView;
     
 
 public static JPanel separator = new JPanel();
@@ -82,7 +84,7 @@ public static JLabel MenuLogo = new JLabel();
 public static JLabel CartLogo = new JLabel();
 public static JLabel PaymentLogo = new JLabel();
 public static JPanel viewPanel = new JPanel();
-public static JScrollPane viewScrollPane = new JScrollPane();
+public static JScrollPane viewScrollPane = new JScrollPane(cartView);
 public static JScrollPane paymentScrollPane = new JScrollPane(paymentOption);
 //private JLabel DineInLogo = new JLabel();
 //private JLabel CarryOutLogo = new JLabel();
@@ -627,14 +629,14 @@ public static JScrollPane paymentScrollPane = new JScrollPane(paymentOption);
     dinnerPane.setVisible(false);
     dessertPane.setVisible(false);
     drinksPane.setVisible(false);
-    CartView cartView = new CartView(cart);
-    viewScrollPane.add(cartView);
-    //viewScrollPane.add(new JCheckBox(cart.getFoodItems().get(0).getName()));
+    cartView = new CartView(cart);
+    viewScrollPane = new JScrollPane(cartView); 
     viewScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
     viewScrollPane.setVisible(true);
     //viewScrollPane.setBackground(new java.awt.Color(0, 0, 0));
     viewScrollPane.setSize(522,625);
     viewScrollPane.setLocation(173,78);
+    //viewScrollPane.add(cartView);
     Tablet.add(viewScrollPane);
     confirm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Confirm Button.png")));
     confirm.setVisible(true);

@@ -18,26 +18,28 @@ import model.Food;
 public class CartView extends javax.swing.JPanel{
     //private Vector<JCheckBox> checkBoxes;
     private Cart cart;
+    private Vector<Food> foodItems;
+    private Vector<Drink> drinkItems;
     
     public CartView(Cart cart){
         initComponents();
          setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
         this.cart = cart;
-        Vector<Food> foodItems = cart.getFoodItems();
-        Vector<Drink> drinkItems = cart.getDrinkItems();
+        foodItems = cart.getFoodItems();
+        drinkItems = cart.getDrinkItems();
         for(int i=0;i<cart.getFoodItems().size();i++){
             String name = foodItems.get(i).getName();
             double price = foodItems.get(i).getPrice();
             //checkBoxes.add(new JCheckBox(name+" "+price));
             //add(checkBoxes.get(i));
-            add(new JCheckBox(name+" "+price));
+            add(new JCheckBox(name));
         }
         for(int i=0;i<cart.getDrinkItems().size();i++){
             String name = drinkItems.get(i).getName();
             double price = drinkItems.get(i).getPrice();
             //checkBoxes.add(new JCheckBox(name+" "+price));
             //add(checkBoxes.get(i));
-            add(new JCheckBox(name+" "+price));
+            add(new JCheckBox(name));
         }
         
         
