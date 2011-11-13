@@ -12,10 +12,12 @@ package view.addMenus;
 
 import Controller.CartListeners.AddFoodItemActionListener;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Rectangle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BoxLayout;
@@ -28,7 +30,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
+import javax.swing.Scrollable;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingConstants;
 import javax.xml.parsers.ParserConfigurationException;
 import model.Cart;
 import model.Food;
@@ -41,7 +45,7 @@ import org.xml.sax.SAXException;
  *
  * @author SAMIR
  */
-public class addLunchMenu extends javax.swing.JPanel {
+public class addLunchMenu extends javax.swing.JPanel implements Scrollable {
     private LunchDao nodeList;
     private Food food[];
     private int sizeOfList;
@@ -53,6 +57,7 @@ public class addLunchMenu extends javax.swing.JPanel {
     private JSpinner spinner[];
     private JLabel[] prices;
     private ImageIcon[] icon;
+    private int maxUnitIncrement = 1;
     
     /** Creates new form addAppetizerMenu */
     public addLunchMenu(Cart cart) {
@@ -135,6 +140,45 @@ public class addLunchMenu extends javax.swing.JPanel {
         return null;
     }
 }
+    
+    public Dimension getPreferredScrollableViewportSize() {
+        return getPreferredSize();
+    }
+
+    public int getScrollableUnitIncrement(Rectangle visibleRect, int orientation, int direction) {
+
+        int currentPosition = 0;
+        if (orientation == SwingConstants.HORIZONTAL)
+            currentPosition = visibleRect.x;
+        else
+            currentPosition = visibleRect.y;
+
+        if (direction < 0) {
+            int newPosition = currentPosition - (currentPosition / maxUnitIncrement) * maxUnitIncrement;
+            return (newPosition == 0) ? maxUnitIncrement : newPosition;
+        } else {
+            return ((currentPosition / maxUnitIncrement) + 1) * maxUnitIncrement - currentPosition;
+        }
+    }
+
+    public int getScrollableBlockIncrement(Rectangle visibleRect, int orientation, int direction) {
+        if (orientation == SwingConstants.HORIZONTAL)
+            return visibleRect.width - maxUnitIncrement;
+        else
+            return visibleRect.height - maxUnitIncrement;
+    }
+
+    public boolean getScrollableTracksViewportWidth() {
+        return true;
+    }
+
+    public boolean getScrollableTracksViewportHeight() {
+        return false;
+    }
+
+    public void setMaxUnitIncrement(int pixels) {
+        maxUnitIncrement = pixels;
+    }
 
     /** This method is called from within the constructor to
      * initialize the form.
