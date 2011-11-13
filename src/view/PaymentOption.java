@@ -45,9 +45,12 @@ public static JComboBox cardType = new JComboBox(types);
 public static JLabel Expiration = new JLabel("Expiration Date:");
 public static String[] months = {"1", "2", "3", "4", "5", "6", "7","8", "9", "10", "11", "12"};
 public static JComboBox expMonth = new JComboBox(months);
-public static String[] states = {"Alabama", "2", "3", "4", "5", "6", "7","8", "9", "10", "11", "12"};
+public static String[] states = {"","Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut","Delaware", "Florida", "Georgia", "Hawaii",
+     "Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri",
+     "Montana","Nebraska","Nevada","New Hampshire","New Jersey", "New MExico", "New York", "North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania",
+     "Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont", "Virginia","West Virginia","Wisconsin","Wyoming"};
 public static JComboBox stateslist = new JComboBox(states);
-public static String[] countries = {"1", "2", "3", "4", "5", "6", "7","8", "9", "10", "11", "12"};
+public static String[] countries = {"USA", "Canada", "United Kingdom", "India", "Guyana", "China", "Japan"};
 public static JComboBox countrieslist = new JComboBox(countries);
 public static String[] years = {"2011", "2012", "2013", "2014", "2015", "2016", "2017"};
 public static JComboBox expYear = new JComboBox(years);
@@ -282,6 +285,26 @@ public static Cart cart;
          cityField.setLocation(100,375);
          cityField.setSize(300,20);
          add(cityField);
+         stateslist.setVisible(true);
+         stateslist.setLocation(168,403);
+         stateslist.setSize(100,20);
+         add(stateslist);
+         zipField.setVisible(true);
+         zipField.setLocation(275,403);
+         zipField.setSize(100,20);
+         add(zipField);
+         countrieslist.setVisible(true);
+         countrieslist.setLocation(138,433);
+         countrieslist.setSize(100,20);
+         add(countrieslist);
+         emailField.setVisible(true);
+         emailField.setLocation(128,463);
+         emailField.setSize(200,20);
+         add(emailField);
+         emailConfirmField.setVisible(true);
+         emailConfirmField.setLocation(168,493);
+         emailConfirmField.setSize(200,20);
+         add(emailConfirmField);
          repaint();
          
      }
