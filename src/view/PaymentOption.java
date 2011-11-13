@@ -274,7 +274,16 @@ public static Cart cart;
          emailConfirm.setForeground(new java.awt.Color(0, 0, 0));
          emailConfirm.setFont(new java.awt.Font("AR DARLING", 0, 16));
          add(emailConfirm);
+         streetField.setVisible(true);
+         streetField.setLocation(180,345);
+         streetField.setSize(300,20);
+         add(streetField);
+         cityField.setVisible(true);
+         cityField.setLocation(100,375);
+         cityField.setSize(300,20);
+         add(cityField);
          repaint();
+         
      }
     }//GEN-LAST:event_DebitActionPerformed
 
