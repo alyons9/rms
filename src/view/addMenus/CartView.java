@@ -4,9 +4,14 @@
  */
 package view.addMenus;
 
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Vector;
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JLabel;
 import model.Cart;
 import model.Drink;
 import model.Food;
@@ -21,19 +26,27 @@ public class CartView extends javax.swing.JPanel{
     private Vector<Food> foodItems;
     private Vector<Drink> drinkItems;
     
-    public CartView(Cart cart){
+    public CartView(Cart cartt){
         initComponents();
          setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
-        this.cart = cart;
-        foodItems = cart.getFoodItems();
-        drinkItems = cart.getDrinkItems();
-        for(int i=0;i<cart.getFoodItems().size();i++){
+        this.cart = cartt;
+        foodItems = cartt.getFoodItems();
+        drinkItems = cartt.getDrinkItems();
+        
+        JLabel foodLabel = new JLabel("<HTML><B>Food</B></HTML>");
+        add(foodLabel);
+        for(int i=0;i<cartt.getFoodItems().size();i++){
             String name = foodItems.get(i).getName();
             double price = foodItems.get(i).getPrice();
             //checkBoxes.add(new JCheckBox(name+" "+price));
             //add(checkBoxes.get(i));
-            add(new JCheckBox(name));
+            JCheckBox foodCheck = new JCheckBox(name);
+            foodCheck.setActionCommand("food");
+            add(foodCheck);
         }
+        
+        JLabel drinksLabel = new JLabel("<HTML><B>Beverages</B></HTML>");
+        add(drinksLabel);
         for(int i=0;i<cart.getDrinkItems().size();i++){
             String name = drinkItems.get(i).getName();
             double price = drinkItems.get(i).getPrice();
@@ -41,7 +54,49 @@ public class CartView extends javax.swing.JPanel{
             //add(checkBoxes.get(i));
             add(new JCheckBox(name));
         }
+        JLabel totalPrice = new JLabel("<HTML><B>Total:</B> $"+cart.getTotal()+"</HTML>");
+        add(totalPrice);
         
+        JButton deleteButton = new JButton("DELETE SELECTED");
+        deleteButton.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                Component[] components = getComponents();
+                for (int i = 0; i < components.length; i++) {
+                    if(components[i] instanceof JCheckBox){
+                        
+                    JCheckBox cb = (JCheckBox)components[i];
+                    
+                    if (cb.isSelected()){
+                        System.out.println("With " + cb.getText(  ));
+                        
+                        if(cb.getActionCommand().equals("food")){
+                        for(int j = 0;j<foodItems.size();j++){
+                            if(cb.getText().equals(foodItems.get(j).getName())){
+                                cart.subtractFromTotal(foodItems.get(j).getPrice());
+                                cart.removeFoodItem(foodItems.get(j));
+                                remove(cb);
+                                break;
+                            }
+                        }
+                        }
+                        
+                        
+                        for(int l = 0;l<drinkItems.size();l++){
+                            if(cb.getText().equals(drinkItems.get(l).getName())){
+                                cart.subtractFromTotal(drinkItems.get(l).getPrice());
+                                cart.removeDrinkItem(drinkItems.get(l));
+                                remove(cb);
+                                break;
+                            }
+                        }
+                    }
+                }
+                    repaint();
+                }
+                
+            }
+        });
+        add(deleteButton);
         
         
     }
