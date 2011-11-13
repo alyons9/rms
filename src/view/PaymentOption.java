@@ -11,6 +11,7 @@
 package view;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 import model.Cart;
 import model.Drink;
 import model.Food;
@@ -60,6 +61,8 @@ public static Cart cart;
     /** Creates new form PaymentOption */
     public PaymentOption() {
         initComponents();
+        RMSGui.confirmback.addActionListener(confirmBackListener);
+        RMSGui.confirm.addActionListener(cartConfirmListener);
     }
 
     /** This method is called from within the constructor to
@@ -113,6 +116,8 @@ public static Cart cart;
                     .addComponent(Debit))
                 .addContainerGap(599, Short.MAX_VALUE))
         );
+
+        getAccessibleContext().setAccessibleName("PaymentPanel");
     }// </editor-fold>//GEN-END:initComponents
 
     private void CashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CashActionPerformed
@@ -160,6 +165,33 @@ public static Cart cart;
     RMSGui.dinnerPane.setVisible(false);
     RMSGui.dessertPane.setVisible(false);
     RMSGui.drinksPane.setVisible(false);
+         debit.setVisible(false);
+         cardPics.setVisible(false);
+         name.setVisible(false);
+         nameField.setVisible(false);
+         cardType.setVisible(false);
+         card.setVisible(false);
+         cardNumber.setVisible(false);
+         numberField.setVisible(false);
+         Expiration.setVisible(false);
+         expMonth.setVisible(false);
+         expYear.setVisible(false);
+         cardSecure.setVisible(false);
+         securityField.setVisible(false);
+         billing.setVisible(false);
+         street.setVisible(false);
+         city.setVisible(false);
+         stateZip.setVisible(false);
+         country.setVisible(false);
+         email.setVisible(false);
+         emailConfirm.setVisible(false);
+         streetField.setVisible(false);
+         cityField.setVisible(false);
+         stateslist.setVisible(false);
+         zipField.setVisible(false);
+         countrieslist.setVisible(false);
+         emailField.setVisible(false);
+         emailConfirmField.setVisible(false);
     repaint();
       }
       }
@@ -172,6 +204,7 @@ public static Cart cart;
                       JOptionPane.YES_NO_OPTION);   
      if (cashPane == JOptionPane.YES_OPTION) {
          RMSGui.confirmback.setVisible(true);
+         RMSGui.viewback.setVisible(false);
          debit.setVisible(true);
          debit.setLocation(20,50);
          debit.setSize(200,100);
@@ -267,11 +300,13 @@ public static Cart cart;
          country.setForeground(new java.awt.Color(0, 0, 0));
          country.setFont(new java.awt.Font("AR DARLING", 0, 16));
          add(country);
+         email.setVisible(true);
          email.setLocation(60,420);
          email.setSize(200,100);
          email.setForeground(new java.awt.Color(0, 0, 0));
          email.setFont(new java.awt.Font("AR DARLING", 0, 16));
          add(email);
+         emailConfirm.setVisible(true);
          emailConfirm.setLocation(60,450);
          emailConfirm.setSize(200,100);
          emailConfirm.setForeground(new java.awt.Color(0, 0, 0));
@@ -310,9 +345,231 @@ public static Cart cart;
      }
     }//GEN-LAST:event_DebitActionPerformed
 
+ActionListener confirmBackListener = new ActionListener(){
+        public void actionPerformed(ActionEvent e){
+          int cancelPane = JOptionPane.showConfirmDialog(
+                      RMSGui.confirmframe, "Are You Sure That You Want To Cancel?",
+                      "Cancel Confirmation",
+                      JOptionPane.YES_NO_OPTION);  
+    if (cancelPane == JOptionPane.YES_OPTION) {
+    RMSGui.home2.setVisible(false);
+    RMSGui.confirm.setVisible(false);
+    RMSGui.CarryOut.setVisible(false);
+    RMSGui.dineIn.setVisible(false);
+    RMSGui.Reservations.setVisible(false);
+    RMSGui.appetizers.setVisible(false);
+    RMSGui.Logo.setVisible(false);
+    RMSGui.Logo2.setVisible(false);
+    RMSGui.Logo3.setVisible(false);
+    RMSGui.AdminLogin.setVisible(false);
+    RMSGui.enterMenu.setVisible(false);
+    RMSGui.separator.setVisible(true);
+    RMSGui.separator.setSize(20,750);
+    RMSGui.separator.setLocation(150,30);
+    RMSGui.separator.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+    RMSGui.separator.setBackground(new java.awt.Color(0, 0, 0));
+    RMSGui.MenuLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Menu Logo.png")));
+    //CarryOutLogo.setVisible(true);
+    //CarryOutLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/CarryOut Logo.png")));
+    RMSGui.Tablet.add(RMSGui.separator);
+    RMSGui.Tablet.add(RMSGui.MenuLogo);
+    RMSGui.appetizersPane.setVisible(false);
+    RMSGui.MenuLogo.setVisible(true);
+    RMSGui.MenuLogo.setSize(272,88);
+    RMSGui.MenuLogo.setLocation(290,10);
+    //Tablet.add(CarryOutLogo);
+    //CarryOutLogo.setSize(272,88);
+    //CarryOutLogo.setLocation(290,10);
+    RMSGui.appetizers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Appetizers Button.png")));
+    RMSGui.appetizers.setVisible(true);
+    RMSGui.appetizers.setSize(110,62);
+    RMSGui.appetizers.setLocation(35,48);
+    RMSGui.Tablet.add(RMSGui.appetizers);
+    RMSGui.breakfast.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Breakfast Button.png")));
+    RMSGui.breakfast.setVisible(true);
+    RMSGui.breakfast.setSize(110,62);
+    RMSGui.breakfast.setLocation(35,165);
+    RMSGui.Tablet.add(RMSGui.breakfast);
+    RMSGui.lunch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Lunch Button.png")));
+    RMSGui.lunch.setVisible(true);
+    RMSGui.lunch.setSize(110,62);
+    RMSGui.lunch.setLocation(35,282);
+    RMSGui.Tablet.add(RMSGui.lunch);
+    RMSGui.dinner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Dinner Button.png")));
+    RMSGui.dinner.setVisible(true);
+    RMSGui.dinner.setSize(110,62);
+    RMSGui.dinner.setLocation(35,399);
+    RMSGui.Tablet.add(RMSGui.dinner);
+    RMSGui.desserts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Desserts Button.png")));
+    RMSGui.desserts.setVisible(true);
+    RMSGui.desserts.setSize(110,62);
+    RMSGui.desserts.setLocation(35,516);
+    RMSGui.Tablet.add(RMSGui.desserts);
+    RMSGui.drinks.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Drinks Button.png")));
+    RMSGui.drinks.setVisible(true);
+    RMSGui.drinks.setSize(110,62);
+    RMSGui.drinks.setLocation(35,633);
+    RMSGui.Tablet.add(RMSGui.drinks);
+    RMSGui.home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Home Button.png")));
+    RMSGui.home.setVisible(true);
+    RMSGui.home.setSize(75,40);
+    RMSGui.home.setLocation(220,710);
+    RMSGui.Tablet.add(RMSGui.home);
+    RMSGui.back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Back Button.png")));
+    RMSGui.back.setVisible(true);
+    RMSGui.back.setSize(75,40);
+    RMSGui.back.setLocation(400,710);
+    RMSGui.Tablet.add(RMSGui.back);
+    RMSGui.viewback.setVisible(false);
+    RMSGui.viewcart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/ViewCart Button.png")));
+    RMSGui.viewcart.setVisible(true);
+    RMSGui.viewcart.setSize(75,40);
+    RMSGui.viewcart.setLocation(580,710);
+    RMSGui.viewScrollPane.setVisible(false);
+    RMSGui.CartLogo.setVisible(false);
+    RMSGui.Tablet.add(RMSGui.viewcart);
+    RMSGui.confirmback.setVisible(false);
+    PaymentOption.debit.setVisible(false);
+    PaymentOption.cardPics.setVisible(false);
+    PaymentOption.name.setVisible(false);
+    PaymentOption.nameField.setVisible(false);
+    PaymentOption.cardType.setVisible(false);
+    PaymentOption.card.setVisible(false);
+    PaymentOption.cardNumber.setVisible(false);
+    PaymentOption.numberField.setVisible(false);
+    PaymentOption.Expiration.setVisible(false);
+    PaymentOption.expMonth.setVisible(false);
+    PaymentOption.expYear.setVisible(false);
+    PaymentOption.cardSecure.setVisible(false);
+    PaymentOption.securityField.setVisible(false);
+    PaymentOption.billing.setVisible(false);
+    PaymentOption.street.setVisible(false);
+    PaymentOption.city.setVisible(false);
+    PaymentOption.stateZip.setVisible(false);
+    PaymentOption.country.setVisible(false);
+    PaymentOption.email.setVisible(false);
+    PaymentOption.emailConfirm.setVisible(false);
+    PaymentOption.streetField.setVisible(false);
+    PaymentOption.cityField.setVisible(false);
+    PaymentOption.stateslist.setVisible(false);
+    PaymentOption.zipField.setVisible(false);
+    PaymentOption.countrieslist.setVisible(false);
+    PaymentOption.emailField.setVisible(false);
+    PaymentOption.emailConfirmField.setVisible(false);
+    PaymentOption.Debit.setVisible(false);
+    PaymentOption.Cash.setVisible(false);
+    RMSGui.paymentScrollPane.setVisible(false);
+    RMSGui.PaymentLogo.setVisible(false);
+    RMSGui.confirm2.setVisible(false);
+    RMSGui.appetizersPane.setVisible(false);
+    RMSGui.breakfastPane.setVisible(false);
+    RMSGui.dessertPane.setVisible(false);
+    RMSGui.lunchPane.setVisible(false);
+    RMSGui.dinnerPane.setVisible(false);
+    RMSGui.drinksPane.setVisible(false);
+    setVisible(false);
+    repaint();
+        }
+        }};
+
+ActionListener cartConfirmListener = new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    int confirmPane = JOptionPane.showConfirmDialog(
+                      RMSGui.confirmframe, "Is Your Order Correct?",
+                      "Order Confirmation",
+                      JOptionPane.YES_NO_OPTION);
+           repaint();
+   if (confirmPane == JOptionPane.YES_OPTION) {
+           repaint();
+           setVisible(true);
+           Cash.setVisible(true);
+           Debit.setVisible(true);
+           RMSGui.CartLogo.setVisible(false);
+           RMSGui.viewScrollPane.setVisible(false);
+           RMSGui.viewcart.setVisible(false);
+           RMSGui.paymentScrollPane.setVisible(true);
+           RMSGui.paymentScrollPane.setSize(522,625);
+           RMSGui.paymentScrollPane.setLocation(173,78);
+           RMSGui.Tablet.add(RMSGui.paymentScrollPane);
+           RMSGui.PaymentLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Payment Logo.png")));
+           RMSGui.Tablet.add(RMSGui.PaymentLogo);
+           RMSGui.PaymentLogo.setLocation(280,10);
+           RMSGui.PaymentLogo.setVisible(true);
+           RMSGui.PaymentLogo.setSize(320,88);
+           RMSGui.confirm.setVisible(false);
+           RMSGui.confirm2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Confirm Button.png")));
+           RMSGui.confirm2.setVisible(true);
+           RMSGui.confirm2.setSize(75,40);
+           RMSGui.confirm2.setLocation(580,710);
+           RMSGui.Tablet.add(RMSGui.confirm2);
+           RMSGui.home.setVisible(false);
+           RMSGui.viewback.setVisible(false);
+           RMSGui.confirmback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Cancel Button.png")));
+           RMSGui.confirmback.setVisible(true);
+           RMSGui.confirmback.setSize(75,40);
+           RMSGui.confirmback.setLocation(405,710);
+           RMSGui.Tablet.add(RMSGui.confirmback);
+           repaint();
+            } else if (confirmPane == JOptionPane.NO_OPTION) {
+            RMSGui.paymentScrollPane.setVisible(false);
+            RMSGui.PaymentLogo.setVisible(false);
+            RMSGui.confirm2.setVisible(false);
+            RMSGui.confirmback.setVisible(false);
+            RMSGui.Logo.setVisible(false);
+            RMSGui.AdminLogin.setVisible(false);
+            RMSGui.enterMenu.setVisible(false);
+            RMSGui.Logo2.setVisible(false);
+            RMSGui.home.setVisible(true);
+            RMSGui.back.setVisible(false);
+            RMSGui.viewback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Back Button.png")));
+            RMSGui.viewback.setVisible(true);
+            RMSGui.viewback.setSize(75,40);
+            RMSGui.viewback.setLocation(400,710);
+            RMSGui.Logo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Cnerds Cafe Side.png")));
+            RMSGui.Logo3.setVisible(true);
+            RMSGui.Logo3.setSize(400,650);
+            RMSGui.Logo3.setLocation(50,70);
+            RMSGui.Tablet.add(RMSGui.Logo3);
+            RMSGui.Tablet.add(RMSGui.viewback);
+            RMSGui.viewcart.setVisible(false);
+            RMSGui.drinks.setVisible(false);
+            RMSGui.separator.setVisible(true);
+            RMSGui.breakfast.setVisible(false);
+            RMSGui.lunch.setVisible(false);
+            RMSGui.dinner.setVisible(false);
+            RMSGui.desserts.setVisible(false);
+            RMSGui.MenuLogo.setVisible(false);
+            RMSGui.CartLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Cart Button.png")));
+            RMSGui.Tablet.add(RMSGui.CartLogo);
+            RMSGui.CartLogo.setLocation(280,10);
+            RMSGui.CartLogo.setVisible(true);
+            RMSGui.CartLogo.setSize(320,88);
+            RMSGui.viewPanel.setVisible(false);
+            RMSGui.home2.setVisible(false);
+            //CarryOutLogo.setVisible(false);
+            //DineInLogo.setVisible(false);
+            RMSGui.CarryOut.setVisible(false);
+            RMSGui.dineIn.setVisible(false);
+            RMSGui.Reservations.setVisible(false);
+            RMSGui.appetizers.setVisible(false);
+            RMSGui.appetizersPane.setVisible(false);
+            RMSGui.viewScrollPane.setVisible(true);
+            RMSGui.viewScrollPane.setBackground(new java.awt.Color(0, 0, 0));
+            RMSGui.viewScrollPane.setSize(522,625);
+            RMSGui.viewScrollPane.setLocation(173,78);
+            RMSGui.Tablet.add(RMSGui.viewScrollPane);
+            RMSGui.confirm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Confirm Button.png")));
+            RMSGui.confirm.setVisible(true);
+            RMSGui.confirm.setSize(75,40);
+            RMSGui.confirm.setLocation(580,710);
+            RMSGui.Tablet.add(RMSGui.confirm);
+            RMSGui.PaymentLogo.setVisible(false);
+            repaint();
+                  }
+        }};
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton Cash;
-    private javax.swing.JRadioButton Debit;
+    public static javax.swing.JRadioButton Cash;
+    public static javax.swing.JRadioButton Debit;
     private javax.swing.ButtonGroup Selection;
     // End of variables declaration//GEN-END:variables
 }
