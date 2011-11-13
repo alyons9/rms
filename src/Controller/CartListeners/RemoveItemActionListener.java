@@ -21,10 +21,10 @@ public class RemoveItemActionListener implements ActionListener{
     }
     
     public void actionPerformed(ActionEvent e){
-        cart.removeItem(item);
+        cart.removeFoodItem(item);
         cart.subtractFromTotal(item.getPrice());
-        for(int i=0;i<cart.getItems().size();i++){
-            System.out.println(cart.getItems().get(i).getName());
+        for(int i=0;i<cart.getFoodItems().size();i++){
+            System.out.println(cart.getFoodItems().get(i).getName());
             System.out.println(cart.getTotal());
         }
     }

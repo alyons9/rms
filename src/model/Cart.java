@@ -11,15 +11,25 @@ import java.util.Vector;
  * @author anthonylyons
  */
 public class Cart {
-    private Vector<Food> items = new Vector<Food>();
+    private Vector<Food> foodItems = new Vector<Food>();
+    private Vector<Drink> drinkItems = new Vector<Drink>();
+    
     private double total;
-
-    public Vector<Food> getItems() {
-        return items;
+    
+    public Vector<Food> getFoodItems(){
+        return foodItems;
     }
 
-    public void setItems(Vector<Food> items) {
-        this.items = items;
+    public void setDrinkItems(Vector<Drink> drinkItems) {
+        this.drinkItems = drinkItems;
+    }
+
+    public void setFoodItems(Vector<Food> foodItems) {
+        this.foodItems = foodItems;
+    }
+    
+    public Vector<Drink> getDrinkItems(){
+        return drinkItems;
     }
 
     public double getTotal() {
@@ -37,11 +47,19 @@ public class Cart {
     public void subtractFromTotal(double price){
         total-=price;
     }
-    public void addItem(Food item){
-        items.add(item);
+    public void addFoodItem(Food item){
+        foodItems.add(item);
     }
     
-    public void removeItem(Food item){
-        items.remove(item);
+    public void removeFoodItem(Food item){
+        foodItems.remove(item);
+    }
+    
+    public void addDrinkItem(Drink item){
+        drinkItems.add(item);
+    }
+    
+    public void removeDrinkItem(Drink item){
+        drinkItems.remove(item);
     }
 }

@@ -10,6 +10,7 @@
  */
 package view.addMenus;
 
+import Controller.CartListeners.AddFoodItemActionListener;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -31,6 +32,7 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.xml.parsers.ParserConfigurationException;
+import model.Cart;
 import model.Food;
 import model.XmlPersistence.AppetizersDao;
 import org.xml.sax.SAXException;
@@ -53,7 +55,7 @@ public class addAppetizerMenu extends javax.swing.JPanel {
     private ImageIcon[] icon;
     
     /** Creates new form addAppetizerMenu */
-    public addAppetizerMenu() {
+    public addAppetizerMenu(Cart cart) {
         try {
             initComponents();
            // setPreferredSize(new Dimension(300,12000));
@@ -84,7 +86,7 @@ public class addAppetizerMenu extends javax.swing.JPanel {
         
         
     
-    System.out.println(food[0].getPic());
+    //System.out.println(food[0].getPic());
 //   JLabel b = new JLabel("test");
 //    b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Database/Images/pizza.jpg")));
 //    add(b);
@@ -103,7 +105,7 @@ public class addAppetizerMenu extends javax.swing.JPanel {
         buttons[i].setPreferredSize(new Dimension(70,30));
      
         buttons[i].setActionCommand(food[i].getName());
-        buttons[i].addActionListener(null);
+        buttons[i].addActionListener(new AddFoodItemActionListener(food[i],cart));
         appDesLabels[i] = new JLabel(food[i].getDescription());
        // appDesLabels[i].setPreferredSize(new Dimension(30,30));
         spinner[i] = new JSpinner(new SpinnerNumberModel(0, 0, 15, 1));
