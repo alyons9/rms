@@ -30,7 +30,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.xml.parsers.ParserConfigurationException;
-import java.awt.Color;
 import org.xml.sax.SAXException;
 import java.awt.*;
 
@@ -49,6 +48,13 @@ public class adminLogInDialog extends JInternalFrame {//being
     private JButton signUp;
     private JPanel adminEdit;
     private boolean succeeded;
+    private JPanel separator = new JPanel();
+    private JButton appetizers = new JButton();
+    private JButton breakfast = new JButton();
+    private JButton lunch = new JButton();
+    private JButton dinner = new JButton();
+    private JButton desserts = new JButton();
+    private JButton drinks = new JButton();
 
     public adminLogInDialog(JPanel a) {//begin constructor
 
@@ -105,14 +111,51 @@ public class adminLogInDialog extends JInternalFrame {//being
                                 JOptionPane.INFORMATION_MESSAGE);
                         succeeded = true;
                         dispose();
-                        AdminEditMenu adminMenu = new AdminEditMenu();
-                        adminMenu.setVisible(true);
-                        adminMenu.setSize(600,723);
-                        adminMenu.setLocation(62,32);
-                        adminEdit.add(adminMenu);
+                        //AdminEditMenu adminMenu = new AdminEditMenu();
+                        //adminMenu.setVisible(true);
+                        //adminMenu.setSize(600,723);
+                        //adminMenu.setLocation(62,32);
+                        //adminEdit.add(adminMenu);
+                        separator.setVisible(true);
+                        separator.setSize(20,750);
+                        separator.setLocation(150,70);
+                        separator.setBackground(new java.awt.Color(0, 0, 0));
+                        RMSGui.separator.setVisible(true);
+                        RMSGui.Tablet.add(separator);
                         RMSGui.Logo.setVisible(false);
                         RMSGui.enterMenu.setVisible(false);
                         RMSGui.AdminLogin.setVisible(false);
+                        appetizers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Edit Appetizers.png")));
+                        appetizers.setVisible(true);
+                        appetizers.setSize(110,62);
+                        appetizers.setLocation(35,48);
+                        breakfast.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Edit Breakfast.png")));
+                        breakfast.setVisible(true);
+                        breakfast.setSize(110,62);
+                        breakfast.setLocation(35,165);
+                        RMSGui.Tablet.add(breakfast);
+                        lunch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Edit Lunch.png")));
+                        lunch.setVisible(true);
+                        lunch.setSize(110,62);
+                        lunch.setLocation(35,282);
+                        RMSGui.Tablet.add(lunch);
+                        dinner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Edit Dinner.png")));
+                        dinner.setVisible(true);
+                        dinner.setSize(110,62);
+                        dinner.setLocation(35,399);
+                        RMSGui.Tablet.add(dinner);
+                        desserts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Edit Desserts.png")));
+                        desserts.setVisible(true);
+                        desserts.setSize(110,62);
+                        desserts.setLocation(35,516);
+                        RMSGui.Tablet.add(desserts);
+                        drinks.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Edit Drinks.png")));
+                        drinks.setVisible(true);
+                        drinks.setSize(110,62);
+                        drinks.setLocation(35,633);
+                        RMSGui.Tablet.add(drinks);
+                        RMSGui.Tablet.add(appetizers);
+                        repaint();
                     
                     } else {//displaying a false if a username and password are incorrect
                         JOptionPane.showMessageDialog(adminLogInDialog.this, "INVALID USERNAME OR PASSWORD",

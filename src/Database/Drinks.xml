@@ -10,7 +10,7 @@
 
 <Drinks>
       <cup>
-        <name>Tea></name>
+        <name>Tea</name>
         <description>Sweet and UnSweet</description>
         <quantity>1</quantity>
         <price>1.95</price>
