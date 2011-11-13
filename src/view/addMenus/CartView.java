@@ -7,6 +7,7 @@ package view.addMenus;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.util.Vector;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -54,7 +55,7 @@ public class CartView extends javax.swing.JPanel{
             //add(checkBoxes.get(i));
             add(new JCheckBox(name));
         }
-        JLabel totalPrice = new JLabel("<HTML><B>Total:</B> $"+cart.getTotal()+"</HTML>");
+        JLabel totalPrice = new JLabel("<HTML><B>Total:</B> $"+roundTwoDecimals(cart.getTotal())+"</HTML>");
         add(totalPrice);
         
         JButton deleteButton = new JButton("DELETE SELECTED");
@@ -100,6 +101,11 @@ public class CartView extends javax.swing.JPanel{
         
         
     }
+    
+    double roundTwoDecimals(double d) {
+            DecimalFormat twoDForm = new DecimalFormat("#.##");
+        return Double.valueOf(twoDForm.format(d));
+}
     
      /** This method is called from within the constructor to
      * initialize the form.
