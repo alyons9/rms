@@ -12,6 +12,7 @@ import view.editMenus.adminEditAppetizerMenu;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import view.addItemToMenu.addItemToAppetizerMenu;
 import view.editMenus.adminEditBreakfastMenu;
 
 public class tester extends JFrame implements ActionListener {
@@ -68,7 +69,19 @@ public class tester extends JFrame implements ActionListener {
   temp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
   a.repaint();
   repaint();
- 
+  
+  addItemToAppetizerMenu temp2 = null;
+  try {
+          temp2 = new addItemToAppetizerMenu();
+        } catch (SAXException ex) {
+            Logger.getLogger(tester.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParserConfigurationException ex) {
+            Logger.getLogger(tester.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        temp2.setVisible(true);
+        temp2.setSize(500,500);
+        
+        add(temp2);
   } 
   public static void main(String []args){
       tester b = new tester();

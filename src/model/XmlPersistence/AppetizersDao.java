@@ -142,6 +142,8 @@ public class AppetizersDao {
     //Pre: name, description,Quantity, price, picture for appetizer parameters
     //Post: add to node list and write to file
     public void addAppetizer(String appetizerName, String appetizerDescription,int appetizerQuantity,double appetizerPrice,String appetizerPicture){
+        done = false;
+       
         
         //Get root node
         Node root = doc.getDocumentElement();
