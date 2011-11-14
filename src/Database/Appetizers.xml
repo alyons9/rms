@@ -49,9 +49,11 @@
 
 
 
+
+
 <plate>
-<name>Mango Tango</name>
-<description>Really good</description>
+<name>Tamato Mango</name>
+<description>Sweet Mangos</description>
 <quantity>1</quantity>
 <price>6.99</price>
 <picture>/Database/Images/Appetizer/tamatoMango.png</picture>

@@ -92,6 +92,10 @@ public class changeAppetizerPrice extends JInternalFrame {//being
             @Override
             public void actionPerformed(ActionEvent e) {
               //System.out.print(getRemoveName());
+                
+               
+                
+                
                 succeeded =false;
                 succeeded = list.setPriceByName(foodName, Double.parseDouble(getPriceName()));
                 System.out.println(""+succeeded);
@@ -159,6 +163,9 @@ public class changeAppetizerPrice extends JInternalFrame {//being
 
         // setLocationRelativeTo(frame);
 
+        
+        
+        
     }//end of constructor
 
     //method to get the username
@@ -168,5 +175,5 @@ public class changeAppetizerPrice extends JInternalFrame {//being
         return temp;
     }
 
-    
+   
 }//end class

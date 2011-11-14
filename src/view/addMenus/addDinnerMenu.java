@@ -18,6 +18,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BoxLayout;
@@ -25,6 +27,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
@@ -46,7 +49,7 @@ import org.xml.sax.SAXException;
  *
  * @author SAMIR
  */
-public class addDinnerMenu extends javax.swing.JPanel implements Scrollable{
+public class addDinnerMenu extends javax.swing.JPanel implements Scrollable,ActionListener{
     private DinnerDao nodeList;
     private Food food[];
     private int sizeOfList;
@@ -109,7 +112,7 @@ public class addDinnerMenu extends javax.swing.JPanel implements Scrollable{
         //nameLabels[i].setIcon(new javax.swing.ImageIcon(getClass().getResource(food[i].getPic())));
         buttons[i] = new JButton("ADD");
         buttons[i].setSize(70,30);
-     
+        buttons[i].addActionListener(this);
         buttons[i].setActionCommand(food[i].getName());
         buttons[i].addActionListener(new AddFoodItemActionListener(food[i],cart));
         appDesLabels[i] = new JLabel(food[i].getDescription());
@@ -205,4 +208,13 @@ public class addDinnerMenu extends javax.swing.JPanel implements Scrollable{
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+       // throw new UnsupportedOperationException("Not supported yet.");
+          JOptionPane.showMessageDialog(this,
+            "YOUR ITEM HAS BEEN ADDED TO THE CART!!!",
+            "CONFIRMATION DIALOG",
+            JOptionPane.WARNING_MESSAGE);
+    }
 }
