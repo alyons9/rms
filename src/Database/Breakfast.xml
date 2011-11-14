@@ -48,4 +48,12 @@
 <price>7.0</price>
 <picture>/Database/Images/BreakFast/ClassicPancakes.jpg</picture>
 </plate>
+
+<plate>
+        <name>Homemade Fruit Waffles</name>
+        <description>Homemade waffles served with straberries and whipcream</description>
+        <quantity>1</quantity>
+        <price>7.00</price>
+        <picture>/Database/Images/BreakFast/FruitWaffles.jpg</picture>
+    </plate>
 </Breakfast>
