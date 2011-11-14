@@ -273,7 +273,9 @@ public static JButton exit = new JButton();
          countrieslist.setVisible(false);
          emailField.setVisible(false);
          //emailConfirmField.setVisible(false);
-    repaint();
+         RMSGui.cart.getFoodItems().clear();
+         RMSGui.cart.getDrinkItems().clear();
+         repaint();
       }
       }
     }//GEN-LAST:event_CashActionPerformed
@@ -840,15 +842,15 @@ ActionListener paymentConfirmListener = new ActionListener(){
             grabEmail.setFont(new java.awt.Font("AR ESSENCE", 0, 14));
             grabEmail.setLocation(100,165);
             add(grabEmail);
-            JLabel grabFood = new JLabel(RMSGui.cart.getDrinkItems()+ "\n");
-            grabFood.setVisible(true);
-            grabFood.setSize(200,400);
-            grabFood.setForeground(new java.awt.Color(0, 0, 0));
-            grabFood.setFont(new java.awt.Font("AR ESSENCE", 0, 14));
-            grabFood.setLocation(100,300);
-            add(grabFood);
+            //JLabel grabFood = new JLabel(RMSGui.cart.getDrinkItems()+ "\n");
+            //grabFood.setVisible(true);
+           // grabFood.setSize(200,400);
+            //grabFood.setForeground(new java.awt.Color(0, 0, 0));
+            //grabFood.setFont(new java.awt.Font("AR ESSENCE", 0, 14));
+            //grabFood.setLocation(100,300);
+            //add(grabFood);
             System.out.println(RMSGui.cart.getFoodItems());
-            JLabel grabTotal = new JLabel("          Total: $" + RMSGui.cart.getTotal());
+            JLabel grabTotal = new JLabel("Total: $" + RMSGui.cart.getTotal());
             grabTotal.setVisible(true);
             grabTotal.setSize(150,50);
             grabTotal.setForeground(new java.awt.Color(0, 0, 0));
@@ -922,7 +924,48 @@ ActionListener paymentConfirmListener = new ActionListener(){
          }};
 ActionListener exitListener = new ActionListener(){
         public void actionPerformed(ActionEvent e){
-            
+            JOptionPane.showMessageDialog(null,"Thank You for Choosing Cnerds Cafe'");
+    RMSGui.paymentScrollPane.setVisible(false);
+    RMSGui.PaymentLogo.setVisible(false);
+    RMSGui.confirm2.setVisible(false);
+    RMSGui.confirmback.setVisible(false);
+    RMSGui.confirm.setVisible(false);
+    RMSGui.Logo.setVisible(true);
+    RMSGui.AdminLogin.setVisible(true);
+    RMSGui.enterMenu.setVisible(true);
+    RMSGui.Logo2.setVisible(false);
+    RMSGui.home.setVisible(false);
+    RMSGui.Logo3.setVisible(false);
+    RMSGui.home2.setVisible(false);
+    RMSGui.back.setVisible(false);
+    RMSGui.viewback.setVisible(false);
+    RMSGui.viewcart.setVisible(false);
+    RMSGui.drinks.setVisible(false);
+    RMSGui.separator.setVisible(false);
+    RMSGui.breakfast.setVisible(false);
+    RMSGui.lunch.setVisible(false);
+    RMSGui.dinner.setVisible(false);
+    RMSGui.desserts.setVisible(false);
+    RMSGui.MenuLogo.setVisible(false);
+    RMSGui.CartLogo.setVisible(false);
+    RMSGui.viewScrollPane.setVisible(false);
+    //CarryOutLogo.setVisible(false);
+    //DineInLogo.setVisible(false);
+    RMSGui.CarryOut.setVisible(false);
+    RMSGui.dineIn.setVisible(false);
+    RMSGui.Reservations.setVisible(false);
+    RMSGui.appetizers.setVisible(false);
+    RMSGui.appetizersPane.setVisible(false);
+    RMSGui.breakfastPane.setVisible(false);
+    RMSGui.lunchPane.setVisible(false);
+    RMSGui.dinnerPane.setVisible(false);
+    RMSGui.dessertPane.setVisible(false);
+    RMSGui.drinksPane.setVisible(false);
+    exit.setVisible(false);
+    RMSGui.ReceiptLogo.setVisible(false);
+    RMSGui.cart.getFoodItems().clear();
+    RMSGui.cart.getDrinkItems().clear();
+    repaint();
         }};
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

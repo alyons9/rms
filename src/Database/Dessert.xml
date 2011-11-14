@@ -41,4 +41,18 @@
     <price>4.50</price>
     <picture>/Database/Images/Dessert/IceCreamParfait.jpg</picture>
 </plate>
+<plate>
+    <name>White Chocolate Sweet Potato Pie</name>
+    <description>Slice of nine Layered Sweet Potato Pie with white chocolate. Served with almonds on top</description>
+    <quantity>1</quantity>
+    <price>6.50</price>
+    <picture>/Database/Images/Dessert/SweetPotato.jpg</picture>
+</plate>
+<plate>
+    <name>Fresh Fruit</name>
+    <description>A bowl of sweetened fresh fruit</description>
+    <quantity>1</quantity>
+    <price>4.00</price>
+    <picture></picture>
+</plate>
 </Dessert>

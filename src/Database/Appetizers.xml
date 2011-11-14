@@ -85,4 +85,26 @@ Asian chili sauce, soy-ginger sauce and lime </description>
 <price>6.99</price>
 <picture>/Database/Images/Appetizer/tamatoMango.png</picture>
 </plate>
+<plate>
+        <name>Mozzarella Sticks</name>
+        <description>Mozzarella cheese battered and fried to perfection. Served with 
+marinara sauce</description>
+        <quantity>1</quantity>
+        <price>6.00</price>
+        <picture>/Database/Images/Appetizer/MozarellaSticks.jpg</picture>
+    </plate>
+<plate>
+        <name>Nacho Platter</name>
+        <description>A bed of fresh crispy tortilla chips loaded with spicy meat, smothered with homemade queso cheese. Served with sour cream and salsa</description>
+        <quantity>1</quantity>
+        <price>8.00</price>
+        <picture>/Database/Images/Appetizer/NachoPlatter.jpg</picture>
+    </plate>
+<plate>
+        <name>Loaded Baked Potato</name>
+        <description>Baked Potato served with sour cream, shredded cheese, chives and bacon</description>
+        <quantity>1</quantity>
+        <price>4.50</price>
+        <picture>/Database/Images/Appetizer/LoadedBakedPotato.jpg</picture>
+    </plate>
 </Appetizers>

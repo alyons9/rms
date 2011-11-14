@@ -73,5 +73,28 @@
         <price>9.50</price>
         <picture>/Database/Images/Dinner-Lunch/FiestaChickenSalad.jpg</picture>
     </plate>
+<plate>
+        <name>Turkey Sandwich</name>
+        <description>Fresh Turkey Sandwich served with Swiss cheese, tomatoes,onions and lettuce</description>
+        <quantity>1</quantity>
+        <price>7.50</price>
+        <picture>/Database/Images/Dinner-Lunch/TurkeySandwich.png</picture>
+    </plate>
+
+   
+<plate>
+        <name>Mushroom Swiss Burger</name>
+        <description>Big ole burger smothered with sauteed mushrooms,Swiss cheese, lettuce, tomato and mayo</description>
+        <quantity>1</quantity>
+        <price>8.50</price>
+        <picture>/Database/Images/Dinner-Lunch/MushroomSwissBurger.jpg</picture>
+    </plate>
+<plate>
+        <name>Mexican Vegetarian Burgers</name>
+        <description>Made with a variety of vegetables and topped with grilled pinapples, sliced avacodo and jalapeno ketchup. Served with fries</description>
+        <quantity>1</quantity>
+        <price>7.50</price>
+        <picture>/Database/Images/Dinner-Lunch/mexicanveggieburgers.jpg</picture>
+    </plate>
 
 </Dinner>

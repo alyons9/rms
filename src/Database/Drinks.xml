@@ -66,11 +66,5 @@
         <price>1.50</price>
         <picture>/Database/Images/Drinks/HotTea.jpg</picture>
     </cup>
-<cup>
-<name/>
-<description/>
-<quantity>1</quantity>
-<price>7.99</price>
-<picture>/Database/Images/Drinks/</picture>
-</cup>
+
 </Drinks>

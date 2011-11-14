@@ -24,8 +24,8 @@ import model.Food;
 public class CartView extends javax.swing.JPanel{
     //private Vector<JCheckBox> checkBoxes;
     private Cart cart;
-    private Vector<Food> foodItems;
-    private Vector<Drink> drinkItems;
+    public static Vector<Food> foodItems;
+    public static Vector<Drink> drinkItems;
     
     public CartView(Cart cartt){
         initComponents();

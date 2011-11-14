@@ -1,3 +1,8 @@
+
+
+
+
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -11,8 +16,8 @@ import java.util.Vector;
  * @author anthonylyons
  */
 public class Cart {
-    private Vector<Food> foodItems = new Vector<Food>();
-    private Vector<Drink> drinkItems = new Vector<Drink>();
+    public static Vector<Food> foodItems = new Vector<Food>();
+    public static Vector<Drink> drinkItems = new Vector<Drink>();
     
     private double total;
     
