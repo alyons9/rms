@@ -187,6 +187,7 @@ public void setUpComponents() throws SAXException, ParserConfigurationException{
         spinner = new Vector(sizeOfList);
         prices = new Vector(sizeOfList);
         icon = new Vector(sizeOfList);
+        
         list = new String[2];
         list[0] = "CHANGE PRICE";
         list[1] = "REMOVE";
@@ -200,10 +201,10 @@ public void setUpComponents() throws SAXException, ParserConfigurationException{
 //        appIconName[i] = food[i].getPic();
 //        System.out.println(appIconName[i]);
 //        appIconPic[i] = new ImageIcon(appIconName[i]);
-      //  icon[i] = createImageIcon(food[i].getPic());
+        icon.add(i, createImageIcon(food.get(i).getPic()));
         nameLabels.add(i, new JLabel(food.get(i).getName()));//appIconPic[i],JLabel.CENTER);
-        //nameLabels[i].setIcon(icon[i]);
-        nameLabels.get(i).setIcon(new javax.swing.ImageIcon(getClass().getResource(food.get(i).getPic())));
+        nameLabels.get(i).setIcon(icon.get(i));
+        //nameLabels.get(i).setIcon(new javax.swing.ImageIcon(getClass().getResource(food.get(i).getPic())));
         buttons.add(i, new JComboBox(list));
         buttons.get(i).setPreferredSize(new Dimension(70,30));
         buttons.get(i).setFocusCycleRoot(true);
@@ -222,5 +223,6 @@ public void setUpComponents() throws SAXException, ParserConfigurationException{
   
     
     }
+
     
 }
