@@ -67,6 +67,7 @@ public static JButton exit = new JButton();
         RMSGui.confirmback.addActionListener(confirmBackListener);
         RMSGui.confirm.addActionListener(cartConfirmListener);
         RMSGui.confirm2.addActionListener(paymentConfirmListener);
+        exit.addActionListener(exitListener);
     }
     //method to get the Cardholder Name
     public String getName() {
@@ -846,9 +847,10 @@ ActionListener paymentConfirmListener = new ActionListener(){
             grabFood.setFont(new java.awt.Font("AR ESSENCE", 0, 14));
             grabFood.setLocation(100,300);
             add(grabFood);
+            System.out.println(RMSGui.cart.getFoodItems());
             JLabel grabTotal = new JLabel("          Total: $" + RMSGui.cart.getTotal());
             grabTotal.setVisible(true);
-            grabTotal.setSize(100,50);
+            grabTotal.setSize(150,50);
             grabTotal.setForeground(new java.awt.Color(0, 0, 0));
             grabTotal.setFont(new java.awt.Font("AR ESSENCE", 0, 14));
             grabTotal.setLocation(100,500);
@@ -918,7 +920,10 @@ ActionListener paymentConfirmListener = new ActionListener(){
             repaint();
         }}
          }};
-
+ActionListener exitListener = new ActionListener(){
+        public void actionPerformed(ActionEvent e){
+            
+        }};
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JRadioButton Cash;

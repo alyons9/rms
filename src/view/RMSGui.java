@@ -837,9 +837,10 @@ public static JScrollPane paymentScrollPane = new JScrollPane(paymentOption);
     
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
-
+        
             public void run() {
                 new RMSGui().setVisible(true);
+                JOptionPane.showMessageDialog(null,"This Software was created by\nJamel M Jenkins\n Samir Choudhary\n Anthony Lyons \n Capricia Petteway\nPlease Enjoy!");
             }
         });
     }
