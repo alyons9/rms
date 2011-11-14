@@ -95,7 +95,7 @@ public class CartView extends javax.swing.JPanel{
                 }
                     repaint();
                 }
-                
+                   
             }
         });
         add(deleteButton);

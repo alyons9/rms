@@ -108,7 +108,7 @@ public class addLunchMenu extends javax.swing.JPanel implements Scrollable {
         //nameLabels[i].setIcon(new javax.swing.ImageIcon(getClass().getResource(food[i].getPic())));
         buttons[i] = new JButton("ADD");
         buttons[i].setSize(70,30);
-     
+        buttons[i].addActionListener(null);
         buttons[i].setActionCommand(food[i].getName());
         buttons[i].addActionListener(new AddFoodItemActionListener(food[i],cart));
         appDesLabels[i] = new JLabel(food[i].getDescription());
