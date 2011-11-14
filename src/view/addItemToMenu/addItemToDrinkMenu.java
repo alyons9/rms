@@ -47,7 +47,7 @@ public class addItemToDrinkMenu extends javax.swing.JPanel implements MouseListe
         itemPictureValue.setText("Click Here To Select Image");
                itemPictureValue.setFocusable(false);
                itemPictureValue.setToolTipText("Get Images From: src/Database/Images/selectFolder/file");
-
+ itemPictureValue.addMouseListener(this);
        
     }
 
@@ -196,7 +196,7 @@ list = new DrinksDao();
             Logger.getLogger(addItemToDrinkMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
     
-        adminLogInDialog.drinksEditPane.repaint();
+        adminLogInDialog.drinksEditPane.revalidate();
        }     
 }//GEN-LAST:event_jButton1ActionPerformed
 

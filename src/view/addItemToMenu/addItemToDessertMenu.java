@@ -46,7 +46,7 @@ public class addItemToDessertMenu extends javax.swing.JPanel implements MouseLis
        itemPictureValue.setText("Click Here to Select Image");
        itemPictureValue.setFocusable(false);
        itemPictureValue.setToolTipText("Get Images From: src/Database/Images/selectFolder/file");
-
+ itemPictureValue.addMouseListener(this);
        
     }
 
@@ -195,7 +195,7 @@ list = new DessertDao();
             } catch (ParserConfigurationException ex) {
                 Logger.getLogger(addItemToDessertMenu.class.getName()).log(Level.SEVERE, null, ex);
             }
-                adminLogInDialog.dessertEditPane.repaint();
+                adminLogInDialog.dessertEditPane.revalidate();
 
        }
   }//GEN-LAST:event_jButton1ActionPerformed

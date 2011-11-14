@@ -49,7 +49,7 @@ public class addItemToLunchMenu extends javax.swing.JPanel implements MouseListe
       itemPictureValue.setText("Click Here To Select Image");  
                itemPictureValue.setFocusable(false);
                itemPictureValue.setToolTipText("Get Images From: src/Database/Images/selectFolder/file");
-       
+        itemPictureValue.addMouseListener(this);
     }
 
     /** This method is called from within the constructor to
@@ -200,7 +200,7 @@ list = new LunchDao();
             Logger.getLogger(addItemToLunchMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        adminLogInDialog.lunchEditPane.repaint();
+        adminLogInDialog.lunchEditPane.revalidate();
        }
 }//GEN-LAST:event_jButton1ActionPerformed
 

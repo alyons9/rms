@@ -37,14 +37,15 @@
         <name>Egg and Muffin Sandwiches</name>
         <description> Two Egg and Muffin sandwiches with fried eggs, sausage patties and American cheese</description>
         <quantity>1</quantity>
-        <price>6.50</price>
+        <price>7.9</price>
         <picture>/Database/Images/Breakfast/Egg_McMuffin.jpg</picture>
     </plate>
-     <plate>
-        <name>Classic Pancakes</name>
-        <description>A simple pancake recipe served with two sausage links</description>
-        <quantity>1</quantity>
-        <price>7.00</price>
-        <picture>/Database/Images/Breakfast/ClassicPancakes.jpg</picture>
-    </plate>
+     
+<plate>
+<name>Classic Pancakes</name>
+<description>Really Good and sweet</description>
+<quantity>1</quantity>
+<price>6.99</price>
+<picture>/Database/Images/BreakFast/ClassicPancakes.jpg</picture>
+</plate>
 </Breakfast>

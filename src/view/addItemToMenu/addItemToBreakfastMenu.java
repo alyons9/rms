@@ -45,7 +45,7 @@ public class addItemToBreakfastMenu extends javax.swing.JPanel implements MouseL
        itemPictureValue.setText("Click Here to Select Image");
        itemPictureValue.setFocusable(false);
        itemPictureValue.setToolTipText("Get Images From: src/Database/Images/selectFolder/file");
-
+ itemPictureValue.addMouseListener(this);
     }
 
     /** This method is called from within the constructor to
@@ -193,7 +193,7 @@ list = new BreakfastDao();
             } catch (ParserConfigurationException ex) {
                 Logger.getLogger(addItemToBreakfastMenu.class.getName()).log(Level.SEVERE, null, ex);
             }
-                adminLogInDialog.breakfastEditPane.repaint();
+                adminLogInDialog.breakfastEditPane.revalidate();
      }
 }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -48,7 +48,7 @@ public class addItemToDinnerMenu extends javax.swing.JPanel implements MouseList
         itemPictureValue.setText("Click Here To Select Image");
                itemPictureValue.setFocusable(false);
                itemPictureValue.setToolTipText("Get Images From: src/Database/Images/selectFolder/file");
-
+ itemPictureValue.addMouseListener(this);
        
     }
 
@@ -197,7 +197,7 @@ list = new DinnerDao();
                  Logger.getLogger(addItemToDinnerMenu.class.getName()).log(Level.SEVERE, null, ex);
              }
         
-                 adminLogInDialog.dinnerEditPane.repaint();
+                 adminLogInDialog.dinnerEditPane.revalidate();
        }
 }//GEN-LAST:event_jButton1ActionPerformed
 
