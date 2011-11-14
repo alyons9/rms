@@ -14,7 +14,7 @@ import javax.swing.*;
 import java.awt.event.*;
 /**
  *
- * @author SAMIR
+ * @author Jamel Jenkins
  */
 public class AdminEditMenu extends javax.swing.JInternalFrame{
 public static JPanel appetizerEdit = new JPanel();
