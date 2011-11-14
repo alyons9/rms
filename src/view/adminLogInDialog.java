@@ -43,6 +43,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 import java.awt.*;
 import Controller.FoodListeners.viewFoodEditMenuActionListener;
+import java.awt.event.KeyEvent;
 import view.addItemToMenu.addItemToAppetizerMenu;
 import view.addItemToMenu.addItemToBreakfastMenu;
 import view.addItemToMenu.addItemToDessertMenu;
@@ -105,7 +106,7 @@ public class adminLogInDialog extends JInternalFrame {//being
     public static JScrollPane addLunchPane;
     
     public adminLogInDialog(JPanel a) throws SAXException, ParserConfigurationException {//begin constructor
-   
+        
         appetizerMenu = new adminEditAppetizerMenu();
         breakfastMenu = new adminEditBreakfastMenu();
         lunchMenu = new adminEditLunchMenu();
@@ -351,7 +352,9 @@ public class adminLogInDialog extends JInternalFrame {//being
         constraints.gridx = 1;
         constraints.gridy = 0;
         constraints.gridwidth = 2;
+        userNameValue.requestFocusInWindow();
         dialogPanel.add(userNameValue, constraints);
+        
 
         //adding the Jlabel for the password
         password = new JLabel("Password: ");
@@ -365,13 +368,14 @@ public class adminLogInDialog extends JInternalFrame {//being
         constraints.gridx = 1;
         constraints.gridy = 1;
         constraints.gridwidth = 2;
+       
         dialogPanel.add(passwordValue, constraints);
 
         //adding a border around th panel
         dialogPanel.setBorder(new LineBorder(Color.gray));
 
         confirm = new JButton("CONFIRM");
-
+        confirm.setMnemonic(KeyEvent.VK_ENTER);
         ActionListener confirmButtonAction = new ActionListener() {
 
             @Override

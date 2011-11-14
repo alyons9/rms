@@ -10,8 +10,16 @@
  */
 package view.addItemToMenu;
 
+import java.awt.Dimension;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.xml.parsers.ParserConfigurationException;
 import model.XmlPersistence.AppetizersDao;
@@ -23,7 +31,7 @@ import view.adminLogInDialog;
  *
  * @author SAMIR
  */
-public class addItemToAppetizerMenu extends javax.swing.JPanel {
+public class addItemToAppetizerMenu extends javax.swing.JPanel implements MouseListener {
 
         private AppetizersDao list;
         private String Name;
@@ -31,16 +39,21 @@ public class addItemToAppetizerMenu extends javax.swing.JPanel {
         private Double Price;
         private String PictureName;
         private String temp;
-    
+        private JButton fileButton;
     /** Creates new form addItemToAppetizerMenu */
     public addItemToAppetizerMenu() throws SAXException, ParserConfigurationException {
-        initComponents();
-        setVisible(true);
       
-        
-        
-       
+        setVisible(true);
+         initComponents();
+         
+         itemPictureValue.addMouseListener(this);
+   
+
+
+    
     }
+    
+    
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -64,22 +77,36 @@ public class addItemToAppetizerMenu extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(0, 51, 255));
 
-        jLabel1.setFont(new java.awt.Font("Lucida Handwriting", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Lucida Handwriting", 1, 18));
         jLabel1.setText("Add To Your Appetizer Menu");
 
-        itemName.setFont(new java.awt.Font("Lucida Handwriting", 1, 14)); // NOI18N
+        itemName.setFont(new java.awt.Font("Lucida Handwriting", 1, 14));
         itemName.setText("Item Name:");
 
-        itemDescription.setFont(new java.awt.Font("Lucida Handwriting", 1, 14)); // NOI18N
+        itemDescription.setFont(new java.awt.Font("Lucida Handwriting", 1, 14));
         itemDescription.setText("Description:");
 
-        itemPrice.setFont(new java.awt.Font("Lucida Handwriting", 1, 14)); // NOI18N
+        itemPrice.setFont(new java.awt.Font("Lucida Handwriting", 1, 14));
         itemPrice.setText("Price:");
 
-        itemPic.setFont(new java.awt.Font("Lucida Handwriting", 1, 14)); // NOI18N
+        itemPic.setFont(new java.awt.Font("Lucida Handwriting", 1, 14));
         itemPic.setText("Picture In File:");
 
+        itemNameValue.setToolTipText("");
+        itemNameValue.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                itemNameValueMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                itemNameValueMousePressed(evt);
+            }
+        });
+
         itemPriceValue.setText("0");
+
+        itemPictureValue.setText("Click Here To Select Image");
+        itemPictureValue.setToolTipText("Select Image From: src/Database/Images/selectDesiredFolder/file");
+        itemPictureValue.setFocusable(false);
 
         jButton1.setText("SUBMIT");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +131,6 @@ public class addItemToAppetizerMenu extends javax.swing.JPanel {
                                 .addGap(33, 33, 33)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(itemName, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
                                     .addComponent(itemDescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -116,7 +142,7 @@ public class addItemToAppetizerMenu extends javax.swing.JPanel {
                                     .addComponent(itemPictureValue, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
                                     .addComponent(itemPriceValue, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
                                     .addComponent(itemDescriptionValue, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE))))))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,8 +199,8 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             JOptionPane.WARNING_MESSAGE);
             itemNameValue.setText("");
             itemDescriptionValue.setText("");
-            itemPriceValue.setText("");
-            itemPictureValue.setText("");
+            itemPriceValue.setText("0");
+            itemPictureValue.setText("Click Here To Select Image");
          
                 adminLogInDialog.appetizerMenu.removeAll();
         
@@ -193,6 +219,16 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 
       }
 }//GEN-LAST:event_jButton1ActionPerformed
+
+private void itemNameValueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemNameValueMouseClicked
+System.out.println("Hello i clicked on the field");
+}//GEN-LAST:event_itemNameValueMouseClicked
+
+private void itemNameValueMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemNameValueMousePressed
+// TODO add your handling code here:
+System.out.println("Hello i clicked on the field");
+
+}//GEN-LAST:event_itemNameValueMousePressed
 
 public String getItemName(){
     String temp;
@@ -214,7 +250,7 @@ public double getItemPrice(){
 
 public String getPictureName(){
     String temp;
-    temp = "/Database/Images/Appetizer/" + itemPictureValue.getText().trim();
+    temp = itemPictureValue.getText().trim();
     return temp;
 }
 
@@ -232,4 +268,62 @@ public String getPictureName(){
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
+  
+
+    @Override
+    public void mousePressed(MouseEvent me) {
+      //  throw new UnsupportedOperationException("Not supported yet.");
+         System.out.println("hello i clicked here/");
+            itemPictureValue.setText("");
+          JFileChooser jFileChooser1 = new JFileChooser();
+        try {
+            File f = new File(new File(".").getCanonicalPath());
+            jFileChooser1.setCurrentDirectory(f);
+        } catch (IOException ex) {
+            Logger.getLogger(addItemToAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+          
+                int open2 = jFileChooser1.showOpenDialog(this);
+                if (open2 == JFileChooser.APPROVE_OPTION) {
+                 
+                 String path= jFileChooser1.getSelectedFile().getAbsolutePath();
+                 char slash ='/';
+                 char bSlash='\\';
+                 String changedPath = path.replace(bSlash,slash);
+                 
+                 String newPath = changedPath.substring(changedPath.indexOf("D")-1,changedPath.length());
+                
+                   
+                 itemPictureValue.setText(newPath);
+                
+//                 System.out.println("This is the file you wanted to open "+path);
+//                 System.out.println("This is the file you wanted to open "+ changedPath);
+//                 System.out.println("This is the file you wanted to open "+ newPath);
+
+                }
+       }
+
+    @Override
+    public void mouseClicked(MouseEvent me) {
+       // throw new UnsunepportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent me) {
+      //  throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent me) {
+       // throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void mouseExited(MouseEvent me) {
+       // throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+  
 }

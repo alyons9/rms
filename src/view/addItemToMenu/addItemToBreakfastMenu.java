@@ -10,8 +10,13 @@
  */
 package view.addItemToMenu;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.xml.parsers.ParserConfigurationException;
 import model.XmlPersistence.AppetizersDao;
@@ -23,7 +28,7 @@ import view.adminLogInDialog;
  *
  * @author SAMIR
  */
-public class addItemToBreakfastMenu extends javax.swing.JPanel {
+public class addItemToBreakfastMenu extends javax.swing.JPanel implements MouseListener {
 
         private BreakfastDao list;
         private String Name;
@@ -36,10 +41,11 @@ public class addItemToBreakfastMenu extends javax.swing.JPanel {
     public addItemToBreakfastMenu() throws SAXException, ParserConfigurationException {
         initComponents();
         setVisible(true);
-      jLabel1.setText("Add To Your Breakfast Menu");
-       
-        
-       
+      jLabel1.setText("Add To Your BreakfastFuck Menu");
+       itemPictureValue.setText("Click Here to Select Image");
+       itemPictureValue.setFocusable(false);
+       itemPictureValue.setToolTipText("Get Images From: src/Database/Images/selectFolder/file");
+ itemPictureValue.addMouseListener(this);
     }
 
     /** This method is called from within the constructor to
@@ -175,7 +181,7 @@ list = new BreakfastDao();
             
             itemNameValue.setText("");
             itemDescriptionValue.setText("");
-            itemPriceValue.setText("");
+            itemPriceValue.setText("0");
             itemPictureValue.setText("");
     
          
@@ -187,7 +193,7 @@ list = new BreakfastDao();
             } catch (ParserConfigurationException ex) {
                 Logger.getLogger(addItemToBreakfastMenu.class.getName()).log(Level.SEVERE, null, ex);
             }
-                adminLogInDialog.breakfastEditPane.repaint();
+                adminLogInDialog.breakfastEditPane.revalidate();
      }
 }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -211,7 +217,7 @@ public double getItemPrice(){
 
 public String getPictureName(){
     String temp;
-    temp = "/Database/Images/Breakfast/" + itemPictureValue.getText().trim();
+    temp = itemPictureValue.getText().trim();
     return temp;
 }
 
@@ -229,4 +235,60 @@ public String getPictureName(){
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void mouseClicked(MouseEvent me) {
+       // throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void mousePressed(MouseEvent me) {
+        //throw new UnsupportedOperationException("Not supported yet.");
+           System.out.println("hello i clicked here/");
+            itemPictureValue.setText("");
+          JFileChooser jFileChooser1 = new JFileChooser();
+        try {
+            File f = new File(new File(".").getCanonicalPath());
+            jFileChooser1.setCurrentDirectory(f);
+        } catch (IOException ex) {
+            Logger.getLogger(addItemToAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+          
+                int open2 = jFileChooser1.showOpenDialog(this);
+                if (open2 == JFileChooser.APPROVE_OPTION) {
+                 
+                 String path= jFileChooser1.getSelectedFile().getAbsolutePath();
+                 char slash ='/';
+                 char bSlash='\\';
+                 String changedPath = path.replace(bSlash,slash);
+                 
+                 String newPath = changedPath.substring(changedPath.indexOf("D")-1,changedPath.length());
+                
+                   
+                 itemPictureValue.setText(newPath);
+                
+//                 System.out.println("This is the file you wanted to open "+path);
+//                 System.out.println("This is the file you wanted to open "+ changedPath);
+//                 System.out.println("This is the file you wanted to open "+ newPath);
+
+                }
+    
+    
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent me) {
+       // throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent me) {
+       // throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void mouseExited(MouseEvent me) {
+       // throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

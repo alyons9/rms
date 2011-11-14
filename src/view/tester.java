@@ -13,6 +13,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import view.addItemToMenu.addItemToAppetizerMenu;
+import view.addItemToMenu.addItemToBreakfastMenu;
 import view.editMenus.adminEditBreakfastMenu;
 import view.editMenus.adminEditDrinkMenu;
 
@@ -51,10 +52,10 @@ public class tester extends JFrame implements ActionListener {
 
     @Override
   public void actionPerformed(ActionEvent e) {
-  adminEditDrinkMenu a = null;
+  adminEditAppetizerMenu a = null;
   
         try {
-            a = new adminEditDrinkMenu();
+            a = new adminEditAppetizerMenu();
         } catch (SAXException ex) {
             Logger.getLogger(tester.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParserConfigurationException ex) {

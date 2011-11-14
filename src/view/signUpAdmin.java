@@ -111,9 +111,23 @@ public class signUpAdmin extends JDialog {
 
             @Override
             public void actionPerformed(ActionEvent ae) {
+                
+                String fName = getFirstNameValue();
+                String lName = getLastNameValue();
+                String uName= getUserNameValue();
+                String password = getPasswordValue();
+                
+               if(fName.equals("") || lName.equals("") || uName.equals("") || password.equals("")){
+           JOptionPane.showMessageDialog(signUpAdmin.this,
+            "YOU MUST ENTER ALL INFORMATION",
+            "CHECK VALUES AGAIN AND TRY AGAIN",
+            JOptionPane.ERROR_MESSAGE);
+       } 
+       else{
+                
                 try {
                     //   throw new UnsupportedOperationException("Not supported yet.");
-                           logIn.addTo(getFirstNameValue(),getLastNameValue(),getUserNameValue(),getPasswordValue());
+                           logIn.addTo(fName,lName,uName,password);
                            System.out.println("Im in signupadmin");
                            dispose();
                            adminLogInDialog dialogBox = new adminLogInDialog(new JPanel());
@@ -124,7 +138,7 @@ public class signUpAdmin extends JDialog {
                     Logger.getLogger(signUpAdmin.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-  
+        }     
       };//end of actionListener
       
       //add action listener
