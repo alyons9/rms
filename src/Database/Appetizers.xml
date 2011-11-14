@@ -23,27 +23,21 @@
         <picture>/Database/Images/Appetizer/pizza.jpg</picture>
     </plate>
 
-
 <plate>
-<name>salad</name>
+<name>Blt Salad</name>
 <description>Good tasting salad</description>
 <quantity>1</quantity>
 <price>2.99</price>
 <picture>/Database/Images/Appetizer/bltSalad.jpg</picture>
 </plate>
 
- 
-
 <plate>
-<name>salad</name>
+<name>Mango Salad</name>
 <description>Good tasting salad</description>
 <quantity>1</quantity>
 <price>2.99</price>
 <picture>/Database/Images/Appetizer/mangoSalad.jpg</picture>
 </plate>
-
-
-
 
 
 <plate>

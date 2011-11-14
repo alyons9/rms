@@ -59,7 +59,7 @@ public static String[] years = {"2011", "2012", "2013", "2014", "2015", "2016", 
 public static JComboBox expYear = new JComboBox(years);
 public static JLabel cardNumber = new JLabel("Card Number:");
 public static JLabel cardSecure = new JLabel("Card Security Number:");
-public static Cart cart;
+public static JButton exit = new JButton();
 
     /** Creates new form PaymentOption */
     public PaymentOption() {
@@ -839,16 +839,16 @@ ActionListener paymentConfirmListener = new ActionListener(){
             grabEmail.setFont(new java.awt.Font("AR ESSENCE", 0, 14));
             grabEmail.setLocation(100,165);
             add(grabEmail);
-            //JLabel grabFood = new JLabel(RMSGui.cart.getFoodItems() + "\n");
-            //grabFood.setVisible(true);
-            //grabFood.setSize(200,400);
-            //grabFood.setForeground(new java.awt.Color(0, 0, 0));
-            //grabFood.setFont(new java.awt.Font("AR ESSENCE", 0, 14));
-            //grabFood.setLocation(100,300);
-            //add(grabFood);
+            JLabel grabFood = new JLabel(RMSGui.cart.getDrinkItems()+ "\n");
+            grabFood.setVisible(true);
+            grabFood.setSize(200,400);
+            grabFood.setForeground(new java.awt.Color(0, 0, 0));
+            grabFood.setFont(new java.awt.Font("AR ESSENCE", 0, 14));
+            grabFood.setLocation(100,300);
+            add(grabFood);
             JLabel grabTotal = new JLabel("          Total: $" + RMSGui.cart.getTotal());
             grabTotal.setVisible(true);
-            grabTotal.setSize(200,200);
+            grabTotal.setSize(100,50);
             grabTotal.setForeground(new java.awt.Color(0, 0, 0));
             grabTotal.setFont(new java.awt.Font("AR ESSENCE", 0, 14));
             grabTotal.setLocation(100,500);
@@ -910,6 +910,11 @@ ActionListener paymentConfirmListener = new ActionListener(){
             purchases.setForeground(new java.awt.Color(0, 0, 0));
             purchases.setFont(new java.awt.Font("AR DARLING", 0, 18));
             add(purchases);
+            exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Exit Button.png")));
+            exit.setVisible(true);
+            exit.setSize(75,40);
+            exit.setLocation(580,710);
+            RMSGui.Tablet.add(exit);
             repaint();
         }}
          }};
