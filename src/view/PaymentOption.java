@@ -15,6 +15,7 @@ import java.awt.event.*;
 import model.Cart;
 import model.Drink;
 import model.Food;
+import view.addMenus.CartView;
 /**
  *
  * @author Jamel Jenkins
@@ -32,6 +33,7 @@ public static JLabel street = new JLabel("Street Address:");
 public static JLabel city = new JLabel("City:");
 public static JLabel stateZip = new JLabel("State and Zip:");
 public static JLabel country = new JLabel("Country:");
+public static JLabel purchases = new JLabel("Items Order");
 public static JLabel email = new JLabel("Email:");
 //public static JLabel emailConfirm = new JLabel("Confirm Email:");
 public static JTextField nameField = new JTextField(30);
@@ -64,8 +66,84 @@ public static Cart cart;
         initComponents();
         RMSGui.confirmback.addActionListener(confirmBackListener);
         RMSGui.confirm.addActionListener(cartConfirmListener);
+        RMSGui.confirm2.addActionListener(paymentConfirmListener);
+    }
+    //method to get the Cardholder Name
+    public String getName() {
+        String name2;
+        name2 = nameField.getText().trim();
+        return name2;
     }
     
+    //method to get the Card Type
+     public String getCardType() {
+        String temp;
+        temp = cardType.getSelectedItem().toString();
+        return temp;
+    }
+     
+    //method to get the Card Number
+     public String getCardNumber() {
+        String temp;
+        temp = numberField.getText().trim();
+        return temp;
+    }
+     
+    //method to get the Expiration Month
+     public String getExpMonth() {
+        String temp;
+        temp = expMonth.getSelectedItem().toString();
+        return temp;
+    }
+     
+     //method to get the Expiration Year
+     public String getExpYear() {
+        String temp;
+        temp = expYear.getSelectedItem().toString();
+        return temp;
+    }
+     
+     //method to get the Street Address
+     public String getStreet() {
+        String temp;
+        temp = street.getText().trim();
+        return temp;
+    }
+     
+    //method to get the City
+     public String getCity() {
+        String temp;
+        temp = city.getText().trim();
+        return temp;
+    }
+     
+    //method to get the State
+     public String getState() {
+        String temp;
+        temp = stateslist.getSelectedItem().toString();
+        return temp;
+    }
+    
+     //method to get the Zip Code
+     public String getZip() {
+        String temp;
+        temp = zipField.getText().trim();
+        return temp;
+    }
+     
+    //method to get the Country 
+     public String getCountry() {
+        String temp;
+        temp = countrieslist.getSelectedItem().toString();
+        return temp;
+    }
+    
+    //method to get the Email Address
+     public String getEmail() {
+        String temp;
+        temp = email.getText().trim();
+        return temp;
+    }
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -351,6 +429,67 @@ public static Cart cart;
            RMSGui.confirmback.setLocation(405,710);
          repaint();
          
+     } else if (cashPane == JOptionPane.NO_OPTION) {
+         repaint();
+           setVisible(true);
+           Cash.setVisible(true);
+           Debit.setVisible(true);
+           RMSGui.CartLogo.setVisible(false);
+           RMSGui.viewScrollPane.setVisible(false);
+           RMSGui.viewcart.setVisible(false);
+           RMSGui.paymentScrollPane.setVisible(true);
+           RMSGui.paymentScrollPane.setSize(522,625);
+           RMSGui.paymentScrollPane.setLocation(173,78);
+           RMSGui.Tablet.add(RMSGui.paymentScrollPane);
+           RMSGui.PaymentLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Payment Logo.png")));
+           RMSGui.Tablet.add(RMSGui.PaymentLogo);
+           RMSGui.PaymentLogo.setLocation(280,10);
+           RMSGui.PaymentLogo.setVisible(true);
+           RMSGui.PaymentLogo.setSize(320,88);
+           RMSGui.confirm.setVisible(false);
+           RMSGui.confirm2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Confirm Button.png")));
+           RMSGui.confirm2.setVisible(false);
+           RMSGui.confirm2.setSize(75,40);
+           RMSGui.confirm2.setLocation(580,710);
+           RMSGui.Tablet.add(RMSGui.confirm2);
+           RMSGui.home.setVisible(false);
+           RMSGui.viewback.setVisible(false);
+           RMSGui.confirmback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Cancel Button.png")));
+           RMSGui.confirmback.setVisible(true);
+           RMSGui.confirmback.setSize(75,40);
+           RMSGui.confirmback.setLocation(580,710);
+           RMSGui.Tablet.add(RMSGui.confirmback);
+           PaymentOption.debit.setVisible(false);
+            PaymentOption.cardPics.setVisible(false);
+            PaymentOption.name.setVisible(false);
+            PaymentOption.nameField.setVisible(false);
+            PaymentOption.cardType.setVisible(false);
+            PaymentOption.card.setVisible(false);
+            PaymentOption.cardNumber.setVisible(false);
+            PaymentOption.numberField.setVisible(false);
+            PaymentOption.Expiration.setVisible(false);
+            PaymentOption.expMonth.setVisible(false);
+            PaymentOption.expYear.setVisible(false);
+            PaymentOption.cardSecure.setVisible(false);
+            PaymentOption.securityField.setVisible(false);
+            PaymentOption.billing.setVisible(false);
+            PaymentOption.street.setVisible(false);
+            PaymentOption.city.setVisible(false);
+            PaymentOption.stateZip.setVisible(false);
+            PaymentOption.country.setVisible(false);
+            PaymentOption.email.setVisible(false);
+            //PaymentOption.emailConfirm.setVisible(false);
+            PaymentOption.streetField.setVisible(false);
+            PaymentOption.cityField.setVisible(false);
+            PaymentOption.stateslist.setVisible(false);
+            PaymentOption.zipField.setVisible(false);
+            PaymentOption.countrieslist.setVisible(false);
+            PaymentOption.emailField.setVisible(false);
+            //PaymentOption.emailConfirmField.setVisible(false);
+            RMSGui.paymentScrollPane.setVisible(true);
+            RMSGui.confirm2.setVisible(false);
+           repaint();
+         
      }
     }//GEN-LAST:event_DebitActionPerformed
 
@@ -518,7 +657,6 @@ ActionListener cartConfirmListener = new ActionListener(){
            RMSGui.confirmback.setSize(75,40);
            RMSGui.confirmback.setLocation(580,710);
            RMSGui.Tablet.add(RMSGui.confirmback);
-           RMSGui.receiptScrollPane.setVisible(false);
            repaint();
             } else if (confirmPane == JOptionPane.NO_OPTION) {
             RMSGui.paymentScrollPane.setVisible(false);
@@ -577,6 +715,204 @@ ActionListener cartConfirmListener = new ActionListener(){
             repaint();
                   }
         }};
+
+ActionListener paymentConfirmListener = new ActionListener(){
+        public void actionPerformed(ActionEvent e){
+      int total = JOptionPane.showConfirmDialog(null,"Your Total is: $" + RMSGui.cart.getTotal() + "\n Is This Correct?");
+      if (total == JOptionPane.YES_OPTION) {
+      int paymentPane = JOptionPane.showConfirmDialog(
+                      RMSGui.confirmframe, "Are You Sure That Your Card Information Is Correct?",
+                      "Debit/Credit Card Confirmation",
+                      JOptionPane.YES_NO_OPTION);
+        if (paymentPane == JOptionPane.YES_OPTION) {
+            setVisible(true);
+            PaymentOption.debit.setVisible(false);
+            PaymentOption.receiptSlip.setVisible(true);
+            PaymentOption.receiptSlip.setLocation(20,25);
+            PaymentOption.receiptSlip.setSize(200,100);
+            PaymentOption.receiptSlip.setForeground(new java.awt.Color(0, 0, 0));
+            PaymentOption.receiptSlip.setFont(new java.awt.Font("AR DARLING", 0, 18));
+            add(PaymentOption.receiptSlip);
+            PaymentOption.cardPics.setVisible(false);
+            PaymentOption.name.setVisible(false);
+            PaymentOption.nameField.setVisible(false);
+            PaymentOption.cardType.setVisible(false);
+            PaymentOption.card.setVisible(false);
+            PaymentOption.cardNumber.setVisible(false);
+            PaymentOption.numberField.setVisible(false);
+            PaymentOption.Expiration.setVisible(true);
+            PaymentOption.expMonth.setVisible(false);
+            PaymentOption.expYear.setVisible(false);
+            PaymentOption.cardSecure.setVisible(false);
+            PaymentOption.securityField.setVisible(false);
+            PaymentOption.billing.setVisible(false);
+            PaymentOption.street.setVisible(false);
+            PaymentOption.city.setVisible(false);
+            PaymentOption.stateZip.setVisible(false);
+            PaymentOption.country.setVisible(false);
+            PaymentOption.email.setVisible(false);
+            //PaymentOption.emailConfirm.setVisible(false);
+            PaymentOption.streetField.setVisible(false);
+            PaymentOption.cityField.setVisible(false);
+            PaymentOption.stateslist.setVisible(false);
+            PaymentOption.zipField.setVisible(false);
+            PaymentOption.countrieslist.setVisible(false);
+            PaymentOption.emailField.setVisible(false);
+            //PaymentOption.emailConfirmField.setVisible(false);
+            PaymentOption.Debit.setVisible(false);
+            PaymentOption.Cash.setVisible(false);
+            RMSGui.paymentScrollPane.setVisible(true);
+            RMSGui.PaymentLogo.setVisible(false);
+            RMSGui.confirm2.setVisible(false);
+            RMSGui.confirmback.setVisible(false);
+            RMSGui.ReceiptLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Receipt Logo.png")));
+            RMSGui.Tablet.add(RMSGui.ReceiptLogo);
+            RMSGui.ReceiptLogo.setLocation(350,10);
+            RMSGui.ReceiptLogo.setVisible(true);
+            RMSGui.ReceiptLogo.setSize(320,88);
+            name.setVisible(true);
+            name.setLocation(60,55);
+            name.setSize(200,100);
+            name.setForeground(new java.awt.Color(0, 0, 0));
+            name.setFont(new java.awt.Font("AR DARLING", 0, 14));
+            add(name);
+            JLabel grabName = new JLabel(nameField.getText().trim());
+            grabName.setVisible(true);
+            grabName.setSize(200,200);
+            grabName.setForeground(new java.awt.Color(0, 0, 0));
+            grabName.setFont(new java.awt.Font("AR ESSENCE", 0, 14));
+            grabName.setLocation(160,5);
+            add(grabName);
+            JLabel grabType = new JLabel(cardType.getSelectedItem().toString());
+            grabType.setVisible(true);
+            grabType.setSize(200,200);
+            grabType.setForeground(new java.awt.Color(0, 0, 0));
+            grabType.setFont(new java.awt.Font("AR ESSENCE", 0, 14));
+            grabType.setLocation(135,25);
+            add(grabType);
+            JLabel grabNumber = new JLabel(numberField.getText().trim());
+            grabNumber.setVisible(true);
+            grabNumber.setSize(200,200);
+            grabNumber.setForeground(new java.awt.Color(0, 0, 0));
+            grabNumber.setFont(new java.awt.Font("AR ESSENCE", 0, 15));
+            grabNumber.setLocation(155,45);
+            add(grabNumber);
+            JLabel grabMonth = new JLabel(expMonth.getSelectedItem().toString() + "/" + expYear.getSelectedItem().toString()); 
+            grabMonth.setVisible(true);
+            grabMonth.setSize(200,200);
+            grabMonth.setForeground(new java.awt.Color(0, 0, 0));
+            grabMonth.setFont(new java.awt.Font("AR ESSENCE", 0, 15));
+            grabMonth.setLocation(165,65);
+            add(grabMonth);
+            JLabel grabStreet = new JLabel(streetField.getText().trim()); 
+            grabStreet.setVisible(true);
+            grabStreet.setSize(200,200);
+            grabStreet.setForeground(new java.awt.Color(0, 0, 0));
+            grabStreet.setFont(new java.awt.Font("AR ESSENCE", 0, 14));
+            grabStreet.setLocation(165,85);
+            add(grabStreet);
+            JLabel grabCity = new JLabel(cityField.getText().trim()); 
+            grabCity.setVisible(true);
+            grabCity.setSize(200,200);
+            grabCity.setForeground(new java.awt.Color(0, 0, 0));
+            grabCity.setFont(new java.awt.Font("AR ESSENCE", 0, 14));
+            grabCity.setLocation(95,105);
+            add(grabCity);
+            JLabel grabState = new JLabel(stateslist.getSelectedItem().toString() + " " + zipField.getText().trim()); 
+            grabState.setVisible(true);
+            grabState.setSize(200,200);
+            grabState.setForeground(new java.awt.Color(0, 0, 0));
+            grabState.setFont(new java.awt.Font("AR ESSENCE", 0, 14));
+            grabState.setLocation(150,125);
+            add(grabState);
+            JLabel grabCountry = new JLabel(countrieslist.getSelectedItem().toString()); 
+            grabCountry.setVisible(true);
+            grabCountry.setSize(200,200);
+            grabCountry.setForeground(new java.awt.Color(0, 0, 0));
+            grabCountry.setFont(new java.awt.Font("AR ESSENCE", 0, 14));
+            grabCountry.setLocation(125,145);
+            add(grabCountry);
+            JLabel grabEmail = new JLabel(emailField.getText().trim()); 
+            grabEmail.setVisible(true);
+            grabEmail.setSize(200,200);
+            grabEmail.setForeground(new java.awt.Color(0, 0, 0));
+            grabEmail.setFont(new java.awt.Font("AR ESSENCE", 0, 14));
+            grabEmail.setLocation(100,165);
+            add(grabEmail);
+            //JLabel grabFood = new JLabel(RMSGui.cart.getFoodItems() + "\n");
+            //grabFood.setVisible(true);
+            //grabFood.setSize(200,400);
+            //grabFood.setForeground(new java.awt.Color(0, 0, 0));
+            //grabFood.setFont(new java.awt.Font("AR ESSENCE", 0, 14));
+            //grabFood.setLocation(100,300);
+            //add(grabFood);
+            JLabel grabTotal = new JLabel("          Total: $" + RMSGui.cart.getTotal());
+            grabTotal.setVisible(true);
+            grabTotal.setSize(200,200);
+            grabTotal.setForeground(new java.awt.Color(0, 0, 0));
+            grabTotal.setFont(new java.awt.Font("AR ESSENCE", 0, 14));
+            grabTotal.setLocation(100,500);
+            add(grabTotal);
+            //System.out.println(PaymentOption.nameField.getText().trim());
+            card.setVisible(true);
+            card.setLocation(60,75);
+            card.setSize(200,100);
+            card.setForeground(new java.awt.Color(0, 0, 0));
+            card.setFont(new java.awt.Font("AR DARLING", 0, 14));
+            add(card);
+            card.setFont(new java.awt.Font("AR DARLING", 0, 14));
+            add(card);
+            cardNumber.setVisible(true);
+            cardNumber.setLocation(60,95);
+            cardNumber.setSize(200,100);
+            cardNumber.setForeground(new java.awt.Color(0, 0, 0));
+            cardNumber.setFont(new java.awt.Font("AR DARLING", 0, 14));
+            add(cardNumber);
+            Expiration.setVisible(true);
+            Expiration.setLocation(60,115);
+            Expiration.setSize(200,100);
+            Expiration.setForeground(new java.awt.Color(0, 0, 0));
+            Expiration.setFont(new java.awt.Font("AR DARLING", 0, 14));
+            add(Expiration);
+            street.setVisible(true);
+            street.setLocation(60,135);
+            street.setSize(200,100);
+            street.setForeground(new java.awt.Color(0, 0, 0));
+            street.setFont(new java.awt.Font("AR DARLING", 0, 14));
+            add(street);
+            city.setVisible(true);
+            city.setLocation(60,155);
+            city.setSize(200,100);
+            city.setForeground(new java.awt.Color(0, 0, 0));
+            city.setFont(new java.awt.Font("AR DARLING", 0, 14));
+            add(city);
+            stateZip.setVisible(true);
+            stateZip.setLocation(60,175);
+            stateZip.setSize(200,100);
+            stateZip.setForeground(new java.awt.Color(0, 0, 0));
+            stateZip.setFont(new java.awt.Font("AR DARLING", 0, 14));
+            add(stateZip);
+            country.setVisible(true);
+            country.setLocation(60,195);
+            country.setSize(200,100);
+            country.setForeground(new java.awt.Color(0, 0, 0));
+            country.setFont(new java.awt.Font("AR DARLING", 0, 14));
+            add(country);
+            email.setVisible(true);
+            email.setLocation(60,215);
+            email.setSize(200,100);
+            email.setForeground(new java.awt.Color(0, 0, 0));
+            email.setFont(new java.awt.Font("AR DARLING", 0, 14));
+            add(email);
+            purchases.setVisible(true);
+            purchases.setLocation(20,255);
+            purchases.setSize(200,100);
+            purchases.setForeground(new java.awt.Color(0, 0, 0));
+            purchases.setFont(new java.awt.Font("AR DARLING", 0, 18));
+            add(purchases);
+            repaint();
+        }}
+         }};
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
