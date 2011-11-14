@@ -16,6 +16,7 @@ import model.Cart;
 import model.Drink;
 import model.Food;
 import view.addMenus.CartView;
+import java.util.Vector;
 /**
  *
  * @author Jamel Jenkins
@@ -70,7 +71,16 @@ public static JLabel grabCountry;
 public static JLabel grabEmail;
 public static JLabel grabMonth;
 public static JLabel grabStreet;
-
+public static Vector<JLabel> grabfoodName;
+public static Vector<JLabel> grabdrinkName;
+public static Vector<Food> foodItems;
+public static Vector<Drink> drinkItems;
+public static String foodname;
+public static double foodprice;
+public static String drinkname;
+public static double drinkprice;
+public static int grab = 80;
+public static int position = 500;
     /** Creates new form PaymentOption */
     public PaymentOption() {
         initComponents();
@@ -79,6 +89,7 @@ public static JLabel grabStreet;
         RMSGui.confirm2.addActionListener(paymentConfirmListener);
         exit.addActionListener(exitListener);
     }
+    
     //method to get the Cardholder Name
     public String getName() {
         String name2;
@@ -865,9 +876,9 @@ ActionListener paymentConfirmListener = new ActionListener(){
             grabTotal.setSize(150,50);
             grabTotal.setForeground(new java.awt.Color(0, 0, 0));
             grabTotal.setFont(new java.awt.Font("AR ESSENCE", 0, 14));
-            grabTotal.setLocation(100,500);
+            grabTotal.setLocation(120,position);
             add(grabTotal);
-            //System.out.println(PaymentOption.nameField.getText().trim());
+            //System.out.println(RMSGui.cart.Food.getName());
             card.setVisible(true);
             card.setLocation(60,75);
             card.setSize(200,100);
@@ -929,6 +940,35 @@ ActionListener paymentConfirmListener = new ActionListener(){
             exit.setSize(75,40);
             exit.setLocation(580,710);
             RMSGui.Tablet.add(exit);
+            foodItems = RMSGui.cart.getFoodItems();
+            drinkItems = RMSGui.cart.getDrinkItems();
+            
+            grabfoodName = new Vector(RMSGui.cart.getFoodItems().size());
+            grabdrinkName = new Vector(RMSGui.cart.getDrinkItems().size());
+            
+            for(int i=0;i<RMSGui.cart.getFoodItems().size();i++){
+            foodname = foodItems.get(i).getName();
+            foodprice = foodItems.get(i).getPrice();
+            grabfoodName.add(i,new JLabel("" + foodname + "  " + foodprice));
+            grabfoodName.get(i).setVisible(true);
+            grabfoodName.get(i).setSize(500,500);
+            grabfoodName.get(i).setLocation(60,grab);
+            grabfoodName.get(i).setFont(new java.awt.Font("AR ESSENCE", 0, 14));
+            grab = grab + 20;
+            add(grabfoodName.get(i));
+            }
+            for(int i=0;i<RMSGui.cart.getDrinkItems().size();i++){
+            drinkname = drinkItems.get(i).getName();
+            drinkprice = drinkItems.get(i).getPrice();
+            grabdrinkName.add(i,new JLabel("" + drinkname + "  " + drinkprice));
+            grabdrinkName.get(i).setVisible(true);
+            grabdrinkName.get(i).setSize(500,500);
+            grabdrinkName.get(i).setLocation(60,grab);
+            grabdrinkName.get(i).setFont(new java.awt.Font("AR ESSENCE", 0, 14));
+            grab = grab + 20;
+            position = position + 20;
+            add(grabdrinkName.get(i));
+            }
             repaint();
         }}
          }};
