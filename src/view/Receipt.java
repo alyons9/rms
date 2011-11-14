@@ -37,6 +37,7 @@ public static JLabel grabName = new JLabel();
     public Receipt() {
         RMSGui.confirm2.addActionListener(paymentConfirmListener);
         initComponents();
+        System.out.println(getName());
     }
 //method to get the Cardholder Name
     public String getName() {

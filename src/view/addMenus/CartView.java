@@ -31,7 +31,8 @@ public class CartView extends javax.swing.JPanel{
         initComponents();
          setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
         this.cart = cartt;
-        foodItems = cartt.getFoodItems();
+        
+         foodItems = cartt.getFoodItems();
         drinkItems = cartt.getDrinkItems();
         
         JLabel foodLabel = new JLabel("<HTML><B>Food</B></HTML>");

@@ -105,7 +105,7 @@ public class adminLogInDialog extends JInternalFrame {//being
     public static JScrollPane addLunchPane;
     
     public adminLogInDialog(JPanel a) throws SAXException, ParserConfigurationException {//begin constructor
-   
+        
         appetizerMenu = new adminEditAppetizerMenu();
         breakfastMenu = new adminEditBreakfastMenu();
         lunchMenu = new adminEditLunchMenu();
@@ -351,7 +351,9 @@ public class adminLogInDialog extends JInternalFrame {//being
         constraints.gridx = 1;
         constraints.gridy = 0;
         constraints.gridwidth = 2;
+        userNameValue.requestFocusInWindow();
         dialogPanel.add(userNameValue, constraints);
+        
 
         //adding the Jlabel for the password
         password = new JLabel("Password: ");

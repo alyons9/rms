@@ -57,7 +57,7 @@ public static JButton viewcart = new JButton();
 public static JLabel Logo3 = new JLabel();
 public static JDialog confirmframe;
 public static PaymentOption paymentOption = new PaymentOption();
-public static Receipt receipt = new Receipt();
+
 
 
 //Cart object 
@@ -90,7 +90,6 @@ public static JLabel ReceiptLogo = new JLabel();
 public static JPanel viewPanel = new JPanel();
 public static JScrollPane viewScrollPane = new JScrollPane(cartView);
 public static JScrollPane paymentScrollPane = new JScrollPane(paymentOption);
-public static JScrollPane receiptScrollPane = new JScrollPane(receipt);
 //private JLabel DineInLogo = new JLabel();
 //private JLabel CarryOutLogo = new JLabel();
 

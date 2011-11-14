@@ -52,7 +52,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="19" max="32767" attributes="0"/>
+              <EmptySpace pref="25" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -77,7 +77,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="itemPictureValue" min="-2" max="-2" attributes="0"/>
+                  <Component id="itemPictureValue" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="itemPic" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -129,6 +129,13 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="itemNameValue">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="itemNameValueMouseClicked"/>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="itemNameValueMousePressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="itemDescriptionValue">
     </Component>
@@ -138,6 +145,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="itemPictureValue">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Click Here To Select Image"/>
+        <Property name="toolTipText" type="java.lang.String" value="Select Image From: src/Database/Images/selectDesiredFolder/file"/>
+        <Property name="focusable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
