@@ -130,7 +130,7 @@ public class adminEditAppetizerMenu extends javax.swing.JPanel implements Action
             removeAppetizerItemDialog c = null;
             try {
                 AppetizersDao secList = new AppetizersDao();
-                c = new removeAppetizerItemDialog(secList,this);
+                c = new removeAppetizerItemDialog(secList,this,aCommand);
                 repaint();
             } catch (SAXException ex) {
                 Logger.getLogger(adminEditAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);

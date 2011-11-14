@@ -146,13 +146,41 @@ public class addItemToDrinkMenu extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     list.addDrink(getItemName(),getItemDescriptionName(), 1,getItemPrice(),getPictureName());
-    //System.out.println(getItemName()+' '+getItemDescriptionName()+" " + getItemPrice()+" "+getPictureName());
-        JOptionPane.showMessageDialog(this,
-    "YOUR ITEM HAS BEEN ADDED!!!",
-    "CONFIRMATION DIALOG",
-    JOptionPane.WARNING_MESSAGE);
+private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {try {
+            //GEN-FIRST:event_jButton1ActionPerformed
+
+list = new DrinksDao();
+        } catch (SAXException ex) {
+            Logger.getLogger(addItemToDrinkMenu.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParserConfigurationException ex) {
+            Logger.getLogger(addItemToDrinkMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+     Name = getItemName();
+      Description = getItemDescriptionName();
+      Price = getItemPrice();
+      PictureName = getPictureName();
+     
+       if(Name.equals("") || Description.equals("") || Price.equals("") || PictureName.equals("")){
+           JOptionPane.showMessageDialog(this,
+            "YOU MUST ENTER ALL INFORMATION",
+            "CHECK VALUES AGAIN",
+            JOptionPane.ERROR_MESSAGE);
+       } 
+       else{    
+            list.addDrink(Name,Description, 1,Price,PictureName);
+            System.out.println(getItemName()+' '+getItemDescriptionName()+" " + getItemPrice()+" "+getPictureName());
+            JOptionPane.showMessageDialog(this,
+            "YOUR ITEM HAS BEEN ADDED!!!",
+            "CONFIRMATION DIALOG",
+            JOptionPane.WARNING_MESSAGE);
+            itemNameValue.setText("");
+            itemDescriptionValue.setText("");
+            itemPriceValue.setText("");
+            itemPictureValue.setText("");
+        
+        adminLogInDialog.drinksMenu.removeAll();
+        
         try {
             adminLogInDialog.drinksMenu.setUpComponents();
         } catch (SAXException ex) {
@@ -161,6 +189,8 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             Logger.getLogger(addItemToDrinkMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
     
+        adminLogInDialog.drinksEditPane.repaint();
+       }     
 }//GEN-LAST:event_jButton1ActionPerformed
 
 public String getItemName(){

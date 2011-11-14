@@ -55,7 +55,7 @@ public class removeBreakfastItemDialog extends JInternalFrame {//being
     
     
 
-    public removeBreakfastItemDialog(final BreakfastDao list, final JPanel panel) throws SAXException, ParserConfigurationException {//begin constructor
+    public removeBreakfastItemDialog(final BreakfastDao list, final JPanel panel, String aCommand) throws SAXException, ParserConfigurationException {//begin constructor
 
 //        setRootPaneCheckingEnabled(false);
 //    javax.swing.plaf.InternalFrameUI ifu= this.getUI();
@@ -68,7 +68,7 @@ public class removeBreakfastItemDialog extends JInternalFrame {//being
         constraints.fill = GridBagConstraints.HORIZONTAL;
 
         //adding the the label for the Username
-        removeName = new JLabel("ITEM NAME: ");
+        removeName = new JLabel("ITEM NAME TO BE DELETED: ");
         constraints.gridx = 0;
         constraints.gridy = 0;
         constraints.gridwidth = 2;
@@ -76,6 +76,7 @@ public class removeBreakfastItemDialog extends JInternalFrame {//being
 
         //addint the text field for the username
         removeNameValue = new JTextField(20);
+        removeNameValue.setText(aCommand);
         constraints.gridx = 0;
         constraints.gridy = 1;
         constraints.gridwidth = 2;
@@ -96,6 +97,8 @@ public class removeBreakfastItemDialog extends JInternalFrame {//being
                 succeeded =false;
                 succeeded = list.removeBreakfastByName(getRemoveName());
                 System.out.println(""+succeeded);
+                adminLogInDialog.breakfastMenu.removeAll();
+                
                     if(succeeded==true){
                         JOptionPane.showMessageDialog(removeBreakfastItemDialog.this,
                                 "YOU HAVE SUCCESSFULLY DELETED THE ITEM.", "ITEM DELETION",
@@ -110,6 +113,9 @@ public class removeBreakfastItemDialog extends JInternalFrame {//being
                     } catch (ParserConfigurationException ex) {
                         Logger.getLogger(removeBreakfastItemDialog.class.getName()).log(Level.SEVERE, null, ex);
                     }
+                    
+                        adminLogInDialog.breakfastEditPane.revalidate();
+                    
                     }
                     else{
                          JOptionPane.showMessageDialog(removeBreakfastItemDialog.this, "PROBLEM DELETING ITEM",

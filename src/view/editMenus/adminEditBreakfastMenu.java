@@ -190,7 +190,7 @@ public class adminEditBreakfastMenu extends javax.swing.JPanel implements Action
             removeBreakfastItemDialog c = null;
             try {
                 BreakfastDao secList = new BreakfastDao();
-                c = new removeBreakfastItemDialog(secList,this);
+                c = new removeBreakfastItemDialog(secList,this,aCommand);
                 repaint();
             } catch (SAXException ex) {
                 Logger.getLogger(adminEditAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);

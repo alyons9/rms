@@ -78,9 +78,9 @@ public static JScrollPane dinnerPane = new JScrollPane(dinnerMenu);
 public static JScrollPane drinksPane = new JScrollPane(drinksMenu);
 
 public static CartView cartView;
-    
-        
-        public static adminLogInDialog loginPanel;
+
+
+public static adminLogInDialog loginPanel;
 
 public static JPanel separator = new JPanel();
 public static JLabel MenuLogo = new JLabel();

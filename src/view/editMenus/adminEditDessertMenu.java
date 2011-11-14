@@ -188,7 +188,7 @@ public class adminEditDessertMenu extends javax.swing.JPanel implements ActionLi
             removeDessertItemDialog c = null;
             try {
                 DessertDao secList = new DessertDao();
-                c = new removeDessertItemDialog(secList,this);
+                c = new removeDessertItemDialog(secList,this,aCommand);
                 repaint();
             } catch (SAXException ex) {
                 Logger.getLogger(adminEditAppetizerMenu.class.getName()).log(Level.SEVERE, null, ex);
